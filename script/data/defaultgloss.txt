@@ -1,0 +1,108 @@
+###
+I | we | we (incl) | we (excl) | we (dual)
+you (pl) | you (sg) | you (dual)
+it | he | she | he/she/it | he/she
+they | they (masc) | they (fem) | they (neut) | they (dual)
+who | which | what | where | why | how | when
+this | that | these | those | there | then
+many | much | most
+one | few | some
+two | three | four | five | ten | hundred
+none | zero | no | not | nobody | nowhere
+all | every | each
+
+###
+person | man | woman
+child | baby | son | daughter
+parent | father | mother
+sibling | brother | sister
+spouse | husband | wife
+family | group | name | tribe | clan | ancestor
+friend | cousin | aunt | uncle | niece | nephew
+
+###
+dog | puppy | wolf | fox | coyote | raccoon 
+cat | kitten | lion | tiger | leopard | hyena
+bird | parrot | dove | owl | sparrow | goose | chicken | duck
+fish | trout | salmon | tuna | shark | herring | cod | eel | dolphin
+insect | spider | scorpion | beetle | ant | mosquito | butterfly | flea | worm
+lizard | snake | turtle | alligator | gecko | frog | salamander | newt
+mouse | squirrel | hedgehog | possum | rabbit | monkey | fruit bat | beaver
+cow | calf | bull | rhinoceros | ox | horse | camel | llama | elephant | elk
+
+###
+tree | leaf | tree bark | acorn | wood | grass | moss | root
+fruit | apple | pear | banana | grapefruit | lemon | mango
+berry | strawberry | raspberry | blackberry | blueberry | grape
+melon | watermelon | pumpkin | gourd | cantaloupe | cucumber | zucchini
+egg | nut | seed | peanut | cashew | almond | walnut | sesame
+grain | rice | wheat | rye | barley | oats | corn | quinoa
+bean | lentil | soybean | falafel | pea | chickpea
+vegetable | spinach | potato | celery | onion | tomato | carrot
+salt | pepper | garlic | coriander | nutmeg | mustard | cinnamon | sugar
+sauce | gravy | oil | vinegar | cream | ketchup | hummus | honey
+liquid | water | beverage | alcohol | milk | wine | beer | juice | broth | soup
+food | meat | flesh | feast | breakfast | dinner | lunch | meal | serving
+
+###
+hand | finger | thumb | forefinger | wrist | fist | knuckle | arm | elbow
+foot | toe | ankle | leg | knee | thigh | tail | buttocks | nail | claw
+torso | waist | abdomen | belly | chest | shoulder
+neck | throat | chin | jaw
+head | face | forehead | horn
+hair | fur | skin | beard | feather
+nose | nostril | ear | earlobe
+eye | eyelid | eyelash | eyebrow
+mouth | lip | tooth | tongue
+heart | liver | brain | lung | bone | blood | bile | urine | feces | saliva
+
+###
+ice | snow | rain | storm
+sun | moon | star | cloud | fog
+night | day | evening | morning | midday 
+sand | stone | rock | earth | dirt | mud | pebble | mountain | hill
+forest | valley | desert | island | coastline | beach
+ocean | river | lake | stream | sea | waterfall | pond
+fire | ash | flame | smoke
+path | road | street | direction
+north | south | east | west | uphill | downhill | inland
+
+###
+black | blue | green | blue/green
+red | pink | purple | brown
+white | grey | yellow
+
+###
+big | small | heavy | thin | thick | full | empty
+dark | bright | dim | murky | clear
+warm | hot | spicy | cold
+new | old | young | fresh
+good | bad | evil | broken
+dry | wet | damp
+flat | bumpy | rough | smooth
+
+###
+eat | drink | bite | swallow | sip | taste | digest | feed
+bake | boil | cook | burn | cut | slice | bend | break | destroy | fold
+see | watch | look | hear | listen | feel | smell | experience | read | write
+know | understand | think | believe | assume | expect
+learn | teach | remember | forget | realize | study | repeat
+sleep | die | kill | awaken | breathe
+swim | walk | run | climb | slither | slide | bounce | crawl | roll | dance | jump
+sit | stand | recline | lie down | kneel
+go | come | return | arrive | leave | enter
+say | speak | talk | tell | preach | yell | scream | cry | call | describe | explain
+begin | finish | continue | proceed | succeed | survive
+find | discover | choose | decide | surprise
+obtain | possess | get | receive | take | buy | acquire | borrow
+give | trade | buy | sell | lose | pay
+want | hope | wish | ask | need | depend on | desire | dream | pretend
+use | work | try | build | develop | fail | make | open | shut | prepare
+become | adapt | adjust | change | grow | improve | repair
+adore | enjoy | like | love | dislike | hate | regret
+agree | argue | accuse | fight | forgive | refuse | threaten
+allow | prevent | avoid | hesitate | hide | ignore | quit | resist
+bring | carry | catch | pull | lift | push | put | twist | stir | stretch | throw
+bathe | kiss | hug | kick | punch | laugh | pinch | point | play | snore | sneeze
+
+

@@ -1,0 +1,91 @@
+"word-final obstruent devoicing ===== [obstruent] -> [voiceless],[] /  _ #",11,2,4,0,0,3,-
+"word-initial aspiration of voiceless stops ===== [voiceless,oral stop] -> [spread],[] / # _ ",13,0,0,4,0,3,-
+"intervocalic fricative voicing ===== [not spread,fricative] -> [voiced],[] / [vowel] _ [vowel]",7,2,4,4,0,3,-
+"vowel laxing in closed syllables ===== [vowel] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant]",14,2,4,0,0,0,-
+"palatal mutation of velar stops to postalveolar affricates before front vowels ===== <Predefined> {k > t͡ʃ, g > d͡ʒ} /  _ [front,vowel]",13,0,4,0,0,3,-
+"word-final stop devoicing ===== [consonant] -> [voiceless],[] /  _ #",14,2,4,0,0,0,-
+"word-final consonant devoicing ===== [oral stop] -> [voiceless],[] /  _ #",11,2,4,0,0,3,-
+"obstruent devoicing in codas ===== [obstruent] -> [voiceless],[] /  _ # or  _ [voiceless,consonant] or  _ [sonorant,consonant]",12,2,3,0,0,3,-
+"obstruent devoicing in codas ===== [obstruent] -> [voiceless],[] /  _ # or  _ [voiceless,consonant] or  _ [sonorant,consonant]",12,2,3,0,0,3,-
+"aspiration of voiceless stops in onsets ===== [voiceless,oral stop] -> [spread],[] /  _ [vowel]",13,0,4,0,0,3,-
+"aspiration of voiceless stops in codas ===== [voiceless,oral stop] -> [spread],[] /  _ [consonant] or  _ #",12,0,4,0,0,4,-
+"word-final aspiration of voiceless stops ===== [voiceless,oral stop] -> [spread],[] /  _ #",13,0,4,0,0,3,-
+"intervocalic fricative voicing ===== [not spread,fricative] -> [voiced],[] / [vowel] _ [vowel]",7,2,4,4,0,3,-
+"intervocalic obstruent voicing ===== [not spread,obstruent] -> [voiced],[] / [vowel] _ [vowel]",7,2,4,4,0,3,-
+"intervocalic spirantization of voiced stops ===== [voiced,oral stop] -> [fricative,continuant],['stridency'] / [vowel] _ [vowel]",9,0,4,4,0,3,-
+"postvocalic spirantization of voiced stops ===== [voiced,oral stop] -> [fricative,continuant],['stridency'] / [vowel] _ ",13,0,0,4,0,3,-
+"spirantization of voiceless stops in codas ===== [voiceless,oral stop] -> [fricative,continuant],['stridency'] /  _ # or  _ [consonant][consonant]",6,0,10,0,0,4,-
+"high vowel laxing in closed syllables ===== [high,vowel] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant]",12,0,4,0,0,4,-
+"mid vowel laxing in closed syllables ===== [mid,vowel] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant]",12,0,4,0,0,4,-
+"palatal mutation of velar stops to postalveolar affricates before front vowels ===== <Predefined> {k > t͡ʃ, g > d͡ʒ} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to postalveolar fricatives before front vowels ===== <Predefined> {k > ʃ, g > ʒ} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to alveolar affricates before front vowels ===== <Predefined> {k > t͡s, g > d͡z} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to alveolar fricatives before front vowels ===== <Predefined> {k > s, g > z} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to postalveolar affricates before front vowels ===== <Predefined> {t > t͡ʃ, d > d͡ʒ} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== <Predefined> {t > ʃ, d > ʒ} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to alveolar affricates before front vowels ===== <Predefined> {t > t͡s, d > d͡z} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to alveolar fricatives before front vowels ===== <Predefined> {t > s, d > z} /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to postalveolar affricates before high front vowels ===== <Predefined> {k > t͡ʃ, g > d͡ʒ} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to postalveolar fricatives before high front vowels ===== <Predefined> {k > ʃ, g > ʒ} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to alveolar affricates before high front vowels ===== <Predefined> {k > t͡s, g > d͡z} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of velar stops to alveolar fricatives before high front vowels ===== <Predefined> {k > s, g > z} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to postalveolar affricates before high front vowels ===== <Predefined> {t > t͡ʃ, d > d͡ʒ} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to postalveolar fricatives before high front vowels ===== <Predefined> {t > ʃ, d > ʒ} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to alveolar affricates before high front vowels ===== <Predefined> {t > t͡s, d > d͡z} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatal mutation of alveolar stops to alveolar fricatives before high front vowels ===== <Predefined> {t > s, d > z} /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatalization of velars after front vowels ===== [velar,consonant] -> [palatal,front],[] / [front,vowel] _ ",13,0,0,4,0,3,-
+"palatalization of velars before front vowels ===== [velar,consonant] -> [palatal,front],[] /  _ [front,vowel]",13,0,4,0,0,3,-
+"palatalization of velar fricatives after front vowels ===== [velar,fricative] -> [palatal,front],[] / [front,vowel] _ ",0,0,0,0,0,20,-
+"palatalization of velars before front vowels ===== [velar,fricative] -> [palatal,front],[] /  _ [front,vowel]",0,0,0,0,0,20,-
+"palatalization of velars after high front vowels ===== [velar,consonant] -> [palatal,front],[] / [high,front,vowel] _ ",13,0,0,4,0,3,-
+"palatalization of velars before high front vowels ===== [velar,consonant] -> [palatal,front],[] /  _ [high,front,vowel]",13,0,4,0,0,3,-
+"palatalization of velar fricatives after high front vowels ===== [velar,fricative] -> [palatal,front],[] / [high,front,vowel] _ ",0,0,0,0,0,20,-
+"palatalization of velars before high front vowels ===== [velar,fricative] -> [palatal,front],[] /  _ [high,front,vowel]",0,0,0,0,0,20,-
+"regressive vowel nasalization ===== [vowel] -> [nasal],[] /  _ [nasal]",16,0,4,0,0,0,-
+"progressive vowel nasalization ===== [vowel] -> [nasal],[] / [nasal] _ ",16,0,0,4,0,0,-
+"regressive vowel nasalization from nasal codas ===== [vowel] -> [nasal],[] /  _ [nasal]# or  _ [nasal][consonant]",16,0,4,0,0,0,-
+"word-final vowel devoicing ===== [vowel] -> [voiceless],[] /  _ #",0,16,4,0,0,0,-
+"word-final high vowel devoicing ===== [high,vowel] -> [voiceless],[] /  _ #",0,13,4,0,0,3,-
+"word-final vowel devoicing after voiceless consonants ===== [vowel] -> [voiceless],[] / [voiceless] _ #",0,11,4,4,1,0,-
+"word-final high vowel devoicing after voiceless consonants ===== [high,vowel] -> [voiceless],[] / [voiceless] _ #",0,8,4,4,1,3,-
+"vowel devoicing between voiceless consonants ===== [vowel] -> [voiceless],[] / [voiceless] _ [voiceless]",0,11,4,4,1,0,-
+"high vowel devoicing between voiceless consonants ===== [high,vowel] -> [voiceless],[] / [voiceless] _ [voiceless]",0,8,4,4,1,3,-
+"postnasal voicing of stops ===== [oral stop] -> [voiced],[] / [nasal,consonant] _ ",11,2,0,4,0,3,-
+"postnasal voicing of obstruents ===== [obstruent] -> [voiced],[] / [nasal,consonant] _ ",11,2,0,4,0,3,-
+"postnasal voicing of fricatives ===== [fricative] -> [voiced],[] / [nasal,consonant] _ ",11,2,0,4,0,3,-
+"regressive voicelessness assimilation in stops ===== [oral stop] -> [voiceless],[] /  _ [voiceless]",11,2,4,0,0,3,-
+"regressive voicelessness assimilation in obstruents ===== [obstruent] -> [voiceless],[] /  _ [voiceless]",11,2,4,0,0,3,-
+"regressive voicing assimilation in stops ===== [oral stop] -> [voiced],[] /  _ [voiced,consonant]",11,2,4,0,0,3,-
+"regressive voicing assimilation in obstruents ===== [obstruent] -> [voiced],[] /  _ [voiced,consonant]",11,2,4,0,0,3,-
+"regressive obstruent voicing assimilation in stops ===== [oral stop] -> [voiced],[] /  _ [voiced,obstruent]",11,2,4,0,0,3,-
+"regressive obstruent voicing assimilation in obstruents ===== [obstruent] -> [voiced],[] /  _ [voiced,obstruent]",11,2,4,0,0,3,-
+"progressive voicelessness assimilation in stops ===== [oral stop] -> [voiceless],[] / [voiceless] _ ",11,2,0,4,0,3,-
+"progressive voicelessness assimilation in obstruents ===== [obstruent] -> [voiceless],[] / [voiceless] _ ",11,2,0,4,0,3,-
+"progressive voicing assimilation in stops ===== [oral stop] -> [voiced],[] / [voiced,consonant] _ ",11,2,0,4,0,3,-
+"progressive voicing assimilation in obstruents ===== [obstruent] -> [voiced],[] / [voiced,consonant] _ ",11,2,0,4,0,3,-
+"progressive obstruent voicing assimilation in stops ===== [oral stop] -> [voiced],[] / [voiced,obstruent] _ ",11,2,0,4,0,3,-
+"progressive obstruent voicing assimilation in obstruents ===== [obstruent] -> [voiced],[] / [voiced,obstruent] _ ",11,2,0,4,0,3,-
+"voicelessness agreement between obstruents ===== [obstruent] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent]",5,7,2,2,0,4,-
+"voicing agreement between obstruents ===== [obstruent] -> [voiced],[] / [voiced,obstruent] _  or  _ [voiced,obstruent]",10,2,2,2,0,4,-
+"word-final raising of mid vowels ===== [mid,vowel] -> [high],[] /  _ #",13,0,4,0,0,3,-
+"word-final lowering of high vowels ===== [high,vowel] -> [mid],[] /  _ #",13,0,4,0,0,3,-
+"word-final raising of low vowels ===== [low,vowel] -> [mid],[] /  _ #",13,0,4,0,0,3,-
+"raising of mid vowels before voiceless codas ===== [mid,vowel] -> [high],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]#",12,0,4,0,0,4,-
+"raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]#",12,0,4,0,0,4,-
+"raising of mid vowels before voiced codas ===== [mid,vowel] -> [high],[] /  _ [voiced,consonant][consonant] or  _ [voiced,consonant]#",12,0,4,0,0,4,-
+"uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _ ",<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,ERROR
+"uvularization of velars before back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] /  _ [back,mid,vowel] or  _ [back,low,vowel]",<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,<class 'IndexError'>,ERROR
+"velarization of /l/ before back vowels ===== <Predefined> {l > ɫ} /  _ # or  _ [back,vowel]",12,0,4,0,0,4,-
+"velarization of /l/ after back vowels ===== <Predefined> {l > ɫ} /  _ # or [back,vowel] _ ",12,0,2,2,0,4,-
+"dentalization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal],[] /  _ [front,vowel]",13,0,4,0,0,3,-
+"dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel]",13,0,4,0,0,3,-
+"lateralization of /d/ before nonhigh vowels ===== <Predefined> {d > l} /  _ [mid,vowel] or  _ [low,vowel]",12,0,4,0,0,4,-
+"lateralization of /d/ after nonhigh vowels ===== <Predefined> {d > l} / [mid,vowel] _  or [low,vowel] _ ",12,0,0,4,0,4,-
+"retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _ ",13,0,0,4,0,3,-
+"retraction of high front vowels after velars ===== [high,front,vowel] -> [central],[] / [velar] _ ",13,0,0,4,0,3,-
+"fronting of high back vowels after alveolars ===== [high,back,vowel] -> [central],[] / [alveolar] _ ",13,0,0,4,0,3,-
+"word-final ashibilation of alveolar fricatives ===== [alveolar,fricative] -> [postalveolar,laminal,posterior],[] /  _ #",13,0,4,0,0,3,-
+"ashibilation of alveolar fricatives in codas ===== [alveolar,fricative] -> [postalveolar,laminal,posterior],[] /  _ # or  _ [consonant]",12,0,4,0,0,4,-
+shortening of /r/ in codas ===== <Predefined> {r > ɾ} /  _ # or  _ [consonant][consonant],6,0,10,0,0,4,-
+debuccalization of /s/ in codas ===== <Predefined> {s > h} /  _ # or  _ [consonant][consonant],6,0,10,0,0,4,-
+velarization of /l/ in codas ===== <Predefined> {l > ɫ} /  _ # or  _ [consonant][consonant],6,0,10,0,0,4,-

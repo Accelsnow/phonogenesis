@@ -1,0 +1,227 @@
+﻿,,,,,,LABIAL,CORONAL,CORONAL,DORSAL,DORSAL,,,,,,,,,,,
+[TL],skeletal tier,primary POA,secondary POA,tertiary POA,specific C POA,rounding,anteriority,apicality,backness,height,tenseness,manner,voicing,major class,aperture,oral airflow,lateral,nasality,stridency,vocal fold spread,vocal fold constricted
+p,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+b,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɸ,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+β,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+f,consonant,labial,NA,NA,labiodental,unrounded,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+v,consonant,labial,NA,NA,labiodental,unrounded,NA,NA,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+m,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+m̥,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+pʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+bʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɸʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+βʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+fʷ,consonant,labial,NA,NA,labiodental,rounded,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+vʷ,consonant,labial,NA,NA,labiodental,rounded,NA,NA,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+mʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+m̥ʷ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+pʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+bʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɸʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+βʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+fʲ,consonant,labial,dorsal,coronal,labiodental,unrounded,posterior,laminal,front,hiɡh,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+vʲ,consonant,labial,dorsal,coronal,labiodental,unrounded,posterior,laminal,front,hiɡh,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+mʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+m̥ʲ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+t̪,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+d̪,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+t,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+d,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ṯ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ḏ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ʈ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɖ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+θ,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ð,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+s,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+z,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ʃ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ʒ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ʂ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ʐ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+n̪,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+n̪̥,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+n,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+n̥,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ṉ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ṉ̥,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ɳ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ɳ̥,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+t͡s,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+d͡z,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+t͡ʃ,consonant,coronal,NA,NA,alveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+d͡ʒ,consonant,coronal,NA,NA,alveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+t͡ʂ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+d͡ʐ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+c,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɟ,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ç,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ʝ,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ɲ,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ɲ̥,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+k,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɡ,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+x,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ɣ,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ŋ,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ŋ̥,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+kʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɡʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+xʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ɣʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ŋʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ŋ̥ʷ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+q,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+ɢ,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
+χ,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ʁ,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,strident,not spread,not constricted
+ɴ,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,nasal stop,voiced,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+ɴ̥,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,nasal stop,voiceless,sonorant,contoid,occlusive,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+pʰ,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+pʷʰ,consonant,labial,NA,NA,bilabial,rounded,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+pʲʰ,consonant,labial,dorsal,coronal,bilabial,unrounded,posterior,laminal,front,hiɡh,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+t̪ʰ,consonant,coronal,NA,NA,dental,NA,anterior,laminal,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+tʰ,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+ṯʰ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+ʈʰ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+cʰ,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+kʰ,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+kʷʰ,consonant,dorsal,labial,NA,velar,rounded,NA,NA,back,high,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+qʰ,consonant,dorsal,NA,NA,uvular,NA,NA,NA,back,mid,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ħ,consonant,dorsal,NA,NA,pharyngeal,NA,NA,NA,back,low,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+ʕ,consonant,dorsal,NA,NA,pharyngeal,NA,NA,NA,back,low,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+r,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,liquid,voiced,sonorant,contoid,continuant,not lateral,oral,NA,not spread,not constricted
+l,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,liquid,voiced,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+ɫ,consonant,coronal,dorsal,NA,alveolar,NA,anterior,apical,back,hiɡh,NA,liquid,voiced,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+ʎ,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,hiɡh,NA,liquid,voiced,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+r̥,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,liquid,voiceless,sonorant,contoid,continuant,not lateral,oral,NA,not spread,not constricted
+l̥,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,liquid,voiceless,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+ɫ̥,consonant,coronal,dorsal,NA,alveolar,NA,anterior,apical,back,hiɡh,NA,liquid,voiceless,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+ʎ̥,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,hiɡh,NA,liquid,voiceless,sonorant,contoid,continuant,lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+j,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,glide,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+w,consonant,dorsal,labial,NA,labial-velar,rounded,NA,NA,back,high,NA,glide,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɥ,consonant,dorsal,coronal,labial,labial-palatal,rounded,posterior,laminal,front,high,NA,glide,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɰ,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,glide,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+j̥,consonant,dorsal,coronal,NA,palatal,NA,posterior,laminal,front,high,NA,glide,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʍ,consonant,dorsal,labial,NA,labial-velar,rounded,NA,NA,back,high,NA,glide,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɥ̥,consonant,dorsal,coronal,labial,labial-palatal,rounded,posterior,laminal,front,high,NA,glide,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɰ̥,consonant,dorsal,NA,NA,velar,NA,NA,NA,back,high,NA,glide,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+h,consonant,NA,NA,NA,laryngeal,NA,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,spread,not constricted
+ɦ,consonant,NA,NA,NA,laryngeal,NA,NA,NA,NA,NA,NA,fricative,voiced,obstruent,contoid,continuant,not lateral,oral,not strident,spread,not constricted
+ʔ,consonant,NA,NA,NA,laryngeal,NA,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,constricted
+,,,,,,,,,,,,,,,,,,,,,
+i,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɪ,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+e,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɛ,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+æ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,front,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+a,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɑ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+o,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɔ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+u,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʊ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ĩ,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɪ̃,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ẽ,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɛ̃,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+æ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,front,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ã,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɑ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+õ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɔ̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ũ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʊ̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+y,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʏ,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ø,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+œ,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɒ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɤ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʌ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɯ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɯ̽,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ỹ,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʏ̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ø̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+œ̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɒ̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,low,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɤ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʌ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɯ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɯ̽̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ə,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɨ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʉ,vowel,dorsal,labial,NA,NA,rounded,NA,NA,central,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ə̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,mid,lax,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɨ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʉ̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,central,high,tense,vowel,voiced,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+i̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɪ̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+e̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɛ̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+æ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,front,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ḁ,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɑ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+o̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɔ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+u̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʊ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ĩ̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɪ̥̃,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ẽ̥,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɛ̥̃,vowel,dorsal,labial,coronal,NA,unrounded,anterior,laminal,front,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+æ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,front,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ḁ̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɑ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+õ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɔ̥̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ũ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʊ̥̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+y̥,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʏ̥,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ø̥,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+œ̥,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɒ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɤ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʌ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɯ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɯ̥̽,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ỹ̥,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʏ̥̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ø̥̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+œ̥̃,vowel,dorsal,labial,coronal,NA,rounded,anterior,laminal,front,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɒ̥̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,back,low,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɤ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʌ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɯ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɯ̥̽̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,back,high,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+,,,,,,,,,,,,,,,,,,,,,
+ə̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ɨ̥,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ʉ̥,vowel,dorsal,labial,NA,NA,rounded,NA,NA,central,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,oral,NA,not spread,not constricted
+ə̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,mid,lax,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ɨ̥̃,vowel,dorsal,labial,NA,NA,unrounded,NA,NA,central,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted
+ʉ̥̃,vowel,dorsal,labial,NA,NA,rounded,NA,NA,central,high,tense,vowel,voiceless,sonorant,vocoid,continuant,not lateral,nasal,NA,not spread,not constricted

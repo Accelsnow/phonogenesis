@@ -1,25 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Sign In</h1>
+    <h1>Phonogenesis - Alpha Prototype</h1>
 
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.rule_selection.label }} {{ form.rule_selection(size=10) }}</p>
+        <p>{{ form.question_size.label }} {{ form.question_size(size=10) }}</p>
+        <p>{{ form.randomize_order() }} {{ form.randomize_order.label }}</p>
         <p>{{ form.submit() }}</p>
+        <p>
+            {% for error in form.rule_selection.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
     </form>
+
+    {% if data and size %}
+        <div>
+            <p>Rule: {{ data['rule'] }}</p>
+            <p>Phonemes:
+                {% for phoneme in data['phonemes'] %}
+                    {{ phoneme }}
+                {% endfor %}
+            </p>
+            <p>Templates: </p>
+            <ul>
+                {% for template in data['templates'] %}
+                    <li>{{ template }}</li>
+                {% endfor %}
+            </ul>
+
+            <p>Amount: {{ size }}</p>
+            <table>
+                <tr>
+                    <th>UR</th>
+                    <th>SR</th>
+                    <th>UR Gloss</th>
+                    <th>SR Gloss</th>
+                </tr>
+
+                {% for i in range(size) %}
+                    <tr>
+                        <td>{{ data['UR'][i][0] }}</td>
+                        <td>{{ data['SR'][i][0] }}</td>
+                        <td>{{ data['UR'][i][1] }}</td>
+                        <td>{{ data['SR'][i][1] }}</td>
+                    </tr>
+                {% endfor %}
+
+
+            </table>
+
+
+        </div>
+    {% endif %}
 {% endblock %}

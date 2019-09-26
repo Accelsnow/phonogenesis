@@ -1,0 +1,6 @@
+[consonant]-[vowel]
+[consonant]-[vowel]-[consonant]
+[consonant]-[vowel]-[consonant]-[vowel]
+[consonant]-[vowel]-[consonant]-[consonant]-[vowel]
+[consonant]-[vowel]-[consonant]-[vowel]-[consonant]
+[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]

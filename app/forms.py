@@ -1,10 +1,17 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import SubmitField, BooleanField, IntegerField
+from wtforms.validators import DataRequired, ValidationError, NumberRange, Optional
+from app import TOTAL_RULE_COUNT
 
 
-class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
+def validate_rule_selection(form, field):
+    if field.data and (not str(field.data).isnumeric() or int(field.data) < 0 or int(field.data) >= TOTAL_RULE_COUNT):
+        raise ValidationError('Not a valid rule NO. (valid range 0 - %d)' % (TOTAL_RULE_COUNT - 1))
+
+
+class GenerationSpec(FlaskForm):
+    rule_selection = IntegerField('Rule NO. (leave blank for random question!)',
+                                  validators=[Optional(), validate_rule_selection])
+    question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)])
+    submit = SubmitField('Get Question!')
+    randomize_order = BooleanField("Shuffle Result?")
