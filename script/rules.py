@@ -21,6 +21,16 @@ class ExampleType(Enum):
         return self.name
 
 
+def _get_c_instance_matcher(c_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
+                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+    return Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+
+
+def _get_d_instance_matcher(d_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
+                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+    return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+
+
 class Rule:
     """
     A>B/C_D
@@ -35,6 +45,7 @@ class Rule:
     _Ds_edge: List[bool]
     _name: str
     _family: RuleFamily
+    _id: int
 
     def __init__(self, name: str, family: RuleFamily, a: List[List[Particle]],
                  b: Optional[Tuple[Particle, List[str]], None], c: List[Optional[List[Particle], None]],
@@ -49,9 +60,7 @@ class Rule:
             raise AttributeError("C and D list can not have different length %s _ %s" % (c, d))
 
         self._Cs = c
-        self._C_matchers = {}
         self._Ds = d
-        self._D_matchers = {}
         self._Cs_edge = c_edge
         self._Ds_edge = d_edge
 
@@ -98,7 +107,7 @@ class Rule:
                 d_size = None
 
                 if c_instance is not None:
-                    c_matcher = self._get_c_matcher(c_instance, phonemes, None, feature_to_sounds)
+                    c_matcher = _get_c_instance_matcher(c_instance, phonemes, None, feature_to_sounds)
 
                     if len(c_matcher) == 0 or c_matcher == []:
                         continue
@@ -106,7 +115,7 @@ class Rule:
                     c_size = len(c_matcher[0])
 
                 if d_instance is not None:
-                    d_matcher = self._get_d_matcher(d_instance, phonemes, None, feature_to_sounds)
+                    d_matcher = _get_d_instance_matcher(d_instance, phonemes, None, feature_to_sounds)
 
                     if len(d_matcher) == 0 or c_matcher == []:
                         continue
@@ -166,14 +175,6 @@ class Rule:
                             extypes_to_sounds[i][ExampleType.NCAD] = a_word
 
             return extypes_to_sounds
-
-    def _get_c_matcher(self, c_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
-                       size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
-        return Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
-
-    def _get_d_matcher(self, d_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
-                       size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
-        return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
 
     def get_interest_phones(self, phonemes: List[Word], feature_to_type: Dict[str, str],
                             feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Dict[str, str], List[str]]:
@@ -235,6 +236,15 @@ class Rule:
             words = Template(sec).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
             a_matcher.extend(words)
         return a_matcher
+
+    def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
+        for i in range(0, len(self._Cs)):
+            if (self._Cs[i] is None or len(
+                    _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)) > 0) and (
+                    self._Ds[i] is None or len(
+                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
+                return True
+        return False
 
     def _do_replace(self, word: Word, begin_index: int, end_index: int, feature_to_type: Dict[str, str],
                     feature_to_sounds: Dict[str, List[Sound]]) -> Word:

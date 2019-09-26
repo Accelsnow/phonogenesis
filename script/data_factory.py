@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 from script import Word
 
+
 def get_random_phonemes() -> List[Word]:
     from script.phonemes import import_default_phonemes
 
@@ -28,7 +29,6 @@ def get_default_data() -> Dict[str, Any]:
     from script.rules import import_default_rules
     from script.glossgroup import import_default_gloss
     from script.templates import import_default_templates
-    from script.phonemes import import_default_phonemes
     _feature_data = import_default_features()
 
     features = _feature_data[0]
@@ -44,12 +44,10 @@ def get_default_data() -> Dict[str, Any]:
     rule_families = _rule_data[0]
     rules = _rule_data[1]
 
-    phonemes = import_default_phonemes()
-
     gloss_data = import_default_gloss()
     gloss_families = gloss_data[0]
     gloss_groups = gloss_data[1]
 
     return {"features": features, "sounds": sounds, "t2fs": type_to_features, "f2t": feature_to_type,
             "f2ss": feature_to_sounds, "fs2s": features_to_sound, "templates": templates, "rule_fam": rule_families,
-            "rules": rules, "phonemes": phonemes, "gloss_fam": gloss_families, "gloss_grp": gloss_groups}
+            "rules": rules, "gloss_fam": gloss_families, "gloss_grp": gloss_groups}

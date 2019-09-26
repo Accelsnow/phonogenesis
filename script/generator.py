@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 import random
-import warnings
 from typing import List, Tuple, Dict, Optional, Any
 
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
+import logging
 
 WORD_POOL_DEFAULT_SIZE = 300
 IRR_PERCENTAGE = 0.1
 RELATED_PERCENTAGE = 0.9
-
 EXCLUSION_TYPES = [ExampleType.CADT, ExampleType.CADNT]
+LOGGER = logging.getLogger("app.logger")
 
 
 class Generator:
@@ -26,6 +26,7 @@ class Generator:
     _NCAD: List[Dict[Word, List[Word]]]
     _IRR: List[Dict[Word, List[Word]]]
     _duplicate_exclusion: List[Word]
+    _unid: int
 
     def __init__(self, phonemes: List[Word], templates: List[Template], rule: Rule, difficulty: int,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]) -> None:
@@ -39,6 +40,7 @@ class Generator:
         self._dict_initialized = False
         self._phonemes = phonemes
         self._duplicate_exclusion = []
+        self._unid = random.getrandbits(30)
 
         self._difficulty_to_percent = {
             5: (0.4, 0.1, 0.2, 0.2, 0.1)
@@ -48,18 +50,22 @@ class Generator:
         self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
 
     def _expand_library(self, pool_size: int, feature_to_type: Dict[str, str],
-                        feature_to_sounds: Dict[str, List[Sound]]) -> None:
+                        feature_to_sounds: Dict[str, List[Sound]]):
         template_pool_size = pool_size / len(self._templates)
         generation_summary = {ExampleType.CADT: 0, ExampleType.CADNT: 0, ExampleType.CAND: 0, ExampleType.NCAD: 0,
                               ExampleType.IRR: 0}
+        irr_size = round(template_pool_size * IRR_PERCENTAGE)
+        related_size = round(template_pool_size * RELATED_PERCENTAGE)
+
+        a_matcher = self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)
+        cd_validated = self._rule.validate_cd(self._phonemes, feature_to_sounds)
+
+        if len(a_matcher) == 0 or a_matcher == [] or not cd_validated:
+            raise GenerationNoCADTError(self)
+
+        irr_phoneme = [w for w in self._phonemes if w not in a_matcher]
 
         for template in self._templates:
-            irr_size = round(template_pool_size * IRR_PERCENTAGE)
-            related_size = round(template_pool_size * RELATED_PERCENTAGE)
-
-            a_matcher = self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)
-            irr_phoneme = [w for w in self._phonemes if w not in a_matcher]
-
             irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
             related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds, a_matcher)
 
@@ -84,7 +90,9 @@ class Generator:
                         self._IRR.append({})
 
                     if ExampleType.IRR in data:
-                        raise ValueError("Related word list should never have IRR type")
+                        raise GeneratorError(self,
+                                             "Related word list should never have IRR type. Related word list: %s || Word: %s" % (
+                                                 [str(w) for w in related_word_list], word))
                     elif ExampleType.CADT in data:
                         inherited = [r for r in records if r[0] == ExampleType.CADT]
                         inherited.append((ExampleType.CADT, self._CADT[index], data[ExampleType.CADT], word))
@@ -139,6 +147,9 @@ class Generator:
 
     def get_templates(self) -> List[Template]:
         return [t for t in self._templates]
+
+    def get_phonemes(self) -> List[Word]:
+        return self._phonemes
 
     def get_rule(self) -> Rule:
         return self._rule
@@ -222,19 +233,24 @@ class Generator:
         vals = self._get_dist_values(dic)
 
         if len(vals) == 0:
-            warnings.warn("No %s type found.(%d required, 0 found)" % (name, amount))
+            LOGGER.debug("No %s type found.(%d required, 0 found)\n %s" % (name, amount, self.get_log_stamp()))
             return []
 
         if len(vals) >= amount:
             words = self._generate_words(amount, dic)
             return words
         else:
-            warnings.warn(
-                "Insufficient amount of %s type.(%d required, %d found), expanding library" % (name, amount, len(vals)))
+            LOGGER.debug(
+                "Insufficient amount of %s type.(%d required, %d found), expanding library\n %s" % (
+                    name, amount, len(vals), self.get_log_stamp()))
             self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
             self._duplicate_exclusion.extend(vals)
             vals.extend(self._generate_helper(dic, amount - len(vals), name, feature_to_type, feature_to_sounds))
             return vals
+
+    def get_log_stamp(self):
+        return "%s \n %s \n %s \n @%d" % (
+            str(self._rule), [str(w) for w in self._phonemes], [str(t) for t in self._templates], self._unid)
 
     def generate(self, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
@@ -260,75 +276,100 @@ class Generator:
         generation_amounts = [0, 0, 0, 0, 0]  # type: List[int]
         split_size = len(self._CADT)
 
-        if split_size == 0:
-            warnings.warn("No CADT found! Unable to generate problems for this rule.")
-            return None
-
         if type(amount) == int:
             cadt_num, cadnt_num, cand_num, ncad_num, irr_num = self._get_num(round(amount / split_size))
         elif type(amount) == list:
             if len(amount) < 5 or False in [type(i) == int for i in amount]:
-                raise TypeError("amount list must contain int only")
+                raise GeneratorParameterError(self, amount, "amount given in list should be in format int[5] > 0")
             cadt_num, cadnt_num, cand_num, ncad_num, irr_num = amount[0], amount[1], amount[2], amount[
                 3], amount[4]
         else:
-            raise TypeError("amount must be either int list or int")
+            raise GeneratorParameterError(self, amount, "amount must be either int list or int")
+
+        run_count = 1
+        is_failed = False
 
         for index in range(0, split_size):
-            # START RANDOM PICK
 
-            cadt_words = self._generate_helper(self._CADT[index], cadt_num, "CADT", feature_to_type, feature_to_sounds)
-            cadnt_words = self._generate_helper(self._CADNT[index], cadnt_num, "CADNT", feature_to_type,
-                                                feature_to_sounds)
-            cand_words = self._generate_helper(self._CAND[index], cand_num, "CAND", feature_to_type, feature_to_sounds)
-            ncad_words = self._generate_helper(self._NCAD[index], ncad_num, "NCAD", feature_to_type, feature_to_sounds)
-            irr_words = self._generate_helper(self._IRR[index], irr_num, "IRR", feature_to_type, feature_to_sounds)
+            # this layer to transfer failed number to next run
+            for _ in range(0, run_count):
+                cadt_words = self._generate_helper(self._CADT[index], cadt_num, "CADT", feature_to_type,
+                                                   feature_to_sounds)
+                cadnt_words = self._generate_helper(self._CADNT[index], cadnt_num, "CADNT", feature_to_type,
+                                                    feature_to_sounds)
+                cand_words = self._generate_helper(self._CAND[index], cand_num, "CAND", feature_to_type,
+                                                   feature_to_sounds)
+                ncad_words = self._generate_helper(self._NCAD[index], ncad_num, "NCAD", feature_to_type,
+                                                   feature_to_sounds)
+                irr_words = self._generate_helper(self._IRR[index], irr_num, "IRR", feature_to_type, feature_to_sounds)
 
-            # FINISH RANDOM PICK
-            cadt_res, cadnt_res, cand_res, ncad_res, irr_res = len(cadt_words), len(cadnt_words), len(cand_words), len(
-                ncad_words), len(irr_words)
+                # FINISH RANDOM PICK
+                cadt_res, cadnt_res, cand_res, ncad_res, irr_res = len(cadt_words), len(cadnt_words), len(
+                    cand_words), len(
+                    ncad_words), len(irr_words)
 
-            if cadt_res == 0 and cadt_num > 0:
-                warnings.warn("NO CADT case found. Please check your environment.")
-                return None
+                if cadt_res == 0 and cadt_num > 0:
+                    if cadnt_res > 0:
+                        cadnt_words.extend(
+                            self._generate_helper(self._CADNT[index], cadt_num, "CADNT", feature_to_type,
+                                                  feature_to_sounds))
+                    elif cand_res > 0:
+                        cand_words.extend(
+                            self._generate_helper(self._CAND[index], cadt_num, "CAND", feature_to_type,
+                                                  feature_to_sounds))
+                    elif ncad_res > 0:
+                        ncad_words.extend(
+                            self._generate_helper(self._NCAD[index], cadt_num, "NCAD", feature_to_type,
+                                                  feature_to_sounds))
+                    else:
+                        LOGGER.warning(
+                            "Condition Index %d does not have any related data\n %s" % (index, self.get_log_stamp()))
+                        run_count += 1
+                        is_failed = True
+                        break
 
-            if irr_res == 0 and irr_num > 0:
-                cadt_words.extend(
-                    self._generate_helper(self._CADT[index], irr_num, "CADT", feature_to_type, feature_to_sounds))
-
-            if cadnt_res == 0 and cadnt_num > 0:
-                cadt_words.extend(
-                    self._generate_helper(self._CADT[index], cadnt_num, "CADT", feature_to_type, feature_to_sounds))
-
-            if cand_res == 0 and cand_num > 0:
-                if ncad_res == 0:
+                if irr_res == 0 and irr_num > 0:
                     cadt_words.extend(
-                        self._generate_helper(self._CADT[index], cand_num + ncad_num, "CADT", feature_to_type,
-                                              feature_to_sounds))
-                else:
-                    ncad_words.extend(self._generate_helper(self._NCAD[index], cand_num, "NCAD", feature_to_type,
+                        self._generate_helper(self._CADT[index], irr_num, "CADT", feature_to_type, feature_to_sounds))
+
+                if cadnt_res == 0 and cadnt_num > 0:
+                    cadt_words.extend(
+                        self._generate_helper(self._CADT[index], cadnt_num, "CADT", feature_to_type, feature_to_sounds))
+
+                if cand_res == 0 and cand_num > 0:
+                    if ncad_res == 0:
+                        cadt_words.extend(
+                            self._generate_helper(self._CADT[index], cand_num + ncad_num, "CADT", feature_to_type,
+                                                  feature_to_sounds))
+                    else:
+                        ncad_words.extend(self._generate_helper(self._NCAD[index], cand_num, "NCAD", feature_to_type,
+                                                                feature_to_sounds))
+
+                if ncad_res == 0 and ncad_num > 0:
+                    cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
                                                             feature_to_sounds))
 
-            if ncad_res == 0 and ncad_num > 0:
-                cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
-                                                        feature_to_sounds))
+                # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words), "CAND", len(cand_words),
+                #      "NCAD", len(ncad_words), "IRR", len(irr_words))
+                generation_amounts[0] += len(cadt_words)
+                generation_amounts[1] += len(cadnt_words)
+                generation_amounts[2] += len(cand_words)
+                generation_amounts[3] += len(ncad_words)
+                generation_amounts[4] += len(irr_words)
 
-            # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words), "CAND", len(cand_words),
-            #      "NCAD", len(ncad_words), "IRR", len(irr_words))
-            generation_amounts[0] += len(cadt_words)
-            generation_amounts[1] += len(cadnt_words)
-            generation_amounts[2] += len(cand_words)
-            generation_amounts[3] += len(ncad_words)
-            generation_amounts[4] += len(irr_words)
+                ur_words.extend(cadt_words)
+                ur_words.extend(cadnt_words)
+                ur_words.extend(cand_words)
+                ur_words.extend(ncad_words)
+                ur_words.extend(irr_words)
 
-            ur_words.extend(cadt_words)
-            ur_words.extend(cadnt_words)
-            ur_words.extend(cand_words)
-            ur_words.extend(ncad_words)
-            ur_words.extend(irr_words)
+                if is_shuffled:
+                    random.shuffle(ur_words)
 
-            if is_shuffled:
-                random.shuffle(ur_words)
+            if not is_failed:
+                run_count = 1
+            else:
+                is_failed = False
 
         for word in ur_words:
             sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
@@ -342,3 +383,18 @@ class Generator:
 
         return {"UR": underlying_rep, "SR": surface_rep, "rule": self._rule, "templates": self._templates,
                 "phonemes": self._phonemes, "gen_sum": generation_amounts}
+
+
+class GeneratorError(Exception):
+    def __init__(self, generator: Generator, message: str) -> None:
+        super(GeneratorError, self).__init__("%s \n %s\n" % (message, generator.get_log_stamp()))
+
+
+class GeneratorParameterError(GeneratorError):
+    def __init__(self, generator: Generator, bad_param: Any, message: str) -> None:
+        super(GeneratorParameterError, self).__init__(generator, "%s Got: %s" % (message, str(bad_param)))
+
+
+class GenerationNoCADTError(GeneratorError):
+    def __init__(self, generator: Generator) -> None:
+        super(GenerationNoCADTError, self).__init__(generator, "No CADT found with associated phoneme!")

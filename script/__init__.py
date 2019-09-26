@@ -5,8 +5,9 @@ from script.templates import Template, import_default_templates
 from script.glossgroup import GlossGroup, GlossFamily, import_default_gloss
 from script.templates import Template, import_default_templates
 from script.rules import Rule, RuleFamily, ExampleType, import_default_rules
-from script.generator import Generator
+from script.generator import Generator, GenerationNoCADTError, GeneratorParameterError, GeneratorError
 from script.data_factory import get_default_data, get_random_phonemes
 
 __all__ = ['Particle', 'Rule', 'RuleFamily', 'Sound', 'Word', 'Template', 'ExampleType', 'GlossGroup', 'GlossFamily',
-           'Generator', "get_default_data", "get_random_phonemes"]
+           'Generator', "GenerationNoCADTError", "GeneratorError", "GeneratorParameterError", "get_default_data",
+           "get_random_phonemes"]
