@@ -23,11 +23,15 @@ class ExampleType(Enum):
 
 def _get_c_instance_matcher(c_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
                             size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+    if c_instance is None:
+        return []
     return Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
 
 
 def _get_d_instance_matcher(d_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
                             size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+    if d_instance is None:
+        return []
     return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
 
 
@@ -237,12 +241,22 @@ class Rule:
             a_matcher.extend(words)
         return a_matcher
 
+    def get_cd_matchers(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
+        Tuple[List[Word], List[Word]]]:
+        cd_matchers = []  # type: List[Tuple[List[Word], List[Word]]]
+
+        for i in range(0, len(self._Cs)):
+            cd_matchers.append((_get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds),
+                                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds),))
+
+        return cd_matchers
+
     def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
         for i in range(0, len(self._Cs)):
             if (self._Cs[i] is None or len(
                     _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)) > 0) and (
                     self._Ds[i] is None or len(
-                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
+                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
                 return True
         return False
 

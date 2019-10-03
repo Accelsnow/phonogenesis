@@ -17,7 +17,7 @@ app.config.from_object(Config)
 app.logger.setLevel(logging.DEBUG)
 app.logger.removeHandler(default_handler)
 
-formatter = logging.Formatter(fmt='%(asctime)s - %(levelname)s - %(message)s \n %(module)s %(lineno)d@%(funcName)s',
+formatter = logging.Formatter(fmt='%(asctime)s - %(levelname)s - %(message)s - %(module)s %(lineno)d@%(funcName)s',
                               datefmt="[%Y-%m-%d %H:%M:%S]")
 file_handler = RotatingFileHandler('app/log/debug.log', maxBytes=20971520, backupCount=10, encoding='utf8')
 file_handler.setLevel(logging.DEBUG)

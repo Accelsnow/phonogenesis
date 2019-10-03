@@ -50,15 +50,14 @@ def _get_valid_data(rule_selection: int, size: int, is_shuffled: bool):
                                 DEFAULT_DATA['gloss_grp'])
             data['generator'] = gen
             break
-        except GenerationNoCADTError as cadt:
+        except GenerationNoCADTError:
             if retry_count > RETRY_LIMIT:
                 LOGGER.exception('')
                 break
 
-            LOGGER.info(str(cadt))
             retry_count += 1
             continue
-        except GeneratorParameterError or GeneratorError as err:
+        except GeneratorParameterError or GeneratorError:
             LOGGER.exception('')
             break
         except Exception as err:
@@ -69,9 +68,8 @@ def _get_valid_data(rule_selection: int, size: int, is_shuffled: bool):
             raise err
 
     if data is not None:
-        LOGGER.debug("Data recorded: \nUR %s\nSR %s\n%s\n" % (
-            [(str(s[0]), str(s[1])) for s in data['UR']], [(str(s[0]), str(s[1])) for s in data['SR']],
-            gen.get_log_stamp()))
+        LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+            [str(s) for s in data['UR']], [str(s) for s in data['SR']], gen.get_log_stamp()))
     else:
         LOGGER.debug("No data recorded (None).")
 

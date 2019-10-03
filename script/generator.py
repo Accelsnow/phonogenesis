@@ -47,6 +47,7 @@ class Generator:
         }
 
         self._difficulty = difficulty
+        LOGGER.debug("Rule size: %d" % len(self._rule._Cs))
         self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
 
     def _expand_library(self, pool_size: int, feature_to_type: Dict[str, str],
@@ -233,7 +234,7 @@ class Generator:
         vals = self._get_dist_values(dic)
 
         if len(vals) == 0:
-            LOGGER.debug("No %s type found.(%d required, 0 found)\n %s" % (name, amount, self.get_log_stamp()))
+            LOGGER.debug("No %s type found.(%d required, 0 found)\n" % (name, amount))
             return []
 
         if len(vals) >= amount:
@@ -241,8 +242,8 @@ class Generator:
             return words
         else:
             LOGGER.debug(
-                "Insufficient amount of %s type.(%d required, %d found), expanding library\n %s" % (
-                    name, amount, len(vals), self.get_log_stamp()))
+                "Insufficient amount of %s type.(%d required, %d found), expanding library\n" % (
+                    name, amount, len(vals)))
             self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
             self._duplicate_exclusion.extend(vals)
             vals.extend(self._generate_helper(dic, amount - len(vals), name, feature_to_type, feature_to_sounds))
@@ -254,8 +255,7 @@ class Generator:
 
     def generate(self, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                 gloss_groups: List[GlossGroup]) -> Optional[
-        Dict[str, Any], None]:
+                 gloss_groups: List[GlossGroup]) -> Optional[Dict[str, Any], None]:
         """
 
         :param is_shuffled:
@@ -277,114 +277,118 @@ class Generator:
         split_size = len(self._CADT)
 
         if type(amount) == int:
+            total_amount = amount
             cadt_num, cadnt_num, cand_num, ncad_num, irr_num = self._get_num(round(amount / split_size))
         elif type(amount) == list:
             if len(amount) < 5 or False in [type(i) == int for i in amount]:
                 raise GeneratorParameterError(self, amount, "amount given in list should be in format int[5] > 0")
             cadt_num, cadnt_num, cand_num, ncad_num, irr_num = amount[0], amount[1], amount[2], amount[
                 3], amount[4]
+            total_amount = sum(amount)
         else:
             raise GeneratorParameterError(self, amount, "amount must be either int list or int")
 
-        LOGGER.debug("REQUEST: PIECES %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
-            split_size, cadt_num, cadnt_num, cand_num, ncad_num, irr_num))
-        run_count = 1
-        is_failed = False
-        underlying_rep = None
-        surface_rep = None
+        LOGGER.info("A matchers: %s\nCD matchers: %s\n" % (
+            [str(w) for w in self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)],
+            [([str(w1) for w1 in tp[0]], [str(w2) for w2 in tp[1]]) for tp in
+             self._rule.get_cd_matchers(self._phonemes, feature_to_sounds)]
+        ))
+        LOGGER.info("REQUEST: PIECES %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n%s\n" % (
+            split_size, cadt_num, cadnt_num, cand_num, ncad_num, irr_num, self.get_log_stamp()))
 
-        for index in range(0, split_size):
+        failed_indexes = set([])
 
-            # this layer to transfer failed number to next run
-            for _ in range(0, run_count):
-                cadt_words = self._generate_helper(self._CADT[index], cadt_num, "CADT", feature_to_type,
-                                                   feature_to_sounds)
-                cadnt_words = self._generate_helper(self._CADNT[index], cadnt_num, "CADNT", feature_to_type,
-                                                    feature_to_sounds)
-                cand_words = self._generate_helper(self._CAND[index], cand_num, "CAND", feature_to_type,
-                                                   feature_to_sounds)
-                ncad_words = self._generate_helper(self._NCAD[index], ncad_num, "NCAD", feature_to_type,
-                                                   feature_to_sounds)
-                irr_words = self._generate_helper(self._IRR[index], irr_num, "IRR", feature_to_type, feature_to_sounds)
+        index = 0
+        while index < split_size:
+            if index in failed_indexes:
+                index += 1
+                continue
 
-                # FINISH RANDOM PICK
-                cadt_res, cadnt_res, cand_res, ncad_res, irr_res = len(cadt_words), len(cadnt_words), len(
-                    cand_words), len(ncad_words), len(irr_words)
+            cadt_words = self._generate_helper(self._CADT[index], cadt_num, "CADT", feature_to_type,
+                                               feature_to_sounds)
+            cadnt_words = self._generate_helper(self._CADNT[index], cadnt_num, "CADNT", feature_to_type,
+                                                feature_to_sounds)
+            cand_words = self._generate_helper(self._CAND[index], cand_num, "CAND", feature_to_type,
+                                               feature_to_sounds)
+            ncad_words = self._generate_helper(self._NCAD[index], ncad_num, "NCAD", feature_to_type,
+                                               feature_to_sounds)
+            irr_words = self._generate_helper(self._IRR[index], irr_num, "IRR", feature_to_type, feature_to_sounds)
 
-                LOGGER.debug("1ST GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
-                    index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
+            # FINISH RANDOM PICK
+            cadt_res, cadnt_res, cand_res, ncad_res, irr_res = len(cadt_words), len(cadnt_words), len(
+                cand_words), len(ncad_words), len(irr_words)
 
-                if cadt_res == 0 and cadt_num > 0:
-                    LOGGER.warning(
-                        "Condition Index %d does not have any related data\n %s" % (index, self.get_log_stamp()))
-                    run_count += 1
-                    is_failed = True
-                    break
+            LOGGER.debug("1ST GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
+                index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
 
-                if irr_res == 0 and irr_num > 0:
+            if cadt_res == 0 and cadt_num > 0:
+                LOGGER.warning("Condition Index %d does not have any related data\n" % index)
+                failed_indexes.add(index)
+                index = 0
+                continue
+
+            if irr_res == 0 and irr_num > 0:
+                cadt_words.extend(
+                    self._generate_helper(self._CADT[index], irr_num, "CADT", feature_to_type, feature_to_sounds))
+
+            if cadnt_res == 0 and cadnt_num > 0:
+                cadt_words.extend(
+                    self._generate_helper(self._CADT[index], cadnt_num, "CADT", feature_to_type, feature_to_sounds))
+
+            if cand_res == 0 and cand_num > 0:
+                if ncad_res == 0:
                     cadt_words.extend(
-                        self._generate_helper(self._CADT[index], irr_num, "CADT", feature_to_type, feature_to_sounds))
-
-                if cadnt_res == 0 and cadnt_num > 0:
-                    cadt_words.extend(
-                        self._generate_helper(self._CADT[index], cadnt_num, "CADT", feature_to_type, feature_to_sounds))
-
-                if cand_res == 0 and cand_num > 0:
-                    if ncad_res == 0:
-                        cadt_words.extend(
-                            self._generate_helper(self._CADT[index], cand_num, "CADT", feature_to_type,
-                                                  feature_to_sounds))
-                    else:
-                        ncad_words.extend(self._generate_helper(self._NCAD[index], cand_num, "NCAD", feature_to_type,
-                                                                feature_to_sounds))
-
-                if ncad_res == 0 and ncad_num > 0:
-                    if cand_res == 0:
-                        cadt_words.extend(self._generate_helper(self._CADT[index], ncad_num, "CADT", feature_to_type,
-                                                                feature_to_sounds))
-                    else:
-                        cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
-                                                                feature_to_sounds))
-
-                LOGGER.debug("2ND GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
-                    index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
-
-                # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words),
-                generation_amounts[0] += len(cadt_words)
-                generation_amounts[1] += len(cadnt_words)
-                generation_amounts[2] += len(cand_words)
-                generation_amounts[3] += len(ncad_words)
-                generation_amounts[4] += len(irr_words)
-
-                ur_words.extend(cadt_words)
-                ur_words.extend(cadnt_words)
-                ur_words.extend(cand_words)
-                ur_words.extend(ncad_words)
-                ur_words.extend(irr_words)
-
-                if is_shuffled:
-                    random.shuffle(ur_words)
-
-                if not is_failed:
-                    run_count = 1
+                        self._generate_helper(self._CADT[index], cand_num, "CADT", feature_to_type,
+                                              feature_to_sounds))
                 else:
-                    is_failed = False
+                    ncad_words.extend(self._generate_helper(self._NCAD[index], cand_num, "NCAD", feature_to_type,
+                                                            feature_to_sounds))
 
-                for word in ur_words:
-                    sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
+            if ncad_res == 0 and ncad_num > 0:
+                if cand_res == 0:
+                    cadt_words.extend(self._generate_helper(self._CADT[index], ncad_num, "CADT", feature_to_type,
+                                                            feature_to_sounds))
+                else:
+                    cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
+                                                            feature_to_sounds))
 
-                size = len(ur_words)
+            LOGGER.debug("2ND GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
+                index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
 
-                gloss_words = [w.pick() for w in random.sample(gloss_groups, size)]
+            # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words),
+            generation_amounts[0] += len(cadt_words)
+            generation_amounts[1] += len(cadnt_words)
+            generation_amounts[2] += len(cand_words)
+            generation_amounts[3] += len(ncad_words)
+            generation_amounts[4] += len(irr_words)
 
-                underlying_rep = [(ur_words[i], gloss_words[i]) for i in range(0, size)]
-                surface_rep = [(sr_words[i], gloss_words[i]) for i in range(0, size)]
+            ur_words.extend(cadt_words)
+            ur_words.extend(cadnt_words)
+            ur_words.extend(cand_words)
+            ur_words.extend(ncad_words)
+            ur_words.extend(irr_words)
 
-        if underlying_rep is None or surface_rep is None:
-            raise GenerationNoCADTError(self)
+            index += 1
 
-        return {"UR": underlying_rep, "SR": surface_rep, "rule": self._rule, "templates": self._templates,
-                "phonemes": self._phonemes, "gen_sum": generation_amounts}
+        if len(failed_indexes) == split_size:
+            raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+
+        ur_size = len(ur_words)
+
+        if len(ur_words) < total_amount:
+            raise GeneratorError(self,
+                                 "Insufficient amount generated! Required %d Current %d\n" % (total_amount, ur_size))
+
+        if is_shuffled:
+            random.shuffle(ur_words)
+
+        for word in ur_words:
+            sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
+
+        gloss_words = [w.pick() for w in random.sample(gloss_groups, ur_size)]
+
+        return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule,
+                "templates": self._templates, "phonemes": self._phonemes, "gen_sum": generation_amounts}
 
 
 class GeneratorError(Exception):

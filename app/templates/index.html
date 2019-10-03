@@ -36,16 +36,14 @@
                 <tr>
                     <th>UR</th>
                     <th>SR</th>
-                    <th>UR Gloss</th>
-                    <th>SR Gloss</th>
+                    <th>Gloss</th>
                 </tr>
 
                 {% for i in range(size) %}
                     <tr>
-                        <td>{{ data['UR'][i][0] }}</td>
-                        <td>{{ data['SR'][i][0] }}</td>
-                        <td>{{ data['UR'][i][1] }}</td>
-                        <td>{{ data['SR'][i][1] }}</td>
+                        <td>{{ data['UR'][i] }}</td>
+                        <td>{{ data['SR'][i] }}</td>
+                        <td>{{ data['Gloss'][i] }}</td>
                     </tr>
                 {% endfor %}
 
