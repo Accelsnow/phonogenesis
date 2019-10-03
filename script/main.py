@@ -11,7 +11,7 @@ from script.rules import Rule, RuleFamily, import_default_rules
 from script.sound import Sound
 from script.glossgroup import import_default_gloss
 from script.templates import Template, import_default_templates
-from script.phonemes import import_default_phonemes
+from script.phonemes import import_default_randomized_phonemes
 
 
 
@@ -94,7 +94,10 @@ if __name__ == '__main__':
         print(ri, rule)
         ri += 1
 
-    phonemes = import_default_phonemes()
+    phonemes = import_default_randomized_phonemes([Word('v')])
+
+    for i in range(0, 20):
+        print([str(s) for s in import_default_randomized_phonemes([Word('v')])])
 
     print("\nfull phonemes: ", [str(p) for p in phonemes])
 

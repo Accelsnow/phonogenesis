@@ -1,58 +1,198 @@
-[2019-09-26 17:07:29] - DEBUG - No NCAD type found.(3 required, 0 found)
- raising of mid vowels before voiceless codas ===== [mid,vowel] -> [high],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'l', 'i', 'e', 'ɔ', 'ə', 'æ', 'ɑ'] 
+ generator 290@generate
+[2019-10-03 13:59:18] - DEBUG - No CADNT type found.(2 required, 0 found)
+ regressive voicing assimilation in obstruents ===== [obstruent,voiceless] -> [voiced],[] /  _ [voiced,consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'e', 'u', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @925816335 
+ @574369712 
  generator 236@_generate_helper
-[2019-09-26 17:07:29] - DEBUG - No NCAD type found.(3 required, 0 found)
- raising of mid vowels before voiceless codas ===== [mid,vowel] -> [high],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'l', 'i', 'e', 'ɔ', 'ə', 'æ', 'ɑ'] 
+[2019-10-03 13:59:18] - DEBUG - No NCAD type found.(4 required, 0 found)
+ regressive voicing assimilation in obstruents ===== [obstruent,voiceless] -> [voiced],[] /  _ [voiced,consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'e', 'u', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @925816335 
+ @574369712 
  generator 236@_generate_helper
-[2019-09-26 17:07:29] - DEBUG - Data recorded: 
-UR [('hezŋɔk', 'sauce'), ('ðənvən', 'lunch'), ('dɑʒəʃ', 'all'), ('ðeʒ', 'he/she/it'), ('gɑθhæθ', 'bounce'), ('vɔʃðæ', 'build'), ('tɔ', 'smell'), ('be', 'sand'), ('ʃeləf', 'owl'), ('θɔ', 'moss'), ('pɔtɔk', 'horn'), ('ðɔððɔ', 'tooth'), ('tɔs', 'lie down'), ('zəkθeθ', 'potato'), ('vefeh', 'grape'), ('gætlɑ', 'chin'), ('peʃfɔ', 'raccoon '), ('bɔ', 'we (dual)'), ('nezɑ', 'cloud'), ('bef', 'red'), ('fəkbəʒ', 'cod'), ('zəŋ', 'broth'), ('ðevæ', 'dim'), ('tə', 'this'), ('peθŋɔh', 'yellow'), ('sekŋe', 'bake'), ('pɔθŋɔ', 'three'), ('dɔfvɔp', 'acquire'), ('ʃəŋ', 'tell'), ('ʒəθʒɔl', 'wheat')]
-SR [('hezŋʊk', 'sauce'), ('ðənvən', 'lunch'), ('dɑʒəʃ', 'all'), ('ðeʒ', 'he/she/it'), ('gɑθhæθ', 'bounce'), ('vʊʃðæ', 'build'), ('tɔ', 'smell'), ('be', 'sand'), ('ʃeləf', 'owl'), ('θɔ', 'moss'), ('pɔtʊk', 'horn'), ('ðɔððɔ', 'tooth'), ('tʊs', 'lie down'), ('zəkθiθ', 'potato'), ('vefih', 'grape'), ('gætlɑ', 'chin'), ('piʃfɔ', 'raccoon '), ('bɔ', 'we (dual)'), ('nezɑ', 'cloud'), ('bif', 'red'), ('fəkbəʒ', 'cod'), ('zəŋ', 'broth'), ('ðevæ', 'dim'), ('tə', 'this'), ('piθŋʊh', 'yellow'), ('sikŋe', 'bake'), ('pʊθŋɔ', 'three'), ('dʊfvʊp', 'acquire'), ('ʃəŋ', 'tell'), ('ʒəθʒɔl', 'wheat')]
-raising of mid vowels before voiceless codas ===== [mid,vowel] -> [high],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'l', 'i', 'e', 'ɔ', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @925816335
+[2019-10-03 13:59:18] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
  
- routes 70@_get_valid_data
-[2019-09-26 17:07:38] - DEBUG - Insufficient amount of CADNT type.(2 required, 1 found), expanding library
- voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @50103349 
- generator 245@_generate_helper
-[2019-09-26 17:07:40] - DEBUG - No CAND type found.(3 required, 0 found)
- voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @50103349 
- generator 236@_generate_helper
-[2019-09-26 17:07:41] - DEBUG - Insufficient amount of CADNT type.(2 required, 1 found), expanding library
- voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @50103349 
- generator 245@_generate_helper
-[2019-09-26 17:07:43] - DEBUG - No NCAD type found.(3 required, 0 found)
- voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @50103349 
- generator 236@_generate_helper
-[2019-09-26 17:07:44] - DEBUG - Data recorded: 
-UR [('zekʔes', 'man'), ('vɪwʔul', 'enjoy'), ('kipdəp', 'ocean'), ('pop', 'choose'), ('sɛʔʔəs', 'honey'), ('vɪkʔik', 'bad'), ('jɛfʔo', 'moon'), ('tɪve', 'play'), ('təʔʔek', 'nostril'), ('wɛstə', 'beard'), ('səpo', 'we (excl)'), ('fosfɛ', 'nobody'), ('dihʔoʔ', 'thin'), ('fapsɛ', 'brother'), ('kurnon', 'grain'), ('bɛskɪp', 'head'), ('wʊ', 'hot'), ('kisʔɪz', 'strawberry'), ('kur', 'street'), ('ta', 'read'), ('təʔʔek', 'two'), ('rɛthe', 'waist'), ('nəjɛ', 'falafel'), ('zəfpɪ', 'want'), ('mʊtʊ', 'uncle'), ('hə', 'red'), ('gazbop', 'tongue'), ('fopʔap', 'acquire'), ('fʊnfə', 'sesame')]
-SR [('zegʔes', 'man'), ('vɪwʔul', 'enjoy'), ('kipdəp', 'ocean'), ('pop', 'choose'), ('sɛʔʔəs', 'honey'), ('vɪgʔik', 'bad'), ('jɛvʔo', 'moon'), ('tɪve', 'play'), ('təʔʔek', 'nostril'), ('wɛzdə', 'beard'), ('səpo', 'we (excl)'), ('fozvɛ', 'nobody'), ('diɦʔoʔ', 'thin'), ('fabzɛ', 'brother'), ('kurnon', 'grain'), ('bɛzgɪp', 'head'), ('wʊ', 'hot'), ('kizʔɪz', 'strawberry'), ('kur', 'street'), ('ta', 'read'), ('təʔʔek', 'two'), ('rɛdɦe', 'waist'), ('nəjɛ', 'falafel'), ('zəvbɪ', 'want'), ('mʊtʊ', 'uncle'), ('hə', 'red'), ('gazbop', 'tongue'), ('fobʔap', 'acquire'), ('fʊnfə', 'sesame')]
-voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @50103349
+ generator 315@generate
+[2019-10-03 13:59:18] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
  
- routes 70@_get_valid_data
-[2019-09-26 17:07:44] - ERROR - Exception on / [POST] 
+ generator 350@generate
+[2019-10-03 13:59:18] - DEBUG - Data recorded: 
+UR [('fijne', 'we (incl)'), ('kih', 'eyelash'), ('keθru', 'belly'), ('tədja', 'arrive'), ('θet͡ʃva', 'they (masc)'), ('jufze', 'vinegar'), ('biljed͡ʒ', 'almond'), ('turek', 'baby'), ('d͡ʒuhvə', 'every'), ('θekðem', 'rain'), ('sipbə', 'few'), ('zuʃəʃ', 'lose'), ('sitrəh', 'hill'), ('ðiʃzid', 'smell'), ('babek', 'mother'), ('bikmaf', 'brain'), ('ʃasguk', 'morning'), ('ʒar', 'flesh'), ('θud͡ʒeh', 'person'), ('timug', 'cat')]
+SR [('fijne', 'we (incl)'), ('kih', 'eyelash'), ('keðru', 'belly'), ('tədja', 'arrive'), ('θed͡ʒva', 'they (masc)'), ('juvze', 'vinegar'), ('biljed͡ʒ', 'almond'), ('turek', 'baby'), ('d͡ʒuɦvə', 'every'), ('θegðem', 'rain'), ('sibbə', 'few'), ('zuʃəʃ', 'lose'), ('sidrəh', 'hill'), ('ðiʒzid', 'smell'), ('babek', 'mother'), ('bigmaf', 'brain'), ('ʃazguk', 'morning'), ('ʒar', 'flesh'), ('θud͡ʒeh', 'person'), ('timug', 'cat')]
+regressive voicing assimilation in obstruents ===== [obstruent,voiceless] -> [voiced],[] /  _ [voiced,consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'e', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @574369712
+ 
+ routes 74@_get_valid_data
+[2019-10-03 14:08:37] - DEBUG - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+ 
+ generator 290@generate
+[2019-10-03 14:08:37] - DEBUG - No CADNT type found.(2 required, 0 found)
+ palatal mutation of velar stops to alveolar affricates before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,affricate,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɔ', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @253558773 
+ generator 236@_generate_helper
+[2019-10-03 14:08:37] - DEBUG - No NCAD type found.(4 required, 0 found)
+ palatal mutation of velar stops to alveolar affricates before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,affricate,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɔ', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @253558773 
+ generator 236@_generate_helper
+[2019-10-03 14:08:37] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ 
+ generator 315@generate
+[2019-10-03 14:08:37] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ 
+ generator 350@generate
+[2019-10-03 14:08:37] - DEBUG - Data recorded: 
+UR [('dakɔz', 'beard'), ('gɔgi', 'dislike'), ('gaŋ', 'digest'), ('bɔlgi', 'laugh'), ('nɔke', 'evil'), ('ŋege', 'sibling'), ('ʃita', 'brown'), ('bɔhha', 'recline'), ('ŋɔk', 'snow'), ('kiwa', 'five'), ('kɔki', 'nostril'), ('tasgi', 'cantaloupe'), ('ʔezkig', 'lip'), ('ðegɔn', 'lentil'), ('gen', 'fish'), ('kaggik', 'full'), ('fakgi', 'vinegar'), ('ʃɔkiw', 'zero'), ('zɔvkɔ', 'boil'), ('kike', 'grey')]
+SR [('dakɔz', 'beard'), ('gɔd͡zi', 'dislike'), ('gaŋ', 'digest'), ('bɔld͡zi', 'laugh'), ('nɔke', 'evil'), ('ŋege', 'sibling'), ('ʃita', 'brown'), ('bɔhha', 'recline'), ('ŋɔk', 'snow'), ('t͡siwa', 'five'), ('kɔt͡si', 'nostril'), ('tasd͡zi', 'cantaloupe'), ('ʔezt͡sig', 'lip'), ('ðegɔn', 'lentil'), ('gen', 'fish'), ('kagd͡zik', 'full'), ('fakd͡zi', 'vinegar'), ('ʃɔt͡siw', 'zero'), ('zɔvkɔ', 'boil'), ('t͡sike', 'grey')]
+palatal mutation of velar stops to alveolar affricates before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,affricate,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɔ', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @253558773
+ 
+ routes 74@_get_valid_data
+[2019-10-03 14:08:46] - DEBUG - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+ 
+ generator 290@generate
+[2019-10-03 14:08:46] - DEBUG - No CADNT type found.(2 required, 0 found)
+ word-final raising of low vowels ===== [low,vowel] -> [mid],[] /  _ # 
+ ['p', 't', 'k', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @735060452 
+ generator 236@_generate_helper
+[2019-10-03 14:08:46] - DEBUG - No NCAD type found.(4 required, 0 found)
+ word-final raising of low vowels ===== [low,vowel] -> [mid],[] /  _ # 
+ ['p', 't', 'k', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @735060452 
+ generator 236@_generate_helper
+[2019-10-03 14:08:46] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ 
+ generator 315@generate
+[2019-10-03 14:08:47] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ 
+ generator 350@generate
+[2019-10-03 14:08:47] - DEBUG - Data recorded: 
+UR [('lasla', 'midday '), ('waʃa', 'how'), ('fɑna', 'breakfast'), ('ʃatɑ', 'bend'), ('pisɑ', 'banana'), ('mæ', 'hate'), ('læθar', 'shoulder'), ('tɑŋlin', 'taste'), ('ju', 'elephant'), ('fæmkat', 'listen'), ('fɑlɑ', 'it'), ('tɑrlæ', 'we (dual)'), ('jaθæp', 'few'), ('θætθɛ', 'tree'), ('lækθɑ', 'cinnamon'), ('wɛk', 'arm'), ('fɑtwɑs', 'dirt'), ('lɛna', 'mosquito'), ('fɑrar', 'soup'), ('θæn', 'herring')]
+SR [('laslə', 'midday '), ('waʃə', 'how'), ('fɑnə', 'breakfast'), ('ʃatʌ', 'bend'), ('pisʌ', 'banana'), ('mɛ', 'hate'), ('læθar', 'shoulder'), ('tɑŋlin', 'taste'), ('ju', 'elephant'), ('fæmkat', 'listen'), ('fɑlʌ', 'it'), ('tɑrlɛ', 'we (dual)'), ('jaθæp', 'few'), ('θætθɛ', 'tree'), ('lækθʌ', 'cinnamon'), ('wɛk', 'arm'), ('fɑtwɑs', 'dirt'), ('lɛnə', 'mosquito'), ('fɑrar', 'soup'), ('θæn', 'herring')]
+word-final raising of low vowels ===== [low,vowel] -> [mid],[] /  _ # 
+ ['p', 't', 'k', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @735060452
+ 
+ routes 74@_get_valid_data
+[2019-10-03 14:08:52] - DEBUG - REQUEST: PIECES 1 CADT 16 CADNT 4 CAND 8 NCAD 8 IRR 4
+ 
+ generator 290@generate
+[2019-10-03 14:08:52] - DEBUG - No CADNT type found.(4 required, 0 found)
+ regressive vowel nasalization ===== [vowel,oral] -> [nasal],[] /  _ [nasal] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @710882321 
+ generator 236@_generate_helper
+[2019-10-03 14:08:52] - DEBUG - No NCAD type found.(8 required, 0 found)
+ regressive vowel nasalization ===== [vowel,oral] -> [nasal],[] /  _ [nasal] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @710882321 
+ generator 236@_generate_helper
+[2019-10-03 14:08:52] - DEBUG - No IRR type found.(4 required, 0 found)
+ regressive vowel nasalization ===== [vowel,oral] -> [nasal],[] /  _ [nasal] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @710882321 
+ generator 236@_generate_helper
+[2019-10-03 14:08:52] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 16 CADNT 0 CAND 8 NCAD 0 IRR 0
+ 
+ generator 315@generate
+[2019-10-03 14:08:52] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 24 CADNT 0 CAND 16 NCAD 0 IRR 0
+ 
+ generator 350@generate
+[2019-10-03 14:08:53] - DEBUG - Data recorded: 
+UR [('naŋkud', 'corn'), ('rʊs', 'argue'), ('dɑk', 'evening'), ('d͡ʒeʃɪn', 'fur'), ('kil', 'gecko'), ('limʊm', 'sun'), ('zɛrvon', 'beaver'), ('lɪdju', 'horn'), ('ŋon', 'resist'), ('zæbfes', 'rhinoceros'), ('ʃo', 'cod'), ('man', 'bumpy'), ('pɑ', 'nutmeg'), ('ʒaŋget͡ʃ', 'you (dual)'), ('θɛ', 'white'), ('juʃpæm', 'not'), ('dʊʃɛt͡ʃ', 'eyelid'), ('mɛŋsʊ', 'peanut'), ('t͡ʃunæ', 'she'), ('jurɛ', 'damp'), ('giʃɔn', 'smoke'), ('vun', 'when'), ('petdɛm', 'lose'), ('ʔemvɔ', 'vegetable'), ('lomlɔk', 'goose'), ('kʊmʔe', 'throat'), ('gæŋʊd', 'street'), ('θɔd', 'sibling'), ('pɔz', 'sit'), ('kæʔʃaf', 'hill'), ('gɪlʔi', 'hummus'), ('kiŋdɑd', 'punch'), ('kimθɛ', 'bite'), ('reθ', 'young'), ('ʒɛnʊ', 'cantaloupe'), ('θɔnka', 'warm'), ('ʃɪnʃun', 'blue/green'), ('tɛr', 'nostril'), ('seŋjɑt', 'mango'), ('kʊmðʊ', 'those')]
+SR [('nãŋkud', 'corn'), ('rʊs', 'argue'), ('dɑk', 'evening'), ('d͡ʒeʃɪ̃n', 'fur'), ('kil', 'gecko'), ('lĩmʊ̃m', 'sun'), ('zɛrvõn', 'beaver'), ('lɪdju', 'horn'), ('ŋõn', 'resist'), ('zæbfes', 'rhinoceros'), ('ʃo', 'cod'), ('mãn', 'bumpy'), ('pɑ', 'nutmeg'), ('ʒãŋget͡ʃ', 'you (dual)'), ('θɛ', 'white'), ('juʃpæ̃m', 'not'), ('dʊʃɛt͡ʃ', 'eyelid'), ('mɛ̃ŋsʊ', 'peanut'), ('t͡ʃũnæ', 'she'), ('jurɛ', 'damp'), ('giʃɔ̃n', 'smoke'), ('vũn', 'when'), ('petdɛ̃m', 'lose'), ('ʔẽmvɔ', 'vegetable'), ('lõmlɔk', 'goose'), ('kʊ̃mʔe', 'throat'), ('gæ̃ŋʊd', 'street'), ('θɔd', 'sibling'), ('pɔz', 'sit'), ('kæʔʃaf', 'hill'), ('gɪlʔi', 'hummus'), ('kĩŋdɑd', 'punch'), ('kĩmθɛ', 'bite'), ('reθ', 'young'), ('ʒɛ̃nʊ', 'cantaloupe'), ('θɔ̃nka', 'warm'), ('ʃɪ̃nʃũn', 'blue/green'), ('tɛr', 'nostril'), ('sẽŋjɑt', 'mango'), ('kʊ̃mðʊ', 'those')]
+regressive vowel nasalization ===== [vowel,oral] -> [nasal],[] /  _ [nasal] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @710882321
+ 
+ routes 74@_get_valid_data
+[2019-10-03 14:08:54] - INFO - No CADT found with associated phoneme! 
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'w', 'i', 'ɛ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @922967453
+ 
+ routes 58@_get_valid_data
+[2019-10-03 14:08:55] - DEBUG - REQUEST: PIECES 2 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+ 
+ generator 290@generate
+[2019-10-03 14:08:55] - DEBUG - No CADNT type found.(2 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - No CAND type found.(4 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 0 NCAD 4 IRR 2
+ 
+ generator 315@generate
+[2019-10-03 14:08:55] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 0 NCAD 8 IRR 2
+ 
+ generator 350@generate
+[2019-10-03 14:08:55] - DEBUG - No CADT type found.(8 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - No CADNT type found.(2 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - No CAND type found.(4 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - No NCAD type found.(4 required, 0 found)
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 236@_generate_helper
+[2019-10-03 14:08:55] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 2
+ 
+ generator 315@generate
+[2019-10-03 14:08:55] - WARNING - Condition Index 1 does not have any related data
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078 
+ generator 319@generate
+[2019-10-03 14:08:55] - DEBUG - Data recorded: 
+UR [('ŋəʃŋɔŋ', 'few'), ('ŋɔgɔk', 'path'), ('wɔkŋag', 'cat'), ('muŋe', 'clear'), ('lilɔg', 'waterfall'), ('ŋɔkŋig', 'child'), ('gufɔg', 'moon'), ('ŋeŋe', 'those'), ('mɛŋgɛl', 'eyelid'), ('bɛ', 'inland'), ('gɛwa', 'feed'), ('gɔŋ', 'blue'), ('kag', 'she'), ('kiʃlɛk', 'butterfly'), ('gəge', 'beard'), ('fəbɛp', 'talk'), ('lɔkag', 'claw'), ('gɔŋe', 'tribe'), ('lɔka', 'four'), ('kit', 'horse')]
+SR [('ŋəʃŋɔɴ', 'few'), ('ŋɔɢɔq', 'path'), ('wɔqŋag', 'cat'), ('muŋe', 'clear'), ('lilɔɢ', 'waterfall'), ('ŋɔqŋig', 'child'), ('gufɔɢ', 'moon'), ('ŋeŋe', 'those'), ('mɛŋgɛl', 'eyelid'), ('bɛ', 'inland'), ('gɛwa', 'feed'), ('gɔɴ', 'blue'), ('kag', 'she'), ('kiʃlɛk', 'butterfly'), ('gəge', 'beard'), ('fəbɛp', 'talk'), ('lɔqag', 'claw'), ('gɔɴe', 'tribe'), ('lɔqa', 'four'), ('kit', 'horse')]
+uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @961737078
+ 
+ routes 74@_get_valid_data
+[2019-10-03 14:08:55] - ERROR - Exception on / [POST] 
  app 1891@log_exception
 Traceback (most recent call last):
   File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
@@ -89,244 +229,4 @@ Traceback (most recent call last):
     <td>{{ data['UR'][i][0] }}</td>
   File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\jinja2\environment.py", line 411, in getitem
     return obj[argument]
-jinja2.exceptions.UndefinedError: list object has no element 29
-[2019-09-26 17:11:19] - DEBUG - No CADNT type found.(3 required, 0 found)
- palatal mutation of alveolar stops to alveolar affricates before front vowels ===== [alveolar,oral stop] -> [affricate,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'h', 'n', 'ŋ', 'r', 'w', 'j', 'i', 'e', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @43212545 
- generator 236@_generate_helper
-[2019-09-26 17:11:19] - DEBUG - No NCAD type found.(6 required, 0 found)
- palatal mutation of alveolar stops to alveolar affricates before front vowels ===== [alveolar,oral stop] -> [affricate,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'h', 'n', 'ŋ', 'r', 'w', 'j', 'i', 'e', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @43212545 
- generator 236@_generate_helper
-[2019-09-26 17:11:19] - DEBUG - Data recorded: 
-UR [('diŋe', 'work'), ('kergid', 'mustard'), ('hitwed', 'point'), ('hetŋu', 'accuse'), ('det', 'ox'), ('tide', 'juice'), ('rutbu', 'take'), ('tibθu', 'when'), ('tedaŋ', 'nephew'), ('tiŋru', 'good'), ('hideb', 'falafel'), ('daw', 'knee'), ('kunaf', 'hope'), ('dat', 'face'), ('has', 'fresh'), ('jeteθ', 'they (dual)'), ('tafdi', 'clear'), ('hatθa', 'slice'), ('ted', 'bounce'), ('pedi', 'banana'), ('pud', 'cry'), ('hutas', 'chicken'), ('ti', 'zucchini'), ('dugfej', 'he'), ('tapted', 'hate'), ('dif', 'change'), ('gektut', 'west'), ('wigti', 'sister'), ('ta', 'then'), ('bapse', 'bone')]
-SR [('d͡ziŋe', 'work'), ('kergid', 'mustard'), ('hitwed', 'point'), ('hetŋu', 'accuse'), ('d͡zet', 'ox'), ('t͡sid͡ze', 'juice'), ('rutbu', 'take'), ('t͡sibθu', 'when'), ('t͡sedaŋ', 'nephew'), ('t͡siŋru', 'good'), ('hid͡zeb', 'falafel'), ('daw', 'knee'), ('kunaf', 'hope'), ('dat', 'face'), ('has', 'fresh'), ('jet͡seθ', 'they (dual)'), ('tafd͡zi', 'clear'), ('hatθa', 'slice'), ('t͡sed', 'bounce'), ('ped͡zi', 'banana'), ('pud', 'cry'), ('hutas', 'chicken'), ('t͡si', 'zucchini'), ('dugfej', 'he'), ('tapt͡sed', 'hate'), ('d͡zif', 'change'), ('gektut', 'west'), ('wigt͡si', 'sister'), ('ta', 'then'), ('bapse', 'bone')]
-palatal mutation of alveolar stops to alveolar affricates before front vowels ===== [alveolar,oral stop] -> [affricate,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'h', 'n', 'ŋ', 'r', 'w', 'j', 'i', 'e', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @43212545
- 
- routes 70@_get_valid_data
-[2019-09-26 17:11:20] - DEBUG - No CADNT type found.(3 required, 0 found)
- dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @103682484 
- generator 236@_generate_helper
-[2019-09-26 17:11:20] - DEBUG - No NCAD type found.(6 required, 0 found)
- dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @103682484 
- generator 236@_generate_helper
-[2019-09-26 17:11:21] - DEBUG - Data recorded: 
-UR [('dæt', 'ash'), ('dæt͡ʃu', 'gecko'), ('tɑlæb', 'eyebrow'), ('dun', 'salt'), ('ʃɑdæ', 'vinegar'), ('t͡ʃitæ', 'white'), ('diʔmup', 'lake'), ('dær', 'person'), ('fɔdi', 'bright'), ('rurd͡ʒæw', 'evening'), ('tid', 'nose'), ('mæfʔi', 'speak'), ('duf', 'cucumber'), ('luŋ', 'inland'), ('hiŋɔd', 'feather'), ('tɑd͡ʒ', 'pull'), ('wɔdtɔp', 'experience'), ('duŋmi', 'dirt'), ('dɑtæt', 'red'), ('sutnæʃ', 'sibling'), ('dutid', 'head'), ('tɔpgæ', 'laugh'), ('ʔuddif', 'how'), ('tilkiʔ', 'know'), ('rubɔt', 'adjust'), ('riti', 'lung'), ('luddæ', 'path'), ('kutdæ', 'forgive'), ('ŋiθtɑ', 'dog'), ('pid', 'rabbit')]
-SR [('ðæt', 'ash'), ('ðæt͡ʃu', 'gecko'), ('tɑlæb', 'eyebrow'), ('dun', 'salt'), ('ʃɑðæ', 'vinegar'), ('t͡ʃiθæ', 'white'), ('ðiʔmup', 'lake'), ('ðær', 'person'), ('fɔði', 'bright'), ('rurd͡ʒæw', 'evening'), ('θid', 'nose'), ('mæfʔi', 'speak'), ('duf', 'cucumber'), ('luŋ', 'inland'), ('hiŋɔd', 'feather'), ('tɑd͡ʒ', 'pull'), ('wɔdtɔp', 'experience'), ('duŋmi', 'dirt'), ('dɑθæt', 'red'), ('sutnæʃ', 'sibling'), ('duθid', 'head'), ('tɔpgæ', 'laugh'), ('ʔudðif', 'how'), ('θilkiʔ', 'know'), ('rubɔt', 'adjust'), ('riθi', 'lung'), ('ludðæ', 'path'), ('kutðæ', 'forgive'), ('ŋiθtɑ', 'dog'), ('pid', 'rabbit')]
-dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @103682484
- 
- routes 70@_get_valid_data
-[2019-09-26 17:11:22] - DEBUG - No CADNT type found.(3 required, 0 found)
- retraction of high front vowels after velars ===== [high,front,vowel] -> [central],[] / [velar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @472338352 
- generator 236@_generate_helper
-[2019-09-26 17:11:22] - DEBUG - No CAND type found.(6 required, 0 found)
- retraction of high front vowels after velars ===== [high,front,vowel] -> [central],[] / [velar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @472338352 
- generator 236@_generate_helper
-[2019-09-26 17:11:22] - DEBUG - Data recorded: 
-UR [('ðozŋi', 'sister'), ('piki', 'claw'), ('kɔpmi', 'swallow'), ('nuhi', 'love'), ('viviz', 'mud'), ('gip', 'thick'), ('vi', 'then'), ('ʒiθhoð', 'spider'), ('ʃɔd', 'vinegar'), ('miðθu', 'stand'), ('ŋid', 'red'), ('kibɑ', 'lizard'), ('giŋiʒ', 'moon'), ('ðɔgkiθ', 'mother'), ('ŋumæ', 'bend'), ('vɔgis', 'baby'), ('zuvi', 'woman'), ('ŋidok', 'eyelash'), ('nɑŋŋid', 'calf'), ('pifpiz', 'throw'), ('pit', 'each'), ('θəpʔis', 'bright'), ('tin', 'hesitate'), ('kiʔi', 'acquire'), ('ŋutæ', 'neck'), ('vigit', 'snore'), ('hip', 'thumb'), ('ŋizæk', 'smell'), ('kəpŋiz', 'possum'), ('ki', 'they (neut)')]
-SR [('ðozŋɨ', 'sister'), ('pikɨ', 'claw'), ('kɔpmi', 'swallow'), ('nuhi', 'love'), ('viviz', 'mud'), ('gɨp', 'thick'), ('vi', 'then'), ('ʒiθhoð', 'spider'), ('ʃɔd', 'vinegar'), ('miðθu', 'stand'), ('ŋɨd', 'red'), ('kɨbɑ', 'lizard'), ('gɨŋɨʒ', 'moon'), ('ðɔgkɨθ', 'mother'), ('ŋumæ', 'bend'), ('vɔgɨs', 'baby'), ('zuvi', 'woman'), ('ŋɨdok', 'eyelash'), ('nɑŋŋɨd', 'calf'), ('pifpiz', 'throw'), ('pit', 'each'), ('θəpʔis', 'bright'), ('tin', 'hesitate'), ('kɨʔi', 'acquire'), ('ŋutæ', 'neck'), ('vigɨt', 'snore'), ('hip', 'thumb'), ('ŋɨzæk', 'smell'), ('kəpŋɨz', 'possum'), ('kɨ', 'they (neut)')]
-retraction of high front vowels after velars ===== [high,front,vowel] -> [central],[] / [velar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @472338352
- 
- routes 70@_get_valid_data
-[2019-09-26 17:11:24] - DEBUG - No CADNT type found.(3 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'j', 'i', 'e', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @936509655 
- generator 236@_generate_helper
-[2019-09-26 17:11:24] - DEBUG - No NCAD type found.(6 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'j', 'i', 'e', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @936509655 
- generator 236@_generate_helper
-[2019-09-26 17:11:24] - DEBUG - No IRR type found.(3 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'j', 'i', 'e', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @936509655 
- generator 236@_generate_helper
-[2019-09-26 17:11:24] - DEBUG - Data recorded: 
-UR [('zəkʃeh', 'meal'), ('ðigd͡ʒæð', 'they (fem)'), ('ʃeʃ', 'sun'), ('θəhu', 'friend'), ('ji', 'assume'), ('bæ', 'bend'), ('ŋiŋ', 'brain'), ('fɑ', 'you (pl)'), ('ðə', 'knuckle'), ('ðezdi', 'stir'), ('t͡ʃet͡ʃ', 'find'), ('sæd͡ʒhɑ', 'night'), ('vehju', 'stream'), ('depsi', 'pink'), ('ke', 'fur'), ('fɑjid͡ʒ', 'daughter'), ('θæð', 'empty'), ('zəhhe', 'fight'), ('kuzre', 'brother'), ('fuʃ', 'toe'), ('bədɑ', 'fresh'), ('nə', 'tribe'), ('ðe', 'owl'), ('nətə', 'it'), ('næbθu', 'fox'), ('jid͡ʒiv', 'damp'), ('d͡ʒund͡ʒæz', 'snow'), ('ʃækɑθ', 'father'), ('fuŋæ', 'try'), ('rətəʒ', 'soup')]
-SR [('zəkʃeh', 'meal'), ('ðigd͡ʒæð', 'they (fem)'), ('ʃeʃ', 'sun'), ('θəhu̥', 'friend'), ('ji̥', 'assume'), ('bæ̥', 'bend'), ('ŋiŋ', 'brain'), ('fɑ̥', 'you (pl)'), ('ðə̥', 'knuckle'), ('ðezdi̥', 'stir'), ('t͡ʃet͡ʃ', 'find'), ('sæd͡ʒhɑ̥', 'night'), ('vehju̥', 'stream'), ('depsi̥', 'pink'), ('ke̥', 'fur'), ('fɑjid͡ʒ', 'daughter'), ('θæð', 'empty'), ('zəhhe̥', 'fight'), ('kuzre̥', 'brother'), ('fuʃ', 'toe'), ('bədɑ̥', 'fresh'), ('nə̥', 'tribe'), ('ðe̥', 'owl'), ('nətə̥', 'it'), ('næbθu̥', 'fox'), ('jid͡ʒiv', 'damp'), ('d͡ʒund͡ʒæz', 'snow'), ('ʃækɑθ', 'father'), ('fuŋæ̥', 'try'), ('rətəʒ', 'soup')]
-word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'j', 'i', 'e', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @936509655
- 
- routes 70@_get_valid_data
-[2019-09-26 17:11:25] - DEBUG - No CADNT type found.(3 required, 0 found)
- progressive voicelessness assimilation in stops ===== [oral stop,voiced] -> [voiceless],[] / [voiceless] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'r', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @590961131 
- generator 236@_generate_helper
-[2019-09-26 17:11:25] - DEBUG - No CAND type found.(6 required, 0 found)
- progressive voicelessness assimilation in stops ===== [oral stop,voiced] -> [voiceless],[] / [voiceless] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'r', 'i', 'e', 'ɛ', 'ɔ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @590961131 
- generator 236@_generate_helper
-[2019-09-26 17:11:56] - DEBUG - No CADNT type found.(3 required, 0 found)
- word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @458792565 
- generator 236@_generate_helper
-[2019-09-26 17:11:56] - DEBUG - No NCAD type found.(6 required, 0 found)
- word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @458792565 
- generator 236@_generate_helper
-[2019-09-26 17:11:56] - DEBUG - Data recorded: 
-UR [('ʃəfa', 'repair'), ('wuŋ', 'tooth'), ('sup', 'look'), ('wig', 'they'), ('d͡ʒi', 'horn'), ('gibə', 'not'), ('budij', 'evil'), ('wal', 'father'), ('miji', 'lake'), ('bugu', 'fight'), ('waglat', 'knee'), ('biʔa', 'sauce'), ('ʔabgur', 'juice'), ('mu', 'throat'), ('buŋpi', 'hedgehog'), ('nəlʃu', 'pinch'), ('papə', 'bumpy'), ('jin', 'who'), ('wuspal', 'enjoy'), ('ʃagad', 'understand'), ('jəli', 'bake'), ('jəbam', 'many'), ('lud͡ʒpad', 'pink'), ('ʃəsaw', 'nose'), ('wəʔaw', 'sibling'), ('wəd', 'abdomen'), ('məd͡ʒ', 'spouse'), ('ʔaglu', 'direction'), ('d͡ʒəb', 'you (dual)'), ('naθu', 'puppy')]
-SR [('ʃəfa', 'repair'), ('wuŋ̥', 'tooth'), ('sup', 'look'), ('wik', 'they'), ('d͡ʒi', 'horn'), ('gibə', 'not'), ('budij̥', 'evil'), ('wal̥', 'father'), ('miji', 'lake'), ('bugu', 'fight'), ('waglat', 'knee'), ('biʔa', 'sauce'), ('ʔabgur̥', 'juice'), ('mu', 'throat'), ('buŋpi', 'hedgehog'), ('nəlʃu', 'pinch'), ('papə', 'bumpy'), ('jin̥', 'who'), ('wuspal̥', 'enjoy'), ('ʃagat', 'understand'), ('jəli', 'bake'), ('jəbam̥', 'many'), ('lud͡ʒpat', 'pink'), ('ʃəsaʍ', 'nose'), ('wəʔaʍ', 'sibling'), ('wət', 'abdomen'), ('mət͡ʃ', 'spouse'), ('ʔaglu', 'direction'), ('d͡ʒəp', 'you (dual)'), ('naθu', 'puppy')]
-word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @458792565
- 
- routes 70@_get_valid_data
-[2019-09-26 17:12:02] - DEBUG - No CADT type found.(12 required, 0 found)
- palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'i', 'ɛ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @338042383 
- generator 236@_generate_helper
-[2019-09-26 17:12:02] - DEBUG - No NCAD type found.(6 required, 0 found)
- palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'i', 'ɛ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @338042383 
- generator 236@_generate_helper
-[2019-09-26 17:12:02] - DEBUG - Data recorded: 
-UR [('tɑdɑp', 'how'), ('tɛvsæ', 'bile'), ('titkæ', 'regret'), ('dæsuʃ', 'chin'), ('dɑmæð', 'chest'), ('dædt͡ʃi', 'chicken'), ('dɛsi', 'nowhere'), ('dæk', 'we'), ('mɑdɑd', 'sesame'), ('gæztæv', 'moon'), ('pæt', 'rice'), ('diztɑ', 'sister'), ('visʃɑt', 'many'), ('dizɑ', 'ask'), ('d͡ʒɑdɛ', 'they (neut)'), ('tɛk', 'fur'), ('zɑfɛd', 'fail'), ('ðutzæz', 'study'), ('tɛʃtɛt', 'hyena'), ('dɛd͡ʒɑ', 'take'), ('figdɑd', 'each'), ('tɛʒ', 'clear'), ('tɑpɛ', 'eyelash'), ('hæt', 'pepper'), ('dɑsɛ', 'adapt'), ('θɑʃɑθ', 'pea'), ('ʒɛ', 'wolf'), ('tæfu', 'fire'), ('gitgæ', 'understand'), ('guʒu', 'grape')]
-SR [('tɑdɑp', 'how'), ('tɛvsæ', 'bile'), ('titkæ', 'regret'), ('dæsuʃ', 'chin'), ('dɑmæð', 'chest'), ('dædt͡ʃi', 'chicken'), ('dɛsi', 'nowhere'), ('dæk', 'we'), ('mɑdɑd', 'sesame'), ('gæztæv', 'moon'), ('pæt', 'rice'), ('diztɑ', 'sister'), ('visʃɑt', 'many'), ('dizɑ', 'ask'), ('d͡ʒɑdɛ', 'they (neut)'), ('tɛk', 'fur'), ('zɑfɛd', 'fail'), ('ðutzæz', 'study'), ('tɛʃtɛt', 'hyena'), ('dɛd͡ʒɑ', 'take'), ('figdɑd', 'each'), ('tɛʒ', 'clear'), ('tɑpɛ', 'eyelash'), ('hæt', 'pepper'), ('dɑsɛ', 'adapt'), ('θɑʃɑθ', 'pea'), ('ʒɛ', 'wolf'), ('tæfu', 'fire'), ('gitgæ', 'understand'), ('guʒu', 'grape')]
-palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'i', 'ɛ', 'u', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @338042383
- 
- routes 70@_get_valid_data
-[2019-09-26 17:12:12] - DEBUG - No CADNT type found.(2 required, 0 found)
- raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @67236186 
- generator 236@_generate_helper
-[2019-09-26 17:12:13] - DEBUG - No NCAD type found.(3 required, 0 found)
- raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @67236186 
- generator 236@_generate_helper
-[2019-09-26 17:12:13] - DEBUG - No CADNT type found.(2 required, 0 found)
- raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @67236186 
- generator 236@_generate_helper
-[2019-09-26 17:12:13] - DEBUG - No NCAD type found.(3 required, 0 found)
- raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @67236186 
- generator 236@_generate_helper
-[2019-09-26 17:12:13] - DEBUG - Data recorded: 
-UR [('ðakfak', 'zero'), ('kiθlaʃ', 'face'), ('jap', 'kitten'), ('gadez', 'kneel'), ('zav', 'resist'), ('ʒaʒaθ', 'kick'), ('ʒaθte', 'rhinoceros'), ('gaθpa', 'rabbit'), ('ŋɛwaf', 'child'), ('saʃ', 'return'), ('ʃas', 'taste'), ('fagaθ', 'spider'), ('ŋatʒa', 'waist'), ('taj', 'gecko'), ('ʔidʔa', 'fire'), ('vɛna', 'small'), ('gidðap', 'ocean'), ('ʔaʔta', 'person'), ('gatbeʔ', 'wife'), ('ʔijðeʒ', 'bumpy'), ('sɛva', 'black'), ('kan', 'sand'), ('pa', 'grain'), ('daplɛ', 'fog'), ('livtɛ', 'experience'), ('ʃaθa', 'neck'), ('ʒav', 'discover'), ('wabag', 'scream'), ('nafʔa', 'chickpea'), ('maz', 'feather')]
-SR [('ðəkfək', 'zero'), ('kiθləʃ', 'face'), ('jəp', 'kitten'), ('gadez', 'kneel'), ('zav', 'resist'), ('ʒaʒəθ', 'kick'), ('ʒəθte', 'rhinoceros'), ('gəθpa', 'rabbit'), ('ŋɛwəf', 'child'), ('səʃ', 'return'), ('ʃəs', 'taste'), ('fagəθ', 'spider'), ('ŋətʒa', 'waist'), ('taj', 'gecko'), ('ʔidʔa', 'fire'), ('vɛna', 'small'), ('gidðəp', 'ocean'), ('ʔəʔta', 'person'), ('gətbeʔ', 'wife'), ('ʔijðeʒ', 'bumpy'), ('sɛva', 'black'), ('kan', 'sand'), ('pa', 'grain'), ('dəplɛ', 'fog'), ('livtɛ', 'experience'), ('ʃaθa', 'neck'), ('ʒav', 'discover'), ('wabag', 'scream'), ('nəfʔa', 'chickpea'), ('maz', 'feather')]
-raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]# 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @67236186
- 
- routes 70@_get_valid_data
-[2019-09-26 17:12:17] - DEBUG - No CADNT type found.(3 required, 0 found)
- progressive obstruent voicing assimilation in stops ===== [oral stop,voiceless] -> [voiced],[] / [voiced,obstruent] _  
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'i', 'ɔ', 'o', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @621932512 
- generator 236@_generate_helper
-[2019-09-26 17:12:17] - DEBUG - No CAND type found.(6 required, 0 found)
- progressive obstruent voicing assimilation in stops ===== [oral stop,voiceless] -> [voiced],[] / [voiced,obstruent] _  
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'i', 'ɔ', 'o', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @621932512 
- generator 236@_generate_helper
-[2019-09-26 17:12:18] - DEBUG - Data recorded: 
-UR [('dopum', 'recline'), ('puʒtɔ', 'dog'), ('koðθo', 'cod'), ('povtɔ', 'mother'), ('dogoʒ', 'bright'), ('soʒtɔl', 'buttocks'), ('kivpuk', 'one'), ('d͡ʒi', 'where'), ('kuʒto', 'roll'), ('pisoʃ', 'forest'), ('tatun', 'want'), ('pazkaʒ', 'all'), ('kɔd͡ʒkup', 'improve'), ('ʃɔd͡ʒhaʃ', 'gecko'), ('pobkaθ', 'choose'), ('θovpa', 'we (excl)'), ('zip', 'cream'), ('sid͡ʒkut͡ʃ', 'meal'), ('kudka', 'obtain'), ('d͡ʒittɔ', 'rye'), ('kɔp', 'grass'), ('tɔptut', 'throat'), ('θavtul', 'eat'), ('kuðkun', 'they (fem)'), ('tod͡ʒɔ', 'south'), ('mosik', 'it'), ('katri', 'experience'), ('t͡ʃuvpiʃ', 'snore'), ('fɔðpod', 'woman'), ('sispo', 'wife')]
-SR [('dopum', 'recline'), ('puʒdɔ', 'dog'), ('koðθo', 'cod'), ('povdɔ', 'mother'), ('dogoʒ', 'bright'), ('soʒdɔl', 'buttocks'), ('kivbuk', 'one'), ('d͡ʒi', 'where'), ('kuʒdo', 'roll'), ('pisoʃ', 'forest'), ('tatun', 'want'), ('pazgaʒ', 'all'), ('kɔd͡ʒgup', 'improve'), ('ʃɔd͡ʒhaʃ', 'gecko'), ('pobgaθ', 'choose'), ('θovba', 'we (excl)'), ('zip', 'cream'), ('sid͡ʒgut͡ʃ', 'meal'), ('kudga', 'obtain'), ('d͡ʒittɔ', 'rye'), ('kɔp', 'grass'), ('tɔptut', 'throat'), ('θavdul', 'eat'), ('kuðgun', 'they (fem)'), ('tod͡ʒɔ', 'south'), ('mosik', 'it'), ('katri', 'experience'), ('t͡ʃuvbiʃ', 'snore'), ('fɔðbod', 'woman'), ('sispo', 'wife')]
-progressive obstruent voicing assimilation in stops ===== [oral stop,voiceless] -> [voiced],[] / [voiced,obstruent] _  
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'i', 'ɔ', 'o', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @621932512
- 
- routes 70@_get_valid_data
-[2019-09-26 17:12:33] - DEBUG - No CADNT type found.(3 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 't', 'k', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @966482937 
- generator 236@_generate_helper
-[2019-09-26 17:12:33] - DEBUG - No NCAD type found.(6 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 't', 'k', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @966482937 
- generator 236@_generate_helper
-[2019-09-26 17:12:33] - DEBUG - No IRR type found.(3 required, 0 found)
- word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 't', 'k', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @966482937 
- generator 236@_generate_helper
-[2019-09-26 17:12:33] - DEBUG - Data recorded: 
-UR [('sɛt', 'cry'), ('kæn', 'nostril'), ('nɑpli', 'throat'), ('loθmɔ', 'turtle'), ('tæfel', 'eyelash'), ('θɛj', 'many'), ('tɑŋfe', 'damp'), ('hi', 'family'), ('mɛ', 'understand'), ('sɛjɛ', 'hedgehog'), ('mihsɑŋ', 'cook'), ('tektɔ', 'none'), ('tæte', 'five'), ('tifθil', 'feces'), ('poj', 'climb'), ('pɑ', 'prepare'), ('lɔkjo', 'serving'), ('sinmej', 'liquid'), ('hɛpɛ', 'decide'), ('fɔlsɔj', 'forehead'), ('lipoθ', 'day'), ('θɔlpɑ', 'recline'), ('hipæ', 'dolphin'), ('me', 'obtain'), ('fɔmnis', 'hair'), ('hoθo', 'sip'), ('fæŋɔ', 'puppy'), ('jik', 'fire'), ('siso', 'broken'), ('sosmi', 'repeat')]
-SR [('sɛt', 'cry'), ('kæn', 'nostril'), ('nɑpli̥', 'throat'), ('loθmɔ̥', 'turtle'), ('tæfel', 'eyelash'), ('θɛj', 'many'), ('tɑŋfe̥', 'damp'), ('hi̥', 'family'), ('mɛ̥', 'understand'), ('sɛjɛ̥', 'hedgehog'), ('mihsɑŋ', 'cook'), ('tektɔ̥', 'none'), ('tæte̥', 'five'), ('tifθil', 'feces'), ('poj', 'climb'), ('pɑ̥', 'prepare'), ('lɔkjo̥', 'serving'), ('sinmej', 'liquid'), ('hɛpɛ̥', 'decide'), ('fɔlsɔj', 'forehead'), ('lipoθ', 'day'), ('θɔlpɑ̥', 'recline'), ('hipæ̥', 'dolphin'), ('me̥', 'obtain'), ('fɔmnis', 'hair'), ('hoθo̥', 'sip'), ('fæŋɔ̥', 'puppy'), ('jik', 'fire'), ('siso̥', 'broken'), ('sosmi̥', 'repeat')]
-word-final vowel devoicing ===== [vowel,voiced] -> [voiceless],[] /  _ # 
- ['p', 't', 'k', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @966482937
- 
- routes 70@_get_valid_data
-[2019-09-26 17:12:40] - DEBUG - No CADNT type found.(3 required, 0 found)
- intervocalic fricative voicing ===== [not spread,fricative,voiceless] -> [voiced],[] / [vowel] _ [vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'w', 'j', 'i', 'ɪ', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @861863326 
- generator 236@_generate_helper
-[2019-09-26 17:12:40] - DEBUG - Data recorded: 
-UR [('dɑθɪ', 'jaw'), ('θo', 'llama'), ('ʒuʃɛw', 'direction'), ('fɔ', 'old'), ('væsɑj', 'evil'), ('hʊfo', 'chest'), ('θɑs', 'laugh'), ('d͡ʒɑsu', 'feed'), ('ðɛslɑg', 'adapt'), ('ʔəfæʃ', 'go'), ('hof', 'fox'), ('sɔθʊd͡ʒ', 'group'), ('ŋɑnəd', 'beard'), ('t͡ʃɑʃu', 'alligator'), ('θʊ', 'all'), ('t͡ʃɪvfu', 'argue'), ('ʒɛfsɛʃ', 'leg'), ('θuθʊ', 'tooth'), ('jɪʃɪ', 'duck'), ('ʃuʔsʊ', 'eyelid'), ('vuʃʔæʃ', 'valley'), ('ʔɑd͡ʒ', 'you (sg)'), ('hɪmʃi', 'destroy'), ('ʃiθos', 'pumpkin'), ('ʔʊsæ', 'lung'), ('dɛfʊl', 'parent'), ('bɛpʊð', 'man'), ('jɪfɪ', 'fruit bat'), ('ʃiʃæ', 'find'), ('ðuθsip', 'red')]
-SR [('dɑðɪ', 'jaw'), ('θo', 'llama'), ('ʒuʒɛw', 'direction'), ('fɔ', 'old'), ('væzɑj', 'evil'), ('hʊvo', 'chest'), ('θɑs', 'laugh'), ('d͡ʒɑzu', 'feed'), ('ðɛslɑg', 'adapt'), ('ʔəvæʃ', 'go'), ('hof', 'fox'), ('sɔðʊd͡ʒ', 'group'), ('ŋɑnəd', 'beard'), ('t͡ʃɑʒu', 'alligator'), ('θʊ', 'all'), ('t͡ʃɪvfu', 'argue'), ('ʒɛfsɛʃ', 'leg'), ('θuðʊ', 'tooth'), ('jɪʒɪ', 'duck'), ('ʃuʔsʊ', 'eyelid'), ('vuʃʔæʃ', 'valley'), ('ʔɑd͡ʒ', 'you (sg)'), ('hɪmʃi', 'destroy'), ('ʃiðos', 'pumpkin'), ('ʔʊzæ', 'lung'), ('dɛvʊl', 'parent'), ('bɛpʊð', 'man'), ('jɪvɪ', 'fruit bat'), ('ʃiʒæ', 'find'), ('ðuθsip', 'red')]
-intervocalic fricative voicing ===== [not spread,fricative,voiceless] -> [voiced],[] / [vowel] _ [vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'l', 'w', 'j', 'i', 'ɪ', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @861863326
- 
- routes 70@_get_valid_data
+jinja2.exceptions.UndefinedError: list object has no element 20

@@ -1,0 +1,41 @@
+#   # lines resets random var, within each # block, 1st double is used in if/elif 'randvar < possibility'
+#   put 1.1 for else cases. Lines with len 2 means [1] list gets fully appended to drop list
+#   Lines with len >= 3 must have odd numbers of arguments (drop list and sample size)
+#   filter 1
+0.5 ["ʔ"] 1
+#   filter 2
+0.5 ["h"] 1
+#   filter 3
+0.5 ["t͡ʃ","d͡ʒ"] 2
+#   filter 4
+0.25 ["v","ð","z","ʒ"] 4
+0.5 ["v","ð","z","ʒ","b","d","g","d͡ʒ"] 8
+#   filter 5
+0.15 ["f","v"] 2
+#   filter 6
+0.15 ["θ","ð"] 2
+#   filter 7
+0.15 ["ʃ","ʒ"] 2
+#   filter 8
+0.15 ["m"] 1
+#   filter 9
+0.25 ["ŋ"] 1
+#   filter 10
+0.25 ["r","l","w","j"] 1
+0.5 ["r","l","w","j"] 2
+0.75 ["r","l","w","j"] 3
+#   filter 11
+0.75 ["æ","ɑ"] 2
+1.0 ["a"] 1
+#   filter 12
+0.5 ["ə"] 1
+#   filter 13
+0.2 ["ɪ","ʊ","e","ɛ","ɔ","o"] 6
+0.4 ["ɪ","ʊ"] 2 ["e","ɛ","ɔ","o"] 3
+0.5 ["ɪ","ʊ"] 2 ["e","ɛ","ɔ","o"] 2
+0.6 ["ɪ","ʊ","u"] 3 ["e","ɛ","ɔ","o"] 2
+0.7 ["ɪ","ʊ"] 2 ["e","ɛ","ɔ","o"] 1
+0.75 ["ɪ","ʊ","u"] 3 ["e","ɛ","ɔ","o"] 1
+0.8 ["e","ɛ","ɔ","o"] 1
+0.9 ["ɪ","ʊ"] 2
+0.95 ["ɪ","ʊ","u"] 3

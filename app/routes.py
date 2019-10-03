@@ -23,7 +23,7 @@ def index():
             rule_selection = random.randint(0, TOTAL_RULE_COUNT - 1)
 
         size = gen_spec_form.question_size.data
-        data = _get_valid_data(get_random_phonemes(), rule_selection, size, gen_spec_form.randomize_order.data)
+        data = _get_valid_data(rule_selection, size, gen_spec_form.randomize_order.data)
 
         if data is None:
             return redirect(url_for('index'))
@@ -33,14 +33,17 @@ def index():
     return render_template('index.html', title='Demo', form=gen_spec_form)
 
 
-def _get_valid_data(phonemes: list, rule_selection: int, size: int, is_shuffled: bool):
+def _get_valid_data(rule_selection: int, size: int, is_shuffled: bool):
     global gen
     data = None
     retry_count = 0
+    rule_selected = DEFAULT_DATA['rules'][rule_selection]  # type: Rule
 
     while True:
+        phonemes = get_random_phonemes(rule_selected.get_a_matcher(None, None, DEFAULT_DATA['f2ss']))
+
         try:
-            gen = Generator(phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['rules'][rule_selection], 5,
+            gen = Generator(phonemes, DEFAULT_DATA['templates'], rule_selected, 5,
                             DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
             data = gen.generate(size, True, is_shuffled, DEFAULT_DATA['f2t'],
                                 DEFAULT_DATA['f2ss'],
@@ -61,7 +64,8 @@ def _get_valid_data(phonemes: list, rule_selection: int, size: int, is_shuffled:
         except Exception as err:
             template_str = [str(t) for t in DEFAULT_DATA['templates']]
             rule_str = str(DEFAULT_DATA['rules'][rule_selection])
-            LOGGER.exception("Unexpected Error. ENV: \n %s \n %s \n %s" % (rule_str, phonemes, template_str))
+            LOGGER.exception(
+                "Unexpected Error. ENV: \n %s \n %s \n %s" % (rule_str, [str(w) for w in phonemes], template_str))
             raise err
 
     if data is not None:
@@ -69,6 +73,6 @@ def _get_valid_data(phonemes: list, rule_selection: int, size: int, is_shuffled:
             [(str(s[0]), str(s[1])) for s in data['UR']], [(str(s[0]), str(s[1])) for s in data['SR']],
             gen.get_log_stamp()))
     else:
-        LOGGER.debug("No data recorded (None). \n%s\n" % gen.get_log_stamp())
+        LOGGER.debug("No data recorded (None).")
 
     return data

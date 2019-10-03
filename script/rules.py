@@ -229,7 +229,7 @@ class Rule:
 
         return result
 
-    def get_a_matcher(self, phonemes: List[Word], size_limit: Optional[int, None],
+    def get_a_matcher(self, phonemes: Optional[None, List[Word]], size_limit: Optional[int, None],
                       feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
         a_matcher = []  # type: List[Word]
         for sec in self._As:

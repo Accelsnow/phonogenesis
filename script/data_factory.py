@@ -2,10 +2,16 @@ from typing import Dict, Any, List
 from script import Word
 
 
-def get_random_phonemes() -> List[Word]:
-    from script.phonemes import import_default_phonemes
+def get_random_phonemes(interested_words: List[Word]) -> List[Word]:
+    from script.phonemes import import_default_randomized_phonemes
 
-    return import_default_phonemes()
+    return import_default_randomized_phonemes(interested_words)
+
+
+def get_full_phonemes() -> List[Word]:
+    from script.phonemes import import_default_full_phonemes
+
+    return import_default_full_phonemes()
 
 
 def get_default_data() -> Dict[str, Any]:

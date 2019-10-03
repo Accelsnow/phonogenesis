@@ -286,8 +286,12 @@ class Generator:
         else:
             raise GeneratorParameterError(self, amount, "amount must be either int list or int")
 
+        LOGGER.debug("REQUEST: PIECES %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
+            split_size, cadt_num, cadnt_num, cand_num, ncad_num, irr_num))
         run_count = 1
         is_failed = False
+        underlying_rep = None
+        surface_rep = None
 
         for index in range(0, split_size):
 
@@ -305,28 +309,17 @@ class Generator:
 
                 # FINISH RANDOM PICK
                 cadt_res, cadnt_res, cand_res, ncad_res, irr_res = len(cadt_words), len(cadnt_words), len(
-                    cand_words), len(
-                    ncad_words), len(irr_words)
+                    cand_words), len(ncad_words), len(irr_words)
+
+                LOGGER.debug("1ST GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
+                    index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
 
                 if cadt_res == 0 and cadt_num > 0:
-                    if cadnt_res > 0:
-                        cadnt_words.extend(
-                            self._generate_helper(self._CADNT[index], cadt_num, "CADNT", feature_to_type,
-                                                  feature_to_sounds))
-                    elif cand_res > 0:
-                        cand_words.extend(
-                            self._generate_helper(self._CAND[index], cadt_num, "CAND", feature_to_type,
-                                                  feature_to_sounds))
-                    elif ncad_res > 0:
-                        ncad_words.extend(
-                            self._generate_helper(self._NCAD[index], cadt_num, "NCAD", feature_to_type,
-                                                  feature_to_sounds))
-                    else:
-                        LOGGER.warning(
-                            "Condition Index %d does not have any related data\n %s" % (index, self.get_log_stamp()))
-                        run_count += 1
-                        is_failed = True
-                        break
+                    LOGGER.warning(
+                        "Condition Index %d does not have any related data\n %s" % (index, self.get_log_stamp()))
+                    run_count += 1
+                    is_failed = True
+                    break
 
                 if irr_res == 0 and irr_num > 0:
                     cadt_words.extend(
@@ -339,18 +332,24 @@ class Generator:
                 if cand_res == 0 and cand_num > 0:
                     if ncad_res == 0:
                         cadt_words.extend(
-                            self._generate_helper(self._CADT[index], cand_num + ncad_num, "CADT", feature_to_type,
+                            self._generate_helper(self._CADT[index], cand_num, "CADT", feature_to_type,
                                                   feature_to_sounds))
                     else:
                         ncad_words.extend(self._generate_helper(self._NCAD[index], cand_num, "NCAD", feature_to_type,
                                                                 feature_to_sounds))
 
                 if ncad_res == 0 and ncad_num > 0:
-                    cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
-                                                            feature_to_sounds))
+                    if cand_res == 0:
+                        cadt_words.extend(self._generate_helper(self._CADT[index], ncad_num, "CADT", feature_to_type,
+                                                                feature_to_sounds))
+                    else:
+                        cand_words.extend(self._generate_helper(self._CAND[index], ncad_num, "CAND", feature_to_type,
+                                                                feature_to_sounds))
 
-                # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words), "CAND", len(cand_words),
-                #      "NCAD", len(ncad_words), "IRR", len(irr_words))
+                LOGGER.debug("2ND GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
+                    index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
+
+                # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words),
                 generation_amounts[0] += len(cadt_words)
                 generation_amounts[1] += len(cadnt_words)
                 generation_amounts[2] += len(cand_words)
@@ -366,20 +365,23 @@ class Generator:
                 if is_shuffled:
                     random.shuffle(ur_words)
 
-            if not is_failed:
-                run_count = 1
-            else:
-                is_failed = False
+                if not is_failed:
+                    run_count = 1
+                else:
+                    is_failed = False
 
-        for word in ur_words:
-            sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
+                for word in ur_words:
+                    sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
 
-        size = len(ur_words)
+                size = len(ur_words)
 
-        gloss_words = [w.pick() for w in random.sample(gloss_groups, size)]
+                gloss_words = [w.pick() for w in random.sample(gloss_groups, size)]
 
-        underlying_rep = [(ur_words[i], gloss_words[i]) for i in range(0, size)]
-        surface_rep = [(sr_words[i], gloss_words[i]) for i in range(0, size)]
+                underlying_rep = [(ur_words[i], gloss_words[i]) for i in range(0, size)]
+                surface_rep = [(sr_words[i], gloss_words[i]) for i in range(0, size)]
+
+        if underlying_rep is None or surface_rep is None:
+            raise GenerationNoCADTError(self)
 
         return {"UR": underlying_rep, "SR": surface_rep, "rule": self._rule, "templates": self._templates,
                 "phonemes": self._phonemes, "gen_sum": generation_amounts}
