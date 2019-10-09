@@ -96,7 +96,7 @@ class Generator:
                                                  [str(w) for w in related_word_list], word))
                     elif ExampleType.CADT in data:
                         inherited = [r for r in records if r[0] == ExampleType.CADT]
-                        inherited.append((ExampleType.CADT, self._CADT[index], data[ExampleType.CADT], word))
+                        inherited.append((ExampleType.CADT, self._CADT[index], data[ExampleType.CADT], word,))
                         records = inherited
                         no_irr = True
                         break
@@ -166,10 +166,14 @@ class Generator:
         ncad = round(amount * diff_data[3])
         irr = round(amount * diff_data[4])
 
-        if cadt + cadnt + cand + ncad + irr > amount:
-            irr -= 1
+        total_num = cadt + cadnt + cand + ncad + irr
 
-        # TODO print("\nExpected Number:", "CADT", cadt, "CADNT", cadnt, "CAND", cand, "NCAD", ncad, "IRR", irr)
+        if total_num > amount:
+            irr -= total_num - amount
+
+        if total_num < amount:
+            cadt += amount - total_num
+
         return cadt, cadnt, cand, ncad, irr
 
     @staticmethod

@@ -7,6 +7,7 @@
         {{ form.hidden_tag() }}
         <p>{{ form.rule_selection.label }} {{ form.rule_selection(size=10) }}</p>
         <p>{{ form.question_size.label }} {{ form.question_size(size=10) }}</p>
+        <p>{{ form.type_selection.label }} {{ form.type_selection() }}</p>
         <p>{{ form.randomize_order() }} {{ form.randomize_order.label }}</p>
         <p>{{ form.submit() }}</p>
         <p>
@@ -43,7 +44,7 @@
                     <tr>
                         <td>{{ data['UR'][i] }}</td>
                         <td>{{ data['SR'][i] }}</td>
-                        <td>{{ data['Gloss'][i] }}</td>
+                        <td>'{{ data['Gloss'][i] }}'</td>
                     </tr>
                 {% endfor %}
 

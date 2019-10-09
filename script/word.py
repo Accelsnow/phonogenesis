@@ -1,6 +1,9 @@
 from __future__ import annotations
-from typing import List, Optional
+from typing import List, Optional, Any, Dict
 from script.sound import Sound, _SYMBOL
+import logging
+
+LOGGER = logging.getLogger("app.logger")
 
 
 class Word:
@@ -30,6 +33,19 @@ class Word:
 
     def get_sounds(self) -> List[Sound]:
         return self._sounds
+
+    def get_sound_transformation(self, target_particle: Any, ignored_types: List[str], feature_to_type: Dict[str, str],
+                                 feature_to_sounds: Dict[str, List[Sound]]) -> Optional[Word, None]:
+        if len(self) != 1:
+            LOGGER.warning("Should not invoke sound transformation on word with length larger than 1")
+
+        transformed_sound = self._sounds[0].get_transformed_sound(target_particle, ignored_types, feature_to_type,
+                                                                  feature_to_sounds)
+
+        if transformed_sound is None:
+            return Word('')
+
+        return Word([transformed_sound])
 
     def change_word(self, index: int, target: Optional[None, Word]) -> Word:
         clone_sounds = [s for s in self._sounds]

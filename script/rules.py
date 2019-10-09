@@ -21,6 +21,14 @@ class ExampleType(Enum):
         return self.name
 
 
+class Classification(Enum):
+    Neutralizing = 0,
+    Alternating = 1
+
+    def __str__(self) -> str:
+        return self.name
+
+
 def _get_c_instance_matcher(c_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
                             size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
     if c_instance is None:
@@ -241,7 +249,7 @@ class Rule:
             a_matcher.extend(words)
         return a_matcher
 
-    def get_cd_matchers(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
+    def get_cd_matchers(self, phonemes: Optional[List[Word], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
         Tuple[List[Word], List[Word]]]:
         cd_matchers = []  # type: List[Tuple[List[Word], List[Word]]]
 
@@ -251,12 +259,25 @@ class Rule:
 
         return cd_matchers
 
+    def get_classification(self, phonemes: Optional[List[Word], None], feature_to_type: Dict[str, str],
+                           feature_to_sounds: Dict[str, List[Sound]]) -> Classification:
+        if self._B is None:
+            return Classification.Alternating
+
+        a_matchers = self.get_a_matcher(phonemes, None, feature_to_sounds)
+
+        for a in a_matchers:
+            if a.get_sound_transformation(self._B[0], self._B[1], feature_to_type, feature_to_sounds) in a_matchers:
+                return Classification.Neutralizing
+
+        return Classification.Alternating
+
     def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
         for i in range(0, len(self._Cs)):
             if (self._Cs[i] is None or len(
                     _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)) > 0) and (
                     self._Ds[i] is None or len(
-                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
+                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
                 return True
         return False
 

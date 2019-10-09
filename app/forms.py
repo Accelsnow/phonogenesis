@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, BooleanField, IntegerField
+from wtforms import SubmitField, BooleanField, IntegerField, SelectField
 from wtforms.validators import DataRequired, ValidationError, NumberRange, Optional
 from app import TOTAL_RULE_COUNT
 
@@ -15,3 +15,6 @@ class GenerationSpec(FlaskForm):
     question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)])
     submit = SubmitField('Get Question!')
     randomize_order = BooleanField("Shuffle Result?")
+    type_selection = SelectField("Question Type", choices=[(1, "Alternating"),
+                                                           (2, "Neutralizing")],
+                                 coerce=int)
