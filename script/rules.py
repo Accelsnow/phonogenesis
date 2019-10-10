@@ -21,7 +21,7 @@ class ExampleType(Enum):
         return self.name
 
 
-class Classification(Enum):
+class RuleType(Enum):
     Neutralizing = 0,
     Alternating = 1
 
@@ -260,17 +260,17 @@ class Rule:
         return cd_matchers
 
     def get_classification(self, phonemes: Optional[List[Word], None], feature_to_type: Dict[str, str],
-                           feature_to_sounds: Dict[str, List[Sound]]) -> Classification:
+                           feature_to_sounds: Dict[str, List[Sound]]) -> RuleType:
         if self._B is None:
-            return Classification.Alternating
+            return RuleType.Alternating
 
         a_matchers = self.get_a_matcher(phonemes, None, feature_to_sounds)
 
         for a in a_matchers:
             if a.get_sound_transformation(self._B[0], self._B[1], feature_to_type, feature_to_sounds) in a_matchers:
-                return Classification.Neutralizing
+                return RuleType.Neutralizing
 
-        return Classification.Alternating
+        return RuleType.Alternating
 
     def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
         for i in range(0, len(self._Cs)):

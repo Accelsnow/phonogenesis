@@ -2,22 +2,42 @@
 
 {% block content %}
     <h1>Phonogenesis - Alpha Prototype</h1>
+    <div>
+        <form action="" method="post" novalidate>
+            {{ gen_form.hidden_tag() }}
+            <p>{{ gen_form.rule_selection.label }} {{ gen_form.rule_selection(size=10) }}</p>
+            <p>{{ gen_form.question_size.label }} {{ gen_form.question_size(size=10) }}</p>
+            <p>{{ gen_form.type_selection.label }} {{ gen_form.type_selection() }}</p>
+            <p>{{ gen_form.randomize_order() }} {{ gen_form.randomize_order.label }}</p>
+            <p>{{ gen_form.submit() }}</p>
+            <p>
+                {% for error in gen_form.rule_selection.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+        </form>
+    </div>
 
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>{{ form.rule_selection.label }} {{ form.rule_selection(size=10) }}</p>
-        <p>{{ form.question_size.label }} {{ form.question_size(size=10) }}</p>
-        <p>{{ form.type_selection.label }} {{ form.type_selection() }}</p>
-        <p>{{ form.randomize_order() }} {{ form.randomize_order.label }}</p>
-        <p>{{ form.submit() }}</p>
-        <p>
-            {% for error in form.rule_selection.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-    </form>
+    <div>
+        <form action="" method="post" novalidate>
+            {{ hint_form.hidden_tag() }}
+            <p>{{ hint_form.hints.label }} {{ hint_form.hints() }}</p>
+            <p>{{ hint_form.submit_hint() }}</p>
+        </form>
+    </div>
+
+    <div>
+        <form action="" method="post" novalidate>
+            {{ gen_more_form.hidden_tag() }}
+            <p>{{ gen_more_form.requested_type.label }} {{ gen_more_form.requested_type() }}</p>
+            <p>{{ gen_more_form.submit_request() }}</p>
+        </form>
+    </div>
 
     {% if data and size %}
+        <div>
+
+        </div>
         <div>
             <p>Rule: {{ data['rule'] }}</p>
             <p>Phonemes:
@@ -25,6 +45,10 @@
                     {{ phoneme }}
                 {% endfor %}
             </p>
+            {% if show_interest %}
+                <p> SUCCESS </p>
+            {% endif %}
+            <p>Amount: {{ size }}</p>
             <p>Templates: </p>
             <ul>
                 {% for template in data['templates'] %}
@@ -32,8 +56,7 @@
                 {% endfor %}
             </ul>
 
-            <p>Amount: {{ size }}</p>
-            <table>
+            <table class="result">
                 <tr>
                     <th>UR</th>
                     <th>SR</th>

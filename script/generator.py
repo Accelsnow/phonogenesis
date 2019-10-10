@@ -91,8 +91,8 @@ class Generator:
                         self._IRR.append({})
 
                     if ExampleType.IRR in data:
-                        raise GeneratorError(self,
-                                             "Related word list should never have IRR type. Related word list: %s || Word: %s" % (
+                        raise GeneratorError(self, "Related word list should never have IRR type. "
+                                                   "Related word list: %s || Word: %s" % (
                                                  [str(w) for w in related_word_list], word))
                     elif ExampleType.CADT in data:
                         inherited = [r for r in records if r[0] == ExampleType.CADT]

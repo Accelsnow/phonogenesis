@@ -1,0 +1,12 @@
+.result {
+    text-align: center;
+    border: 15px solid transparent;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    padding: 15px;
+}
+
+td, th {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10em;
+}
