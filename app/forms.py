@@ -4,7 +4,9 @@ from wtforms.validators import DataRequired, ValidationError, NumberRange, Optio
 from app import TOTAL_RULE_COUNT
 from script import RuleType
 
-TYPE_DICT = {RuleType.Alternating: 1, RuleType.Neutralizing: 2}
+TYPE_SELECTION_DICT = {1: RuleType.Alternating, 2: RuleType.Neutralizing}
+HINT_SELECTION_DICT = {1: "poi", 2: "fp"}
+MORE_GEN_SELECTION_DICT = {1: "CADT", 2: "CAND", 3: "NCAD"}
 
 
 def validate_rule_selection(form, field):
@@ -22,10 +24,14 @@ class GenerationSpec(FlaskForm):
 
 
 class GetHint(FlaskForm):
-    hints = SelectField("More Hints: ", coerce=int, choices=[(1, "Phones of Interest"), (2, "Full phonemes")])
+    hints = SelectField("More Hints: ", coerce=int, choices=[(1, "Phones of Interest"), (2, "Full Phonemes")])
     submit_hint = SubmitField("Get Hint!")
 
 
 class GenerateMore(FlaskForm):
     requested_type = SelectField("Type to Generate ", coerce=int, choices=[(1, "CADT"), (2, "CAND"), (3, "NCAD")])
     submit_request = SubmitField("Get More!")
+
+
+class ShowAnswer(FlaskForm):
+    show_answer = SubmitField("Show Answer!")

@@ -133,8 +133,6 @@ class Generator:
                 for index in range(0, len(self._IRR)):
                     self._dict_add(self._IRR[index], Word(''), word)
 
-        # TODO print(generation_summary)
-
     @staticmethod
     def _dict_add(dic: Dict[Word, List[Word]], key: Word, value: Word) -> None:
         if key in dic:
@@ -359,7 +357,6 @@ class Generator:
             LOGGER.debug("2ND GET: PCS_INDEX %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n" % (
                 index, len(cadt_words), len(cadnt_words), len(cand_words), len(ncad_words), len(irr_words)))
 
-            # TODO print("\nActual Number:", "CADT", len(cadt_words), "CADNT", len(cadnt_words),
             generation_amounts[0] += len(cadt_words)
             generation_amounts[1] += len(cadnt_words)
             generation_amounts[2] += len(cand_words)
@@ -391,8 +388,10 @@ class Generator:
 
         gloss_words = [w.pick() for w in random.sample(gloss_groups, ur_size)]
 
-        return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule,
-                "templates": self._templates, "phonemes": self._phonemes, "gen_sum": generation_amounts}
+        phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
+
+        return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule, "templates": self._templates,
+                "phonemes": self._phonemes, "phone_interest": phones_of_interest}
 
 
 class GeneratorError(Exception):

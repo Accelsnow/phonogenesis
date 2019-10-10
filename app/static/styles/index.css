@@ -10,3 +10,11 @@ td, th {
     font-family: "Times New Roman", Times, serif;
     font-size: 10em;
 }
+
+.answer {
+    font-size: 15em;
+    font-style: oblique;
+    border: 2px solid orangered;
+    border-spacing: 10px;
+    padding: 10px;
+}

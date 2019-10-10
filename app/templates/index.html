@@ -9,7 +9,7 @@
             <p>{{ gen_form.question_size.label }} {{ gen_form.question_size(size=10) }}</p>
             <p>{{ gen_form.type_selection.label }} {{ gen_form.type_selection() }}</p>
             <p>{{ gen_form.randomize_order() }} {{ gen_form.randomize_order.label }}</p>
-            <p>{{ gen_form.submit() }}</p>
+            <p>{{ gen_form.submit() }} {{ answer_form.show_answer() }}</p>
             <p>
                 {% for error in gen_form.rule_selection.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -39,15 +39,24 @@
 
         </div>
         <div>
-            <p>Rule: {{ data['rule'] }}</p>
-            <p>Phonemes:
-                {% for phoneme in data['phonemes'] %}
-                    {{ phoneme }}
-                {% endfor %}
-            </p>
-            {% if show_interest %}
-                <p> SUCCESS </p>
+            {% if show_answer %}
+                <p class="answer">Rule: {{ data['rule'] }}</p>
             {% endif %}
+            {% if show_full_phonemes %}
+                <p>Phonemes:
+                    {% for phoneme in data['phonemes'] %}
+                        {{ phoneme }}
+                    {% endfor %}
+                </p>
+            {% endif %}
+            {% if show_phone_interest %}
+                <p>
+                    {% for phone in data['phone_interest'] %}
+                        {{ phone }}
+                    {% endfor %}
+                </p>
+            {% endif %}
+
             <p>Amount: {{ size }}</p>
             <p>Templates: </p>
             <ul>
