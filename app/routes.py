@@ -11,28 +11,23 @@ RETRY_LIMIT = 50
 gen: Generator
 data: dict
 size: int
+rule_type: str
 LOGGER = logging.getLogger("app.logger")
-show_phone_interest: bool
-show_full_phonemes: bool
+show_phone_interest = False
+show_full_phonemes = False
 
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global data, size, show_phone_interest, show_full_phonemes
-
-    if 'show_full_phoneme' not in globals():
-        show_full_phonemes = False
-
-    if 'show_phone_interest' not in globals():
-        show_phone_interest = False
+    global data, size, rule_type, show_phone_interest, show_full_phonemes
 
     gen_spec_form = GenerationSpec()
     hint_form = GetHint()
     generate_more_form = GenerateMore()
     answer_form = ShowAnswer()
 
-    if gen_spec_form.validate_on_submit():
+    if gen_spec_form.submit.data and gen_spec_form.validate_on_submit():
         type_selection = gen_spec_form.type_selection.data
         LOGGER.debug("Type Selection: %s", str(type_selection))
         rule_selection_data = gen_spec_form.rule_selection.data
@@ -51,9 +46,9 @@ def index():
                 return redirect(url_for('index'))
 
             phonemes = get_random_phonemes(rule_selection.get_a_matcher(None, None, DEFAULT_DATA['f2ss']))
-            rule_type = rule_selection.get_classification(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+            type_ = rule_selection.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
-            if TYPE_SELECTION_DICT[type_selection] != rule_type:
+            if TYPE_SELECTION_DICT[type_selection] is not None and TYPE_SELECTION_DICT[type_selection] != type_:
                 classification_match_retry += 1
 
                 if not is_selected:
@@ -63,6 +58,7 @@ def index():
 
             break
 
+        rule_type = str(type_)
         size = int(gen_spec_form.question_size.data)
 
         is_shuffled = bool(gen_spec_form.randomize_order.data)
@@ -73,9 +69,10 @@ def index():
             return redirect(url_for('index'))
         else:
             return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                                   gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size)
+                                   gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
+                                   rule_type=rule_type)
 
-    if hint_form.validate_on_submit():
+    if hint_form.submit_hint.data and hint_form.validate_on_submit() and 'data' in globals():
         hint_selection = hint_form.hints.data
 
         if HINT_SELECTION_DICT[hint_selection] == "poi":
@@ -86,9 +83,11 @@ def index():
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               show_full_phonemes=show_full_phonemes, show_phone_interest=show_phone_interest)
+                               rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               show_phone_interest=show_phone_interest)
 
-    if generate_more_form.validate_on_submit():
+    if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and 'data' in globals() \
+            and 'gen' in globals():
         generate_selection = generate_more_form.requested_type.data
         more_data = None
 
@@ -112,12 +111,13 @@ def index():
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               show_full_phonemes=show_full_phonemes, show_phone_interest=show_phone_interest)
+                               rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               show_phone_interest=show_phone_interest)
 
-    if answer_form.validate_on_submit():
+    if answer_form.show_answer.data and answer_form.validate_on_submit() and 'data' in globals():
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               show_full_phonemes=True, show_phone_interest=True, show_answer=True)
+                               rule_type=rule_type, show_full_phonemes=True, show_phone_interest=True, show_answer=True)
 
     return render_template('index.html', title='Demo', gen_form=gen_spec_form, hint_form=hint_form,
                            gen_more_form=generate_more_form, answer_form=answer_form)

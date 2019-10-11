@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     print("\n==================================================\n")
 
-    manual_rule_select = 27
+    manual_rule_select = 74
 
     use_rule = rules[manual_rule_select]
     amount = 20
@@ -110,13 +110,17 @@ if __name__ == '__main__':
     phonemes = import_default_randomized_phonemes(use_rule.get_a_matcher(None, None, feature_to_sounds))
     print("\nfull phonemes: ", [str(p) for p in phonemes])
 
-    while True:
-        # word = input("\nWord to check: ")
-        word = "ki"
-        print(rules[manual_rule_select])
-        print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
-        print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
-        break
+    print(use_rule)
+    print(use_rule.get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[0])
+    print(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds))
+
+    # while True:
+    #     # word = input("\nWord to check: ")
+    #     word = "ti"
+    #     print(rules[manual_rule_select])
+    #     print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
+    #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
+    #     break
 
     # use_templates = templates
     #

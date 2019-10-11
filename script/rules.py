@@ -23,7 +23,8 @@ class ExampleType(Enum):
 
 class RuleType(Enum):
     Neutralizing = 0,
-    Alternating = 1
+    Alternating = 1,
+    Mixed = 2
 
     def __str__(self) -> str:
         return self.name
@@ -259,18 +260,28 @@ class Rule:
 
         return cd_matchers
 
-    def get_classification(self, phonemes: Optional[List[Word], None], feature_to_type: Dict[str, str],
-                           feature_to_sounds: Dict[str, List[Sound]]) -> RuleType:
+    def get_rule_type(self, phonemes: List[Word], feature_to_type: Dict[str, str],
+                      feature_to_sounds: Dict[str, List[Sound]]) -> RuleType:
         if self._B is None:
             return RuleType.Alternating
+
+        has_alternating = False
+        has_neutralizing = False
 
         a_matchers = self.get_a_matcher(phonemes, None, feature_to_sounds)
 
         for a in a_matchers:
-            if a.get_sound_transformation(self._B[0], self._B[1], feature_to_type, feature_to_sounds) in a_matchers:
-                return RuleType.Neutralizing
+            if a.get_sound_transformation(self._B[0], self._B[1], feature_to_type, feature_to_sounds) in phonemes:
+                has_neutralizing = True
+            else:
+                has_alternating = True
 
-        return RuleType.Alternating
+        if has_alternating and not has_neutralizing:
+            return RuleType.Alternating
+        elif has_neutralizing and not has_alternating:
+            return RuleType.Neutralizing
+        else:
+            return RuleType.Mixed
 
     def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
         for i in range(0, len(self._Cs)):

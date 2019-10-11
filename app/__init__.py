@@ -1,4 +1,6 @@
 from flask import Flask
+from flask_bootstrap import Bootstrap
+
 from config import Config
 from script import get_default_data
 import logging
@@ -12,6 +14,7 @@ TOTAL_RULE_COUNT = len(DEFAULT_DATA['rules'])
 
 # flask initialization
 app = Flask(__name__)
+Bootstrap(app)
 app.config.from_object(Config)
 
 app.logger.setLevel(logging.DEBUG)

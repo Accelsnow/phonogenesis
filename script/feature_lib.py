@@ -94,7 +94,7 @@ def _fetch_feature_csv(filename: str) -> Tuple[
 
             line = [str(s).replace('ɡ', 'g') for s in line]
 
-            if line[0] == "[TL]":
+            if "[TL]" in line[0]:
                 if header_solved:
                     raise ImportError("Duplicate [TL] header found")
 

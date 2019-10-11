@@ -1,5 +1,4 @@
-﻿,,,,,,LABIAL,CORONAL,CORONAL,DORSAL,DORSAL,,,,,,,,,,,
-[TL],skeletal tier,primary POA,secondary POA,tertiary POA,specific C POA,rounding,anteriority,apicality,backness,height,tenseness,manner,voicing,major class,aperture,oral airflow,lateral,nasality,stridency,vocal fold spread,vocal fold constricted
+﻿[TL],skeletal tier,primary POA,secondary POA,tertiary POA,specific C POA,rounding,anteriority,apicality,backness,height,tenseness,manner,voicing,major class,aperture,oral airflow,lateral,nasality,stridency,vocal fold spread,vocal fold constricted
 p,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,oral stop,voiceless,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
 b,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,oral stop,voiced,obstruent,contoid,occlusive,not lateral,oral,NA,not spread,not constricted
 ɸ,consonant,labial,NA,NA,bilabial,unrounded,NA,NA,NA,NA,NA,fricative,voiceless,obstruent,contoid,continuant,not lateral,oral,not strident,not spread,not constricted
@@ -54,8 +53,8 @@ ṉ̥,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,nasal s
 ,,,,,,,,,,,,,,,,,,,,,
 t͡s,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
 d͡z,consonant,coronal,NA,NA,alveolar,NA,anterior,apical,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
-t͡ʃ,consonant,coronal,NA,NA,alveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
-d͡ʒ,consonant,coronal,NA,NA,alveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+t͡ʃ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
+d͡ʒ,consonant,coronal,NA,NA,postalveolar,NA,posterior,laminal,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
 t͡ʂ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,affricate,voiceless,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
 d͡ʐ,consonant,coronal,NA,NA,retroflex,NA,posterior,apical,NA,NA,NA,affricate,voiced,obstruent,contoid,occlusive,not lateral,oral,strident,not spread,not constricted
 ,,,,,,,,,,,,,,,,,,,,,
