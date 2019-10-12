@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import List, Optional, Dict, Tuple
+from typing import List, Optional, Dict, Tuple, Set
 
 from script import Word, Particle, Sound, Template
 
@@ -53,7 +53,7 @@ class Rule:
     _Cs: List[Optional[List[Particle], None]]
     _Ds: List[Optional[List[Particle], None]]
 
-    _CADT_lib: Dict[Word, List[Tuple[int, int]]]
+    _CADT_indexes: Dict[Word, Set[Tuple[int, int]]]
     _Cs_edge: List[bool]
     _Ds_edge: List[bool]
     _name: str
@@ -77,15 +77,15 @@ class Rule:
         self._Cs_edge = c_edge
         self._Ds_edge = d_edge
 
-        self._CADT_lib = {}
+        self._CADT_indexes = {}
 
     def apply(self, word: Word, phonemes: List[Word], feature_to_type: Dict[str, str],
               feature_to_sounds: Dict[str, List[Sound]]) -> Word:
-        if word not in self._CADT_lib.keys():
+        if word not in self._CADT_indexes.keys():
             if ExampleType.CADT not in self.classify(word, phonemes, feature_to_type, feature_to_sounds):
                 return word
 
-        indexes = list(set(self._CADT_lib[word]))
+        indexes = self._CADT_indexes[word]
         new_word = word
         prev_len = len(new_word)
         len_diff = 0
@@ -100,14 +100,14 @@ class Rule:
         return new_word
 
     def classify(self, word: Word, phonemes: List[Word], feature_to_type: Dict[str, str],
-                 feature_to_sounds: Dict[str, List[Sound]]) -> List[Dict[ExampleType, Word]]:
+                 feature_to_sounds: Dict[str, List[Sound]]) -> List[ExampleType]:
         a_data = self.locations_a(word, phonemes, feature_to_sounds)
         a_locations = list(a_data.keys())  # type: List[int]
 
         if len(a_locations) == 0 or a_locations == []:
-            return [{ExampleType.IRR: Word([Sound(-1, '', [])])} for _ in range(0, len(self._Cs))]
+            return [ExampleType.IRR for _ in range(0, len(self._Cs))]
         else:
-            extypes_to_sounds = [{} for _ in range(0, len(self._Cs))]  # type: List[Dict[ExampleType, Word]]
+            word_types = [None for _ in range(len(self._Cs))]  # type: List[Optional[None, ExampleType]]
 
             for i in range(0, len(self._Cs)):
                 c_instance = self._Cs[i]
@@ -167,27 +167,25 @@ class Rule:
                                     is_d = True
                                     break
 
-                    a_word = word[a_loc]
                     if is_c and is_d:
                         if word != self._do_replace(word, a_loc, a_loc + a_size, feature_to_type, feature_to_sounds):
-                            extypes_to_sounds[i] = {ExampleType.CADT: a_word}
+                            word_types[i] = ExampleType.CADT
                             location = (a_loc, a_loc + a_size)
 
-                            # if True not in [location in val for val in self._CADT_lib.values()]:
-                            if word in self._CADT_lib:
-                                self._CADT_lib[word].append(location)
+                            if word in self._CADT_indexes:
+                                self._CADT_indexes[word].add(location)
                             else:
-                                self._CADT_lib[word] = [location]
-                        elif ExampleType.CADT not in extypes_to_sounds[i]:
-                            extypes_to_sounds[i] = {ExampleType.CADNT: a_word}
+                                self._CADT_indexes[word] = {location}
+                        elif word_types[i] != ExampleType.CADT:
+                            word_types[i] = ExampleType.CADNT
 
-                    elif ExampleType.CADT not in extypes_to_sounds[i] and ExampleType.CADNT not in extypes_to_sounds[i]:
+                    elif ExampleType.CADT != word_types[i] and ExampleType.CADNT != word_types[i]:
                         if is_c and not is_d:
-                            extypes_to_sounds[i][ExampleType.CAND] = a_word
-                        if not is_c and is_d:
-                            extypes_to_sounds[i][ExampleType.NCAD] = a_word
+                            word_types[i] = ExampleType.CAND
+                        elif not is_c and is_d:
+                            word_types[i] = ExampleType.NCAD
 
-            return extypes_to_sounds
+            return word_types
 
     def get_interest_phones(self, phonemes: List[Word], feature_to_type: Dict[str, str],
                             feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Dict[str, str], List[str]]:

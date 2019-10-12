@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import random
-from typing import List, Tuple, Dict, Optional, Any
+from typing import List, Tuple, Dict, Optional, Any, Set
 
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
 import logging
@@ -19,28 +19,26 @@ class Generator:
     _difficulty_to_percent: Dict[int, Tuple[float, float, float, float, float]]
     _templates: List[Template]
     _rule: Rule
-    _dict_initialized: bool
     _phonemes: List[Word]
-    _CADT: List[Dict[Word, List[Word]]]
-    _CADNT: List[Dict[Word, List[Word]]]
-    _CAND: List[Dict[Word, List[Word]]]
-    _NCAD: List[Dict[Word, List[Word]]]
-    _IRR: List[Dict[Word, List[Word]]]
-    _duplicate_exclusion: List[Word]
+    _CADT: List[Set[Word]]
+    _CADNT: List[Set[Word]]
+    _CAND: List[Set[Word]]
+    _NCAD: List[Set[Word]]
+    _IRR: List[Set[Word]]
+    _duplicate_exclusion: Set[Word]
     _unid: int
 
     def __init__(self, phonemes: List[Word], templates: List[Template], rule: Rule, difficulty: int,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]) -> None:
         self._templates = templates
         self._rule = rule
-        self._CADT = []
-        self._CADNT = []
-        self._CAND = []
-        self._NCAD = []
-        self._IRR = []
-        self._dict_initialized = False
+        self._CADT = [set([]) for _ in range(rule.get_c_split_size())]
+        self._CADNT = [set([]) for _ in range(rule.get_c_split_size())]
+        self._CAND = [set([]) for _ in range(rule.get_c_split_size())]
+        self._NCAD = [set([]) for _ in range(rule.get_c_split_size())]
+        self._IRR = [set([]) for _ in range(rule.get_c_split_size())]
+        self._duplicate_exclusion = set([])
         self._phonemes = phonemes
-        self._duplicate_exclusion = []
         self._unid = random.getrandbits(30)
 
         self._difficulty_to_percent = {
@@ -76,55 +74,32 @@ class Generator:
             # RELATED
 
             for word in related_word_list:
-                classify_data = self._rule.classify(word, self._phonemes, feature_to_type, feature_to_sounds)
-                records = []  # type: List[Tuple[ExampleType, Dict[Word, List[Word]], Word, Word]]
-                exclusion_lock = False
-                no_irr = False
+                word_types = self._rule.classify(word, self._phonemes, feature_to_type, feature_to_sounds)
 
-                for index in range(0, len(classify_data)):
-                    data = classify_data[index]
+                for index in range(0, len(word_types)):
+                    word_type = word_types[index]
 
-                    if not self._dict_initialized:
-                        self._CADT.append({})
-                        self._CADNT.append({})
-                        self._CAND.append({})
-                        self._NCAD.append({})
-                        self._IRR.append({})
-
-                    if ExampleType.IRR in data:
+                    if ExampleType.IRR == word_type:
                         raise GeneratorError(self, "Related word list should never have IRR type. "
                                                    "Related word list: %s || Word: %s" % (
                                                  [str(w) for w in related_word_list], word))
-                    elif ExampleType.CADT in data:
-                        inherited = [r for r in records if r[0] == ExampleType.CADT]
-                        inherited.append((ExampleType.CADT, self._CADT[index], data[ExampleType.CADT], word,))
-                        records = inherited
-                        no_irr = True
+
+                    if ExampleType.CADT == word_type:
+                        self._CADT[index].add(word)
+                        generation_summary[ExampleType.CADT] += 1
                         break
 
-                    if ExampleType.CADNT in data:
-                        inherited = [r for r in records if r[0] == ExampleType.CADNT]
-                        inherited.append((ExampleType.CADNT, self._CADNT[index], data[ExampleType.CADNT], word))
-                        records = inherited
-                        exclusion_lock = True
-                        no_irr = True
+                    if ExampleType.CADNT == word_type:
+                        self._CADNT[index].add(word)
+                        generation_summary[ExampleType.CADNT] += 1
 
-                    if not exclusion_lock:
-                        if ExampleType.CAND in data:
-                            records.append((ExampleType.CAND, self._CAND[index], data[ExampleType.CAND], word))
-                            no_irr = True
+                    if ExampleType.CAND == word_type:
+                        self._CAND[index].add(word)
+                        generation_summary[ExampleType.CAND] += 1
 
-                        if ExampleType.NCAD in data:
-                            records.append((ExampleType.NCAD, self._NCAD[index], data[ExampleType.NCAD], word))
-                            no_irr = True
-
-                for record in records:
-                    generation_summary[record[0]] += 1
-
-                    if record[0] != ExampleType.IRR or not no_irr:
-                        self._dict_add(record[1], record[2], record[3])
-
-                self._dict_initialized = True
+                    if ExampleType.NCAD == word_type:
+                        self._NCAD[index].add(word)
+                        generation_summary[ExampleType.NCAD] += 1
 
             # IRR
 
@@ -132,15 +107,7 @@ class Generator:
                 generation_summary[ExampleType.IRR] += 1
 
                 for index in range(0, len(self._IRR)):
-                    self._dict_add(self._IRR[index], Word(''), word)
-
-    @staticmethod
-    def _dict_add(dic: Dict[Word, List[Word]], key: Word, value: Word) -> None:
-        if key in dic:
-            if value not in dic[key]:
-                dic[key].append(value)
-        else:
-            dic[key] = [value]
+                    self._IRR[index].add(word)
 
     def get_difficulty(self) -> int:
         return self._difficulty
@@ -175,82 +142,36 @@ class Generator:
 
         return cadt, cadnt, cand, ncad, irr
 
-    @staticmethod
-    def _get_dist_values(dic: Dict[Word, List[Word]]) -> List[Word]:
-        existed = []
-        for lst in dic.values():
-            for item in lst:
-                if item not in existed:
-                    existed.append(item)
-        return existed
-
-    def _generate_words(self, amount: int, dic: Dict[Word, List[Word]]) -> List[Word]:
-        print("in gen w")
-        if amount == 0:
-            return []
-
-        words = []
-        rand_keys = list(dic)
-        curr_index = 0
-        continue_find = True
-        empty_run = 0
-        prev_len = None
-
-        for key in rand_keys:
-            random.shuffle(dic[key])
-
-        while continue_find:
-            random.shuffle(rand_keys)
-
-            for key in rand_keys:
-                value_lst = dic[key]
-
-                if curr_index < len(value_lst):
-                    chosen = value_lst[curr_index]
-
-                    if chosen not in words and chosen not in self._duplicate_exclusion:
-                        words.append(chosen)
-
-                        if len(words) >= amount:
-                            continue_find = False
-                            break
-
-            if prev_len is None:
-                prev_len = len(words)
-            elif prev_len == len(words):
-                empty_run += 1
-
-            if empty_run >= 10:
-                break
-
-            curr_index += 1
-
-        self._duplicate_exclusion.extend(words)
-        print("out gen w")
-        return words
-
-    def _generate_helper(self, dic: Dict[Word, List[Word]], amount: int, name: str, feature_to_type: Dict[str, str],
+    def _generate_helper(self, word_bank: Set[Word], amount: int, name: str, feature_to_type: Dict[str, str],
                          feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
         if amount == 0:
             return []
 
-        vals = self._get_dist_values(dic)
+        bank_size = len(word_bank)
 
-        if len(vals) == 0:
+        if bank_size == 0:
             LOGGER.debug("No %s type found.(%d required, 0 found)\n" % (name, amount))
             return []
 
-        if len(vals) >= amount:
-            words = self._generate_words(amount, dic)
+        if bank_size >= amount:
+            count = 0
+            words = []
+            for word in word_bank:
+                if word not in self._duplicate_exclusion:
+                    words.append(word)
+                    self._duplicate_exclusion.add(word)
+                    count += 1
+
+                if count >= amount:
+                    break
+
             return words
         else:
             LOGGER.debug(
                 "Insufficient amount of %s type.(%d required, %d found), expanding library\n" % (
-                    name, amount, len(vals)))
+                    name, amount, bank_size))
             self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
-            self._duplicate_exclusion.extend(vals)
-            vals.extend(self._generate_helper(dic, amount - len(vals), name, feature_to_type, feature_to_sounds))
-            return vals
+            return self._generate_helper(word_bank, amount - bank_size, name, feature_to_type, feature_to_sounds)
 
     def get_log_stamp(self):
         return "%s \n %s \n %s \n @%d" % (
@@ -272,7 +193,7 @@ class Generator:
         """
 
         if is_fresh:
-            self._duplicate_exclusion = []
+            self._duplicate_exclusion = set([])
 
         ur_words = []  # type: List[Word]
         sr_words = []  # type: List[Word]
@@ -381,7 +302,7 @@ class Generator:
                 index = 0
                 fill_retry_count += 1
 
-        if len(failed_indexes) == split_size:
+        if len(ur_words) == 0 and len(failed_indexes) == split_size:
             raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
 
         ur_size = len(ur_words)

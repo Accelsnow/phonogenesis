@@ -14,7 +14,7 @@ from script.templates import Template, import_default_templates
 from script.phonemes import import_default_randomized_phonemes
 
 
-def _print_result(rst: tuple):
+def _print_result(rst: dict):
     if rst is None:
         print("No result.")
         return
@@ -120,27 +120,27 @@ if __name__ == '__main__':
     #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
     #     break
 
-    use_templates = templates
-
-    print("USING TEMPLATES: ")
-    ti = 1
-    for template in use_templates:
-        print(ti, template)
-        ti += 1
-
-    print("\nUSING RULE: ", use_rule)
-    print("\nGENERATION AMOUNT:", amount, '\n')
-
-    print("=============INTEREST===============")
-    interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)
-    print(interest[0])
-    print(interest[1])
-
-    gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
-
-    result = gen.generate(amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
-
-    _print_result(result)
+    # use_templates = templates
+    #
+    # print("USING TEMPLATES: ")
+    # ti = 1
+    # for template in use_templates:
+    #     print(ti, template)
+    #     ti += 1
+    #
+    # print("\nUSING RULE: ", use_rule)
+    # print("\nGENERATION AMOUNT:", amount, '\n')
+    #
+    # print("=============INTEREST===============")
+    # interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)
+    # print(interest[0])
+    # print(interest[1])
+    #
+    # gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
+    #
+    # result = gen.generate(amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
+    #
+    # _print_result(result)
 
     # print("\n\n\nTRIAL 2\n\n\n")
     #
