@@ -1,128 +1,763 @@
-[2019-10-11 16:17:28] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 16:17:28] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 16:17:28] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 16:17:28] - DEBUG - Rule size: 2 - generator 50@__init__
-[2019-10-11 16:17:34] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']
-CD matchers: [([], ['m', 'n']), ([], ['mp', 'np', 'mb', 'nb', 'mf', 'nf', 'mm', 'nm', 'mt', 'nt', 'md', 'nd', 'mθ', 'nθ', 'ms', 'ns', 'mʃ', 'nʃ', 'mn', 'nn', 'mt͡ʃ', 'nt͡ʃ', 'md͡ʒ', 'nd͡ʒ', 'mk', 'nk', 'mg', 'ng', 'mr', 'nr', 'mj', 'nj', 'mh', 'nh'])]
+[2019-10-12 14:32:55] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:32:55] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:32:55] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:32:55] - DEBUG - Rule size: 1 - generator 50@__init__
+[2019-10-12 14:32:56] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i', 'ɛ', 'æ']  "]
  - generator 296@generate
-[2019-10-11 16:17:34] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+[2019-10-12 14:32:56] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+dentalization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @4119115
+ - generator 300@generate
+[2019-10-12 14:32:56] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:32:56] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:32:56] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 325@generate
+[2019-10-12 14:32:56] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 359@generate
+[2019-10-12 14:32:56] - INFO - Data recorded: 
+UR ['hudæn', 'tæ', 'did', 'siti', 'tɛtæ', 'tədi', 'dɛdd͡ʒo', 'tɛdu', 'dɛrnɑt', 'tɔtɛ', 'ɣɑbjut', 'dɔhʔɔʒ', 'tuŋæ', 'tədoθ', 'd͡ʒiʒid', 'fomtod͡ʒ', 'domrɛ', 'tɑŋ', 'ðuɣo', 'sæŋ']
+SR ['hud̪æn', 't̪æ', 'd̪id', 'sit̪i', 't̪ɛt̪æ', 'təd̪i', 'd̪ɛdd͡ʒo', 't̪ɛdu', 'd̪ɛrnɑt', 'tɔt̪ɛ', 'ɣɑbjut', 'dɔhʔɔʒ', 'tuŋæ', 'tədoθ', 'd͡ʒiʒid', 'fomtod͡ʒ', 'domrɛ', 'tɑŋ', 'ðuɣo', 'sæŋ']
+dentalization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @4119115
+ - routes 77@index
+[2019-10-12 14:33:19] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:33:19] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:33:19] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:33:19] - DEBUG - Rule size: 1 - generator 50@__init__
+[2019-10-12 14:33:20] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i']  "]
+ - generator 296@generate
+[2019-10-12 14:33:20] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatal mutation of velar stops to alveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,fricative,continuant,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'j', 'i', 'ɛ', 'ɔ', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @988598240
+ - generator 300@generate
+[2019-10-12 14:33:20] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:33:20] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:33:20] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 325@generate
+[2019-10-12 14:33:20] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 359@generate
+[2019-10-12 14:33:20] - INFO - Data recorded: 
+UR ['giʃɑ', 'kɑkik', 'sægki', 'gigæ', 'kɛki', 'giʃd͡ʒəd͡ʒ', 'ki', 'gid', 'gib', 'pəkki', 'gɛmgæg', 'kɛt͡ʃbə', 'kɔŋ', 'θɔkgək', 'ʃikɛ', 'ʃɔsgæŋ', 'gɔpnɑ', 'kɛjmə', 'tɑd', 'θijɛx']
+SR ['ziʃɑ', 'kɑsik', 'sægsi', 'zigæ', 'kɛsi', 'ziʃd͡ʒəd͡ʒ', 'si', 'zid', 'zib', 'pəksi', 'gɛmgæg', 'kɛt͡ʃbə', 'kɔŋ', 'θɔkgək', 'ʃikɛ', 'ʃɔsgæŋ', 'gɔpnɑ', 'kɛjmə', 'tɑd', 'θijɛx']
+palatal mutation of velar stops to alveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,fricative,continuant,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'j', 'i', 'ɛ', 'ɔ', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @988598240
+ - routes 77@index
+[2019-10-12 14:33:30] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:33:30] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:33:30] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:33:30] - DEBUG - Rule size: 1 - generator 50@__init__
+[2019-10-12 14:33:31] - INFO - A matchers: ['b', 'd', 'g']  CD matchers: ["[]_['p', 'f', 't', 'θ', 's', 'ʃ', 'k', 'x', 'ʔ']  "]
+ - generator 296@generate
+[2019-10-12 14:33:31] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+regressive voicelessness assimilation in stops ===== [oral stop,voiced] -> [voiceless],[] /  _ [voiceless] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @351321159
+ - generator 300@generate
+[2019-10-12 14:33:31] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:33:31] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:33:31] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 325@generate
+[2019-10-12 14:33:31] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 359@generate
+[2019-10-12 14:33:31] - INFO - Data recorded: 
+UR ['megpig', 'gidʔe', 'wabpe', 'kedsu', 'gibxaθ', 'megθib', 'gigʔa', 'gadxub', 'pagxi', 'fedfa', 'duʃiw', 'bibab', 'seggef', 'babib', 'bukxet', 'xidŋa', 'rideg', 'baxdan', 'xekfuw', 'neθsu']
+SR ['mekpig', 'gitʔe', 'wappe', 'ketsu', 'gipxaθ', 'mekθib', 'gikʔa', 'gatxub', 'pakxi', 'fetfa', 'duʃiw', 'bibab', 'seggef', 'babib', 'bukxet', 'xidŋa', 'rideg', 'baxdan', 'xekfuw', 'neθsu']
+regressive voicelessness assimilation in stops ===== [oral stop,voiced] -> [voiceless],[] /  _ [voiceless] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @351321159
+ - routes 77@index
+[2019-10-12 14:33:41] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:33:41] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:33:41] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:33:41] - DEBUG - Rule size: 1 - generator 50@__init__
+[2019-10-12 14:33:42] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ['[]_[]  ']
+ - generator 296@generate
+[2019-10-12 14:33:42] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+word-initial aspiration of voiceless stops ===== [voiceless,oral stop,not spread] -> [spread],[] / # _  
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'f', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'ɛ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @339358813
+ - generator 300@generate
+[2019-10-12 14:33:42] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:33:42] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 325@generate
+[2019-10-12 14:33:42] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 359@generate
+[2019-10-12 14:33:42] - INFO - Data recorded: 
+UR ['tɑrkɛw', 'kikte', 'pi', 'kərŋɛ', 'puʔæ', 'tɛʃær', 'kɑ', 'piʔə', 'ʔɛ', 'ʔəkɛ', 'ŋətæp', 't͡ʃɛnŋək', 'fæpŋət͡ʃ', 'reʔ', 'ʃuʔti', 'xekt͡ʃen', 'wut', 'nɑpæn', 't͡ʃumɑ', 'wiwew']
+SR ['tʰɑrkɛw', 'kʰikte', 'pʰi', 'kʰərŋɛ', 'pʰuʔæ', 'tʰɛʃær', 'kʰɑ', 'pʰiʔə', 'ʔɛ', 'ʔəkɛ', 'ŋətæp', 't͡ʃɛnŋək', 'fæpŋət͡ʃ', 'reʔ', 'ʃuʔti', 'xekt͡ʃen', 'wut', 'nɑpæn', 't͡ʃumɑ', 'wiwew']
+word-initial aspiration of voiceless stops ===== [voiceless,oral stop,not spread] -> [spread],[] / # _  
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'f', 's', 'ʃ', 'x', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'ɛ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @339358813
+ - routes 77@index
+[2019-10-12 14:35:06] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:35:06] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:35:06] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:35:06] - DEBUG - Rule size: 1 - generator 50@__init__
+[2019-10-12 14:35:07] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i']  "]
+ - generator 296@generate
+[2019-10-12 14:35:07] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatal mutation of velar stops to alveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,fricative,continuant,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'θ', 's', 'ʃ', 'x', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɔ', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @556167829
+ - generator 300@generate
+[2019-10-12 14:35:07] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:07] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:07] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 325@generate
+[2019-10-12 14:35:07] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 359@generate
+[2019-10-12 14:35:07] - INFO - Data recorded: 
+UR ['kigɔd', 'lɔgik', 'ʃalki', 'giŋxa', 'gike', 'kilte', 'giwe', 'kisθɔ', 'gildeg', 'kibga', 'kexix', 'pagga', 'gɔsɔb', 'pɔpwek', 'θagak', 'kə', 'rɔreg', 'kenə', 'd͡ʒadab', 'tədtɔ']
+SR ['sigɔd', 'lɔzik', 'ʃalsi', 'ziŋxa', 'zike', 'silte', 'ziwe', 'sisθɔ', 'zildeg', 'sibga', 'kexix', 'pagga', 'gɔsɔb', 'pɔpwek', 'θagak', 'kə', 'rɔreg', 'kenə', 'd͡ʒadab', 'tədtɔ']
+palatal mutation of velar stops to alveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,fricative,continuant,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'θ', 's', 'ʃ', 'x', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɔ', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @556167829
+ - routes 77@index
+[2019-10-12 14:35:17] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:35:17] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:35:17] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:35:17] - DEBUG - Rule size: 2 - generator 50@__init__
+[2019-10-12 14:35:18] - INFO - A matchers: ['k', 'g', 'x', 'ɣ', 'ŋ']  CD matchers: ['[]_[]  ', '[]_[]  ', "['ɑ']_[]  ", "['ɑ']_[]  "]
+ - generator 296@generate
+[2019-10-12 14:35:18] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'i', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @821169200
+ - generator 300@generate
+[2019-10-12 14:35:18] - DEBUG - No CADT type found.(4 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:18] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:18] - DEBUG - No CAND type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:18] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:18] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 1
+ - generator 325@generate
+[2019-10-12 14:35:18] - WARNING - Condition Index 0 does not have any related data
+ - generator 328@generate
+[2019-10-12 14:35:18] - DEBUG - No CAND type found.(2 required, 0 found)
+ - generator 239@_generate_helper
+[2019-10-12 14:35:18] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 1 CAND 0 NCAD 2 IRR 1
+ - generator 325@generate
+[2019-10-12 14:35:18] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 4 CADNT 1 CAND 0 NCAD 4 IRR 1
+ - generator 359@generate
+[2019-10-12 14:35:18] - ERROR - UNEXPECTED ERROR - routes 147@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 142, in _get_valid_data
+    DEFAULT_DATA['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 382, in generate
+    "Insufficient amount generated! Required %d Current %d\n" % (total_amount, ur_size))
+script.generator.GeneratorError: Insufficient amount generated! Required 20 Current 10
+ 
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'i', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @821169200
+
+[2019-10-12 14:35:18] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 70, in index
+    data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 148, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 142, in _get_valid_data
+    DEFAULT_DATA['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 382, in generate
+    "Insufficient amount generated! Required %d Current %d\n" % (total_amount, ur_size))
+script.generator.GeneratorError: Insufficient amount generated! Required 20 Current 10
+ 
+ uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'i', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @821169200
+
+[2019-10-12 14:46:04] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:46:04] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:46:04] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:46:04] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:46:06] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  CD matchers: ["[]_['m', 'n']  ", "[]_['mp', 'np', 'mb', 'nb', 'mf', 'nf', 'mm', 'nm', 'mt', 'nt', 'md', 'nd', 'ms', 'ns', 'mʃ', 'nʃ', 'mn', 'nn', 'mk', 'nk', 'mg', 'ng', 'ml', 'nl', 'mj', 'nj', 'mh', 'nh']  ", "[]_['m', 'n']  ", "[]_['mp', 'np', 'mb', 'nb', 'mf', 'nf', 'mm', 'nm', 'mt', 'nt', 'md', 'nd', 'ms', 'ns', 'mʃ', 'nʃ', 'mn', 'nn', 'mk', 'nk', 'mg', 'ng', 'ml', 'nl', 'mj', 'nj', 'mh', 'nh']  "]
+ - generator 297@generate
+[2019-10-12 14:46:06] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
 regressive vowel nasalization from nasal codas ===== [vowel,oral] -> [nasal],[] /  _ [nasal]# or  _ [nasal][consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'r', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'h', 'm', 'n', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @476179147
- - generator 299@generate
-[2019-10-11 16:17:34] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:34] - DEBUG - No NCAD type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:34] - DEBUG - No IRR type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:34] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
- - generator 324@generate
-[2019-10-11 16:17:34] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
- - generator 358@generate
-[2019-10-11 16:17:34] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:35] - DEBUG - No NCAD type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:35] - DEBUG - No IRR type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:17:35] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
- - generator 324@generate
-[2019-10-11 16:17:35] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
- - generator 358@generate
-[2019-10-11 16:17:35] - INFO - Data recorded: 
-UR ['ʃesʊm', 'ʃatt͡ʃan', 'd͡ʒudhum', 'sɑrɛm', 't͡ʃom', 'd͡ʒem', 'naptʊ', 'jɪʃjæj', 'fe', 'di', 'nɪnfɛr', 'nəmθoh', 'ræmd͡ʒe', 'hamθe', 'gemjɔ', 'semθæ', 'fɪʃ', 'd͡ʒa', 'tɛd͡ʒæʃ', 'fakɑb']
-SR ['ʃesʊ̃m', 'ʃatt͡ʃãn', 'd͡ʒudhũm', 'sɑrɛ̃m', 't͡ʃõm', 'd͡ʒẽm', 'naptʊ', 'jɪʃjæj', 'fe', 'di', 'nɪ̃nfɛr', 'nə̃mθoh', 'ræ̃md͡ʒe', 'hãmθe', 'gẽmjɔ', 'sẽmθæ', 'fɪʃ', 'd͡ʒa', 'tɛd͡ʒæʃ', 'fakɑb']
+ @655477396
+ - generator 301@generate
+[2019-10-12 14:46:06] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 330@generate
+[2019-10-12 14:46:06] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 364@generate
+[2019-10-12 14:46:06] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:06] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 330@generate
+[2019-10-12 14:46:07] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 364@generate
+[2019-10-12 14:46:07] - INFO - Data recorded: 
+UR ['ketɔm', 'gɔmom', 'ʃɑhin', 'gʊm', 'fædlam', 'fasən', 'jɔg', 'bohdag', 'kəj', 'ʃæj', 'fɛmgəf', 'tɪmla', 'bangɑh', 'jənnɔf', 'kenpep', 'ʃʊmjeʃ', 'taʃe', 'gɑ', 'satʃæ', 'suhe']
+SR ['ketɔ̃m', 'gɔmõm', 'ʃɑhĩn', 'gʊ̃m', 'fædlãm', 'fasə̃n', 'jɔg', 'bohdag', 'kəj', 'ʃæj', 'fɛ̃mgəf', 'tɪ̃mla', 'bãngɑh', 'jə̃nnɔf', 'kẽnpep', 'ʃʊ̃mjeʃ', 'taʃe', 'gɑ', 'satʃæ', 'suhe']
 regressive vowel nasalization from nasal codas ===== [vowel,oral] -> [nasal],[] /  _ [nasal]# or  _ [nasal][consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'r', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 's', 'ʃ', 'h', 'm', 'n', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @476179147
- - routes 145@_get_valid_data
-[2019-10-11 16:28:56] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 16:28:56] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 16:28:56] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 16:28:56] - DEBUG - Rule size: 3 - generator 50@__init__
-[2019-10-11 16:29:02] - INFO - A matchers: ['b', 'v', 'd', 'ð', 'z', 'ʒ', 'd͡ʒ', 'g', 'ɣ']
-CD matchers: [([], []), ([], ['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h']), ([], ['n', 'r', 'l', 'w'])]
- - generator 296@generate
-[2019-10-11 16:29:02] - INFO - REQUEST: PIECES 3 CADT 3 CADNT 1 CAND 1 NCAD 1 IRR 1
-obstruent devoicing in codas ===== [obstruent,voiced] -> [voiceless],[] /  _ # or  _ [voiceless,consonant] or  _ [sonorant,consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'n', 'r', 'l', 'w', 'i', 'u', 'æ', 'ɑ'] 
+ @655477396
+ - routes 77@index
+[2019-10-12 14:46:24] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:46:24] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:46:24] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:46:24] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:46:26] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  CD matchers: ["[]_['m', 'n', 'ŋ']  ", "[]_['mp', 'np', 'ŋp', 'mb', 'nb', 'ŋb', 'mf', 'nf', 'ŋf', 'mv', 'nv', 'ŋv', 'mm', 'nm', 'ŋm', 'mt', 'nt', 'ŋt', 'md', 'nd', 'ŋd', 'mθ', 'nθ', 'ŋθ', 'mð', 'nð', 'ŋð', 'ms', 'ns', 'ŋs', 'mz', 'nz', 'ŋz', 'mʃ', 'nʃ', 'ŋʃ', 'mʒ', 'nʒ', 'ŋʒ', 'mn', 'nn', 'ŋn', 'mt͡ʃ', 'nt͡ʃ', 'ŋt͡ʃ', 'md͡ʒ', 'nd͡ʒ', 'ŋd͡ʒ', 'mk', 'nk', 'ŋk', 'mg', 'ng', 'ŋg', 'mŋ', 'nŋ', 'ŋŋ', 'mr', 'nr', 'ŋr', 'mj', 'nj', 'ŋj', 'mw', 'nw', 'ŋw', 'mʔ', 'nʔ', 'ŋʔ']  ", "[]_['m', 'n', 'ŋ']  ", "[]_['mp', 'np', 'ŋp', 'mb', 'nb', 'ŋb', 'mf', 'nf', 'ŋf', 'mv', 'nv', 'ŋv', 'mm', 'nm', 'ŋm', 'mt', 'nt', 'ŋt', 'md', 'nd', 'ŋd', 'mθ', 'nθ', 'ŋθ', 'mð', 'nð', 'ŋð', 'ms', 'ns', 'ŋs', 'mz', 'nz', 'ŋz', 'mʃ', 'nʃ', 'ŋʃ', 'mʒ', 'nʒ', 'ŋʒ', 'mn', 'nn', 'ŋn', 'mt͡ʃ', 'nt͡ʃ', 'ŋt͡ʃ', 'md͡ʒ', 'nd͡ʒ', 'ŋd͡ʒ', 'mk', 'nk', 'ŋk', 'mg', 'ng', 'ŋg', 'mŋ', 'nŋ', 'ŋŋ', 'mr', 'nr', 'ŋr', 'mj', 'nj', 'ŋj', 'mw', 'nw', 'ŋw', 'mʔ', 'nʔ', 'ŋʔ']  "]
+ - generator 297@generate
+[2019-10-12 14:46:26] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+regressive vowel nasalization from nasal codas ===== [vowel,oral] -> [nasal],[] /  _ [nasal]# or  _ [nasal][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @460260733
- - generator 299@generate
-[2019-10-11 16:29:02] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:02] - DEBUG - No NCAD type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:02] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 3 CADNT 0 CAND 1 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 16:29:02] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 358@generate
-[2019-10-11 16:29:02] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:03] - DEBUG - No NCAD type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:03] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 3 CADNT 0 CAND 1 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 16:29:03] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 358@generate
-[2019-10-11 16:29:03] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:03] - DEBUG - No NCAD type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:03] - DEBUG - 1ST GET: PCS_INDEX 2 CADT 3 CADNT 0 CAND 1 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 16:29:03] - DEBUG - 2ND GET: PCS_INDEX 2 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 358@generate
-[2019-10-11 16:29:03] - INFO - Data recorded: 
-UR ['xiʒuv', 'riʒpɑd͡ʒ', 'dibbɑb', 'ræshæʒ', 'lægɑ', 'zul', 't͡ʃufʃu', 'sæʒxɑt', 'ðɑbt͡ʃu', 'diɣku', 'vɑzpi', 'zɑðiθ', 'vu', 'si', 'nubru', 'wɑɣwu', 'zɑd͡ʒwin', 'd͡ʒɑvwæʃ', 'd͡ʒin', 'zɑt', 'nuli']
-SR ['xiʒuf', 'riʃpɑt͡ʃ', 'dibbɑp', 'ræshæʃ', 'lægɑ', 'zul', 't͡ʃufʃu', 'sæʃxɑt', 'ðɑpt͡ʃu', 'dixku', 'vɑspi', 'zɑðiθ', 'vu', 'si', 'nupru', 'wɑxwu', 'zɑt͡ʃwin', 'd͡ʒɑfwæʃ', 'd͡ʒin', 'zɑt', 'nuli']
-obstruent devoicing in codas ===== [obstruent,voiced] -> [voiceless],[] /  _ # or  _ [voiceless,consonant] or  _ [sonorant,consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'n', 'r', 'l', 'w', 'i', 'u', 'æ', 'ɑ'] 
+ @473178089
+ - generator 301@generate
+[2019-10-12 14:46:26] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:26] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:26] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:26] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 330@generate
+[2019-10-12 14:46:27] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 364@generate
+[2019-10-12 14:46:27] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:27] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:27] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:27] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 330@generate
+[2019-10-12 14:46:27] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 6 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 364@generate
+[2019-10-12 14:46:27] - INFO - Data recorded: 
+UR ['wafren', 'gum', 'nikaŋ', 'ðɛrəm', 'ŋasɑn', 'zæŋ', 'θuj', 'ðaʒ', 'θɛ', 'va', 'junvʊf', 'gəmsa', 'jɔmŋɔ', 'nɪŋðʊ', 'sinðɪ', 'kɛndiʒ', 'bʊtus', 'ʃu', 'biʔɛs', 'rɪva']
+SR ['wafrẽn', 'gũm', 'nikãŋ', 'ðɛrə̃m', 'ŋasɑ̃n', 'zæ̃ŋ', 'θuj', 'ðaʒ', 'θɛ', 'va', 'jũnvʊf', 'gə̃msa', 'jɔ̃mŋɔ', 'nɪ̃ŋðʊ', 'sĩnðɪ', 'kɛ̃ndiʒ', 'bʊtus', 'ʃu', 'biʔɛs', 'rɪva']
+regressive vowel nasalization from nasal codas ===== [vowel,oral] -> [nasal],[] /  _ [nasal]# or  _ [nasal][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'ŋ', 'r', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @460260733
- - routes 145@_get_valid_data
-[2019-10-11 16:29:31] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 16:29:31] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 16:29:31] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 16:29:31] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-11 16:29:32] - INFO - A matchers: ['k', 'g']
-CD matchers: [([], ['i', 'e', 'ɛ'])]
- - generator 296@generate
-[2019-10-11 16:29:32] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'a'] 
+ @473178089
+ - routes 77@index
+[2019-10-12 14:46:35] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:46:35] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:46:35] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:46:35] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:46:35] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i']  "]
+ - generator 297@generate
+[2019-10-12 14:46:35] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatal mutation of velar stops to postalveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,continuant,posterior,laminal,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @600474992
- - generator 299@generate
-[2019-10-11 16:29:32] - DEBUG - No CADT type found.(8 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:33] - DEBUG - No NCAD type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:29:33] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 2 CAND 4 NCAD 0 IRR 2
- - generator 324@generate
-[2019-10-11 16:29:33] - WARNING - Condition Index 0 does not have any related data
- - generator 327@generate
-[2019-10-11 16:29:33] - ERROR - UNEXPECTED ERROR - routes 140@_get_valid_data
+ @206495533
+ - generator 301@generate
+[2019-10-12 14:46:35] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:35] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:35] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:46:35] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:46:36] - INFO - Data recorded: 
+UR ['gedgit', 'kakik', 'weki', 'gispɔ', 'kig', 'kogi', 'gik', 'kifab', 'kətgig', 'waki', 'kəw', 'degka', 'ʃikag', 'kak', 'pokɔ', 'gɔd', 'fugbe', 'kukep', 'bɛfu', 'θaʃθam']
+SR ['gedʒit', 'kaʃik', 'weʃi', 'ʒispɔ', 'ʃig', 'koʒi', 'ʒik', 'ʃifab', 'kətʒig', 'waʃi', 'kəw', 'degka', 'ʃikag', 'kak', 'pokɔ', 'gɔd', 'fugbe', 'kukep', 'bɛfu', 'θaʃθam']
+palatal mutation of velar stops to postalveolar fricatives before high front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,continuant,posterior,laminal,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @206495533
+ - routes 77@index
+[2019-10-12 14:46:46] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:46:46] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:46:46] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:46:46] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:46:47] - INFO - A matchers: ['k', 'g', 'x', 'ɣ', 'ŋ']  CD matchers: ["['o']_[]  ", "['o']_[]  ", "['ɑ']_[]  ", "['ɑ']_[]  "]
+ - generator 297@generate
+[2019-10-12 14:46:47] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'ɛ', 'o', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @910694745
+ - generator 301@generate
+[2019-10-12 14:46:47] - DEBUG - No CAND type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:47] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 1 CAND 0 NCAD 2 IRR 1
+ - generator 330@generate
+[2019-10-12 14:46:47] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 4 CADNT 1 CAND 0 NCAD 4 IRR 1
+ - generator 364@generate
+[2019-10-12 14:46:47] - DEBUG - No CAND type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:47] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 1 CAND 0 NCAD 2 IRR 1
+ - generator 330@generate
+[2019-10-12 14:46:47] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 4 CADNT 1 CAND 0 NCAD 4 IRR 1
+ - generator 364@generate
+[2019-10-12 14:46:47] - INFO - Data recorded: 
+UR ['fokt͡ʃə', 'fɑkoŋ', 'dogji', 'gokjɛ', 'ŋoɣoɣ', 'jɛkðɛs', 'xæko', 'ŋɛðɣɛg', 'goʃ', 'd͡ʒɑ', 'bɑkxoʒ', 'ŋɑgso', 'joxpɑŋ', 'mɑŋdæ', 'gɑxɛ', 'kix', 'ɣiʒik', 'tixŋo', 'xɑd͡ʒif', 'mæθəp']
+SR ['foqt͡ʃə', 'fɑqoɴ', 'doɢji', 'goqjɛ', 'ŋoɣoɣ', 'jɛkðɛs', 'xæko', 'ŋɛðɣɛg', 'goʃ', 'd͡ʒɑ', 'bɑqxoʒ', 'ŋɑɢso', 'joxpɑɴ', 'mɑɴdæ', 'gɑxɛ', 'kix', 'ɣiʒik', 'tixŋo', 'xɑd͡ʒif', 'mæθəp']
+uvularization of velars after back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] / [back,mid,vowel] _  or [back,low,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'ɛ', 'o', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @910694745
+ - routes 77@index
+[2019-10-12 14:46:57] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:46:57] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:46:57] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:46:57] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:46:58] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i']  "]
+ - generator 297@generate
+[2019-10-12 14:46:58] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatal mutation of alveolar stops to alveolar fricatives before high front vowels ===== [alveolar,oral stop] -> [fricative,continuant,strident],[] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @560665436
+ - generator 301@generate
+[2019-10-12 14:46:58] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:58] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:46:58] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:46:58] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:46:58] - INFO - Data recorded: 
+UR ['dibɔ', 'tiwθaf', 'modi', 'pɔtis', 'divɣe', 'tiʔzaʒ', 'dikθə', 'veti', 'tiʃaz', 'zoʒti', 'tutu', 'datni', 'tə', 'ðɔdðɛθ', 'tumtɛ', 'dəʔdad', 'ʒɛtsu', 'podo', 'ʔɔxɔ', 'paʔpob']
+SR ['zibɔ', 'siwθaf', 'mozi', 'pɔsis', 'zivɣe', 'siʔzaʒ', 'zikθə', 'vesi', 'siʃaz', 'zoʒsi', 'tutu', 'datni', 'tə', 'ðɔdðɛθ', 'tumtɛ', 'dəʔdad', 'ʒɛtsu', 'podo', 'ʔɔxɔ', 'paʔpob']
+palatal mutation of alveolar stops to alveolar fricatives before high front vowels ===== [alveolar,oral stop] -> [fricative,continuant,strident],[] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @560665436
+ - routes 77@index
+[2019-10-12 14:47:08] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:47:08] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:47:08] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:47:08] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:47:10] - INFO - A matchers: ['i', 'e', 'o', 'u']  CD matchers: ["[]_['p', 'f', 'm', 't', 's', 'ʃ', 'n', 'k', 'ŋ', 'r', 'l', 'j', 'w']  ", "[]_['pp', 'fp', 'mp', 'tp', 'sp', 'ʃp', 'np', 'kp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'pf', 'ff', 'mf', 'tf', 'sf', 'ʃf', 'nf', 'kf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'pm', 'fm', 'mm', 'tm', 'sm', 'ʃm', 'nm', 'km', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'pt', 'ft', 'mt', 'tt', 'st', 'ʃt', 'nt', 'kt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ps', 'fs', 'ms', 'ts', 'ss', 'ʃs', 'ns', 'ks', 'ŋs', 'rs', 'ls', 'js', 'ws', 'pʃ', 'fʃ', 'mʃ', 'tʃ', 'sʃ', 'ʃʃ', 'nʃ', 'kʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'pn', 'fn', 'mn', 'tn', 'sn', 'ʃn', 'nn', 'kn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'pk', 'fk', 'mk', 'tk', 'sk', 'ʃk', 'nk', 'kk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'pŋ', 'fŋ', 'mŋ', 'tŋ', 'sŋ', 'ʃŋ', 'nŋ', 'kŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'pr', 'fr', 'mr', 'tr', 'sr', 'ʃr', 'nr', 'kr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'pl', 'fl', 'ml', 'tl', 'sl', 'ʃl', 'nl', 'kl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'pj', 'fj', 'mj', 'tj', 'sj', 'ʃj', 'nj', 'kj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'pw', 'fw', 'mw', 'tw', 'sw', 'ʃw', 'nw', 'kw', 'ŋw', 'rw', 'lw', 'jw', 'ww']  ", "[]_['p', 'f', 'm', 't', 's', 'ʃ', 'n', 'k', 'ŋ', 'r', 'l', 'j', 'w']  ", "[]_['pp', 'fp', 'mp', 'tp', 'sp', 'ʃp', 'np', 'kp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'pf', 'ff', 'mf', 'tf', 'sf', 'ʃf', 'nf', 'kf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'pm', 'fm', 'mm', 'tm', 'sm', 'ʃm', 'nm', 'km', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'pt', 'ft', 'mt', 'tt', 'st', 'ʃt', 'nt', 'kt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ps', 'fs', 'ms', 'ts', 'ss', 'ʃs', 'ns', 'ks', 'ŋs', 'rs', 'ls', 'js', 'ws', 'pʃ', 'fʃ', 'mʃ', 'tʃ', 'sʃ', 'ʃʃ', 'nʃ', 'kʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'pn', 'fn', 'mn', 'tn', 'sn', 'ʃn', 'nn', 'kn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'pk', 'fk', 'mk', 'tk', 'sk', 'ʃk', 'nk', 'kk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'pŋ', 'fŋ', 'mŋ', 'tŋ', 'sŋ', 'ʃŋ', 'nŋ', 'kŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'pr', 'fr', 'mr', 'tr', 'sr', 'ʃr', 'nr', 'kr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'pl', 'fl', 'ml', 'tl', 'sl', 'ʃl', 'nl', 'kl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'pj', 'fj', 'mj', 'tj', 'sj', 'ʃj', 'nj', 'kj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'pw', 'fw', 'mw', 'tw', 'sw', 'ʃw', 'nw', 'kw', 'ŋw', 'rw', 'lw', 'jw', 'ww']  "]
+ - generator 297@generate
+[2019-10-12 14:47:10] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+vowel laxing in closed syllables ===== [vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 't', 'k', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @632572293
+ - generator 301@generate
+[2019-10-12 14:47:10] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:10] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:10] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:10] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:10] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:10] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:10] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:10] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:10] - INFO - Data recorded: 
+UR ['ʃef', 'wursuj', 'sijon', 'mɔwnin', 'poj', 'ri', 'rɑru', 'jokɪm', 'jɛste', 'fɑrɑ', 'mokpɑn', 'keʃkɪt', 'sufrɛs', 'jilpo', 'toktʊ', 'ti', 'ro', 'jisu', 'ŋerɑ', 'fɑmfʊn']
+SR ['ʃɛf', 'wʊrsʊj', 'sijɔn', 'mɔwnɪn', 'pɔj', 'ri', 'rɑru', 'jokɪm', 'jɛste', 'fɑrɑ', 'mɔkpɑn', 'kɛʃkɪt', 'sʊfrɛs', 'jɪlpo', 'tɔktʊ', 'ti', 'ro', 'jisu', 'ŋerɑ', 'fɑmfʊn']
+vowel laxing in closed syllables ===== [vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 't', 'k', 'f', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @632572293
+ - routes 77@index
+[2019-10-12 14:47:19] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:47:19] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:47:19] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:47:19] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:47:20] - INFO - A matchers: ['b', 'd', 'ð', 'z', 'ʒ', 'd͡ʒ', 'g', 'ɣ']  CD matchers: ["[]_['p', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']  "]
+ - generator 297@generate
+[2019-10-12 14:47:20] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+regressive voicelessness assimilation in obstruents ===== [obstruent,voiced] -> [voiceless],[] /  _ [voiceless] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'ɪ', 'e', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @903522562
+ - generator 301@generate
+[2019-10-12 14:47:20] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:20] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:20] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:47:21] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:47:21] - INFO - Data recorded: 
+UR ['ɣɪdsʊw', 'nizt͡ʃim', 'loʒhex', 'zegxʊ', 'dæɣkæ', 'mighɪ', 'zæʒxɔh', 'ʃiɣt͡ʃuŋ', 'ʔidsʊ', 'zodkɔ', 'ðɔʒ', 'soʔʃed', 'd͡ʒʊg', 'lɑzlet͡ʃ', 'bet͡ʃbæt', 'dod', 'ɣɔgɔd', 'bezʊ', 't͡ʃɔθɪ', 'hunɔp']
+SR ['ɣɪtsʊw', 'nist͡ʃim', 'loʃhex', 'zekxʊ', 'dæxkæ', 'mikhɪ', 'zæʃxɔh', 'ʃixt͡ʃuŋ', 'ʔitsʊ', 'zotkɔ', 'ðɔʒ', 'soʔʃed', 'd͡ʒʊg', 'lɑzlet͡ʃ', 'bet͡ʃbæt', 'dod', 'ɣɔgɔd', 'bezʊ', 't͡ʃɔθɪ', 'hunɔp']
+regressive voicelessness assimilation in obstruents ===== [obstruent,voiced] -> [voiceless],[] /  _ [voiceless] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'w', 'i', 'ɪ', 'e', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @903522562
+ - routes 77@index
+[2019-10-12 14:47:30] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:47:30] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:47:30] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:47:30] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:47:32] - INFO - A matchers: ['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'ʔ']  CD matchers: ["['i', 'e', 'ɛ', 'a', 'o', 'ɔ', 'u']_['i', 'e', 'ɛ', 'a', 'o', 'ɔ', 'u']  "]
+ - generator 297@generate
+[2019-10-12 14:47:32] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+intervocalic obstruent voicing ===== [not spread,obstruent,voiceless] -> [voiced],[] / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @720792843
+ - generator 301@generate
+[2019-10-12 14:47:32] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+ - generator 330@generate
+[2019-10-12 14:47:32] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+ - generator 364@generate
+[2019-10-12 14:47:32] - INFO - Data recorded: 
+UR ['sɔsip', 'ʃiθo', 'tipik', 'kɔʃe', 'ʃut͡ʃɛ', 'dafip', 'ðokɛ', 'zixa', 'viʔɔ', 'poʔoh', 'xift͡ʃɔ', 'moft͡ʃoθ', 'top', 'pɔxhot͡ʃ', 'ʃanθi', 'tɔf', 'θɛdɣɛ', 'xɛt', 'ðɛŋhid', 'ŋedɛd͡ʒ']
+SR ['sɔzip', 'ʃiðo', 'tibik', 'kɔʒe', 'ʃud͡ʒɛ', 'davip', 'ðogɛ', 'ziɣa', 'viʔɔ', 'poʔoh', 'xift͡ʃɔ', 'moft͡ʃoθ', 'top', 'pɔxhot͡ʃ', 'ʃanθi', 'tɔf', 'θɛdɣɛ', 'xɛt', 'ðɛŋhid', 'ŋedɛd͡ʒ']
+intervocalic obstruent voicing ===== [not spread,obstruent,voiceless] -> [voiced],[] / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @720792843
+ - routes 77@index
+[2019-10-12 14:47:41] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:47:41] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:47:41] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:47:41] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:47:45] - INFO - A matchers: ['i', 'u']  CD matchers: ["[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  ", "[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  "]
+ - generator 297@generate
+[2019-10-12 14:47:45] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+high vowel laxing in closed syllables ===== [high,vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @699252382
+ - generator 301@generate
+[2019-10-12 14:47:45] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:45] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:45] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:45] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:45] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:45] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:45] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:45] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:45] - INFO - Data recorded: 
+UR ['siθ', 'kuz', 'pujwuv', 'dix', 't͡ʃiʔ', 'zi', 'fufe', 'gɛdzi', 'ʃu', 'zɪrɔ', 'kuʃtə', 'ʃizd͡ʒu', 'ŋiɣfɔ', 'ʔuvrʊ', 'nuwt͡ʃu', 'ðɪʔbu', 'mi', 'ʒət͡ʃhu', 't͡ʃini', 'fɪðɣɪh']
+SR ['sɪθ', 'kʊz', 'pʊjwʊv', 'dɪx', 't͡ʃɪʔ', 'zi', 'fufe', 'gɛdzi', 'ʃu', 'zɪrɔ', 'kʊʃtə', 'ʃɪzd͡ʒu', 'ŋɪɣfɔ', 'ʔʊvrʊ', 'nʊwt͡ʃu', 'ðɪʔbu', 'mi', 'ʒət͡ʃhu', 't͡ʃini', 'fɪðɣɪh']
+high vowel laxing in closed syllables ===== [high,vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @699252382
+ - routes 77@index
+[2019-10-12 14:47:52] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:47:52] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:47:52] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:47:52] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:47:54] - INFO - A matchers: ['l']  CD matchers: ['[]_[]  ', "[]_['pp', 'mp', 'tp', 'θp', 'sp', 'ʃp', 'np', 't͡ʃp', 'kp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pm', 'mm', 'tm', 'θm', 'sm', 'ʃm', 'nm', 't͡ʃm', 'km', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'mt', 'tt', 'θt', 'st', 'ʃt', 'nt', 't͡ʃt', 'kt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pθ', 'mθ', 'tθ', 'θθ', 'sθ', 'ʃθ', 'nθ', 't͡ʃθ', 'kθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'ps', 'ms', 'ts', 'θs', 'ss', 'ʃs', 'ns', 't͡ʃs', 'ks', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pʃ', 'mʃ', 'tʃ', 'θʃ', 'sʃ', 'ʃʃ', 'nʃ', 't͡ʃʃ', 'kʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pn', 'mn', 'tn', 'θn', 'sn', 'ʃn', 'nn', 't͡ʃn', 'kn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'θt͡ʃ', 'st͡ʃ', 'ʃt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'kt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pk', 'mk', 'tk', 'θk', 'sk', 'ʃk', 'nk', 't͡ʃk', 'kk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pŋ', 'mŋ', 'tŋ', 'θŋ', 'sŋ', 'ʃŋ', 'nŋ', 't͡ʃŋ', 'kŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'mr', 'tr', 'θr', 'sr', 'ʃr', 'nr', 't͡ʃr', 'kr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'ml', 'tl', 'θl', 'sl', 'ʃl', 'nl', 't͡ʃl', 'kl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'mj', 'tj', 'θj', 'sj', 'ʃj', 'nj', 't͡ʃj', 'kj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'mw', 'tw', 'θw', 'sw', 'ʃw', 'nw', 't͡ʃw', 'kw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'mh', 'th', 'θh', 'sh', 'ʃh', 'nh', 't͡ʃh', 'kh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'mʔ', 'tʔ', 'θʔ', 'sʔ', 'ʃʔ', 'nʔ', 't͡ʃʔ', 'kʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  ", '[]_[]  ', "[]_['pp', 'mp', 'tp', 'θp', 'sp', 'ʃp', 'np', 't͡ʃp', 'kp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pm', 'mm', 'tm', 'θm', 'sm', 'ʃm', 'nm', 't͡ʃm', 'km', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'mt', 'tt', 'θt', 'st', 'ʃt', 'nt', 't͡ʃt', 'kt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pθ', 'mθ', 'tθ', 'θθ', 'sθ', 'ʃθ', 'nθ', 't͡ʃθ', 'kθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'ps', 'ms', 'ts', 'θs', 'ss', 'ʃs', 'ns', 't͡ʃs', 'ks', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pʃ', 'mʃ', 'tʃ', 'θʃ', 'sʃ', 'ʃʃ', 'nʃ', 't͡ʃʃ', 'kʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pn', 'mn', 'tn', 'θn', 'sn', 'ʃn', 'nn', 't͡ʃn', 'kn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'θt͡ʃ', 'st͡ʃ', 'ʃt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'kt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pk', 'mk', 'tk', 'θk', 'sk', 'ʃk', 'nk', 't͡ʃk', 'kk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pŋ', 'mŋ', 'tŋ', 'θŋ', 'sŋ', 'ʃŋ', 'nŋ', 't͡ʃŋ', 'kŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'mr', 'tr', 'θr', 'sr', 'ʃr', 'nr', 't͡ʃr', 'kr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'ml', 'tl', 'θl', 'sl', 'ʃl', 'nl', 't͡ʃl', 'kl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'mj', 'tj', 'θj', 'sj', 'ʃj', 'nj', 't͡ʃj', 'kj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'mw', 'tw', 'θw', 'sw', 'ʃw', 'nw', 't͡ʃw', 'kw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'mh', 'th', 'θh', 'sh', 'ʃh', 'nh', 't͡ʃh', 'kh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'mʔ', 'tʔ', 'θʔ', 'sʔ', 'ʃʔ', 'nʔ', 't͡ʃʔ', 'kʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  "]
+ - generator 297@generate
+[2019-10-12 14:47:54] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+velarization of /l/ in codas ===== <Predefined> {l > ɫ} /  _ # or  _ [consonant][consonant] 
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @138468943
+ - generator 301@generate
+[2019-10-12 14:47:54] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:54] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:54] - DEBUG - No CADT type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 0 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:54] - WARNING - Condition Index 1 does not have any related data
+ - generator 333@generate
+[2019-10-12 14:47:54] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:47:54] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:47:54] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:47:54] - INFO - Data recorded: 
+UR ['ʃilil', 'lalul', 'hupməl', 'walul', 't͡ʃəl', 'ləθŋu', 'mijlək', 't͡ʃamləh', 'lim', 'ŋiʃʔa', 'ʔilwil', 'luhlal', 'liwul', 'lal', 'ʔəl', 'ləjə', 'kəlris', 'ləkət͡ʃ', 't͡ʃulrə', 'ʔiʔnuk']
+SR ['ʃiliɫ', 'laluɫ', 'hupməɫ', 'waluɫ', 't͡ʃəɫ', 'ləθŋu', 'mijlək', 't͡ʃamləh', 'lim', 'ŋiʃʔa', 'ʔilwiɫ', 'luhlaɫ', 'liwuɫ', 'laɫ', 'ʔəɫ', 'ləjə', 'kəlris', 'ləkət͡ʃ', 't͡ʃulrə', 'ʔiʔnuk']
+velarization of /l/ in codas ===== <Predefined> {l > ɫ} /  _ # or  _ [consonant][consonant] 
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @138468943
+ - routes 77@index
+[2019-10-12 14:48:03] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:03] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:03] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:03] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:48:04] - INFO - A matchers: ['k', 'g', 'x', 'ɣ', 'ŋ']  CD matchers: ["[]_['i']  "]
+ - generator 297@generate
+[2019-10-12 14:48:04] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatalization of velars before high front vowels ===== [velar,consonant] -> [palatal,front,posterior,laminal],['secondary POA', 'stridency'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @118613215
+ - generator 301@generate
+[2019-10-12 14:48:04] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:04] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:04] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:48:05] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:48:05] - INFO - Data recorded: 
+UR ['ki', 'ŋiʃʒəɣ', 'xiʃav', 'xaʃɣig', 'gəjgiɣ', 'θuɣi', 'govxi', 'kiʒəf', 'kiðʃi', 'tuŋip', 'puɣek', 'θeggo', 'səpbuŋ', 'ko', 'bimbag', 'ŋoðjəh', 'ke', 'xep', 'tabo', 'zazmah']
+SR ['ci', 'ɲiʃʒəɣ', 'çiʃav', 'xaʃʝig', 'gəjɟiɣ', 'θuʝi', 'govçi', 'ciʒəf', 'ciðʃi', 'tuɲip', 'puɣek', 'θeggo', 'səpbuŋ', 'ko', 'bimbag', 'ŋoðjəh', 'ke', 'xep', 'tabo', 'zazmah']
+palatalization of velars before high front vowels ===== [velar,consonant] -> [palatal,front,posterior,laminal],['secondary POA', 'stridency'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @118613215
+ - routes 77@index
+[2019-10-12 14:48:15] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:15] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:15] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:15] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:48:16] - INFO - A matchers: ['i', 'ɪ', 'u', 'ʊ']  CD matchers: ["['p', 'f', 't', 'θ', 's', 'ʃ', 'k', 'x', 'ʔ']_[]  "]
+ - generator 297@generate
+[2019-10-12 14:48:16] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+word-final high vowel devoicing after voiceless consonants ===== [high,vowel,voiced] -> [voiceless],[] / [voiceless] _ # 
+ ['p', 't', 'k', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'n', 'ŋ', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @364899093
+ - generator 301@generate
+[2019-10-12 14:48:16] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:16] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 4 IRR 2
+ - generator 330@generate
+[2019-10-12 14:48:16] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 4 NCAD 4 IRR 2
+ - generator 364@generate
+[2019-10-12 14:48:16] - INFO - Data recorded: 
+UR ['ti', 'nusu', 'θʊpʊ', 'nʊkɪ', 'tʊ', 'jɪjʃi', 'luʃfɪ', 'puʔpu', 'ʃipku', 'ʃɪ', 'θɔŋxup', 'ʃɪŋ', 'θʊθ', 'jokip', 'julʊ', 'ŋɪ', 'lʊŋi', 'fæjnu', 'xɑ', 'pælʔes']
+SR ['ti̥', 'nusu̥', 'θʊpʊ̥', 'nʊkɪ̥', 'tʊ̥', 'jɪjʃi̥', 'luʃfɪ̥', 'puʔpu̥', 'ʃipku̥', 'ʃɪ̥', 'θɔŋxup', 'ʃɪŋ', 'θʊθ', 'jokip', 'julʊ', 'ŋɪ', 'lʊŋi', 'fæjnu', 'xɑ', 'pælʔes']
+word-final high vowel devoicing after voiceless consonants ===== [high,vowel,voiced] -> [voiceless],[] / [voiceless] _ # 
+ ['p', 't', 'k', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'n', 'ŋ', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @364899093
+ - routes 77@index
+[2019-10-12 14:48:26] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:26] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:26] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:26] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:48:26] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i', 'ɛ']  "]
+ - generator 297@generate
+[2019-10-12 14:48:26] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'i', 'ɛ', 'o', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @630684917
+ - generator 301@generate
+[2019-10-12 14:48:26] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:26] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:26] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:48:26] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:48:26] - INFO - Data recorded: 
+UR ['ʔuktɛw', 'midɛ', 'didda', 'bɛtɛ', 't͡ʃodɛ', 'ʒati', 'fɛtɛ', 'did', 'dimto', 'tɛ', 'dat͡ʃ', 'poto', 'duta', 'tuwu', 'wuʒid', 'tob', 'kɛtxat͡ʃ', 'dumik', 'va', 'θɛfaŋ']
+SR ['ʔukθɛw', 'miðɛ', 'ðidda', 'bɛθɛ', 't͡ʃoðɛ', 'ʒaθi', 'fɛθɛ', 'ðid', 'ðimto', 'θɛ', 'dat͡ʃ', 'poto', 'duta', 'tuwu', 'wuʒid', 'tob', 'kɛtxat͡ʃ', 'dumik', 'va', 'θɛfaŋ']
+dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'i', 'ɛ', 'o', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @630684917
+ - routes 77@index
+[2019-10-12 14:48:37] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:37] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:37] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:37] - DEBUG - Rule size: 2 - generator 51@__init__
+[2019-10-12 14:48:39] - INFO - A matchers: ['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']  CD matchers: ["['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']_[]  ", "['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']_['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']  ", '[]_[]  ', "[]_['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']  "]
+ - generator 297@generate
+[2019-10-12 14:48:39] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
+voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @237717034
+ - generator 301@generate
+[2019-10-12 14:48:39] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:39] - DEBUG - No CAND type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:39] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 0 NCAD 2 IRR 1
+ - generator 330@generate
+[2019-10-12 14:48:39] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 0 NCAD 4 IRR 1
+ - generator 364@generate
+[2019-10-12 14:48:39] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:39] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:39] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
+ - generator 330@generate
+[2019-10-12 14:48:39] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
+ - generator 364@generate
+[2019-10-12 14:48:39] - INFO - Data recorded: 
+UR ['ʃekθop', 'θɛxkɛl', 'xisfɔw', 'sɑt͡ʃxɛ', 'kophɑw', 'xus', 'tofmɑ', 'tɑpæ', 'sijtɑ', 'nej', 'θuθʔu', 'θefʔes', 'ʔohʔo', 'hikʔɑ', 'mɔkʔɛh', 'hisrɔh', 'fæ', 'tɑl', 'tæroθ', 'rɑrmæj']
+SR ['ʃegðop', 'θɛɣgɛl', 'xizvɔw', 'sɑd͡ʒɣɛ', 'kobɦɑw', 'xus', 'tofmɑ', 'tɑpæ', 'sijtɑ', 'nej', 'θuðʔu', 'θevʔes', 'ʔoɦʔo', 'higʔɑ', 'mɔgʔɛh', 'hisrɔh', 'fæ', 'tɑl', 'tæroθ', 'rɑrmæj']
+voicelessness agreement between obstruents ===== [obstruent,voiceless] -> [voiced],[] / [voiceless,obstruent] _  or  _ [voiceless,obstruent] 
+ ['p', 't', 'k', 'ʔ', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @237717034
+ - routes 77@index
+[2019-10-12 14:48:48] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:48] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:48] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:48] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:48:49] - INFO - A matchers: ['b', 'v', 'm', 'd', 'ð', 'z', 'ʒ', 'n', 'd͡ʒ', 'g', 'ɣ', 'ŋ', 'l', 'j']  CD matchers: ['[]_[]  ']
+ - generator 297@generate
+[2019-10-12 14:48:49] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @929188732
+ - generator 301@generate
+[2019-10-12 14:48:49] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:49] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:48:49] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:48:49] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:48:49] - INFO - Data recorded: 
+UR ['guŋav', 'ŋin', 'lasʔad͡ʒ', 'zatvid', 'nim', 'dud͡ʒið', 'jijnaj', 'zuvbuɣ', 'ʒaðib', 'ziʒul', 'zaθu', 'jali', 'ɣubu', 'giðʃu', 'luʒvu', 'jigis', 'biku', 'fiŋna', 'fuxʃi', 'saθ']
+SR ['guŋaf', 'ŋin̥', 'lasʔat͡ʃ', 'zatvit', 'nim̥', 'dud͡ʒiθ', 'jijnaj̥', 'zuvbux', 'ʒaðip', 'ziʒul̥', 'zaθu', 'jali', 'ɣubu', 'giðʃu', 'luʒvu', 'jigis', 'biku', 'fiŋna', 'fuxʃi', 'saθ']
+word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @929188732
+ - routes 77@index
+[2019-10-12 14:48:59] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:48:59] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:48:59] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:48:59] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:49:00] - INFO - A matchers: ['b', 'm', 'd', 'n', 'd͡ʒ', 'g', 'ŋ', 'w']  CD matchers: ['[]_[]  ']
+ - generator 297@generate
+[2019-10-12 14:49:00] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'ɪ', 'e', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @274293205
+ - generator 301@generate
+[2019-10-12 14:49:00] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:00] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:00] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:49:00] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:49:00] - INFO - Data recorded: 
+UR ['buŋ', 'ŋæt͡ʃæw', 'xəmud', 'ŋɔʔɑd͡ʒ', 'θugŋim', 'medmib', 'dumæn', 'dɑg', 'dɑm', 't͡ʃɪŋ', 'nɔkbʊt͡ʃ', 'tedbo', 'd͡ʒomgʊ', 'ŋəbə', 'wʊ', 'mu', 'gə', 'koθdiʔ', 'poʔ', 'θiθip']
+SR ['buŋ̥', 'ŋæt͡ʃæʍ', 'xəmut', 'ŋɔʔɑt͡ʃ', 'θugŋim̥', 'medmip', 'dumæn̥', 'dɑk', 'dɑm̥', 't͡ʃɪŋ̥', 'nɔkbʊt͡ʃ', 'tedbo', 'd͡ʒomgʊ', 'ŋəbə', 'wʊ', 'mu', 'gə', 'koθdiʔ', 'poʔ', 'θiθip']
+word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'ɪ', 'e', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @274293205
+ - routes 77@index
+[2019-10-12 14:49:10] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:49:10] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:49:10] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:49:10] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:49:11] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 297@generate
+[2019-10-12 14:49:11] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'j', 'i', 'e', 'o', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
+ @331452868
+ - generator 301@generate
+[2019-10-12 14:49:11] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:11] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:11] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 330@generate
+[2019-10-12 14:49:11] - WARNING - Condition Index 0 does not have any related data
+ - generator 333@generate
+[2019-10-12 14:49:11] - ERROR - UNEXPECTED ERROR - routes 147@_get_valid_data
 Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 142, in _get_valid_data
     DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 385, in generate
     raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
 script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'a'] 
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'j', 'i', 'e', 'o', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @600474992
+ @331452868
  
- palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'a'] 
+ postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'j', 'i', 'e', 'o', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @600474992
+ @331452868
 
-[2019-10-11 16:29:33] - ERROR - Exception on / [POST] - app 1891@log_exception
+[2019-10-12 14:49:11] - ERROR - Exception on / [POST] - app 1891@log_exception
 Traceback (most recent call last):
   File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -136,371 +771,300 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 66, in index
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 70, in index
     data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 141, in _get_valid_data
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 148, in _get_valid_data
     raise err
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 142, in _get_valid_data
     DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 385, in generate
     raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
 script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'a'] 
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'j', 'i', 'e', 'o', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @600474992
+ @331452868
  
- palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'a'] 
+ postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'l', 'j', 'i', 'e', 'o', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @600474992
+ @331452868
 
-[2019-10-11 16:36:43] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 16:36:43] - DEBUG - Manual Selection: True - routes 35@index
-[2019-10-11 16:36:43] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 16:36:43] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-11 16:36:44] - INFO - A matchers: ['k', 'g']
-CD matchers: [([], ['i'])]
- - generator 296@generate
-[2019-10-11 16:36:44] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'ə', 'a'] 
+[2019-10-12 14:49:21] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 14:49:21] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 14:49:21] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 14:49:21] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 14:49:22] - INFO - A matchers: ['k', 'g', 'x', 'ŋ']  CD matchers: ["[]_['i']  "]
+ - generator 297@generate
+[2019-10-12 14:49:22] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+palatalization of velars before high front vowels ===== [velar,consonant] -> [palatal,front,posterior,laminal],['secondary POA', 'stridency'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @425085425
- - generator 299@generate
-[2019-10-11 16:36:44] - DEBUG - No CADT type found.(8 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:36:45] - DEBUG - No NCAD type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 16:36:45] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 2 CAND 4 NCAD 0 IRR 2
- - generator 324@generate
-[2019-10-11 16:36:45] - WARNING - Condition Index 0 does not have any related data
- - generator 327@generate
-[2019-10-11 16:36:45] - ERROR - UNEXPECTED ERROR - routes 140@_get_valid_data
-Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
-    DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
-    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
-script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'ə', 'a'] 
+ @589249605
+ - generator 301@generate
+[2019-10-12 14:49:22] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:22] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 14:49:22] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 14:49:22] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 14:49:22] - INFO - Data recorded: 
+UR ['kiso', 'ŋijku', 'bugim', 'xigɔʔ', 'gifi', 'ʃaki', 'xiŋ', 'ŋiŋ', 'ŋit', 'xigɛg', 'kubge', 'xɛŋ', 'bukux', 'kako', 'gax', 'soŋ', 'kɔgɛk', 'ke', 'sɔsmun', 'ʃu']
+SR ['ciso', 'ɲijku', 'buɟim', 'çigɔʔ', 'ɟifi', 'ʃaci', 'çiŋ', 'ɲiŋ', 'ɲit', 'çigɛg', 'kubge', 'xɛŋ', 'bukux', 'kako', 'gax', 'soŋ', 'kɔgɛk', 'ke', 'sɔsmun', 'ʃu']
+palatalization of velars before high front vowels ===== [velar,consonant] -> [palatal,front,posterior,laminal],['secondary POA', 'stridency'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @425085425
- 
- palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'ə', 'a'] 
+ @589249605
+ - routes 77@index
+[2019-10-12 15:08:11] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:08:11] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:08:11] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:08:11] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:08:11] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n', 'ŋ']_[]  "]
+ - generator 297@generate
+[2019-10-12 15:08:11] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'e', 'ɛ', 'ɔ', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @425085425
-
-[2019-10-11 16:36:45] - ERROR - Exception on / [POST] - app 1891@log_exception
-Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 66, in index
-    data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 141, in _get_valid_data
-    raise err
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
-    DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
-    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
-script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'ə', 'a'] 
+ @654170847
+ - generator 301@generate
+[2019-10-12 15:08:11] - DEBUG - Insufficient amount of CADT type.(8 required, 3 found), expanding library
+ - generator 249@_generate_helper
+[2019-10-12 15:08:12] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 15:08:13] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 330@generate
+[2019-10-12 15:08:13] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 364@generate
+[2019-10-12 15:08:13] - INFO - Data recorded: 
+UR ['nɛŋti', 'sunpib', 'ŋɔmkuf', 'pampiʔ', 'ʔɔŋkɔt', 'fumpe', 'θaŋka', 'kunpɛ', 'd͡ʒumʔɛ', 'danʔik', 'kɛdd͡ʒal', 'padpin', 'ʔeʔɛ', 'tug', 'kiŋɔp', 'luʔdɔk', 'putu', 'laspan', 'gaf', 'dili']
+SR ['nɛŋdi', 'sunbib', 'ŋɔmguf', 'pambiʔ', 'ʔɔŋgɔt', 'fumbe', 'θaŋga', 'kunbɛ', 'd͡ʒumʔɛ', 'danʔik', 'kɛdd͡ʒal', 'padpin', 'ʔeʔɛ', 'tug', 'kiŋɔp', 'luʔdɔk', 'putu', 'laspan', 'gaf', 'dili']
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'e', 'ɛ', 'ɔ', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @425085425
- 
- palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɔ', 'u', 'ə', 'a'] 
+ @654170847
+ - routes 77@index
+[2019-10-12 15:08:18] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:08:18] - DEBUG - Manual Selection: False - routes 35@index
+[2019-10-12 15:08:19] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:08:19] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:08:19] - INFO - A matchers: ['b', 'v', 'd', 'ð', 'z', 'ʒ', 'd͡ʒ', 'g', 'ɣ']  CD matchers: ['[]_[]  ']
+ - generator 297@generate
+[2019-10-12 15:08:19] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+word-final obstruent devoicing ===== [obstruent,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'j', 'i', 'o', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @425085425
-
-[2019-10-11 17:01:05] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 17:01:05] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 17:01:05] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 17:01:05] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-11 17:01:07] - INFO - A matchers: ['x', 'ɣ']
-CD matchers: [(['i', 'ɛ'], [])]
- - generator 296@generate
-[2019-10-11 17:01:07] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-palatalization of velar fricatives after front vowels ===== [velar,fricative] -> [palatal,front,posterior,laminal,not strident],['secondary POA'] / [front,vowel] _  
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'o', 'ə', 'a'] 
+ @1007976092
+ - generator 301@generate
+[2019-10-12 15:08:19] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 15:08:19] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 15:08:19] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 2
+ - generator 330@generate
+[2019-10-12 15:08:19] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 8 NCAD 0 IRR 2
+ - generator 364@generate
+[2019-10-12 15:08:19] - INFO - Data recorded: 
+UR ['ɣud͡ʒ', 'nixŋuv', 'guɣ', 'ʒuð', 'dufd͡ʒib', 'ðaðod', 'ðug', 'huðdoz', 'goɣ', 'vuɣsaz', 'hiðʒot͡ʃ', 'miba', 'dupɣa', 'zizi', 'ʒi', 'ðo', 'dudsoh', 'bod͡ʒhu', 'tik', 'θof']
+SR ['ɣut͡ʃ', 'nixŋuf', 'gux', 'ʒuθ', 'dufd͡ʒip', 'ðaðot', 'ðuk', 'huðdos', 'gox', 'vuɣsas', 'hiðʒot͡ʃ', 'miba', 'dupɣa', 'zizi', 'ʒi', 'ðo', 'dudsoh', 'bod͡ʒhu', 'tik', 'θof']
+word-final obstruent devoicing ===== [obstruent,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'w', 'j', 'i', 'o', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @491426624
- - generator 299@generate
-[2019-10-11 17:01:07] - DEBUG - No CADNT type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:01:07] - DEBUG - No CAND type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:01:07] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 0 NCAD 4 IRR 2
- - generator 324@generate
-[2019-10-11 17:01:07] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 0 CAND 0 NCAD 8 IRR 2
- - generator 358@generate
-[2019-10-11 17:01:07] - INFO - Data recorded: 
-UR ['kiɣha', 'xɛxit', 'xiɣɛ', 'jixɣi', 'xɛɣ', 'xɛxax', 'xixə', 'jɛɣxɛt', 'd͡ʒɛxər', 'ðɛɣxɛ', 'waxo', 'ɣɛkoz', 'koxd͡ʒo', 'ɣozfol', 'xoxʃoθ', 'worɣəx', 'xih', 'ɣoxla', 'gima', 'vifsə']
-SR ['kiʝha', 'xɛçit', 'xiʝɛ', 'jiçɣi', 'xɛʝ', 'xɛçax', 'xiçə', 'jɛʝxɛt', 'd͡ʒɛçər', 'ðɛʝxɛ', 'waxo', 'ɣɛkoz', 'koxd͡ʒo', 'ɣozfol', 'xoxʃoθ', 'worɣəx', 'xih', 'ɣoxla', 'gima', 'vifsə']
-palatalization of velar fricatives after front vowels ===== [velar,fricative] -> [palatal,front,posterior,laminal,not strident],['secondary POA'] / [front,vowel] _  
- ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɛ', 'o', 'ə', 'a'] 
+ @1007976092
+ - routes 77@index
+[2019-10-12 15:08:23] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:08:23] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:08:23] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:08:23] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:08:23] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n', 'ŋ']_[]  "]
+ - generator 297@generate
+[2019-10-12 15:08:23] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @491426624
- - routes 145@_get_valid_data
-[2019-10-11 17:04:08] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 17:04:08] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 17:04:08] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 17:04:08] - DEBUG - Rule size: 2 - generator 50@__init__
-[2019-10-11 17:04:11] - INFO - A matchers: ['s']
-CD matchers: [([], []), ([], ['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 'kp', 'gp', 'ŋp', 'rp', 'hp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 'kb', 'gb', 'ŋb', 'rb', 'hb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 'kf', 'gf', 'ŋf', 'rf', 'hf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 'kv', 'gv', 'ŋv', 'rv', 'hv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 'km', 'gm', 'ŋm', 'rm', 'hm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 'kt', 'gt', 'ŋt', 'rt', 'ht', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 'kd', 'gd', 'ŋd', 'rd', 'hd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 'kθ', 'gθ', 'ŋθ', 'rθ', 'hθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 'kð', 'gð', 'ŋð', 'rð', 'hð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 'ks', 'gs', 'ŋs', 'rs', 'hs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 'kz', 'gz', 'ŋz', 'rz', 'hz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 'kʃ', 'gʃ', 'ŋʃ', 'rʃ', 'hʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 'kʒ', 'gʒ', 'ŋʒ', 'rʒ', 'hʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 'kn', 'gn', 'ŋn', 'rn', 'hn', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 'kk', 'gk', 'ŋk', 'rk', 'hk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 'kg', 'gg', 'ŋg', 'rg', 'hg', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 'kŋ', 'gŋ', 'ŋŋ', 'rŋ', 'hŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 'kr', 'gr', 'ŋr', 'rr', 'hr', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 'kh', 'gh', 'ŋh', 'rh', 'hh'])]
- - generator 296@generate
-[2019-10-11 17:04:11] - INFO - REQUEST: PIECES 2 CADT 4 CADNT 1 CAND 2 NCAD 2 IRR 1
-debuccalization of /s/ in codas ===== <Predefined> {s > h} /  _ # or  _ [consonant][consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'r', 'i', 'u', 'ə', 'a'] 
+ @1018741530
+ - generator 301@generate
+[2019-10-12 15:08:23] - DEBUG - Insufficient amount of CADT type.(8 required, 6 found), expanding library
+ - generator 249@_generate_helper
+[2019-10-12 15:09:02] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:09:02] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:09:02] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:09:02] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:09:04] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 297@generate
+[2019-10-12 15:09:04] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'r', 'l', 'j', 'i', 'ɛ', 'ɔ', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @761136661
- - generator 299@generate
-[2019-10-11 17:04:11] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:11] - DEBUG - No NCAD type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:11] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 17:04:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
- - generator 358@generate
-[2019-10-11 17:04:12] - DEBUG - No CADT type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:12] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:12] - DEBUG - No NCAD type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:12] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 0 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 17:04:12] - WARNING - Condition Index 1 does not have any related data
- - generator 327@generate
-[2019-10-11 17:04:12] - DEBUG - No CADNT type found.(1 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:12] - DEBUG - No NCAD type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:12] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 4 CADNT 0 CAND 2 NCAD 0 IRR 1
- - generator 324@generate
-[2019-10-11 17:04:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 5 CADNT 0 CAND 4 NCAD 0 IRR 1
- - generator 358@generate
-[2019-10-11 17:04:12] - INFO - Data recorded: 
-UR ['sisis', 'tiʒsis', 'həs', 'ŋidus', 'kaszus', 'sə', 'sinθə', 'vasi', 'siŋu', 'va', 'fuðəs', 'sus', 'visəs', 'sapas', 'tis', 'suʃif', 'sisku', 'sidi', 'ʃusi', 'pəʒða']
-SR ['sisih', 'tiʒsih', 'həh', 'ŋiduh', 'kaszuh', 'sə', 'sinθə', 'vasi', 'siŋu', 'va', 'fuðəh', 'suh', 'visəh', 'sapah', 'tih', 'suʃif', 'sisku', 'sidi', 'ʃusi', 'pəʒða']
-debuccalization of /s/ in codas ===== <Predefined> {s > h} /  _ # or  _ [consonant][consonant] 
- ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'ŋ', 'r', 'i', 'u', 'ə', 'a'] 
+ @892536026
+ - generator 301@generate
+[2019-10-12 15:09:04] - DEBUG - Insufficient amount of CADT type.(8 required, 3 found), expanding library
+ - generator 249@_generate_helper
+[2019-10-12 15:09:05] - DEBUG - Insufficient amount of CADT type.(5 required, 4 found), expanding library
+ - generator 249@_generate_helper
+[2019-10-12 15:09:07] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 240@_generate_helper
+[2019-10-12 15:09:09] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 330@generate
+[2019-10-12 15:09:11] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 364@generate
+[2019-10-12 15:09:11] - INFO - Data recorded: 
+UR ['dampir', 'sinpɛr', 'jɛmtax', 'dampir', 'sinpɛr', 'jɛmtax', 'gamkɔp', 'tanpɛ', 'fɔnʔɔ', 'tamʔɛ', 'pavɛv', 'tɛtik', 'tɛ', 'ʔɛpi', 'garpɛ', 'ʃimat', 'kɛfij', 'hɔtʔiʔ', 'mɔblɛ', 'mɛxxil']
+SR ['dambir', 'sinbɛr', 'jɛmdax', 'dambir', 'sinbɛr', 'jɛmdax', 'gamgɔp', 'tanbɛ', 'fɔnʔɔ', 'tamʔɛ', 'pavɛv', 'tɛtik', 'tɛ', 'ʔɛpi', 'garpɛ', 'ʃimat', 'kɛfij', 'hɔtʔiʔ', 'mɔblɛ', 'mɛxxil']
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'r', 'l', 'j', 'i', 'ɛ', 'ɔ', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @761136661
- - routes 145@_get_valid_data
-[2019-10-11 17:04:14] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 17:04:14] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 17:04:14] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 17:04:14] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-11 17:04:19] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'a', 'o', 'ɔ', 'u', 'ʊ', 'ə']
-CD matchers: [(['n', 'ŋ'], [])]
- - generator 296@generate
-[2019-10-11 17:04:19] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-progressive vowel nasalization ===== [vowel,oral] -> [nasal],[] / [nasal] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
+ @892536026
+ - routes 77@index
+[2019-10-12 15:12:15] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:12:15] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:12:15] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:12:15] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:12:15] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 297@generate
+[2019-10-12 15:12:15] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @2336465
- - generator 299@generate
-[2019-10-11 17:04:19] - DEBUG - No CADNT type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:19] - DEBUG - No CAND type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:19] - DEBUG - No IRR type found.(2 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:19] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 0 NCAD 4 IRR 0
- - generator 324@generate
-[2019-10-11 17:04:19] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 0 NCAD 8 IRR 0
- - generator 358@generate
-[2019-10-11 17:04:19] - INFO - Data recorded: 
-UR ['niku', 'ŋale', 'ŋu', 'sɛŋʊs', 'norlɛ', 'ŋegʔo', 'ŋɛwvʊʃ', 'ŋɪrə', 'ʒɔzŋuθ', 'ni', 'zɛwno', 'ŋerɔ', 'sefʊr', 'gɪpʒih', 'sɛʒɪŋ', 'ʒe', 'viθwɛ', 'pəba', 'kurðɛ', 'jɪð']
-SR ['nĩku', 'ŋãle', 'ŋũ', 'sɛŋʊ̃s', 'nõrlɛ', 'ŋẽgʔo', 'ŋɛ̃wvʊʃ', 'ŋɪ̃rə', 'ʒɔzŋũθ', 'nĩ', 'zɛwnõ', 'ŋẽrɔ', 'sefʊr', 'gɪpʒih', 'sɛʒɪŋ', 'ʒe', 'viθwɛ', 'pəba', 'kurðɛ', 'jɪð']
-progressive vowel nasalization ===== [vowel,oral] -> [nasal],[] / [nasal] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
+ @595121273
+ - generator 301@generate
+[2019-10-12 15:12:15] - DEBUG - Insufficient amount of CADT type.(8 required, 3 found), expanding library
+ - generator 249@_generate_helper
+[2019-10-12 15:15:09] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:15:09] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:15:09] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:15:09] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:15:10] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 304@generate
+[2019-10-12 15:15:10] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'w', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'æ', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @2336465
- - routes 145@_get_valid_data
-[2019-10-11 17:04:20] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-11 17:04:20] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-11 17:04:20] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-11 17:04:20] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-11 17:04:22] - INFO - A matchers: ['t', 'd']
-CD matchers: [([], ['i', 'e'])]
- - generator 296@generate
-[2019-10-11 17:04:22] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ @280107390
+ - generator 308@generate
+[2019-10-12 15:15:10] - DEBUG - Insufficient amount of CADT type.(8 required, 3 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:17:13] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:17:13] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:17:13] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:17:13] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:17:15] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['n', 'ŋ']_[]  "]
+ - generator 305@generate
+[2019-10-12 15:17:15] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @82905822
- - generator 299@generate
-[2019-10-11 17:04:22] - DEBUG - No CADT type found.(8 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:22] - DEBUG - No NCAD type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-11 17:04:22] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 2 CAND 4 NCAD 0 IRR 2
- - generator 324@generate
-[2019-10-11 17:04:22] - WARNING - Condition Index 0 does not have any related data
- - generator 327@generate
-[2019-10-11 17:04:22] - ERROR - UNEXPECTED ERROR - routes 140@_get_valid_data
-Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
-    DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
-    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
-script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ @711005432
+ - generator 309@generate
+[2019-10-12 15:17:15] - DEBUG - Insufficient amount of CADT type.(8 required, 2 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:17:16] - DEBUG - Insufficient amount of CADT type.(6 required, 3 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:17:17] - DEBUG - Insufficient amount of CADNT type.(2 required, 1 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:17:18] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 247@_generate_helper
+[2019-10-12 15:17:21] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 6 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 338@generate
+[2019-10-12 15:17:23] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 6 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 372@generate
+[2019-10-12 15:17:23] - DEBUG - Insufficient amount of CADT type.(8 required, 6 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:17:24] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 247@_generate_helper
+[2019-10-12 15:17:28] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 0 NCAD 4 IRR 2
+ - generator 338@generate
+[2019-10-12 15:19:03] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:19:03] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:19:03] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:19:03] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:19:04] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 305@generate
+[2019-10-12 15:19:04] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'r', 'w', 'j', 'i', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @82905822
- 
- palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ @513528339
+ - generator 309@generate
+[2019-10-12 15:19:04] - DEBUG - Insufficient amount of CADT type.(8 required, 1 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:19:05] - DEBUG - Insufficient amount of CADT type.(7 required, 5 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:19:06] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 247@_generate_helper
+[2019-10-12 15:19:07] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 338@generate
+[2019-10-12 15:19:08] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 372@generate
+[2019-10-12 15:19:08] - INFO - Data recorded: 
+UR ['bamtu', 'bamtu', 'namtuk', 'kanki', 'vimka', 'wunkuj', 'ðumta', 'zintaʔ', 'ʔimʔi', 'manʔu', 'zuʔi', 'tuθʃu', 'bak', 'ʒapfi', 'pi', 'puksif', 't͡ʃiʔum', 'tisa', 'diðam', 'zag']
+SR ['bamdu', 'bamdu', 'namduk', 'kangi', 'vimga', 'wunguj', 'ðumda', 'zindaʔ', 'ʔimʔi', 'manʔu', 'zuʔi', 'tuθʃu', 'bak', 'ʒapfi', 'pi', 'puksif', 't͡ʃiʔum', 'tisa', 'diðam', 'zag']
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'm', 'n', 'r', 'w', 'j', 'i', 'u', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @82905822
-
-[2019-10-11 17:04:22] - ERROR - Exception on / [POST] - app 1891@log_exception
-Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 66, in index
-    data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 141, in _get_valid_data
-    raise err
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 135, in _get_valid_data
-    DEFAULT_DATA['gloss_grp'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 375, in generate
-    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
-script.generator.GeneratorError: All indexes failed! No result can be produced. 
-palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ @513528339
+ - routes 77@index
+[2019-10-12 15:19:12] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:19:12] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:19:12] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:19:12] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:19:13] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 305@generate
+[2019-10-12 15:19:13] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'w', 'i', 'e', 'ɔ', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @82905822
- 
- palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,posterior,laminal,strident],[] /  _ [front,vowel] 
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'l', 'w', 'j', 'i', 'e', 'o', 'u', 'ə', 'a'] 
+ @643298850
+ - generator 309@generate
+[2019-10-12 15:19:13] - DEBUG - Insufficient amount of CADT type.(8 required, 3 found), expanding library
+ - generator 256@_generate_helper
+[2019-10-12 15:24:09] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:24:09] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:24:09] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:24:09] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:24:10] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['m', 'n']_[]  "]
+ - generator 307@generate
+[2019-10-12 15:24:10] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 't', 'k', 'ʔ', 's', 'ʃ', 'x', 'm', 'n', 'r', 'l', 'j', 'i', 'ɛ', 'ɔ', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @82905822
-
-[2019-10-12 11:43:15] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-12 11:43:15] - DEBUG - Manual Selection: False - routes 35@index
-[2019-10-12 11:43:15] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-12 11:43:15] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-12 11:43:15] - ERROR -  - routes 138@_get_valid_data
-Traceback (most recent call last):
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 132, in _get_valid_data
-    DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 51, in __init__
-    self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
-  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 65, in _expand_library
-    raise GenerationNoCADTError(self)
-script.generator.GenerationNoCADTError: No CADT found with associated phoneme! 
- retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 't', 'k', 'f', 'θ', 's', 'h', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'a'] 
+ @174038392
+ - generator 311@generate
+[2019-10-12 15:24:10] - DEBUG - Insufficient amount of CADT type.(8 required, 5 found), expanding library
+ - generator 258@_generate_helper
+[2019-10-12 15:24:11] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 249@_generate_helper
+[2019-10-12 15:24:11] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
+ - generator 340@generate
+[2019-10-12 15:24:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
+ - generator 374@generate
+[2019-10-12 15:24:12] - INFO - Data recorded: 
+UR ['ʃantɛ', 'ləmtɔp', 'xɛmkɔ', 'pimkɛ', 'timkɛk', 'mimpə', 'məmka', 'timpa', 'pamʔə', 'samʔa', 'riʃpɛ', 'nɛttiʔ', 'jaxtɛs', 'pək', 'kɛpə', 'kɔʔji', 'ta', 'xəməp', 'sɛlɔʃ', 'majɔ']
+SR ['ʃandɛ', 'ləmdɔp', 'xɛmgɔ', 'pimgɛ', 'timgɛk', 'mimbə', 'məmga', 'timba', 'pamʔə', 'samʔa', 'riʃpɛ', 'nɛttiʔ', 'jaxtɛs', 'pək', 'kɛpə', 'kɔʔji', 'ta', 'xəməp', 'sɛlɔʃ', 'majɔ']
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 't', 'k', 'ʔ', 's', 'ʃ', 'x', 'm', 'n', 'r', 'l', 'j', 'i', 'ɛ', 'ɔ', 'ə', 'a'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @912478038
-
-[2019-10-12 11:43:15] - DEBUG - No data recorded (None). - routes 147@_get_valid_data
-[2019-10-12 12:02:37] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-12 12:02:37] - DEBUG - Manual Selection: True - routes 35@index
-[2019-10-12 12:02:37] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-12 12:02:37] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-12 12:02:38] - INFO - A matchers: ['i', 'ɪ']
-CD matchers: [(['ʃ', 'ʒ'], [])]
- - generator 296@generate
-[2019-10-12 12:02:38] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
+ @174038392
+ - routes 77@index
+[2019-10-12 15:24:17] - DEBUG - Type Selection: 1 - routes 32@index
+[2019-10-12 15:24:17] - DEBUG - Manual Selection: True - routes 35@index
+[2019-10-12 15:24:17] - DEBUG - Shuffle Result: False - routes 67@index
+[2019-10-12 15:24:17] - DEBUG - Rule size: 1 - generator 51@__init__
+[2019-10-12 15:24:18] - INFO - A matchers: ['p', 't', 'k', 'ʔ']  CD matchers: ["['n']_[]  "]
+ - generator 307@generate
+[2019-10-12 15:24:18] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+postnasal voicing of stops ===== [oral stop,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'n', 'r', 'l', 'w', 'i', 'u', 'ə', 'æ', 'ɑ'] 
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @589567260
- - generator 299@generate
-[2019-10-12 12:02:38] - DEBUG - No CAND type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-12 12:02:38] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
- - generator 324@generate
-[2019-10-12 12:02:38] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
- - generator 358@generate
-[2019-10-12 12:02:38] - INFO - Data recorded: 
-UR ['ʃomʒi', 'gɪlʒiʃ', 'ximʃi', 'ŋɪʃip', 'ʒixmə', 'fɛdʃip', 'ʒip', 'ʒirtɪ', 'fɪpʒɪ', 'ʃɪ', 'lɪʃrɛʃ', 'sirmɔʃ', 'ʔit', 'nɪɣɔv', 'nɔldiz', 'gisɪ', 'sɛliz', 'dɪm', 'ponɔk', 'mutu']
-SR ['ʃomʒɨ', 'gɪlʒɨʃ', 'ximʃɨ', 'ŋɪʃɨp', 'ʒɨxmə', 'fɛdʃɨp', 'ʒɨp', 'ʒɨrtɪ', 'fɪpʒɪ', 'ʃɪ', 'lɪʃrɛʃ', 'sirmɔʃ', 'ʔit', 'nɪɣɔv', 'nɔldiz', 'gisɪ', 'sɛliz', 'dɪm', 'ponɔk', 'mutu']
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @589567260
- - routes 145@_get_valid_data
-[2019-10-12 12:04:21] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-12 12:04:21] - DEBUG - Manual Selection: True - routes 35@index
-[2019-10-12 12:04:21] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-12 12:04:21] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-12 12:04:22] - INFO - A matchers: ['i', 'ɪ']
-CD matchers: [(['ʃ', 't͡ʃ', 'd͡ʒ'], [])]
- - generator 296@generate
-[2019-10-12 12:04:22] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @535675572
- - generator 299@generate
-[2019-10-12 12:04:22] - DEBUG - No CAND type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-12 12:04:22] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
- - generator 324@generate
-[2019-10-12 12:04:22] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
- - generator 358@generate
-[2019-10-12 12:04:22] - INFO - Data recorded: 
-UR ['d͡ʒitip', 'd͡ʒih', 'd͡ʒitɔ', 'sət͡ʃi', 'd͡ʒiʃɔf', 'dərʃih', 'bit͡ʃt͡ʃi', 'd͡ʒid͡ʒit͡ʃ', 'd͡ʒɪrɪ', 'd͡ʒɪgt͡ʃə', 'ʔiʔ', 'kɪsɪ', 'sanni', 'gɪrfi', 'sɪnno', 'nosdin', 'xɪ', 'diŋ', 'səgʊ', 'kɛfgɛ']
-SR ['d͡ʒɨtip', 'd͡ʒɨh', 'd͡ʒɨtɔ', 'sət͡ʃɨ', 'd͡ʒɨʃɔf', 'dərʃɨh', 'bit͡ʃt͡ʃɨ', 'd͡ʒɨd͡ʒɨt͡ʃ', 'd͡ʒɪrɪ', 'd͡ʒɪgt͡ʃə', 'ʔiʔ', 'kɪsɪ', 'sanni', 'gɪrfi', 'sɪnno', 'nosdin', 'xɪ', 'diŋ', 'səgʊ', 'kɛfgɛ']
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @535675572
- - routes 145@_get_valid_data
-[2019-10-12 12:05:13] - DEBUG - Type Selection: 1 - routes 32@index
-[2019-10-12 12:05:13] - DEBUG - Manual Selection: True - routes 35@index
-[2019-10-12 12:05:13] - DEBUG - Shuffle Result: False - routes 65@index
-[2019-10-12 12:05:13] - DEBUG - Rule size: 1 - generator 50@__init__
-[2019-10-12 12:05:14] - INFO - A matchers: ['i', 'ɪ']
-CD matchers: [(['ʃ', 'ʒ', 't͡ʃ', 'd͡ʒ'], [])]
- - generator 296@generate
-[2019-10-12 12:05:14] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @392326073
- - generator 299@generate
-[2019-10-12 12:05:14] - DEBUG - No CAND type found.(4 required, 0 found)
- - generator 239@_generate_helper
-[2019-10-12 12:05:14] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 4 IRR 2
- - generator 324@generate
-[2019-10-12 12:05:14] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 0 NCAD 8 IRR 2
- - generator 358@generate
-[2019-10-12 12:05:14] - INFO - Data recorded: 
-UR ['ʒid͡ʒʔɪf', 'd͡ʒizfɪ', 'ʃiʔti', 't͡ʃirɪ', 'ʒi', 'ʒiʒbɪr', 'ʒiki', 'd͡ʒiʔsɪn', 'ʒɪmnɪp', 't͡ʃɪllɛ', 'himɪk', 'zijbi', 'hitdiz', 'zɪse', 'sɛhʔi', 'tɪslɛb', 'zɪziʃ', 'sif', 'tovgog', 'ʔohvu']
-SR ['ʒɨd͡ʒʔɪf', 'd͡ʒɨzfɪ', 'ʃɨʔti', 't͡ʃɨrɪ', 'ʒɨ', 'ʒɨʒbɪr', 'ʒɨki', 'd͡ʒɨʔsɪn', 'ʒɪmnɪp', 't͡ʃɪllɛ', 'himɪk', 'zijbi', 'hitdiz', 'zɪse', 'sɛhʔi', 'tɪslɛb', 'zɪziʃ', 'sif', 'tovgog', 'ʔohvu']
-retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _  
- ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'a'] 
- ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[consonant]-[vowel]-[consonant]'] 
- @392326073
- - routes 145@_get_valid_data
+ @948846174
+ - generator 311@generate
+[2019-10-12 15:24:18] - DEBUG - Insufficient amount of CADT type.(8 required, 1 found), expanding library
+ - generator 258@_generate_helper
+[2019-10-12 15:24:18] - DEBUG - Insufficient amount of CADT type.(7 required, 1 found), expanding library
+ - generator 258@_generate_helper
+[2019-10-12 15:24:19] - DEBUG - Insufficient amount of CADT type.(6 required, 1 found), expanding library
+ - generator 258@_generate_helper
+[2019-10-12 15:24:20] - DEBUG - Insufficient amount of CADT type.(5 required, 3 found), expanding library
+ - generator 258@_generate_helper

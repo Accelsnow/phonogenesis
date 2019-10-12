@@ -9,6 +9,7 @@ import logging
 WORD_POOL_DEFAULT_SIZE = 300
 IRR_PERCENTAGE = 0.1
 RELATED_PERCENTAGE = 0.9
+SPLIT_REFILL_RETRY_LIMIT = 5
 EXCLUSION_TYPES = [ExampleType.CADT, ExampleType.CADNT]
 LOGGER = logging.getLogger("app.logger")
 
@@ -177,15 +178,14 @@ class Generator:
     @staticmethod
     def _get_dist_values(dic: Dict[Word, List[Word]]) -> List[Word]:
         existed = []
-
         for lst in dic.values():
             for item in lst:
                 if item not in existed:
                     existed.append(item)
-
         return existed
 
     def _generate_words(self, amount: int, dic: Dict[Word, List[Word]]) -> List[Word]:
+        print("in gen w")
         if amount == 0:
             return []
 
@@ -226,6 +226,7 @@ class Generator:
             curr_index += 1
 
         self._duplicate_exclusion.extend(words)
+        print("out gen w")
         return words
 
     def _generate_helper(self, dic: Dict[Word, List[Word]], amount: int, name: str, feature_to_type: Dict[str, str],
@@ -290,18 +291,23 @@ class Generator:
         else:
             raise GeneratorParameterError(self, amount, "amount must be either int list or int")
 
-        LOGGER.info("A matchers: %s\nCD matchers: %s\n" % (
+        LOGGER.info("A matchers: %s  CD matchers: %s\n" % (
             [str(w) for w in self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)],
-            [([str(w1) for w1 in tp[0]], [str(w2) for w2 in tp[1]]) for tp in
-             self._rule.get_cd_matchers(self._phonemes, feature_to_sounds)]
+            ["%s_%s  " % ([str(wc) for wc in c], [str(wd) for wd in d])
+             for c in self._rule.get_c_matchers(self._phonemes, feature_to_sounds)
+             for d in self._rule.get_d_matchers(self._phonemes, feature_to_sounds)]
         ))
         LOGGER.info("REQUEST: PIECES %d CADT %d CADNT %d CAND %d NCAD %d IRR %d\n%s\n" % (
             split_size, cadt_num, cadnt_num, cand_num, ncad_num, irr_num, self.get_log_stamp()))
 
         failed_indexes = set([])
-
+        fill_retry_count = 0
         index = 0
         while index < split_size:
+            if fill_retry_count > SPLIT_REFILL_RETRY_LIMIT:
+                raise GeneratorError(self, "Some index does not produce result, while refilling failed for "
+                                           "unknown reason! Required %d Current %d\n" % (total_amount, len(ur_words)))
+
             if index in failed_indexes:
                 index += 1
                 continue
@@ -371,14 +377,14 @@ class Generator:
 
             index += 1
 
+            if index >= split_size and len(ur_words) < total_amount:
+                index = 0
+                fill_retry_count += 1
+
         if len(failed_indexes) == split_size:
             raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
 
         ur_size = len(ur_words)
-
-        if len(ur_words) < total_amount:
-            raise GeneratorError(self,
-                                 "Insufficient amount generated! Required %d Current %d\n" % (total_amount, ur_size))
 
         if is_shuffled:
             random.shuffle(ur_words)

@@ -250,15 +250,23 @@ class Rule:
             a_matcher.extend(words)
         return a_matcher
 
-    def get_cd_matchers(self, phonemes: Optional[List[Word], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
-        Tuple[List[Word], List[Word]]]:
-        cd_matchers = []  # type: List[Tuple[List[Word], List[Word]]]
+    def get_c_matchers(self, phonemes: Optional[List[Word], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
+        List[Word]]:
+        c_matchers = []  # type: List[List[Word]]
 
-        for i in range(0, len(self._Cs)):
-            cd_matchers.append((_get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds),
-                                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds),))
+        for c_ins in self._Cs:
+            c_matchers.append(_get_c_instance_matcher(c_ins, phonemes, None, feature_to_sounds))
 
-        return cd_matchers
+        return c_matchers
+
+    def get_d_matchers(self, phonemes: Optional[List[Word], None], feature_to_sounds: Dict[str, List[Sound]]) -> List[
+        List[Word]]:
+        d_matchers = []  # type: List[List[Word]]
+
+        for d_ins in self._Ds:
+            d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds))
+
+        return d_matchers
 
     def get_rule_type(self, phonemes: List[Word], feature_to_type: Dict[str, str],
                       feature_to_sounds: Dict[str, List[Sound]]) -> RuleType:

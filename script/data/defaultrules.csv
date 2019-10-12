@@ -26,19 +26,19 @@
 "[velar,oral stop]>[coronal,postalveolar,affricate,posterior,laminal,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to postalveolar affricates before front vowels,palatalization
 "[velar,oral stop]>[coronal,postalveolar,fricative,continuant,posterior,laminal,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to postalveolar fricatives before front vowels,palatalization
 "[velar,oral stop]>[coronal,alveolar,affricate,anterior,apical,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to alveolar affricates before front vowels,palatalization
-"[velar,oral stop]>[coronal,alveolar,fricative,anterior,apical,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to alveolar fricatives before front vowels,palatalization
+"[velar,oral stop]>[coronal,alveolar,fricative,continuant,anterior,apical,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to alveolar fricatives before front vowels,palatalization
 "[alveolar,oral stop]>[postalveolar,affricate,posterior,laminal,strident]/_[front,vowel]",palatal mutation of alveolar stops to postalveolar affricates before front vowels,palatalization
-"[alveolar,oral stop]>[postalveolar,fricative,posterior,laminal,strident]/_[front,vowel]",palatal mutation of alveolar stops to postalveolar fricatives before front vowels,palatalization
+"[alveolar,oral stop]>[postalveolar,fricative,continuant,posterior,laminal,strident]/_[front,vowel]",palatal mutation of alveolar stops to postalveolar fricatives before front vowels,palatalization
 "[alveolar,oral stop]>[affricate,strident]/_[front,vowel]",palatal mutation of alveolar stops to alveolar affricates before front vowels,palatalization
-"[alveolar,oral stop]>[fricative,strident]/_[front,vowel]",palatal mutation of alveolar stops to alveolar fricatives before front vowels,palatalization
+"[alveolar,oral stop]>[fricative,continuant,strident]/_[front,vowel]",palatal mutation of alveolar stops to alveolar fricatives before front vowels,palatalization
 "[velar,oral stop]>[coronal,postalveolar,affricate,posterior,laminal,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to postalveolar affricates before high front vowels,palatalization
-"[velar,oral stop]>[coronal,postalveolar,fricative,posterior,laminal,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to postalveolar fricatives before high front vowels,palatalization
+"[velar,oral stop]>[coronal,postalveolar,fricative,continuant,posterior,laminal,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to postalveolar fricatives before high front vowels,palatalization
 "[velar,oral stop]>[coronal,alveolar,affricate,anterior,apical,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to alveolar affricates before high front vowels,palatalization
-"[velar,oral stop]>[coronal,alveolar,fricative,anterior,apical,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to alveolar fricatives before high front vowels,palatalization
+"[velar,oral stop]>[coronal,alveolar,fricative,continuant,anterior,apical,strident,(backness),(height)]/_[high,front,vowel]",palatal mutation of velar stops to alveolar fricatives before high front vowels,palatalization
 "[alveolar,oral stop]>[postalveolar,affricate,posterior,laminal,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to postalveolar affricates before high front vowels,palatalization
-"[alveolar,oral stop]>[postalveolar,fricative,posterior,laminal,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to postalveolar fricatives before high front vowels,palatalization
+"[alveolar,oral stop]>[postalveolar,fricative,continuant,posterior,laminal,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to postalveolar fricatives before high front vowels,palatalization
 "[alveolar,oral stop]>[affricate,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to alveolar affricates before high front vowels,palatalization
-"[alveolar,oral stop]>[fricative,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to alveolar fricatives before high front vowels,palatalization
+"[alveolar,oral stop]>[fricative,continuant,strident]/_[high,front,vowel]",palatal mutation of alveolar stops to alveolar fricatives before high front vowels,palatalization
 "[velar,consonant]>[palatal,front,posterior,laminal,(secondary POA),(stridency)]/[front,vowel]_",palatalization of velars after front vowels,palatalization
 "[velar,consonant]>[palatal,front,posterior,laminal,(secondary POA),(stridency)]/_[front,vowel]",palatalization of velars before front vowels,palatalization
 "[velar,fricative]>[palatal,front,posterior,laminal,not strident,(secondary POA)]/[front,vowel]_",palatalization of velar fricatives after front vowels,palatalization

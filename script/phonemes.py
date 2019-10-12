@@ -15,15 +15,20 @@ def import_default_full_phonemes() -> List[Word]:
         os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/defaultpresetphoneme.txt"))
 
 
-def import_default_randomized_phonemes(interest_words: List[Word]) -> List[Word]:
+def import_default_randomized_phonemes(interest_words: List[List[Word]]) -> List[Word]:
     import os
+
+    interest_words_str = []  # type: List[List[str]]
+
+    for iw in interest_words:
+        interest_words_str.append([str(w) for w in iw])
 
     return _fetch_randomized_phonemes(
         os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/defaultphonemerandomization.txt"),
-        [str(w) for w in interest_words])
+        interest_words_str)
 
 
-def _fetch_randomized_phonemes(filename: str, interest: List[str]) -> List[Word]:
+def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> List[Word]:
     import ast
 
     drop_rules = []  # type: List[List[List[Any]]]
@@ -40,19 +45,19 @@ def _fetch_randomized_phonemes(filename: str, interest: List[str]) -> List[Word]
                 drop_rules.append(rule_block)
             else:
                 data = line.split(" ")
-                rule_sec = []
+                sec = []
 
                 for i in range(0, len(data)):
-                    rule_sec.append(ast.literal_eval(data[i]))
+                    sec.append(ast.literal_eval(data[i]))
 
-                rule_block.append(rule_sec)
+                rule_block.append(sec)
 
     random.shuffle(drop_rules)
 
     phoneme_str = [str(w) for w in import_default_full_phonemes()]
     drop_list = []
     preserved_set = set([])
-    preserv_prob = 1.0
+    preserv_probs = [1.0 for _ in range(len(interests))]  # type: List[float]
 
     for full_rule in drop_rules:
         rand_var = random.random()
@@ -66,30 +71,35 @@ def _fetch_randomized_phonemes(filename: str, interest: List[str]) -> List[Word]
             prb_met = rand_var < rule[0]
             drop_buffer = []
 
-            i = 1
-            while i + 1 < len(rule):
-                pool = rule[i]
-                sample_size = rule[i + 1]
+            sec = 1
+            while sec + 1 < len(rule):
+                pool = rule[sec]
+                sample_size = rule[sec + 1]
 
-                pick_result = _get_random_pick(pool, interest, sample_size, preserv_prob, preserved_set)
+                pick_result = _get_random_pick(pool, interests, sample_size, preserv_probs, preserved_set)
 
-                if pick_result[0]:
-                    for preserved in pick_result[1]:
-                        preserved_set.add(preserved)
+                if True in pick_result[0]:
+                    for i in range(len(pick_result[1])):
+                        if pick_result[0][i]:
+                            preserv_probs[i] = UNNECESSARY_PRESERVE_PROB
+                            preserved_set.union(pick_result[1][i])
+
                     rule_completed = True
                     preserv_enforced = True
                 else:
                     if prb_met:
-                        drop_buffer.extend(pick_result[1])
+                        for i in range(len(pick_result[0])):
+                            if not pick_result[0][i]:
+                                drop_buffer.extend(pick_result[1][i])
+                                break
+
                         rule_completed = True
 
-                i += 2
+                sec += 2
 
             if rule_completed:
 
-                if preserv_enforced:
-                    preserv_prob = UNNECESSARY_PRESERVE_PROB
-                else:
+                if not preserv_enforced:
                     drop_list.extend(drop_buffer)
 
                 break
@@ -185,13 +195,21 @@ def _fetch_randomized_phonemes(filename: str, interest: List[str]) -> List[Word]
     return phonemes
 
 
-def _get_random_pick(pool: List[str], interest: List[str], sample_size: int, preserv_prob: float,
-                     preserved: Set[str]) -> Tuple[bool, List[str]]:
-    interested_in_pool = [p for p in pool if p in interest]
-    if True in [p in preserved for p in pool] or (len(interested_in_pool) > 0 and random.random() < preserv_prob):
-        return True, interested_in_pool
-    else:
-        return False, random.sample(pool, sample_size)
+def _get_random_pick(pool: List[str], interests: List[List[str]], sample_size: int, preserv_probs: List[float],
+                     preserved: Set[str]) -> Tuple[List[bool], List[List[str]]]:
+    report = [], []  # type: Tuple[List[bool], List[List[str]]]
+
+    for i in range(len(interests)):
+        curr_interested = [p for p in pool if p in interests[i]]
+
+        if True in [p in preserved for p in pool] or (len(curr_interested) > 0 and random.random() < preserv_probs[i]):
+            report[0].append(True)
+            report[1].append(curr_interested)
+        else:
+            report[0].append(False)
+            report[1].append(random.sample(pool, sample_size))
+
+    return report
 
 
 def _fetch_preset_phonemes(filename: str) -> List[Word]:

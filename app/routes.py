@@ -7,7 +7,7 @@ import random
 import logging
 from app.forms import TYPE_SELECTION_DICT, HINT_SELECTION_DICT, MORE_GEN_SELECTION_DICT
 
-RETRY_LIMIT = 50
+TYPE_MISMATCH_RETRY_LIMIT = 50
 gen: Generator
 data: dict
 size: int
@@ -41,11 +41,13 @@ def index():
 
         classification_match_retry = 0
         while True:
-            if classification_match_retry > RETRY_LIMIT:
+            if classification_match_retry > TYPE_MISMATCH_RETRY_LIMIT:
                 LOGGER.error("Can not seem to get matched phoneme & rule to conform classification")
                 return redirect(url_for('index'))
 
-            phonemes = get_random_phonemes(rule_selection.get_a_matcher(None, None, DEFAULT_DATA['f2ss']))
+            phonemes = get_random_phonemes([rule_selection.get_a_matcher(None, None, DEFAULT_DATA['f2ss']),
+                                            rule_selection.get_c_matchers(None, DEFAULT_DATA['f2ss']),
+                                            rule_selection.get_d_matchers(None, DEFAULT_DATA['f2ss'])])
             type_ = rule_selection.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
             if TYPE_SELECTION_DICT[type_selection] is not None and TYPE_SELECTION_DICT[type_selection] != type_:
@@ -63,14 +65,19 @@ def index():
 
         is_shuffled = bool(gen_spec_form.randomize_order.data)
         LOGGER.debug("Shuffle Result: %s", str(is_shuffled))
-        data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
 
-        if data is None:
-            return redirect(url_for('index'))
-        else:
-            return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                                   gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                                   rule_type=rule_type)
+        while True:
+            data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
+
+            if data is None:
+                LOGGER.debug("No data recorded (None).")
+                return redirect(url_for('index'))
+            else:
+                LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+                    [str(s) for s in data['UR']], [str(s) for s in data['SR']], gen.get_log_stamp()))
+                return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
+                                       gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
+                                       rule_type=rule_type)
 
     if hint_form.submit_hint.data and hint_form.validate_on_submit() and 'data' in globals():
         hint_selection = hint_form.hints.data
@@ -139,11 +146,5 @@ def _get_valid_data(rule_selected: Rule, phonemes: list, size_: int, is_shuffled
     except Exception as err:
         LOGGER.exception("UNEXPECTED ERROR")
         raise err
-
-    if data_ is not None:
-        LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
-            [str(s) for s in data_['UR']], [str(s) for s in data_['SR']], gen.get_log_stamp()))
-    else:
-        LOGGER.debug("No data recorded (None).")
 
     return data_
