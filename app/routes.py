@@ -43,7 +43,7 @@ def index():
         while True:
             if classification_match_retry > TYPE_MISMATCH_RETRY_LIMIT:
                 LOGGER.error("Can not seem to get matched phoneme & rule to conform classification")
-                return redirect(url_for('index'))
+                return redirect(url_for('index', _external=True))
 
             phonemes = get_random_phonemes([rule_selection.get_a_matcher(None, None, DEFAULT_DATA['f2ss']),
                                             rule_selection.get_c_matchers(None, DEFAULT_DATA['f2ss']),
@@ -71,7 +71,7 @@ def index():
 
             if data is None:
                 LOGGER.debug("No data recorded (None).")
-                return redirect(url_for('index'))
+                return redirect(url_for('index', _external = True))
             else:
                 LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
                     [str(s) for s in data['UR']], [str(s) for s in data['SR']], gen.get_log_stamp()))
