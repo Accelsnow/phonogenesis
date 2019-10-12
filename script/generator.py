@@ -47,7 +47,7 @@ class Generator:
         }
 
         self._difficulty = difficulty
-        LOGGER.debug("Rule size: %d" % len(self._rule._Cs))
+        LOGGER.debug("Rule size: %d" % self._rule.get_c_split_size())
         self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
 
     def _expand_library(self, pool_size: int, feature_to_type: Dict[str, str],

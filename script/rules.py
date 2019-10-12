@@ -271,7 +271,7 @@ class Rule:
         a_matchers = self.get_a_matcher(phonemes, None, feature_to_sounds)
 
         for a in a_matchers:
-            if a.get_sound_transformation(self._B[0], self._B[1], feature_to_type, feature_to_sounds) in phonemes:
+            if self._do_replace(a, 0, 1, feature_to_type, feature_to_sounds) in phonemes:
                 has_neutralizing = True
             else:
                 has_alternating = True
@@ -315,6 +315,9 @@ class Rule:
 
     def get_name(self) -> str:
         return self._name
+
+    def get_c_split_size(self) -> int:
+        return len(self._Cs)
 
     def get_family(self) -> RuleFamily:
         return self._family

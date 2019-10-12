@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     print("\n==================================================\n")
 
-    manual_rule_select = 74
+    manual_rule_select = 20
 
     use_rule = rules[manual_rule_select]
     amount = 20

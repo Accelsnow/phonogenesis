@@ -24,7 +24,7 @@
 "[mid,vowel,tense]>[lax]/_[consonant]#&_[consonant][consonant]",mid vowel laxing in closed syllables,vowel tenseness
 ,,
 "[velar,oral stop]>[coronal,postalveolar,affricate,posterior,laminal,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to postalveolar affricates before front vowels,palatalization
-"[velar,oral stop]>[coronal,postalveolar,fricative,posterior,laminal,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to postalveolar fricatives before front vowels,palatalization
+"[velar,oral stop]>[coronal,postalveolar,fricative,continuant,posterior,laminal,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to postalveolar fricatives before front vowels,palatalization
 "[velar,oral stop]>[coronal,alveolar,affricate,anterior,apical,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to alveolar affricates before front vowels,palatalization
 "[velar,oral stop]>[coronal,alveolar,fricative,anterior,apical,strident,(backness),(height)]/_[front,vowel]",palatal mutation of velar stops to alveolar fricatives before front vowels,palatalization
 "[alveolar,oral stop]>[postalveolar,affricate,posterior,laminal,strident]/_[front,vowel]",palatal mutation of alveolar stops to postalveolar affricates before front vowels,palatalization

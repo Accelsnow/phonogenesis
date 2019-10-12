@@ -49,7 +49,10 @@ class Sound:
                 target_feature = target_features[i]
                 this_feature = self._features[i]
 
-                target_type = feature_to_type[target_feature]
+                if target_feature == 'NA':
+                    target_type = feature_to_type[this_feature]
+                else:
+                    target_type = feature_to_type[target_feature]
 
                 if target_type not in specified_types and target_type not in ignored_types:
                     if target_feature != this_feature:
