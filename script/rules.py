@@ -206,7 +206,7 @@ class Rule:
             result[str(a_word)] = str(b_word)
 
         all_phones = list(all_phones)
-        all_phones.sort(key=lambda x: Sound(-1, '', [])[x].get_num())
+        all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
         return result, all_phones
 
     def locations_a(self, word: Word, phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]) -> Dict[
@@ -312,7 +312,7 @@ class Rule:
             dest_particle = self._B[0]
             ignored_types = self._B[1]
 
-            dest_sound = Sound(-1, '', [])[target].get_transformed_sound(dest_particle, ignored_types, feature_to_type,
+            dest_sound = Sound('', [])[target].get_transformed_sound(dest_particle, ignored_types, feature_to_type,
                                                                          feature_to_sounds)
             if dest_sound is not None:
                 return word.change_word(begin_index, Word([dest_sound]))

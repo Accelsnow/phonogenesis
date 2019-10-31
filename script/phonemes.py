@@ -190,7 +190,7 @@ def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> Lis
     #     drop_list.extend(["ɪ", "ʊ", "u"])
 
     phoneme_randomized = [s for s in phoneme_str if s not in drop_list]
-    phonemes = [Word([Sound(-1, '', [])[str(s)]]) for s in phoneme_randomized]
+    phonemes = [Word([Sound('', [])[str(s)]]) for s in phoneme_randomized]
 
     return phonemes
 
@@ -223,6 +223,6 @@ def _fetch_preset_phonemes(filename: str) -> List[Word]:
             data = line.split(" ")
 
             for sound_str in data:
-                phonemes.append(Word([Sound(-1, '', [])[str(sound_str)]]))
+                phonemes.append(Word([Sound('', [])[str(sound_str)]]))
 
     return phonemes

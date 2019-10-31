@@ -53,8 +53,12 @@ class Particle:
         return [f for f in self._features]
 
     def __eq__(self, other: Particle) -> bool:
-        for i in range(0, len(self._features)):
-            if not self._features[i] == other._features[i]:
+        for pt in self._features:
+            if pt not in other.get_features():
+                return False
+
+        for pt in other.get_features():
+            if pt not in self._features:
                 return False
 
         return True
@@ -86,7 +90,6 @@ def _fetch_feature_csv(filename: str) -> Tuple[
     with open(filename, encoding='utf-8') as data_file:
         lines = csv.reader(data_file)
         header_solved = False
-        sound_num = 1
 
         for line in lines:
             if len(line) == 0 or len(line[0]) == 0 or line[0] == '' or line[0] == '\ufeff':
@@ -120,8 +123,7 @@ def _fetch_feature_csv(filename: str) -> Tuple[
             if len(features_) != len(feature_types):
                 raise ImportError("Feature line \'%s\' does not align with types" % str(features_))
 
-            _sound = Sound(sound_num, str(line[0]), features_)
-            sound_num += 1
+            _sound = Sound(str(line[0]), features_)
 
             if Particle(features_) in features_to_sound.keys():
                 raise ImportError(

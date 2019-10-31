@@ -30,7 +30,7 @@ if __name__ == '__main__':
     for rule in rules:
         print("\n\n", str(rule), ":")
         success = True
-        data = [str(rule)]  # type:list
+        question_result = [str(rule)]  # type:list
 
         try:
             gen = Generator(phonemes, templates, rule, 5, feature_to_type, feature_to_sounds)
@@ -40,18 +40,18 @@ if __name__ == '__main__':
         except:
             success = False
             info = sys.exc_info()[0]
-            data.extend([info for _ in range(0, 5)])
-            data.append("ERROR")
+            question_result.extend([info for _ in range(0, 5)])
+            question_result.append("ERROR")
 
         if success:
-            data.extend(amounts)
+            question_result.extend(amounts)
 
             if amounts[0] == 0 or False not in [amounts[i] == 0 for i in range(1, len(amounts))]:
-                data.append("ABNORMAL")
+                question_result.append("ABNORMAL")
             else:
-                data.append("-")
+                question_result.append("-")
 
-        row_data.append(data)
+        row_data.append(question_result)
         print(success, '\n\n')
 
     with open('analyze.csv', 'w', encoding='utf-8') as file:

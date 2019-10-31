@@ -12,6 +12,15 @@ h1 {
     border: 10px solid transparent;
 }
 
+#phones, #poi, #phonemes{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5em;
+    height: auto;
+    table-layout: fixed;
+    width: 100%;
+    border: 10px solid transparent;
+}
+
 #result {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.5em;

@@ -5,25 +5,28 @@ from app import DEFAULT_DATA, TOTAL_RULE_COUNT
 from script import *
 import random
 import logging
+import copy
 from app.forms import TYPE_SELECTION_DICT, HINT_SELECTION_DICT, MORE_GEN_SELECTION_DICT
 
 TYPE_MISMATCH_RETRY_LIMIT = 50
 gen: Generator
-data: dict
+question_result: dict
+customized_data: dict
 size: int
 rule_type: str
 LOGGER = logging.getLogger("app.logger")
-show_phone_interest = False
+show_ur = False
 show_full_phonemes = False
 
 
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global data, size, rule_type, show_phone_interest, show_full_phonemes
+    global question_result, size, rule_type, show_ur, show_full_phonemes
 
     gen_spec_form = GenerationSpec()
     hint_form = GetHint()
+
     generate_more_form = GenerateMore()
     answer_form = ShowAnswer()
 
@@ -67,33 +70,34 @@ def index():
         LOGGER.debug("Shuffle Result: %s", str(is_shuffled))
 
         while True:
-            data = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
+            question_result = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
 
-            if data is None:
+            if question_result is None:
                 LOGGER.debug("No data recorded (None).")
                 return redirect(url_for('index'))
             else:
                 LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
-                    [str(s) for s in data['UR']], [str(s) for s in data['SR']], gen.get_log_stamp()))
+                    [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
+                    gen.get_log_stamp()))
                 return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                                       gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                                       rule_type=rule_type)
+                                       gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
+                                       size=size, rule_type=rule_type)
 
-    if hint_form.submit_hint.data and hint_form.validate_on_submit() and 'data' in globals():
+    if hint_form.submit_hint.data and hint_form.validate_on_submit() and 'question_result' in globals():
         hint_selection = hint_form.hints.data
 
-        if HINT_SELECTION_DICT[hint_selection] == "poi":
-            show_phone_interest = True
+        if HINT_SELECTION_DICT[hint_selection] == "ur":
+            show_ur = True
 
         if HINT_SELECTION_DICT[hint_selection] == "fp":
             show_full_phonemes = True
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                               gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               rule_type=rule_type, show_full_phonemes=show_full_phonemes,
-                               show_phone_interest=show_phone_interest)
+                               gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
+                               size=size, rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               show_ur=show_ur)
 
-    if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and 'data' in globals() \
+    if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and 'question_result' in globals() \
             and 'gen' in globals():
         generate_selection = generate_more_form.requested_type.data
         more_data = None
@@ -111,24 +115,47 @@ def index():
                                      DEFAULT_DATA['gloss_grp'])
 
         if more_data is not None:
-            data['UR'].extend(more_data['UR'])
-            data['SR'].extend(more_data['SR'])
-            data['Gloss'].extend(more_data['Gloss'])
+            question_result['UR'].extend(more_data['UR'])
+            question_result['SR'].extend(more_data['SR'])
+            question_result['Gloss'].extend(more_data['Gloss'])
             size += len(more_data['UR'])
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                               gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               rule_type=rule_type, show_full_phonemes=show_full_phonemes,
-                               show_phone_interest=show_phone_interest)
+                               gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
+                               size=size, rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               show_ur=show_ur)
 
-    if answer_form.show_answer.data and answer_form.validate_on_submit() and 'data' in globals():
+    if answer_form.show_answer.data and answer_form.validate_on_submit() and 'question_result' in globals():
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                               gen_more_form=generate_more_form, answer_form=answer_form, data=data, size=size,
-                               rule_type=rule_type, show_full_phonemes=True, show_phone_interest=True, show_answer=True)
+                               gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
+                               size=size, rule_type=rule_type, show_full_phonemes=True, show_ur=True,
+                               show_answer=True)
 
     return render_template('index.html', title='Demo', gen_form=gen_spec_form, hint_form=hint_form,
                            gen_more_form=generate_more_form, answer_form=answer_form)
 
+#
+# @app.route('/prof', methods=['GET', 'POST'])
+# def prof():
+#     global customized_data
+#
+#     if 'customized_data' not in globals() or customized_data is None:
+#         _reset_customized_data()
+#
+#     return render_template('prof.html', title='Professor Mode', data=customized_data)
+#
+#
+# def get_display_data(data):
+#     sounds = data['sounds']
+#     types = ['skeletal tier']
+#     all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
+#
+#
+# def _reset_customized_data():
+#     global customized_data
+#
+#     customized_data = copy.deepcopy(DEFAULT_DATA)
+#
 
 def _get_valid_data(rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool):
     global gen

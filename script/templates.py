@@ -70,7 +70,7 @@ class Template:
                     interest_added = 0
                     possibility = 1.0 / interest_total
 
-                    curr_word = [Sound(-1, '', []) for _ in range(0, word_len)]  # type: List[Sound]
+                    curr_word = [Sound('', []) for _ in range(0, word_len)]  # type: List[Sound]
                     unordered_index = [i for i in range(0, word_len)]
                     random.shuffle(unordered_index)
 
@@ -125,6 +125,24 @@ def import_default_templates(feature_pool: List[str]) -> List[Template]:
                             feature_pool)
 
 
+def parse_template_line(line: str, feature_pool: List[str]) -> Template:
+    line = line.replace('ɡ', 'g')
+    particle_list = line.split("-")
+    particles = []
+
+    for particle_data in particle_list:
+        particle_data = particle_data.rstrip(']').lstrip('[')
+        feature_list = particle_data.split(",")
+
+        for feature in feature_list:
+            if feature not in feature_pool:
+                raise ImportError("Template line %s does not conform to the given features." % line)
+
+        particles.append(Particle(feature_list))
+
+    return Template(particles)
+
+
 def _fetch_templates(filename: str, feature_pool: List[str]) -> List[Template]:
     templates = []  # type: List[Template]
 
@@ -132,21 +150,6 @@ def _fetch_templates(filename: str, feature_pool: List[str]) -> List[Template]:
         lines = [l.rstrip('\n') for l in data_file.readlines()]
 
         for line in lines:
-            line = line.replace('ɡ', 'g')
-            particle_list = line.split("-")
-            particles = []
-
-            for particle_data in particle_list:
-                particle_data = particle_data.rstrip(']').lstrip('[')
-                feature_list = particle_data.split(",")
-
-                for feature in feature_list:
-                    if feature not in feature_pool:
-                        raise ImportError("Template line %s does not conform to the given features." % line)
-
-                particles.append(Particle(feature_list))
-
-            template = Template(particles)
-            templates.append(template)
+            templates.append(parse_template_line(line, feature_pool))
 
     return templates

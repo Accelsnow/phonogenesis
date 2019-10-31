@@ -63,21 +63,6 @@
 "[obstruent,voiceless]>[voiced]/[nasal,consonant]_",postnasal voicing of obstruents,consonant voicing
 "[fricative,voiceless]>[voiced]/[nasal,consonant]_",postnasal voicing of fricatives,consonant voicing
 ,,
-"[oral stop,voiced]>[voiceless]/_[voiceless]",regressive voicelessness assimilation in stops,voicing assimilation
-"[obstruent,voiced]>[voiceless]/_[voiceless]",regressive voicelessness assimilation in obstruents,voicing assimilation
-"[oral stop,voiceless]>[voiced]/_[voiced,consonant]",regressive voicing assimilation in stops,voicing assimilation
-"[obstruent,voiceless]>[voiced]/_[voiced,consonant]",regressive voicing assimilation in obstruents,voicing assimilation
-"[oral stop,voiceless]>[voiced]/_[voiced,obstruent]",regressive obstruent voicing assimilation in stops,voicing assimilation
-"[obstruent,voiceless]>[voiced]/_[voiced,obstruent]",regressive obstruent voicing assimilation in obstruents,voicing assimilation
-"[oral stop,voiced]>[voiceless]/[voiceless]_",progressive voicelessness assimilation in stops,voicing assimilation
-"[obstruent,voiced]>[voiceless]/[voiceless]_",progressive voicelessness assimilation in obstruents,voicing assimilation
-"[oral stop,voiceless]>[voiced]/[voiced,consonant]_",progressive voicing assimilation in stops,voicing assimilation
-"[obstruent,voiceless]>[voiced]/[voiced,consonant]_",progressive voicing assimilation in obstruents,voicing assimilation
-"[oral stop,voiceless]>[voiced]/[voiced,obstruent]_",progressive obstruent voicing assimilation in stops,voicing assimilation
-"[obstruent,voiceless]>[voiced]/[voiced,obstruent]_",progressive obstruent voicing assimilation in obstruents,voicing assimilation
-"[obstruent,voiceless]>[voiced]/[voiceless,obstruent]_&_[voiceless,obstruent]",voicelessness agreement between obstruents,voicing assimilation
-"[obstruent,voiceless]>[voiced]/[voiced,obstruent]_&_[voiced,obstruent]",voicing agreement between obstruents,voicing assimilation
-,,
 "[mid,vowel]>[high]/_#",word-final raising of mid vowels,vowel height
 "[hiɡh,vowel]>[mid]/_#",word-final lowerinɡ of hiɡh vowels,vowel height
 "[low,vowel]>[mid]/_#",word-final raising of low vowels,vowel height

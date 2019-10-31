@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import List, Dict, Any, Optional
 
 _SYMBOL = {}  # type: Dict[str, Sound]
+id_num = 1  # type: int
 
 
 class Sound:
@@ -10,16 +11,22 @@ class Sound:
     _features: List[str]
     _symbol: str
 
-    def __init__(self, num: int, symbol: str, features: List[str]) -> None:
-        self._num = num
+    def __init__(self, symbol: str, features: List[str]) -> None:
+        global id_num
+
+        if symbol == '' or len(symbol) == 0:
+            self._num = -1
+        else:
+            self._num = id_num
+            id_num += 1
+
         self._features = features
         self._symbol = symbol
 
         if symbol in _SYMBOL.keys():
-            print(symbol)
-            raise ValueError("Duplicated symbol not allowed!")
+            raise ValueError("Duplicated symbol %s not allowed!" % symbol)
 
-        if num >= 1 and symbol != '':
+        if self._num >= 1 and symbol != '':
             _SYMBOL[symbol] = self
 
     def get_features(self) -> List[str]:
