@@ -67,6 +67,7 @@ class Generator:
 
         for template in self._templates:
             irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
+            print(str(template))
             related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds, a_matcher)
 
             random.shuffle(irr_word_list)

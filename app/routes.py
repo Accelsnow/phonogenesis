@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import GenerationSpec, GetHint, GenerateMore, ShowAnswer
+from app.forms import GenerationSpec, GetHint, GenerateMore, ShowAnswer, ProfGenForm
 from app import DEFAULT_DATA, TOTAL_RULE_COUNT
 from script import *
 import random
@@ -11,9 +11,7 @@ from app.forms import TYPE_SELECTION_DICT, HINT_SELECTION_DICT, MORE_GEN_SELECTI
 TYPE_MISMATCH_RETRY_LIMIT = 50
 gen: Generator
 question_result: dict
-customized_data: dict
 size: int
-rule_type: str
 LOGGER = logging.getLogger("app.logger")
 show_ur = False
 show_full_phonemes = False
@@ -22,7 +20,7 @@ show_full_phonemes = False
 @app.route('/index', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    global question_result, size, rule_type, show_ur, show_full_phonemes
+    global question_result, size, show_ur, show_full_phonemes
 
     gen_spec_form = GenerationSpec()
     hint_form = GetHint()
@@ -31,57 +29,21 @@ def index():
     answer_form = ShowAnswer()
 
     if gen_spec_form.submit.data and gen_spec_form.validate_on_submit():
-        type_selection = gen_spec_form.type_selection.data
-        LOGGER.debug("Type Selection: %s", str(type_selection))
-        rule_selection_data = gen_spec_form.rule_selection.data
-        is_selected = rule_selection_data is not None
-        LOGGER.debug("Manual Selection: %s", str(is_selected))
+        question_result = generate_questions(DEFAULT_DATA, gen_spec_form.rule_selection.data,
+                                             int(gen_spec_form.type_selection.data),
+                                             int(gen_spec_form.question_size.data), bool(gen_spec_form.randomize_order),
+                                             None)
 
-        if is_selected:
-            rule_selection = DEFAULT_DATA['rules'][int(rule_selection_data)]  # type: Rule
+        if question_result is None:
+            LOGGER.debug("No data recorded (None).")
+            return redirect(url_for('index'))
         else:
-            rule_selection = DEFAULT_DATA['rules'][random.randint(0, TOTAL_RULE_COUNT - 1)]  # type: Rule
-
-        classification_match_retry = 0
-        while True:
-            if classification_match_retry > TYPE_MISMATCH_RETRY_LIMIT:
-                LOGGER.error("Can not seem to get matched phoneme & rule to conform classification")
-                return redirect(url_for('index'))
-
-            phonemes = get_random_phonemes([rule_selection.get_a_matcher(None, None, DEFAULT_DATA['f2ss']),
-                                            rule_selection.get_c_matchers(None, DEFAULT_DATA['f2ss']),
-                                            rule_selection.get_d_matchers(None, DEFAULT_DATA['f2ss'])])
-            type_ = rule_selection.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-
-            if TYPE_SELECTION_DICT[type_selection] is not None and TYPE_SELECTION_DICT[type_selection] != type_:
-                classification_match_retry += 1
-
-                if not is_selected:
-                    rule_selection = DEFAULT_DATA['rules'][random.randint(0, TOTAL_RULE_COUNT - 1)]
-
-                continue
-
-            break
-
-        rule_type = str(type_)
-        size = int(gen_spec_form.question_size.data)
-
-        is_shuffled = bool(gen_spec_form.randomize_order.data)
-        LOGGER.debug("Shuffle Result: %s", str(is_shuffled))
-
-        while True:
-            question_result = _get_valid_data(rule_selection, phonemes, size, is_shuffled)
-
-            if question_result is None:
-                LOGGER.debug("No data recorded (None).")
-                return redirect(url_for('index'))
-            else:
-                LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
-                    [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
-                    gen.get_log_stamp()))
-                return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
-                                       gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
-                                       size=size, rule_type=rule_type)
+            LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+                [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
+                gen.get_log_stamp()))
+            return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
+                                   gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
+                                   size=size)
 
     if hint_form.submit_hint.data and hint_form.validate_on_submit() and 'question_result' in globals():
         hint_selection = hint_form.hints.data
@@ -94,7 +56,7 @@ def index():
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
-                               size=size, rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               size=size, show_full_phonemes=show_full_phonemes,
                                show_ur=show_ur)
 
     if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and 'question_result' in globals() \
@@ -122,52 +84,110 @@ def index():
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
-                               size=size, rule_type=rule_type, show_full_phonemes=show_full_phonemes,
+                               size=size, show_full_phonemes=show_full_phonemes,
                                show_ur=show_ur)
 
     if answer_form.show_answer.data and answer_form.validate_on_submit() and 'question_result' in globals():
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
-                               size=size, rule_type=rule_type, show_full_phonemes=True, show_ur=True,
+                               size=size, show_full_phonemes=True, show_ur=True,
                                show_answer=True)
 
     return render_template('index.html', title='Demo', gen_form=gen_spec_form, hint_form=hint_form,
                            gen_more_form=generate_more_form, answer_form=answer_form)
 
-#
-# @app.route('/prof', methods=['GET', 'POST'])
-# def prof():
-#     global customized_data
-#
-#     if 'customized_data' not in globals() or customized_data is None:
-#         _reset_customized_data()
-#
-#     return render_template('prof.html', title='Professor Mode', data=customized_data)
-#
-#
-# def get_display_data(data):
-#     sounds = data['sounds']
-#     types = ['skeletal tier']
-#     all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
-#
-#
-# def _reset_customized_data():
-#     global customized_data
-#
-#     customized_data = copy.deepcopy(DEFAULT_DATA)
-#
 
-def _get_valid_data(rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool):
+@app.route('/prof', methods=['GET', 'POST'])
+def prof():
+    global question_result
+    from script.data_factory import translate_phoneme_data, translate_templates_data, translate_rule_data
+
+    prof_gen = ProfGenForm()
+
+    if prof_gen.submit.data and prof_gen.validate_on_submit():
+        template_data = prof_gen.template.data
+        rule_data = prof_gen.rule_raw.data
+        phoneme_data = prof_gen.phoneme_sound.data
+
+        customized_data = copy.deepcopy(DEFAULT_DATA)
+        customized_data['templates'] = translate_templates_data(customized_data, template_data)
+        rule = translate_rule_data(customized_data, rule_data)
+        phonemes = translate_phoneme_data(phoneme_data)
+        size = int(prof_gen.question_size.data)
+
+        question_result = generate_questions(customized_data, rule, 1, size, bool(prof_gen.randomize_order), phonemes)
+
+        if question_result is None:
+            LOGGER.debug("No data recorded (None).")
+            return redirect(url_for('index'))
+        else:
+            LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+                [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
+                gen.get_log_stamp()))
+            return render_template('prof.html', title='Result', prof_gen=prof_gen, data=question_result, size=size)
+
+    return render_template('prof.html', title='Professor Mode', prof_gen=prof_gen)
+
+
+def generate_questions(data_set, rule_selection_data, type_selection: int, size_: int, is_shuffled: bool, phonemes):
+    LOGGER.debug("Type Selection: %s", str(type_selection))
+    is_selected = rule_selection_data is not None and (
+            type(rule_selection_data) == int or type(rule_selection_data) == Rule)
+    LOGGER.debug("Manual Selection: %s", str(is_selected))
+    is_manual_phoneme = phonemes is not None
+
+    if type(rule_selection_data) == Rule:
+        rule_selection = rule_selection_data
+    elif is_selected:
+        rule_selection = data_set['rules'][int(rule_selection_data)]  # type: Rule
+    else:
+        rule_selection = data_set['rules'][random.randint(0, TOTAL_RULE_COUNT - 1)]  # type: Rule
+
+    classification_match_retry = 0
+
+    while True:
+        if classification_match_retry > TYPE_MISMATCH_RETRY_LIMIT:
+            LOGGER.error("Can not seem to get matched phoneme & rule to conform classification")
+            return None
+
+        if not is_manual_phoneme:
+            phonemes = get_random_phonemes([rule_selection.get_a_matcher(None, None, data_set['f2ss']),
+                                            rule_selection.get_c_matchers(None, data_set['f2ss']),
+                                            rule_selection.get_d_matchers(None, data_set['f2ss'])])
+
+        type_ = rule_selection.get_rule_type(phonemes, data_set['f2t'], data_set['f2ss'])
+
+        if TYPE_SELECTION_DICT[type_selection] is not None and TYPE_SELECTION_DICT[type_selection] != type_:
+            if is_manual_phoneme and is_selected:
+                LOGGER.error("Can not seem to get matched phoneme & rule to conform classification")
+                return None
+
+            classification_match_retry += 1
+
+            if not is_selected:
+                rule_selection = data_set['rules'][random.randint(0, TOTAL_RULE_COUNT - 1)]
+
+            continue
+
+        break
+
+    LOGGER.debug("Shuffle Result: %s", str(is_shuffled))
+
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, str(type_))
+
+
+def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool, type_: str):
     global gen
     data_ = None
 
     try:
-        gen = Generator(phonemes, DEFAULT_DATA['templates'], rule_selected, 5,
-                        DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-        data_ = gen.generate(size_, True, is_shuffled, DEFAULT_DATA['f2t'],
-                             DEFAULT_DATA['f2ss'],
-                             DEFAULT_DATA['gloss_grp'])
+        gen = Generator(phonemes, data_set['templates'], rule_selected, 5,
+                        data_set['f2t'], data_set['f2ss'])
+        data_ = gen.generate(size_, True, is_shuffled, data_set['f2t'],
+                             data_set['f2ss'],
+                             data_set['gloss_grp'])
         data_['generator'] = gen
+        data_['rule_type'] = type_
     except GenerationNoCADTError or GeneratorParameterError or GeneratorError:
         LOGGER.exception('')
     except Exception as err:

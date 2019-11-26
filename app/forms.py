@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, BooleanField, IntegerField, SelectField, StringField
+from wtforms import SubmitField, BooleanField, IntegerField, SelectField, StringField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError, NumberRange, Optional
-from app import TOTAL_RULE_COUNT
+from app import TOTAL_RULE_COUNT, DEFAULT_DATA
 from script import RuleType
 
 TYPE_SELECTION_DICT = {1: None, 2: RuleType.Alternating, 3: RuleType.Neutralizing, 4: RuleType.Mixed}
@@ -15,9 +15,12 @@ def validate_rule_selection(form, field):
 
 
 def validate_sound_existance(form, field):
-    from app.routes import customized_data
-    # if field.data not in customized_data[]
-    pass
+    sounds = field.data.split(" ")
+    existed_sounds = [str(s) for s in DEFAULT_DATA['sounds']]
+
+    for sound in sounds:
+        if sound not in existed_sounds:
+            raise ValidationError("%s is NOT a valid sound in the DEFAULT DATA set." % sound)
 
 
 class GenerationSpec(FlaskForm):
@@ -47,30 +50,10 @@ class ShowAnswer(FlaskForm):
     show_answer = SubmitField("Show Answer!")
 
 
-class ManualIPA(FlaskForm):
-    sound_symbol = StringField()
-    skeletal_tier = StringField()
-    primary_POA = StringField()
-    secondary_POA = StringField()
-    tertiary_POA = StringField()
-    specific_C_POA = StringField()
-    rounding = StringField()
-    anteriority = StringField()
-    apicality = StringField()
-    backness = StringField()
-    height = StringField()
-    tenseness = StringField()
-    manner = StringField()
-    voicing = StringField()
-    major_class = StringField()
-    aperature = StringField()
-    oral_airflow = StringField()
-    lateral = StringField()
-    nasality = StringField()
-    stridency = StringField()
-    vocal_fold_spread = StringField()
-    vocal_fold_constricted = StringField()
-
-
-class ManualPhoneme(FlaskForm):
-    phoneme_sound = StringField("Phoneme Sound: ", validators=[DataRequired])
+class ProfGenForm(FlaskForm):
+    rule_raw = StringField("Rule: ", validators=[DataRequired()])
+    phoneme_sound = StringField("Phoneme Sound: ", validators=[DataRequired(), validate_sound_existance])
+    template = TextAreaField("Templates: ", default="\n".join([str(t) for t in DEFAULT_DATA['templates']]))
+    question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)], default=20)
+    randomize_order = BooleanField("Shuffle Result?")
+    submit = SubmitField('Generate Question')

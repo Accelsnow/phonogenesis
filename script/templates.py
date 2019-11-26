@@ -131,9 +131,8 @@ def parse_template_line(line: str, feature_pool: List[str]) -> Template:
     particles = []
 
     for particle_data in particle_list:
-        particle_data = particle_data.rstrip(']').lstrip('[')
+        particle_data = particle_data.rstrip('\r').rstrip('\n').rstrip(']').lstrip('[')
         feature_list = particle_data.split(",")
-
         for feature in feature_list:
             if feature not in feature_pool:
                 raise ImportError("Template line %s does not conform to the given features." % line)

@@ -57,10 +57,10 @@ class Rule:
     _Cs_edge: List[bool]
     _Ds_edge: List[bool]
     _name: str
-    _family: RuleFamily
+    _family: Optional[RuleFamily, None]
     _id: int
 
-    def __init__(self, name: str, family: RuleFamily, a: List[List[Particle]],
+    def __init__(self, name: str, family: Optional[RuleFamily, None], a: List[List[Particle]],
                  b: Optional[Tuple[Particle, List[str]], None], c: List[Optional[List[Particle], None]],
                  c_edge: List[bool], d: List[Optional[List[Particle], None]], d_edge: List[bool]) -> None:
         self._name = name
@@ -294,7 +294,7 @@ class Rule:
             if (self._Cs[i] is None or len(
                     _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)) > 0) and (
                     self._Ds[i] is None or len(
-                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
+                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
                 return True
         return False
 
@@ -313,7 +313,7 @@ class Rule:
             ignored_types = self._B[1]
 
             dest_sound = Sound('', [])[target].get_transformed_sound(dest_particle, ignored_types, feature_to_type,
-                                                                         feature_to_sounds)
+                                                                     feature_to_sounds)
             if dest_sound is not None:
                 return word.change_word(begin_index, Word([dest_sound]))
 
@@ -442,7 +442,6 @@ def import_default_rules(feature_pool: List[str]) -> Tuple[List[RuleFamily], Lis
 
 
 def _fetch_rule_and_family_csv(filename: str, feature_pool: List[str]) -> Tuple[List[RuleFamily], List[Rule]]:
-    import ast
     rules = []  # type: List[Rule]
     families = {}  # type: Dict[str, RuleFamily]
 
@@ -464,46 +463,54 @@ def _fetch_rule_and_family_csv(filename: str, feature_pool: List[str]) -> Tuple[
             rule_name = line[1]
             rule_content = str(line[0]).strip().strip('\n').strip('\ufeff')
 
-            if rule_content.startswith('<<PREDEFINED>>'):
-                predifined = True
-            else:
-                predifined = False
-
-            rule_content = rule_content.lstrip('<<PREDEFINED>>')
-
-            mid_break = rule_content.split("/")
-
-            cd_info = _interpret_cd(mid_break[1], feature_pool)
-
-            if predifined:
-                rule = PredefinedRule(rule_name, rule_family, ast.literal_eval(mid_break[0]), cd_info[0], cd_info[1],
-                                      cd_info[2], cd_info[3])
-            else:
-                action_break = mid_break[0].split(">")
-
-                if len(action_break) != 2:
-                    raise ImportError("Invalid rule format: %s" % rule_content)
-
-                a_str = action_break[0]
-                b_str = action_break[1]
-
-                if len(b_str) == 0:
-                    b_sec = None
-                elif b_str[0] == '[' and b_str[-1] == ']':
-                    b_sec = _interpret_b(b_str, feature_pool)
-                else:
-                    raise ValueError("error reading b data invalid format %s" % b_str)
-
-                if len(mid_break) != 2:
-                    raise ImportError("Invalid rule format: %s" % rule_content)
-
-                rule = Rule(rule_name, rule_family, _interpret_a(a_str, feature_pool), b_sec, cd_info[0],
-                            cd_info[1], cd_info[2], cd_info[3])
+            rule = interpret_rule_content_str(rule_content, feature_pool, rule_name, rule_family)
 
             rule_family.add_rule(rule)
             rules.append(rule)
 
     return list(families.values()), rules
+
+
+def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_name: str,
+                               rule_family: Optional[RuleFamily, None]) -> Rule:
+    import ast
+    if rule_content.startswith('<<PREDEFINED>>'):
+        predifined = True
+    else:
+        predifined = False
+
+    rule_content = rule_content.lstrip('<<PREDEFINED>>')
+
+    mid_break = rule_content.split("/")
+
+    cd_info = _interpret_cd(mid_break[1], feature_pool)
+
+    if predifined:
+        rule = PredefinedRule(rule_name, rule_family, ast.literal_eval(mid_break[0]), cd_info[0], cd_info[1],
+                              cd_info[2], cd_info[3])
+    else:
+        action_break = mid_break[0].split(">")
+
+        if len(action_break) != 2:
+            raise ImportError("Invalid rule format: %s" % rule_content)
+
+        a_str = action_break[0]
+        b_str = action_break[1]
+
+        if len(b_str) == 0:
+            b_sec = None
+        elif b_str[0] == '[' and b_str[-1] == ']':
+            b_sec = _interpret_b(b_str, feature_pool)
+        else:
+            raise ValueError("error reading b data invalid format %s" % b_str)
+
+        if len(mid_break) != 2:
+            raise ImportError("Invalid rule format: %s" % rule_content)
+
+        rule = Rule(rule_name, rule_family, _interpret_a(a_str, feature_pool), b_sec, cd_info[0],
+                    cd_info[1], cd_info[2], cd_info[3])
+
+    return rule
 
 
 def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Particle, List[str]]:

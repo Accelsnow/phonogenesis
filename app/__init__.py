@@ -8,6 +8,7 @@ from logging.handlers import RotatingFileHandler
 from flask.logging import default_handler
 import sys
 
+
 # DATA initialization
 DEFAULT_DATA = get_default_data()
 TOTAL_RULE_COUNT = len(DEFAULT_DATA['rules'])
