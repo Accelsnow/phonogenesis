@@ -111,11 +111,20 @@ def prof():
 
         customized_data = copy.deepcopy(DEFAULT_DATA)
         customized_data['templates'] = translate_templates_data(customized_data, template_data)
-        rule = translate_rule_data(customized_data, rule_data)
-        phonemes = translate_phoneme_data(phoneme_data)
+        if rule_data is None or len(rule_data) == 0 or str(rule_data).isspace():
+            rule = None
+        else:
+            rule = translate_rule_data(customized_data, rule_data)
+
+        if phoneme_data is None or len(phoneme_data) == 0 or str(phoneme_data).isspace():
+            phonemes = None
+        else:
+            phonemes = translate_phoneme_data(phoneme_data)
+
         size = int(prof_gen.question_size.data)
 
-        question_result = generate_questions(customized_data, rule, 1, size, bool(prof_gen.randomize_order), phonemes)
+        question_result = generate_questions(customized_data, rule, 1, size, bool(prof_gen.randomize_order.data),
+                                             phonemes)
 
         if question_result is None:
             LOGGER.debug("No data recorded (None).")

@@ -26,7 +26,7 @@ class Word:
 
             self._sounds = sounds
 
-        elif type(data) == list and len(data) > 0 and type(data[0]) == Sound:
+        elif type(data) == list and (len(data) == 0 or type(data[0]) == Sound):
             self._sounds = data
         else:
             raise TypeError("data must be either sound list or string, get %s" % str(type(data)))
@@ -52,6 +52,9 @@ class Word:
                 return i
 
         return -1
+
+    def is_empty(self):
+        return len(self) == 0 or str(self) == ''
 
     def __str__(self) -> str:
         word_str = ""

@@ -15,6 +15,9 @@ def validate_rule_selection(form, field):
 
 
 def validate_sound_existance(form, field):
+    if field is None or len(field.data) == 0 or str(field.data).isspace():
+        return
+
     sounds = field.data.split(" ")
     existed_sounds = [str(s) for s in DEFAULT_DATA['sounds']]
 
@@ -51,8 +54,8 @@ class ShowAnswer(FlaskForm):
 
 
 class ProfGenForm(FlaskForm):
-    rule_raw = StringField("Rule: ", validators=[DataRequired()])
-    phoneme_sound = StringField("Phoneme Sound: ", validators=[DataRequired(), validate_sound_existance])
+    rule_raw = StringField("Rule (blank for random): ")
+    phoneme_sound = StringField("Phoneme Sound (blank for random): ", validators=[validate_sound_existance])
     template = TextAreaField("Templates: ", default="\n".join([str(t) for t in DEFAULT_DATA['templates']]))
     question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)], default=20)
     randomize_order = BooleanField("Shuffle Result?")

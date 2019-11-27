@@ -202,7 +202,10 @@ class Rule:
 
             b_word = self._do_replace(a_word, 0, 1, feature_to_type, feature_to_sounds)
             all_phones.add(str(a_word))
-            all_phones.add(str(b_word))
+
+            if not b_word.is_empty():
+                all_phones.add(str(b_word))
+
             result[str(a_word)] = str(b_word)
 
         all_phones = list(all_phones)
@@ -497,7 +500,7 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
         a_str = action_break[0]
         b_str = action_break[1]
 
-        if len(b_str) == 0:
+        if len(b_str) == 0 or b_str[0] == '0':
             b_sec = None
         elif b_str[0] == '[' and b_str[-1] == ']':
             b_sec = _interpret_b(b_str, feature_pool)
@@ -591,7 +594,8 @@ def _sec_to_particles(feature_pool: List[str], sec: str) -> Optional[List[Partic
 
         for feature in features:
             if feature.lstrip("!") not in feature_pool:
-                raise ImportError("Rule sector %s does not conform to the given features." % sec)
+                raise ImportError(
+                    "Rule sector %s with feature %s does not conform to the given features." % (sec, feature))
 
         particles.append(Particle(features))
 
