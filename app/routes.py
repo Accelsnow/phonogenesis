@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, redirect, url_for
 from app import app
 from app.forms import GenerationSpec, GetHint, GenerateMore, ShowAnswer, ProfGenForm
 from app import DEFAULT_DATA, TOTAL_RULE_COUNT
@@ -29,9 +29,12 @@ def index():
     answer_form = ShowAnswer()
 
     if gen_spec_form.submit.data and gen_spec_form.validate_on_submit():
+        size = int(gen_spec_form.question_size.data)
         question_result = generate_questions(DEFAULT_DATA, gen_spec_form.rule_selection.data,
                                              int(gen_spec_form.type_selection.data),
-                                             int(gen_spec_form.question_size.data), bool(gen_spec_form.randomize_order),
+                                             size,
+                                             bool(gen_spec_form.randomize_order.data),
+                                             bool(gen_spec_form.use_ipa_g.data),
                                              None)
 
         if question_result is None:
@@ -56,25 +59,24 @@ def index():
 
         return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
-                               size=size, show_full_phonemes=show_full_phonemes,
-                               show_ur=show_ur)
+                               size=size, show_full_phonemes=show_full_phonemes, show_ur=show_ur)
 
-    if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and 'question_result' in globals() \
-            and 'gen' in globals():
+    if generate_more_form.submit_request.data and generate_more_form.validate_on_submit() and \
+            'question_result' in globals() and 'gen' in globals():
         generate_selection = generate_more_form.requested_type.data
         more_data = None
 
         if MORE_GEN_SELECTION_DICT[generate_selection] == "CADT":
-            more_data = gen.generate([5, 0, 0, 0, 0], False, False, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'],
-                                     DEFAULT_DATA['gloss_grp'])
+            more_data = gen.generate(_get_gen_mode(bool(gen_spec_form.use_ipa_g.data)), [5, 0, 0, 0, 0], False, False,
+                                     DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'], DEFAULT_DATA['gloss_grp'])
 
         if MORE_GEN_SELECTION_DICT[generate_selection] == "CAND":
-            more_data = gen.generate([0, 0, 5, 0, 0], False, False, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'],
-                                     DEFAULT_DATA['gloss_grp'])
+            more_data = gen.generate(_get_gen_mode(bool(gen_spec_form.use_ipa_g.data)), [0, 0, 5, 0, 0], False, False,
+                                     DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'], DEFAULT_DATA['gloss_grp'])
 
         if MORE_GEN_SELECTION_DICT[generate_selection] == "NCAD":
-            more_data = gen.generate([0, 0, 0, 5, 0], False, False, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'],
-                                     DEFAULT_DATA['gloss_grp'])
+            more_data = gen.generate(_get_gen_mode(bool(gen_spec_form.use_ipa_g.data)), [0, 0, 0, 5, 0], False, False,
+                                     DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'], DEFAULT_DATA['gloss_grp'])
 
         if more_data is not None:
             question_result['UR'].extend(more_data['UR'])
@@ -121,10 +123,11 @@ def prof():
         else:
             phonemes = translate_phoneme_data(phoneme_data)
 
-        size = int(prof_gen.question_size.data)
+        question_size = int(prof_gen.question_size.data)
 
-        question_result = generate_questions(customized_data, rule, 1, size, bool(prof_gen.randomize_order.data),
-                                             phonemes)
+        question_result = generate_questions(customized_data, rule, 1, question_size,
+                                             bool(prof_gen.randomize_order.data),
+                                             bool(prof_gen.use_ipa_g.data), phonemes)
 
         if question_result is None:
             LOGGER.debug("No data recorded (None).")
@@ -138,7 +141,8 @@ def prof():
     return render_template('prof.html', title='Professor Mode', prof_gen=prof_gen)
 
 
-def generate_questions(data_set, rule_selection_data, type_selection: int, size_: int, is_shuffled: bool, phonemes):
+def generate_questions(data_set, rule_selection_data, type_selection: int, size_: int, is_shuffled: bool,
+                       use_ipa_g: bool, phonemes):
     LOGGER.debug("Type Selection: %s", str(type_selection))
     is_selected = rule_selection_data is not None and (
             type(rule_selection_data) == int or type(rule_selection_data) == Rule)
@@ -182,17 +186,18 @@ def generate_questions(data_set, rule_selection_data, type_selection: int, size_
 
     LOGGER.debug("Shuffle Result: %s", str(is_shuffled))
 
-    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, str(type_))
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
 
 
-def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool, type_: str):
+def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool, gen_mode: int,
+                    type_: str):
     global gen
     data_ = None
 
     try:
         gen = Generator(phonemes, data_set['templates'], rule_selected, 5,
                         data_set['f2t'], data_set['f2ss'])
-        data_ = gen.generate(size_, True, is_shuffled, data_set['f2t'],
+        data_ = gen.generate(gen_mode, size_, True, is_shuffled, data_set['f2t'],
                              data_set['f2ss'],
                              data_set['gloss_grp'])
         data_['generator'] = gen
@@ -204,3 +209,10 @@ def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, i
         raise err
 
     return data_
+
+
+def _get_gen_mode(use_ipa_g: bool) -> int:
+    if use_ipa_g:
+        return 1
+    else:
+        return 2

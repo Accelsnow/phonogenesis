@@ -38,7 +38,7 @@ def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> Lis
         rule_block = []
 
         for line in lines:
-            line = line.replace('ɡ', 'g')
+            line = line.replace('g', 'ɡ')
 
             if line.startswith("#"):
                 rule_block = []
@@ -219,7 +219,7 @@ def _fetch_preset_phonemes(filename: str) -> List[Word]:
         lines = [l.rstrip('\n') for l in data_file.readlines()]
 
         for line in lines:
-            line = line.replace('ɡ', 'g')
+            line = line.replace('g', 'ɡ')
             data = line.split(" ")
 
             for sound_str in data:

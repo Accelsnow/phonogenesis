@@ -34,6 +34,7 @@ class GenerationSpec(FlaskForm):
                                  choices=[(1, "Random"), (2, "Alternating"), (3, "Neutralizing"), (4, "Mixed")],
                                  coerce=int, default=1)
     randomize_order = BooleanField("Shuffle Result?")
+    use_ipa_g = BooleanField("Use IPA [ɡ]", default=1)
     submit = SubmitField('Get Question!')
 
 
@@ -59,4 +60,5 @@ class ProfGenForm(FlaskForm):
     template = TextAreaField("Templates: ", default="\n".join([str(t) for t in DEFAULT_DATA['templates']]))
     question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)], default=20)
     randomize_order = BooleanField("Shuffle Result?")
+    use_ipa_g = BooleanField("Use IPA [ɡ]", default=1)
     submit = SubmitField('Generate Question')

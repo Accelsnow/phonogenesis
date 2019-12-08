@@ -62,7 +62,7 @@ def _fetch_gloss(filename: str) -> Tuple[List[GlossFamily], List[GlossGroup]]:
         lines = [l.rstrip('\n') for l in data_file.readlines()]
 
         for line in lines:
-            line = line.replace('ɡ', 'g')
+            line = line.replace('g', 'ɡ')
 
             if len(line) == 0:
                 continue

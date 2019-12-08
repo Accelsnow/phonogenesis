@@ -67,7 +67,6 @@ class Generator:
 
         for template in self._templates:
             irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
-            print(str(template))
             related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds, a_matcher)
 
             random.shuffle(irr_word_list)
@@ -178,21 +177,9 @@ class Generator:
         return "%s \n %s \n %s \n @%d" % (
             str(self._rule), [str(w) for w in self._phonemes], [str(t) for t in self._templates], self._unid)
 
-    def generate(self, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
+    def generate(self, gen_mode: int, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
                  gloss_groups: List[GlossGroup]) -> Optional[Dict[str, Any], None]:
-        """
-
-        :param is_shuffled:
-        :param amount: single int representing total generation amount (distribution by proportion), or a int list
-                       representing amount for each type
-        :param is_fresh: true will erase all current duplicate exclusions
-        :param feature_to_type:
-        :param feature_to_sounds:
-        :param gloss_groups:
-        :return:
-        """
-
         if is_fresh:
             self._duplicate_exclusion = set([])
 
@@ -318,8 +305,26 @@ class Generator:
 
         phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
 
-        return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule, "templates": self._templates,
-                "phonemes": self._phonemes, "phone_interest": phones_of_interest}
+        if gen_mode == 1:
+            return {"UR": [str(w) for w in ur_words],
+                    "SR": [str(w) for w in sr_words],
+                    "Gloss": [str(w) for w in gloss_words],
+                    "rule": str(self._rule),
+                    "templates": [str(w) for w in self._templates],
+                    "phonemes": [str(w) for w in self._phonemes],
+                    "phone_interest": [str(w) for w in phones_of_interest]}
+        elif gen_mode == 2:
+            return {"UR": [str(w).replace('ɡ', 'g') for w in ur_words],
+                    "SR": [str(w).replace('ɡ', 'g') for w in sr_words],
+                    "Gloss": [str(w).replace('ɡ', 'g') for w in gloss_words],
+                    "rule": str(self._rule).replace('ɡ', 'g'),
+                    "templates": [str(w).replace('ɡ', 'g') for w in self._templates],
+                    "phonemes": [str(w).replace('ɡ', 'g') for w in self._phonemes],
+                    "phone_interest": [str(w).replace('ɡ', 'g') for w in phones_of_interest]}
+        else:
+            return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule,
+                    "templates": self._templates,
+                    "phonemes": self._phonemes, "phone_interest": phones_of_interest}
 
 
 class GeneratorError(Exception):

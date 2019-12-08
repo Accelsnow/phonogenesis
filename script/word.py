@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Optional, Any, Dict
+from typing import List, Optional
 from script.sound import Sound, _SYMBOL
 import logging
 
@@ -63,6 +63,12 @@ class Word:
             word_str += str(sound)
 
         return word_str
+
+    def get_g_str(self, use_ipa_g: bool):
+        if use_ipa_g:
+            return str(self)
+        else:
+            return str(self).replace('ɡ', 'g')
 
     def __len__(self):
         return len(self._sounds)

@@ -126,7 +126,7 @@ def import_default_templates(feature_pool: List[str]) -> List[Template]:
 
 
 def parse_template_line(line: str, feature_pool: List[str]) -> Template:
-    line = line.replace('ɡ', 'g')
+    line = line.replace('g', 'ɡ')
     particle_list = line.split("-")
     particles = []
 
@@ -146,7 +146,7 @@ def _fetch_templates(filename: str, feature_pool: List[str]) -> List[Template]:
     templates = []  # type: List[Template]
 
     with open(filename, encoding='utf-8') as data_file:
-        lines = [l.rstrip('\n') for l in data_file.readlines()]
+        lines = [line.rstrip('\n') for line in data_file.readlines()]
 
         for line in lines:
             templates.append(parse_template_line(line, feature_pool))
