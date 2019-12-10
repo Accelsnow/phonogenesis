@@ -31,7 +31,8 @@ class GenerationSpec(FlaskForm):
                                   validators=[Optional(), validate_rule_selection])
     question_size = IntegerField('Question Size (15-40)', validators=[DataRequired(), NumberRange(15, 40)], default=20)
     type_selection = SelectField("Question Type",
-                                 choices=[(1, "Random"), (2, "Alternating"), (3, "Neutralizing"), (4, "Mixed")],
+                                 choices=[(1, "Random"), (2, "Alternating"), (3, "Neutralizing"),
+                                          (4, "Mixed - Alternating&Neutralizing")],
                                  coerce=int, default=1)
     randomize_order = BooleanField("Shuffle Result?")
     use_ipa_g = BooleanField("Use IPA [ɡ]", default=1)

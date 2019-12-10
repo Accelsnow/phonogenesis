@@ -306,6 +306,16 @@ class Generator:
         phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
 
         if gen_mode == 1:
+            LOGGER.debug("Gen Mode 1 - str ipa g mode")
+            return {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
+                    "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
+                    "Gloss": [str(w) for w in gloss_words],
+                    "rule": str(self._rule),
+                    "templates": [str(w) for w in self._templates],
+                    "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
+                    "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
+        elif gen_mode == 2:
+            LOGGER.debug("Gen Mode 2 - str non ipa g mode")
             return {"UR": [str(w) for w in ur_words],
                     "SR": [str(w) for w in sr_words],
                     "Gloss": [str(w) for w in gloss_words],
@@ -313,15 +323,8 @@ class Generator:
                     "templates": [str(w) for w in self._templates],
                     "phonemes": [str(w) for w in self._phonemes],
                     "phone_interest": [str(w) for w in phones_of_interest]}
-        elif gen_mode == 2:
-            return {"UR": [str(w).replace('ɡ', 'g') for w in ur_words],
-                    "SR": [str(w).replace('ɡ', 'g') for w in sr_words],
-                    "Gloss": [str(w).replace('ɡ', 'g') for w in gloss_words],
-                    "rule": str(self._rule).replace('ɡ', 'g'),
-                    "templates": [str(w).replace('ɡ', 'g') for w in self._templates],
-                    "phonemes": [str(w).replace('ɡ', 'g') for w in self._phonemes],
-                    "phone_interest": [str(w).replace('ɡ', 'g') for w in phones_of_interest]}
         else:
+            LOGGER.debug("Gen Mode ~12 - org mode")
             return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule,
                     "templates": self._templates,
                     "phonemes": self._phonemes, "phone_interest": phones_of_interest}

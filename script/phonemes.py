@@ -219,7 +219,7 @@ def _fetch_preset_phonemes(filename: str) -> List[Word]:
         lines = [l.rstrip('\n') for l in data_file.readlines()]
 
         for line in lines:
-            line = line.replace('g', 'ɡ')
+            line = line.replace('ɡ', 'g')
             data = line.split(" ")
 
             for sound_str in data:

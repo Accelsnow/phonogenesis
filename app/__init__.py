@@ -12,6 +12,7 @@ import sys
 # DATA initialization
 DEFAULT_DATA = get_default_data()
 TOTAL_RULE_COUNT = len(DEFAULT_DATA['rules'])
+print(TOTAL_RULE_COUNT)
 
 # flask initialization
 app = Flask(__name__)

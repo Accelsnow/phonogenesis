@@ -101,7 +101,7 @@ def index():
 
 @app.route('/prof', methods=['GET', 'POST'])
 def prof():
-    global question_result
+    global question_result, size
     from script.data_factory import translate_phoneme_data, translate_templates_data, translate_rule_data
 
     prof_gen = ProfGenForm()
@@ -123,9 +123,9 @@ def prof():
         else:
             phonemes = translate_phoneme_data(phoneme_data)
 
-        question_size = int(prof_gen.question_size.data)
+        size = int(prof_gen.question_size.data)
 
-        question_result = generate_questions(customized_data, rule, 1, question_size,
+        question_result = generate_questions(customized_data, rule, 1, size,
                                              bool(prof_gen.randomize_order.data),
                                              bool(prof_gen.use_ipa_g.data), phonemes)
 

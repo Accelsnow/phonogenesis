@@ -126,7 +126,7 @@ def import_default_templates(feature_pool: List[str]) -> List[Template]:
 
 
 def parse_template_line(line: str, feature_pool: List[str]) -> Template:
-    line = line.replace('g', 'ɡ')
+    line = line.replace('ɡ', 'g')
     particle_list = line.split("-")
     particles = []
 
