@@ -29,6 +29,10 @@ def import_default_randomized_phonemes(interest_words: List[List[Word]]) -> List
 
 
 def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> List[Word]:
+    """
+    Fetch phonemes from given file, with proper randomization as indicated in the file.
+    Detailed instruction on file format check defaultphonemerandomization.txt
+    """
     import ast
 
     drop_rules = []  # type: List[List[List[Any]]]
@@ -103,91 +107,6 @@ def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> Lis
                     drop_list.extend(drop_buffer)
 
                 break
-
-    # #   filter 1
-    # drop_list = []
-    # if random() < 0.5:
-    #     drop_list.extend(["ʔ"])
-    #
-    # #   filter 2
-    # if random() < 0.5:
-    #     drop_list.extend(["h"])
-    #
-    # #   filter 3
-    # if random() < 0.5:
-    #     drop_list.extend(["t͡ʃ", "d͡ʒ"])
-    #
-    # #   filter 4
-    # r4 = random()
-    # if r4 < 0.25:
-    #     drop_list.extend(["v", "ð", "z", "ʒ"])
-    # elif r4 < 0.5:
-    #     drop_list.extend(["v", "ð", "z", "ʒ", "b", "d", "g", "d͡ʒ"])
-    #
-    # #   filter 5
-    # if random() < 0.15:
-    #     drop_list.extend(["f", "v"])
-    #
-    # #   filter 6
-    # if random() < 0.15:
-    #     drop_list.extend(["θ", "ð"])
-    #
-    # #   filter 7
-    # if random() < 0.15:
-    #     drop_list.extend(["ʃ", "ʒ"])
-    #
-    # #   filter 8
-    # if random() < 0.15:
-    #     drop_list.extend(["m"])
-    #
-    # #   filter 9
-    # if random() < 0.25:
-    #     drop_list.extend(["ŋ"])
-    #
-    # #   filter 10
-    # r10 = random()
-    # if r10 < 0.25:
-    #     drop_list.extend(sample(["r", "l", "w", "j"], 1))
-    # elif r10 < 0.5:
-    #     drop_list.extend(sample(["r", "l", "w", "j"], 2))
-    # elif r10 < 0.75:
-    #     drop_list.extend(sample(["r", "l", "w", "j"], 3))
-    #
-    # #   filter 11
-    # if random() < 0.75:
-    #     drop_list.extend(["æ", "ɑ"])
-    # else:
-    #     drop_list.extend(["a"])
-    #
-    # #   filter 12
-    # if random() < 0.5:
-    #     drop_list.extend(["ə"])
-    #
-    # #   filter 13
-    # r13 = random()
-    # if r13 < 0.2:
-    #     drop_list.extend(["ɪ", "ʊ", "e", "ɛ", "ɔ", "o"])
-    # elif r13 < 0.4:
-    #     drop_list.extend(["ɪ", "ʊ"])
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 3))
-    # elif r13 < 0.5:
-    #     drop_list.extend(["ɪ", "ʊ"])
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 2))
-    # elif r13 < 0.6:
-    #     drop_list.extend(["ɪ", "ʊ", "u"])
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 2))
-    # elif r13 < 0.7:
-    #     drop_list.extend(["ɪ", "ʊ"])
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 1))
-    # elif r13 < 0.75:
-    #     drop_list.extend(["ɪ", "ʊ", "u"])
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 1))
-    # elif r13 < 0.8:
-    #     drop_list.extend(sample(["e", "ɛ", "ɔ", "o"], 1))
-    # elif r13 < 0.9:
-    #     drop_list.extend(["ɪ", "ʊ"])
-    # elif r13 < 0.95:
-    #     drop_list.extend(["ɪ", "ʊ", "u"])
 
     phoneme_randomized = [s for s in phoneme_str if s not in drop_list]
     phonemes = [Word([Sound('', [])[str(s)]]) for s in phoneme_randomized]

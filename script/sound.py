@@ -37,6 +37,21 @@ class Sound:
 
     def get_transformed_sound(self, target_particle: Any, ignored_types: List[str], feature_to_type: Dict[str, str],
                               feature_to_sounds: Dict[str, List[Sound]]) -> Optional[Sound, None]:
+        """
+        Transform current sound to conform to the given particle with given environments.
+        Current sound is compared to all sounds matching target particle.
+
+        Ignored types defines feature types that are not to be evaluated while transforming.
+
+        There are two types of matching: loose match and tight match.
+        Tight match require strict equivalence (including feature NA), while loose match validates if either feature is
+        NA.
+
+        The function returns the one and only one strict match found. If no strict match is founded, it returns the one
+        and only one loose match found.
+        If there are more than one strict matches, or there are more than one loose matches when there is no strict
+        match, an error is raised indicating the transformation is ambiguous.
+        """
         from script.feature_lib import Particle
 
         if not isinstance(target_particle, Particle):

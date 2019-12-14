@@ -15,10 +15,24 @@ class Template:
         self._size = len(components)
 
     def generate_word_list(self, phonemes: Optional[List[Word], None], size_limit: Optional[int, None],
-                           feature_to_sounds: Dict[str, List[Sound]], target_phoneme: Optional[List[Word], None]) -> \
+                           feature_to_sounds: Dict[str, List[Sound]], target_phones: Optional[List[Word], None]) -> \
             List[Word]:
+        """
+        Generate a word list with current template using given environments.
+
+        If target_phones is None, then words are constructed using given full phoneme, otherwise only words with
+        sound(s) from target_phones will be selected. When generating words with phones of interest, each sound in the
+        interested phones will be given equivalent chance to be selected (i.e. attempt to achieve even distribution
+        among interested phones)
+
+        If size_limit is None, then all words matching current template will be recorded & returned, otherwise up to
+        size_limit words will be returned.
+
+        If size_limit is None, then target_phone MUST be None too (i.e. to generate with phones of interest, a size
+        limit must be defined).
+        """
         if size_limit is None:
-            if target_phoneme is not None:
+            if target_phones is not None:
                 raise AttributeError("Not allowed to have target phoneme when not having a size limit")
 
         word_len = len(self._components)
@@ -35,8 +49,8 @@ class Template:
             part_sound = particle.get_matching_sounds(phonemes, feature_to_sounds)
             part_sounds.append(part_sound)
 
-            if target_phoneme is not None:
-                interest_sound = [s for s in part_sound if Word([s]) in target_phoneme]
+            if target_phones is not None:
+                interest_sound = [s for s in part_sound if Word([s]) in target_phones]
                 interest_sounds.append(interest_sound)
 
                 if interest_sound != [] and len(interest_sound) > 0:
@@ -50,7 +64,7 @@ class Template:
             return [Word(r) for r in result]
         else:
             word_count = 0
-            if target_phoneme is None:
+            if target_phones is None:
                 while word_count < size_limit:
                     curr_word = []  # type: List[Sound]
 
@@ -104,15 +118,10 @@ class Template:
 
             return self._recur_full_word_list(comb_sound, index + 1, new_words)
 
-    def get_word_list_size(self, phonemes: Optional[List[Word], None],
-                           feature_to_sounds: Dict[str, List[Sound]]) -> int:
-        size = 1
-        for particle in self._components:
-            size *= len(particle.get_matching_sounds(phonemes, feature_to_sounds))
-
-        return size
-
     def get_components(self) -> List[Particle]:
+        """
+        Returns the particles current template contains
+        """
         return [block for block in self._components]
 
     def __str__(self) -> str:
@@ -126,6 +135,12 @@ def import_default_templates(feature_pool: List[str]) -> List[Template]:
 
 
 def parse_template_line(line: str, feature_pool: List[str]) -> Template:
+    """
+    Line should be in format of [Particle Data]-[Particle Data]-...
+    e.g. [consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]
+
+    All letter 'g' is converted to conventional g (ipa g will be replaced)
+    """
     line = line.replace('ɡ', 'g')
     particle_list = line.split("-")
     particles = []
@@ -143,6 +158,12 @@ def parse_template_line(line: str, feature_pool: List[str]) -> Template:
 
 
 def _fetch_templates(filename: str, feature_pool: List[str]) -> List[Template]:
+    """
+    Fetch templates from the given file, assuming each line of the file conforms to template line format.
+    Default encoding utf-8
+
+    Feature pool needed for validity check during parsing
+    """
     templates = []  # type: List[Template]
 
     with open(filename, encoding='utf-8') as data_file:

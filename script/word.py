@@ -35,6 +35,10 @@ class Word:
         return self._sounds
 
     def change_word(self, index: int, target: Optional[None, Word]) -> Word:
+        """
+        Build a new word with current word's given index replaced with target word.
+        If target word is None, delete the sound at that index instead.
+        """
         clone_sounds = [s for s in self._sounds]
 
         if target is None:
@@ -44,11 +48,14 @@ class Word:
 
         return Word(clone_sounds)
 
-    def index(self, content: Word, start_index: int) -> int:
-        con_len = len(content)
+    def index(self, target: Word, start_index: int) -> int:
+        """
+        Find the index of the first occurrence of target word starting from start_index in the current word.
+        """
+        con_len = len(target)
 
         for i in range(start_index, len(self)):
-            if i + con_len <= len(self) and Word(self._sounds[i:i + con_len]) == content:
+            if i + con_len <= len(self) and Word(self._sounds[i:i + con_len]) == target:
                 return i
 
         return -1
@@ -63,12 +70,6 @@ class Word:
             word_str += str(sound)
 
         return word_str
-
-    def get_g_str(self, use_ipa_g: bool):
-        if use_ipa_g:
-            return str(self)
-        else:
-            return str(self).replace('ɡ', 'g')
 
     def __len__(self):
         return len(self._sounds)
