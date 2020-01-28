@@ -190,6 +190,10 @@ class Rule:
     def get_interest_phones(self, phonemes: List[Word], feature_to_type: Dict[str, str],
                             feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Dict[str, str], List[str]]:
         a_matcher = self.get_a_matcher(phonemes, None, feature_to_sounds)
+
+        if len(a_matcher) == 1 and str(a_matcher[0]) == '':
+            return {}, []
+
         result = {}
         all_phones = set([])
 
@@ -197,8 +201,8 @@ class Rule:
             raise ValueError("No matching A found in the phonemes!")
 
         for a_word in a_matcher:
-            if len(a_word) != 1:
-                raise NotImplementedError("Currently only support A of size 1")
+            if len(a_word) > 1:
+                raise NotImplementedError("Not supporting A size greater than 1")
 
             b_word = self._do_replace(a_word, 0, 1, feature_to_type, feature_to_sounds)
             all_phones.add(str(a_word))
@@ -222,24 +226,30 @@ class Rule:
             return dict_
 
         a_matcher = self.get_a_matcher(phonemes, None, feature_to_sounds)  # type:List[Word]
-        prev_index = 0  # type: int
-        result = {}  # type: Dict[int, Word]
-        i = 0
+        if len(a_matcher) == 1 and str(a_matcher[0]) == '':
+            result = {}
 
-        while i < len(a_matcher):
-            a_pattern = a_matcher[i]
-            a_index = word.index(a_pattern, prev_index)
+            for i in range(0, len(word) + 1):
+                result[i] = Word('')
+        else:
+            prev_index = 0  # type: int
+            result = {}  # type: Dict[int, Word]
+            i = 0
 
-            if a_index < 0:
+            while i < len(a_matcher):
+                a_pattern = a_matcher[i]
+                a_index = word.index(a_pattern, prev_index)
+
+                if a_index < 0:
+                    i += 1
+                    prev_index = 0
+                    continue
+                else:
+                    prev_index = a_index + 1
+                    result[a_index] = a_pattern
+                    i -= 1
+
                 i += 1
-                prev_index = 0
-                continue
-            else:
-                prev_index = a_index + 1
-                result[a_index] = a_pattern
-                i -= 1
-
-            i += 1
 
         return result
 
@@ -305,12 +315,12 @@ class Rule:
                     feature_to_sounds: Dict[str, List[Sound]]) -> Word:
         target = str(word[begin_index:end_index])
 
-        if end_index - begin_index != 1:
+        if end_index - begin_index > 1:
             raise NotImplementedError(
                 "begin %d end %d type like this has not been implemented yet" % (begin_index, end_index))
 
         if self._B is None:
-            return word.change_word(begin_index, None)
+            return word.change_word(begin_index, end_index, None)
         else:
             dest_particle = self._B[0]
             ignored_types = self._B[1]
@@ -318,7 +328,7 @@ class Rule:
             dest_sound = Sound('', [])[target].get_transformed_sound(dest_particle, ignored_types, feature_to_type,
                                                                      feature_to_sounds)
             if dest_sound is not None:
-                return word.change_word(begin_index, Word([dest_sound]))
+                return word.change_word(begin_index, end_index, Word([dest_sound]))
 
         return word
 
@@ -392,10 +402,10 @@ class PredefinedRule(Rule):
 
     def _do_replace(self, word: Word, begin_index: int, end_index: int, feature_to_type: Dict[str, str],
                     feature_to_sounds: Dict[str, List[Sound]]) -> Word:
-        if end_index - begin_index != 1:
+        if end_index - begin_index > 1:
             raise NotImplementedError(
                 "begin %d end %d type like this has not been implemented yet" % (begin_index, end_index))
-        return word.change_word(begin_index, self._AtoB[word[begin_index:end_index]])
+        return word.change_word(begin_index, end_index, self._AtoB[word[begin_index:end_index]])
 
     def get_a_matcher(self, phonemes: List[Word], size_limit: Optional[int, None],
                       feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:

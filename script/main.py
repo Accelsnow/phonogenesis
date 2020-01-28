@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     print("\n==================================================\n")
 
-    manual_rule_select = 52
+    manual_rule_select = 84
 
     use_rule = rules[manual_rule_select]
     amount = 20
@@ -112,13 +112,13 @@ if __name__ == '__main__':
                                                    use_rule.get_d_matchers(None, feature_to_sounds)])
     print("\nfull phonemes: ", [str(p) for p in phonemes])
 
-    # while True:
-    #     # word = input("\nWord to check: ")
-    #     word = "np"
-    #     print(rules[manual_rule_select])
-    #     print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
-    #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
-    #     break
+    while True:
+        # word = input("\nWord to check: ")
+        word = "nadapa"
+        print(rules[manual_rule_select])
+        print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
+        print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
+        break
 
     # use_templates = templates
     #

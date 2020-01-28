@@ -34,7 +34,7 @@ class Word:
     def get_sounds(self) -> List[Sound]:
         return self._sounds
 
-    def change_word(self, index: int, target: Optional[None, Word]) -> Word:
+    def change_word(self, begin_index: int, end_index: int, target: Optional[None, Word]) -> Word:
         """
         Build a new word with current word's given index replaced with target word.
         If target word is None, delete the sound at that index instead.
@@ -42,9 +42,9 @@ class Word:
         clone_sounds = [s for s in self._sounds]
 
         if target is None:
-            clone_sounds.pop(index)
+            clone_sounds.pop(begin_index)
         else:
-            clone_sounds = clone_sounds[:index] + target.get_sounds() + clone_sounds[index + 1:]
+            clone_sounds = clone_sounds[:begin_index] + target.get_sounds() + clone_sounds[end_index:]
 
         return Word(clone_sounds)
 

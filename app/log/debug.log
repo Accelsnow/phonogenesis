@@ -1,1 +1,833 @@
-﻿
+﻿[2020-01-28 15:49:18] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:49:18] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:49:18] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:49:18] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:49:19] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'a', 'ɔ', 'u']  "]
+ - generator 220@generate
+[2020-01-28 15:49:19] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'w', 'j', 'i', 'ɔ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @987992573
+ - generator 224@generate
+[2020-01-28 15:49:19] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:19] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:19] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:19] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:19] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:19] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 259@generate
+[2020-01-28 15:49:19] - WARNING - Condition Index 0 does not have any related data
+ - generator 262@generate
+[2020-01-28 15:49:19] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'w', 'j', 'i', 'ɔ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @987992573
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'w', 'j', 'i', 'ɔ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @987992573
+
+[2020-01-28 15:49:19] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'w', 'j', 'i', 'ɔ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @987992573
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'w', 'j', 'i', 'ɔ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @987992573
+
+[2020-01-28 15:49:52] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:49:52] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:49:52] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:49:52] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:49:52] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'e', 'ɛ', 'a', 'o', 'ɔ', 'u', 'ə']  "]
+ - generator 220@generate
+[2020-01-28 15:49:52] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @842179468
+ - generator 224@generate
+[2020-01-28 15:49:52] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:52] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:52] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:52] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:52] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:49:52] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 259@generate
+[2020-01-28 15:49:52] - WARNING - Condition Index 0 does not have any related data
+ - generator 262@generate
+[2020-01-28 15:49:52] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @842179468
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @842179468
+
+[2020-01-28 15:49:52] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @842179468
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @842179468
+
+[2020-01-28 15:50:09] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:50:09] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:50:09] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:50:09] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:50:09] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'a', 'u']  "]
+ - generator 220@generate
+[2020-01-28 15:50:09] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @636280316
+ - generator 224@generate
+[2020-01-28 15:50:09] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:09] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:09] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:09] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:09] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:09] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 259@generate
+[2020-01-28 15:50:09] - WARNING - Condition Index 0 does not have any related data
+ - generator 262@generate
+[2020-01-28 15:50:09] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @636280316
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @636280316
+
+[2020-01-28 15:50:09] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @636280316
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @636280316
+
+[2020-01-28 15:50:34] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:50:34] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:50:34] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:50:34] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:50:34] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'e', 'ɛ', 'æ', 'ɑ', 'ɔ', 'u']  "]
+ - generator 220@generate
+[2020-01-28 15:50:34] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @699009312
+ - generator 224@generate
+[2020-01-28 15:50:34] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:34] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:34] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:34] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:34] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 163@_generate_helper
+[2020-01-28 15:50:34] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 259@generate
+[2020-01-28 15:50:34] - WARNING - Condition Index 0 does not have any related data
+ - generator 262@generate
+[2020-01-28 15:50:34] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @699009312
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @699009312
+
+[2020-01-28 15:50:34] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 319, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @699009312
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @699009312
+
+[2020-01-28 15:52:47] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:52:47] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:52:47] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:52:47] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:52:47] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'a', 'u']  "]
+ - generator 221@generate
+[2020-01-28 15:52:47] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @945375063
+ - generator 225@generate
+[2020-01-28 15:52:47] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 164@_generate_helper
+[2020-01-28 15:52:47] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 164@_generate_helper
+[2020-01-28 15:52:47] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 164@_generate_helper
+[2020-01-28 15:52:47] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 164@_generate_helper
+[2020-01-28 15:52:47] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 164@_generate_helper
+[2020-01-28 15:52:47] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 260@generate
+[2020-01-28 15:52:47] - WARNING - Condition Index 0 does not have any related data
+ - generator 263@generate
+[2020-01-28 15:52:47] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 320, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @945375063
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @945375063
+
+[2020-01-28 15:52:47] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 320, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @945375063
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'w', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @945375063
+
+[2020-01-28 15:58:25] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 15:58:25] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 15:58:25] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 15:58:25] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 15:58:25] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'a', 'u', 'ə']  "]
+ - generator 217@generate
+[2020-01-28 15:58:25] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @892318410
+ - generator 221@generate
+[2020-01-28 15:58:25] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 15:58:25] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 15:58:25] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 15:58:25] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 15:58:25] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 15:58:25] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 256@generate
+[2020-01-28 15:58:25] - WARNING - Condition Index 0 does not have any related data
+ - generator 259@generate
+[2020-01-28 15:58:25] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @892318410
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @892318410
+
+[2020-01-28 15:58:25] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @892318410
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @892318410
+
+[2020-01-28 16:01:11] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:01:11] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:01:11] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 16:01:11] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 16:01:11] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'e', 'a', 'u']  "]
+ - generator 217@generate
+[2020-01-28 16:01:11] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @68847096
+ - generator 221@generate
+[2020-01-28 16:01:11] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:01:11] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:01:11] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:01:11] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:01:11] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:01:11] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 256@generate
+[2020-01-28 16:01:11] - WARNING - Condition Index 0 does not have any related data
+ - generator 259@generate
+[2020-01-28 16:01:11] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @68847096
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @68847096
+
+[2020-01-28 16:01:11] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @68847096
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 't͡ʃ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'e', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @68847096
+
+[2020-01-28 16:01:33] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:01:33] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:01:33] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 169, in generate_questions
+    rule_selection.get_d_matchers(None, data_set['f2ss'])])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 274, in get_d_matchers
+    d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 44, in _get_d_instance_matcher
+    return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\templates.py", line 38, in generate_word_list
+    print([str(p) for p in target_phones])
+TypeError: 'NoneType' object is not iterable
+[2020-01-28 16:01:43] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:01:43] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:01:43] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 169, in generate_questions
+    rule_selection.get_d_matchers(None, data_set['f2ss'])])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 274, in get_d_matchers
+    d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 44, in _get_d_instance_matcher
+    return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\templates.py", line 38, in generate_word_list
+    print([str(p) for p in target_phones])
+TypeError: 'NoneType' object is not iterable
+[2020-01-28 16:02:21] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:02:21] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:02:21] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 16:02:21] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 16:02:21] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'e', 'ɛ', 'æ', 'ɑ', 'o', 'u', 'ə']  "]
+ - generator 217@generate
+[2020-01-28 16:02:21] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @274135945
+ - generator 221@generate
+[2020-01-28 16:02:21] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:02:21] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:02:21] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:02:21] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:02:21] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 160@_generate_helper
+[2020-01-28 16:02:21] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 0 CAND 0 NCAD 0 IRR 0
+ - generator 256@generate
+[2020-01-28 16:02:21] - WARNING - Condition Index 0 does not have any related data
+ - generator 259@generate
+[2020-01-28 16:02:21] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @274135945
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @274135945
+
+[2020-01-28 16:02:21] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 316, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @274135945
+ 
+ test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 't͡ʃ', 'd͡ʒ', 'f', 'v', 's', 'z', 'ʃ', 'ʒ', 'h', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɛ', 'o', 'u', 'ə', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @274135945
+
+[2020-01-28 16:08:45] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:08:45] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:08:45] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 16:08:45] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 16:08:45] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'e', 'a', 'o', 'ɔ', 'ə']  "]
+ - generator 227@generate
+[2020-01-28 16:08:45] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 't', 'k', 'g', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'j', 'i', 'e', 'ɔ', 'o', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @826268980
+ - generator 231@generate
+[2020-01-28 16:08:45] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:08:45] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:08:45] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:08:45] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 266@generate
+[2020-01-28 16:08:45] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 8 NCAD 0 IRR 0
+ - generator 300@generate
+[2020-01-28 16:08:46] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 336, in generate
+    phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 201, in get_interest_phones
+    raise NotImplementedError("Currently only support A of size 1")
+NotImplementedError: Currently only support A of size 1
+[2020-01-28 16:08:46] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 336, in generate
+    phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 201, in get_interest_phones
+    raise NotImplementedError("Currently only support A of size 1")
+NotImplementedError: Currently only support A of size 1
+[2020-01-28 16:09:11] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:09:11] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:09:11] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 16:09:11] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 16:09:12] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'a', 'o', 'ɔ', 'u', 'ʊ']  "]
+ - generator 227@generate
+[2020-01-28 16:09:12] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'm', 'n', 'r', 'l', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @80574339
+ - generator 231@generate
+[2020-01-28 16:09:12] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:09:12] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:09:12] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:09:12] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 266@generate
+[2020-01-28 16:09:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 8 NCAD 0 IRR 0
+ - generator 300@generate
+[2020-01-28 16:09:12] - ERROR - UNEXPECTED ERROR - routes 208@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 336, in generate
+    phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 212, in get_interest_phones
+    all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 212, in <lambda>
+    all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\sound.py", line 117, in __getitem__
+    return _SYMBOL[item]
+KeyError: ''
+[2020-01-28 16:09:12] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 189, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 209, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\app\routes.py", line 202, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\generator.py", line 336, in generate
+    phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 212, in get_interest_phones
+    all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\rules.py", line 212, in <lambda>
+    all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\script\sound.py", line 117, in __getitem__
+    return _SYMBOL[item]
+KeyError: ''
+[2020-01-28 16:10:50] - DEBUG - Type Selection: 1 - routes 146@generate_questions
+[2020-01-28 16:10:50] - DEBUG - Manual Selection: True - routes 149@generate_questions
+[2020-01-28 16:10:50] - DEBUG - Shuffle Result: False - routes 187@generate_questions
+[2020-01-28 16:10:50] - DEBUG - Rule size: 1 - generator 49@__init__
+[2020-01-28 16:10:51] - INFO - A matchers: ['']  CD matchers: ["[]_['i', 'ɛ', 'a', 'u', 'ə']  "]
+ - generator 227@generate
+[2020-01-28 16:10:51] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'ɛ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @245095315
+ - generator 231@generate
+[2020-01-28 16:10:51] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:10:51] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:10:51] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 170@_generate_helper
+[2020-01-28 16:10:51] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 266@generate
+[2020-01-28 16:10:51] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 8 NCAD 0 IRR 0
+ - generator 300@generate
+[2020-01-28 16:10:51] - DEBUG - Gen Mode 1 - str ipa g mode - generator 339@generate
+[2020-01-28 16:10:51] - INFO - Data recorded: 
+UR ['ʔɛʔθɛ', 'luθθɛ', 'pəŋlɛ', 'ʃɛdmi', 'sɛʔʃu', 'ŋudɡɛ', 'pɛθa', 'ɡɛɡu', 'ŋubŋa', 'fɛdbu', 'ʃaʔsə', 'ʃimka', 'ŋapiɡ', 'ŋuŋbɛŋ', 'baŋɛk', 'ʃimtus', 'ʃuʔah', 'fəθkil', 'naɡlɛʔ', 'tupθat']
+SR ['ʔɛʔθzɛ', 'luθθzɛ', 'pəŋlzɛ', 'ʃɛdmzi', 'sɛʔʃzu', 'ŋudɡzɛ', 'pɛθza', 'ɡɛɡzu', 'ŋubŋza', 'fɛdbzu', 'ʃaʔszə', 'ʃimkza', 'ŋapiɡ', 'ŋuŋbɛŋ', 'baŋɛk', 'ʃimtus', 'ʃuʔah', 'fəθkil', 'naɡlɛʔ', 'tupθat']
+test rule ===== <Predefined> { > z} /  _ [vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'm', 'n', 'ŋ', 'l', 'i', 'ɛ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @245095315
+ - routes 46@index

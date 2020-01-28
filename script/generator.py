@@ -54,22 +54,40 @@ class Generator:
         template_pool_size = pool_size / len(self._templates)
         generation_summary = {ExampleType.CADT: 0, ExampleType.CADNT: 0, ExampleType.CAND: 0, ExampleType.NCAD: 0,
                               ExampleType.IRR: 0}
-        irr_size = round(template_pool_size * IRR_PERCENTAGE)
-        related_size = round(template_pool_size * RELATED_PERCENTAGE)
-
         a_matcher = self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)
         cd_validated = self._rule.validate_cd(self._phonemes, feature_to_sounds)
 
         if len(a_matcher) == 0 or a_matcher == [] or not cd_validated:
             raise GenerationNoCADTError(self)
 
-        irr_phoneme = [w for w in self._phonemes if w not in a_matcher]
+        is_insertion = False
+        if len(a_matcher) == 1 and str(a_matcher[0]) == '':
+            is_insertion = True
+
+        if is_insertion:
+            irr_size = 0
+            related_size = template_pool_size
+
+            irr_phoneme = []
+        else:
+            irr_size = round(template_pool_size * IRR_PERCENTAGE)
+            related_size = round(template_pool_size * RELATED_PERCENTAGE)
+
+            irr_phoneme = [w for w in self._phonemes if w not in a_matcher]
 
         for template in self._templates:
-            irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
-            related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds, a_matcher)
+            if irr_size > 0:
+                irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
+                random.shuffle(irr_word_list)
+            else:
+                irr_word_list = []
 
-            random.shuffle(irr_word_list)
+            if is_insertion:
+                related_word_list = related_word_list = template.generate_word_list(self._phonemes, related_size,
+                                                                                    feature_to_sounds, None)
+            else:
+                related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds,
+                                                                a_matcher)
 
             # RELATED
 
@@ -102,7 +120,6 @@ class Generator:
                         generation_summary[ExampleType.NCAD] += 1
 
             # IRR
-
             for word in irr_word_list:
                 generation_summary[ExampleType.IRR] += 1
 
@@ -321,12 +338,12 @@ class Generator:
         if gen_mode == 1:
             LOGGER.debug("Gen Mode 1 - str ipa g mode")
             a = {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
-                    "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
-                    "Gloss": [str(w) for w in gloss_words],
-                    "rule": str(self._rule),
-                    "templates": [str(w) for w in self._templates],
-                    "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
-                    "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
+                 "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
+                 "Gloss": [str(w) for w in gloss_words],
+                 "rule": str(self._rule),
+                 "templates": [str(w) for w in self._templates],
+                 "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
+                 "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
             return a
         elif gen_mode == 2:
             LOGGER.debug("Gen Mode 2 - str non ipa g mode")
