@@ -1,3 +1,4 @@
+
 {% extends "bootstrap/base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
@@ -74,11 +75,10 @@
         {% if data %}
 
             <p id="poi">Phones of Interest:
-                {% for poi in data['phone_interest'][1] %}
-                    {{ poi }}
-                {% endfor %}
-
-                &emsp;
+{#                {% for poi in data['phone_interest'][1] %}#}
+{#                    {{ poi }}#}
+{#                {% endfor %}#}
+                {{ data['phone_interest'][1] }}
                 Rule Type: {{ data['rule_type'] }}
             </p>
 

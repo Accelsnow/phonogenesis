@@ -1,4 +1,4 @@
-﻿rule,name,family
+﻿﻿rule,name,family
 "[obstruent,voiced]>[voiceless]/_#",word-final obstruent devoicing,consonant devoicing
 "[voiceless,oral stop,not spread]>[spread]/#_",word-initial aspiration of voiceless stops,aspiration
 "[not spread,fricative,voiceless]>[voiced]/[vowel]_[vowel]",intervocalic fricative voicing,lenition
@@ -97,3 +97,5 @@
 "[voiced,oral stop]>0/[vowel]_[vowel]",intervocalic deletion of voiced oral stops,deletion
 "[high,vowel]>0/[vowel][sonorant,contoid]_[obstruent,consonant]#",deletion of high vowels in final closed syllables to create rising sonority codas,deletion
 "[high,front,vowel]>0/[vowel][sonorant,contoid]_[obstruent,consonant]#",deletion of high front vowels in final closed syllables to carete rising sonority codas,deletion
+,,
+<<PREDEFINED>>{'':'z'}/_[vowel]#,test rule,test

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import random
 from typing import List, Tuple, Dict, Optional, Any, Set
-
+from segments.tokenizer import Tokenizer
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
 import logging
 
@@ -320,13 +320,14 @@ class Generator:
 
         if gen_mode == 1:
             LOGGER.debug("Gen Mode 1 - str ipa g mode")
-            return {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
+            a = {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
                     "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
                     "Gloss": [str(w) for w in gloss_words],
                     "rule": str(self._rule),
                     "templates": [str(w) for w in self._templates],
                     "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
                     "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
+            return a
         elif gen_mode == 2:
             LOGGER.debug("Gen Mode 2 - str non ipa g mode")
             return {"UR": [str(w) for w in ur_words],
