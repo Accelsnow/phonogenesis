@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import random
 from typing import List, Tuple, Dict, Optional, Any, Set
-from segments.tokenizer import Tokenizer
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
 import logging
 
