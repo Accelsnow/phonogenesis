@@ -49,7 +49,7 @@ class Rule:
     A>B/C_D
     """
     _As: List[List[Particle]]
-    _B: Optional[Tuple[Particle, List[str]], None]
+    _B: Optional[Tuple[Optional[None, Particle], List[str], int], None]
     _Cs: List[Optional[List[Particle], None]]
     _Ds: List[Optional[List[Particle], None]]
 
@@ -61,8 +61,9 @@ class Rule:
     _id: int
 
     def __init__(self, name: str, family: Optional[RuleFamily, None], a: List[List[Particle]],
-                 b: Optional[Tuple[Particle, List[str]], None], c: List[Optional[List[Particle], None]],
-                 c_edge: List[bool], d: List[Optional[List[Particle], None]], d_edge: List[bool]) -> None:
+                 b: Optional[Tuple[Optional[None, Particle], List[str], int], None],
+                 c: List[Optional[List[Particle], None]], c_edge: List[bool], d: List[Optional[List[Particle], None]],
+                 d_edge: List[bool]) -> None:
         self._name = name
         self._family = family
         self._As = a
@@ -194,6 +195,9 @@ class Rule:
         if len(a_matcher) == 1 and str(a_matcher[0]) == '':
             return {}, []
 
+        if self._B[2] != 0:
+            return {}, []
+
         result = {}
         all_phones = set([])
 
@@ -283,6 +287,8 @@ class Rule:
                       feature_to_sounds: Dict[str, List[Sound]]) -> RuleType:
         if self._B is None:
             return RuleType.Alternating
+        elif self._B[2] != 0:
+            return RuleType.Mixed
 
         has_alternating = False
         has_neutralizing = False
@@ -313,7 +319,6 @@ class Rule:
 
     def _do_replace(self, word: Word, begin_index: int, end_index: int, feature_to_type: Dict[str, str],
                     feature_to_sounds: Dict[str, List[Sound]]) -> Word:
-        target = str(word[begin_index:end_index])
 
         if end_index - begin_index > 1:
             raise NotImplementedError(
@@ -324,9 +329,24 @@ class Rule:
         else:
             dest_particle = self._B[0]
             ignored_types = self._B[1]
+            copy_index = self._B[2]
 
-            dest_sound = Sound('', [])[target].get_transformed_sound(dest_particle, ignored_types, feature_to_type,
-                                                                     feature_to_sounds)
+            if copy_index == 0:
+                if dest_particle is None:
+                    raise ValueError("copy index 0 while no particle is given (Use None for deletion)")
+
+                a_target = str(word[begin_index:end_index])
+                dest_sound = Sound('', [])[a_target].get_transformed_sound(dest_particle, ignored_types,
+                                                                           feature_to_type, feature_to_sounds)
+            else:
+                if dest_particle is None:
+                    return word.change_word(begin_index, end_index,
+                                            word[begin_index + copy_index:end_index + copy_index])
+
+                env_target = str(word[begin_index + copy_index:end_index + copy_index])
+                dest_sound = Sound('', [])[env_target].get_transformed_sound(dest_particle, ignored_types,
+                                                                             feature_to_type, feature_to_sounds)
+
             if dest_sound is not None:
                 return word.change_word(begin_index, end_index, Word([dest_sound]))
 
@@ -488,9 +508,9 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
                                rule_family: Optional[RuleFamily, None]) -> Rule:
     import ast
     if rule_content.startswith('<<PREDEFINED>>'):
-        predifined = True
+        predefined = True
     else:
-        predifined = False
+        predefined = False
 
     rule_content = rule_content.lstrip('<<PREDEFINED>>')
 
@@ -498,7 +518,7 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
 
     cd_info = _interpret_cd(mid_break[1], feature_pool)
 
-    if predifined:
+    if predefined:
         rule = PredefinedRule(rule_name, rule_family, ast.literal_eval(mid_break[0]), cd_info[0], cd_info[1],
                               cd_info[2], cd_info[3])
     else:
@@ -513,7 +533,7 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
         if len(b_str) == 0 or b_str[0] == '0':
             b_sec = None
         elif b_str[0] == '[' and b_str[-1] == ']':
-            b_sec = _interpret_b(b_str, feature_pool)
+            b_sec = _interpret_b(b_str.lstrip('[').rstrip(']'), feature_pool)
         else:
             raise ValueError("error reading b data invalid format %s" % b_str)
 
@@ -526,8 +546,23 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
     return rule
 
 
-def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Particle, List[str]]:
-    b_data = b_str.lstrip("[").rstrip("]").split(",")
+def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Optional[Particle, None], List[str], int]:
+    var_count = b_str.count('$')
+
+    if var_count > 0:
+        if var_count != 2:
+            raise ValueError("B var env not met. Ex. [$...$...]")
+
+        var_end_index = b_str.index('$', 1)
+        copy_loc = int(b_str[1:var_end_index])
+        b_data = b_str[var_end_index + 1:].split(",")
+    else:
+        copy_loc = 0
+        b_data = b_str.split(",")
+
+    if len(b_data) == 1 and (b_data[0] == '' or len(b_data[0]) == 0):
+        return None, [], copy_loc
+
     particle_data = []  # type: List[str]
     ignored_types = []  # type: List[str]
 
@@ -540,7 +575,7 @@ def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Particle, List[st
 
             particle_data.append(data)
 
-    return Particle(particle_data), ignored_types
+    return Particle(particle_data), ignored_types, copy_loc
 
 
 def _interpret_a(a_str: str, feature_pool: List[str]) -> List[List[Particle]]:
