@@ -43,6 +43,8 @@ class Word:
 
         if target is None:
             clone_sounds.pop(begin_index)
+        elif begin_index >= len(clone_sounds):
+            clone_sounds = clone_sounds + target.get_sounds()
         else:
             clone_sounds = clone_sounds[:begin_index] + target.get_sounds() + clone_sounds[end_index:]
 

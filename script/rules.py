@@ -225,8 +225,8 @@ class Rule:
         if self._As is None:
             dict_ = {}
 
-            for i in range(0, len(word)):
-                dict_[i] = word[i]
+            for i in range(0, len(word) + 1):
+                dict_[i] = Word("")
             return dict_
 
         a_matcher = self.get_a_matcher(phonemes, None, feature_to_sounds)  # type:List[Word]
@@ -259,6 +259,9 @@ class Rule:
 
     def get_a_matcher(self, phonemes: Optional[None, List[Word]], size_limit: Optional[int, None],
                       feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+        if not self._As:
+            return [Word("")]
+
         a_matcher = []  # type: List[Word]
         for sec in self._As:
             words = Template(sec).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
@@ -330,8 +333,12 @@ class Rule:
             dest_particle = self._B[0]
             ignored_types = self._B[1]
             copy_index = self._B[2]
+            is_insertion = begin_index == end_index
 
             if copy_index == 0:
+                if is_insertion:
+                    raise ValueError("Cant't have non-copying rule with empty A - use PREDEFINED instead")
+
                 if dest_particle is None:
                     raise ValueError("copy index 0 while no particle is given (Use None for deletion)")
 
@@ -342,10 +349,13 @@ class Rule:
                 if dest_particle is None:
                     return word.change_word(begin_index, end_index,
                                             word[begin_index + copy_index:end_index + copy_index])
+                if is_insertion:
+                    env_target = str(word[begin_index + copy_index:end_index + copy_index + 1])
+                else:
+                    env_target = str(word[begin_index + copy_index:end_index + copy_index])
 
-                env_target = str(word[begin_index + copy_index:end_index + copy_index])
                 dest_sound = Sound('', [])[env_target].get_transformed_sound(dest_particle, ignored_types,
-                                                                             feature_to_type, feature_to_sounds)
+                                                                                 feature_to_type, feature_to_sounds)
 
             if dest_sound is not None:
                 return word.change_word(begin_index, end_index, Word([dest_sound]))
@@ -364,11 +374,12 @@ class Rule:
     def get_content_str(self) -> str:
         a_str = ''
 
-        for sec in self._As:
-            if len(a_str) > 0:
-                a_str += ' or '
+        if self._As is not None:
+            for sec in self._As:
+                if len(a_str) > 0:
+                    a_str += ' or '
 
-            a_str += "".join(str(s) for s in sec)
+                a_str += "".join(str(s) for s in sec)
 
         if self._B is None:
             b_str = ''
@@ -509,10 +520,9 @@ def interpret_rule_content_str(rule_content: str, feature_pool: List[str], rule_
     import ast
     if rule_content.startswith('<<PREDEFINED>>'):
         predefined = True
+        rule_content = rule_content[14:]
     else:
         predefined = False
-
-    rule_content = rule_content.lstrip('<<PREDEFINED>>')
 
     mid_break = rule_content.split("/")
 
@@ -578,9 +588,9 @@ def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Optional[Particle
     return Particle(particle_data), ignored_types, copy_loc
 
 
-def _interpret_a(a_str: str, feature_pool: List[str]) -> List[List[Particle]]:
+def _interpret_a(a_str: str, feature_pool: List[str]) -> Optional[None, List[List[Particle]]]:
     if len(a_str) == 0:
-        raise ValueError("a can not be empty")
+        return None
 
     conditions = a_str.split("&")
     a_list = []  # type: List[List[Particle]]

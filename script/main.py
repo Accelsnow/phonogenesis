@@ -18,15 +18,10 @@ def _print_result(rst: dict):
     if rst is None:
         print("No result.")
         return
-    print("\n=============RESULTS================")
-    print("UR w/only: ", ["%s" % s[0] for s in rst[0]])
-    print("SR w/only: ", ["%s" % s[0] for s in rst[1]])
-    print("UR: ", ["%s '%s'" % (s[0], s[1]) for s in rst[0]])
-    print("SR: ", ["%s '%s'" % (s[0], s[1]) for s in rst[1]])
-    print("RULE: ", rst[2])
-    print("TEMPLATES: ")
-    for t in [str(s) for s in rst[3]]:
-        print(t)
+    print("UR:", rst["UR"])
+    print("SR:", rst["SR"])
+    print("gloss: ", rst["Gloss"])
+    print("RULE: ", rst["rule"])
 
 
 def random_select(families: List[RuleFamily], rules_: List[Rule], family_num: int, rule_num: int) -> List[Rule]:
@@ -102,48 +97,42 @@ if __name__ == '__main__':
 
     print("\n==================================================\n")
 
-    manual_rule_select = 84
+    manual_rule_select = 86
 
     use_rule = rules[manual_rule_select]
-    amount = 20
+    amount = 40
 
     phonemes = import_default_randomized_phonemes([use_rule.get_a_matcher(None, None, feature_to_sounds),
                                                    use_rule.get_c_matchers(None, feature_to_sounds),
                                                    use_rule.get_d_matchers(None, feature_to_sounds)])
-    print("\nfull phonemes: ", [str(p) for p in phonemes])
+    psr = ""
+    for p in phonemes:
+        psr += str(p) + " "
+    print(psr)
 
     while True:
         # word = input("\nWord to check: ")
-        word = "nadapa"
+        word = "kik"
         print(rules[manual_rule_select])
         print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
         print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
         break
-
+    # print(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds))
     # use_templates = templates
-    #
-    # print("USING TEMPLATES: ")
-    # ti = 1
-    # for template in use_templates:
-    #     print(ti, template)
-    #     ti += 1
     #
     # print("\nUSING RULE: ", use_rule)
     # print("\nGENERATION AMOUNT:", amount, '\n')
     #
     # print("=============INTEREST===============")
-    # interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)
-    # print(interest[0])
-    # print(interest[1])
+    # interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
+    # isr = ""
+    # for i in interest:
+    #     isr += str(i) + " "
+    # print(isr)
+    # print("INT END")
     #
     # gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
     #
-    # result = gen.generate(amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
+    # result = gen.generate(1, amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
     #
     # _print_result(result)
-
-    # print("\n\n\nTRIAL 2\n\n\n")
-    #
-    # result2 = gen.generate([5, 0, 0, 0, 0], False, feature_to_type, feature_to_sounds, gloss_groups)
-    #
-    # _print_result(result2)

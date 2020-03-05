@@ -41,8 +41,9 @@ def index():
             LOGGER.debug("No data recorded (None).")
             return redirect(url_for('index'))
         else:
-            LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+            LOGGER.info("Data recorded: \nUR %s\nSR %s\nPOI %s\n%s\n" % (
                 [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
+                [str(s) for s in question_result['phone_interest']],
                 gen.get_log_stamp()))
             return render_template('index.html', title='Result', gen_form=gen_spec_form, hint_form=hint_form,
                                    gen_more_form=generate_more_form, answer_form=answer_form, data=question_result,
@@ -133,9 +134,9 @@ def prof():
             LOGGER.debug("No data recorded (None).")
             return redirect(url_for('index'))
         else:
-            LOGGER.info("Data recorded: \nUR %s\nSR %s\n%s\n" % (
+            LOGGER.info("Data recorded: \nUR %s\nSR %s\nPOI %s\n%s\n" % (
                 [str(s) for s in question_result['UR']], [str(s) for s in question_result['SR']],
-                gen.get_log_stamp()))
+                [str(s) for s in question_result['phone_interest']], gen.get_log_stamp()))
             return render_template('prof.html', title='Result', prof_gen=prof_gen, data=question_result, size=size)
 
     return render_template('prof.html', title='Professor Mode', prof_gen=prof_gen)
