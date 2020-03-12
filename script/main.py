@@ -97,7 +97,7 @@ if __name__ == '__main__':
 
     print("\n==================================================\n")
 
-    manual_rule_select = 86
+    manual_rule_select = 87
 
     use_rule = rules[manual_rule_select]
     amount = 40
@@ -110,13 +110,14 @@ if __name__ == '__main__':
         psr += str(p) + " "
     print(psr)
 
-    while True:
-        # word = input("\nWord to check: ")
-        word = "kik"
-        print(rules[manual_rule_select])
-        print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
-        print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
-        break
+    # while True:
+    #     # word = input("\nWord to check: ")
+    #     word = "θəggix"
+    #     print(rules[manual_rule_select])
+    #     print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
+    #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
+    #     break
+
     # print(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds))
     # use_templates = templates
     #

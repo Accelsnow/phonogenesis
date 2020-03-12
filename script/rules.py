@@ -31,17 +31,30 @@ class RuleType(Enum):
 
 
 def _get_c_instance_matcher(c_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
-                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[
+    List[Word], int]:
     if c_instance is None:
-        return []
-    return Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+        return [], -1
+    matcher = Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+
+    return matcher, _get_max_len(matcher)
+
+
+def _get_max_len(lst: list) -> int:
+    max_len = -1
+    for m in lst:
+        if len(m) > max_len:
+            max_len = len(m)
+    return max_len
 
 
 def _get_d_instance_matcher(d_instance: Optional[List[Particle], None], phonemes: Optional[List[Sound], None],
-                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:
+                            size_limit: Optional[int, None], feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[
+    List[Word], int]:
     if d_instance is None:
-        return []
-    return Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+        return [], -1
+    matcher = Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+    return matcher, _get_max_len(matcher)
 
 
 class Rule:
@@ -114,28 +127,30 @@ class Rule:
                 c_instance = self._Cs[i]
                 d_instance = self._Ds[i]
                 c_matcher = None
-                c_size = None
+                c_size = -1
                 c_edge = self._Cs_edge[i]
                 d_edge = self._Ds_edge[i]
                 d_matcher = None
-                d_size = None
+                d_size = -1
 
                 if c_instance is not None:
-                    c_matcher = _get_c_instance_matcher(c_instance, phonemes, None, feature_to_sounds)
+                    c_data = _get_c_instance_matcher(c_instance, phonemes, None, feature_to_sounds)
+                    c_matcher = c_data[0]
+                    c_size = c_data[1]
 
                     if len(c_matcher) == 0 or c_matcher == []:
                         continue
 
-                    c_size = len(c_matcher[0])
-
                 if d_instance is not None:
-                    d_matcher = _get_d_instance_matcher(d_instance, phonemes, None, feature_to_sounds)
+                    d_data = _get_d_instance_matcher(d_instance, phonemes, None, feature_to_sounds)
+                    d_matcher = d_data[0]
+                    d_size = d_data[1]
 
                     if len(d_matcher) == 0 or c_matcher == []:
                         continue
 
-                    d_size = len(d_matcher[0])
-
+                c_rep_len = -1
+                d_rep_len = -1
                 for a_loc in a_locations:
                     a_size = len(a_data[a_loc])
 
@@ -147,9 +162,10 @@ class Rule:
                         is_c = True
                     else:
                         if not c_edge or a_loc - c_size == 0:
-
                             for c_pattern in c_matcher:
-                                if a_loc - c_size >= 0 and word[a_loc - c_size:a_loc] == c_pattern:
+                                if len(c_pattern) > c_rep_len and a_loc - c_size >= 0 \
+                                        and word[a_loc - c_size:a_loc] == c_pattern:
+                                    c_rep_len = len(c_pattern)
                                     is_c = True
                                     break
 
@@ -161,10 +177,10 @@ class Rule:
                         is_d = True
                     else:
                         if not d_edge or a_loc + a_size + d_size == len(word):
-
                             for d_pattern in d_matcher:
-                                if a_loc + a_size < len(word) and word[
-                                                                  a_loc + a_size:a_loc + a_size + d_size] == d_pattern:
+                                if len(d_pattern) > d_rep_len and a_loc + a_size < len(word) \
+                                        and word[a_loc + a_size:a_loc + a_size + d_size] == d_pattern:
+                                    d_rep_len = len(d_pattern)
                                     is_d = True
                                     break
 
@@ -273,7 +289,7 @@ class Rule:
         c_matchers = []  # type: List[List[Word]]
 
         for c_ins in self._Cs:
-            c_matchers.append(_get_c_instance_matcher(c_ins, phonemes, None, feature_to_sounds))
+            c_matchers.append(_get_c_instance_matcher(c_ins, phonemes, None, feature_to_sounds)[0])
 
         return c_matchers
 
@@ -282,7 +298,7 @@ class Rule:
         d_matchers = []  # type: List[List[Word]]
 
         for d_ins in self._Ds:
-            d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds))
+            d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds)[0])
 
         return d_matchers
 
@@ -314,9 +330,9 @@ class Rule:
     def validate_cd(self, phonemes: Optional[List[Sound], None], feature_to_sounds: Dict[str, List[Sound]]) -> bool:
         for i in range(0, len(self._Cs)):
             if (self._Cs[i] is None or len(
-                    _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)) > 0) and (
+                    _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)[0]) > 0) and (
                     self._Ds[i] is None or len(
-                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)) > 0):
+                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)[0]) > 0):
                 return True
         return False
 
@@ -355,7 +371,7 @@ class Rule:
                     env_target = str(word[begin_index + copy_index:end_index + copy_index])
 
                 dest_sound = Sound('', [])[env_target].get_transformed_sound(dest_particle, ignored_types,
-                                                                                 feature_to_type, feature_to_sounds)
+                                                                             feature_to_type, feature_to_sounds)
 
             if dest_sound is not None:
                 return word.change_word(begin_index, end_index, Word([dest_sound]))
@@ -585,7 +601,7 @@ def _interpret_b(b_str: str, feature_pool: List[str]) -> Tuple[Optional[Particle
 
             particle_data.append(data)
 
-    return Particle(particle_data), ignored_types, copy_loc
+    return Particle(particle_data, False), ignored_types, copy_loc
 
 
 def _interpret_a(a_str: str, feature_pool: List[str]) -> Optional[None, List[List[Particle]]]:
@@ -645,6 +661,11 @@ def _sec_to_particles(feature_pool: List[str], sec: str) -> Optional[List[Partic
         return None
 
     for part in parts:
+        is_replicated = False
+        if part[0] == '*':
+            is_replicated = True
+            part = part[1:]
+
         features = part.split(",")
 
         for feature in features:
@@ -652,6 +673,6 @@ def _sec_to_particles(feature_pool: List[str], sec: str) -> Optional[List[Partic
                 raise ImportError(
                     "Rule sector %s with feature %s does not conform to the given features." % (sec, feature))
 
-        particles.append(Particle(features))
+        particles.append(Particle(features, is_replicated))
 
     return particles

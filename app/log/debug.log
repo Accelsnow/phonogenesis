@@ -512,3 +512,268 @@ copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,hi
  ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
  @48832776
  - routes 47@index
+[2020-03-05 15:00:57] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-05 15:00:57] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-05 15:00:57] - DEBUG - Shuffle Result: False - routes 188@generate_questions
+[2020-03-05 15:00:57] - DEBUG - Rule size: 1 - generator 48@__init__
+[2020-03-05 15:01:00] - INFO - A matchers: ['']  CD matchers: ["['ip', 'up', 'ib', 'ub', 'if', 'uf', 'im', 'um', 'it', 'ut', 'id', 'ud', 'iθ', 'uθ', 'is', 'us', 'iʃ', 'uʃ', 'in', 'un', 'it͡ʃ', 'ut͡ʃ', 'id͡ʒ', 'ud͡ʒ', 'ik', 'uk', 'ig', 'ug', 'iŋ', 'uŋ', 'ir', 'ur', 'iw', 'uw', 'iʔ', 'uʔ']_[]  "]
+ - generator 226@generate
+[2020-03-05 15:01:00] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+copy cat insertion 1 =====  -> [rounded],[] / [vowel,high][consonant] _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @530131193
+ - generator 230@generate
+[2020-03-05 15:01:00] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:01:00] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:01:00] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:01:00] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 0 NCAD 4 IRR 0
+ - generator 265@generate
+[2020-03-05 15:01:00] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 0 NCAD 8 IRR 0
+ - generator 299@generate
+[2020-03-05 15:01:00] - DEBUG - Gen Mode 1 - str ipa g mode - generator 338@generate
+[2020-03-05 15:01:00] - INFO - Data recorded: 
+UR ['ʔiŋpiŋ', 'dɔɡruw', 'bɔnθis', 'ŋur', 'fiŋ', 'ʔebnuθ', 'tɔŋŋuʔ', 'ŋub', 'dadmuw', 'ɡiŋ', 'θuθ', 'tomsuθ', 'ʔabə', 'ʃu', 'ʔaθi', 'ʔafʔa', 'no', 'pott͡ʃəŋ', 'θəfti', 'rurto']
+SR ['ʔiŋpiŋy', 'dɔɡruwu', 'bɔnθisy', 'ŋuru', 'fiŋy', 'ʔebnuθu', 'tɔŋŋuʔu', 'ŋubu', 'dadmuwu', 'ɡiŋy', 'θuθu', 'tomsuθu', 'ʔabə', 'ʃu', 'ʔaθi', 'ʔafʔa', 'no', 'pott͡ʃəŋ', 'θəfti', 'rurto']
+POI ['{}', '[]']
+copy cat insertion 1 =====  -> [rounded],[] / [vowel,high][consonant] _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'ŋ', 'r', 'w', 'i', 'e', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @530131193
+ - routes 47@index
+[2020-03-05 15:04:23] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-05 15:04:23] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-05 15:04:23] - DEBUG - Shuffle Result: False - routes 188@generate_questions
+[2020-03-05 15:04:23] - DEBUG - Rule size: 1 - generator 48@__init__
+[2020-03-05 15:04:28] - INFO - A matchers: ['']  CD matchers: ["['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'j']_['pi', 'bi', 'fi', 'vi', 'mi', 'ti', 'di', 'θi', 'ði', 'si', 'zi', 'ʃi', 'ʒi', 'ni', 'ki', 'gi', 'xi', 'ɣi', 'ŋi', 'ri', 'ji', 'pu', 'bu', 'fu', 'vu', 'mu', 'tu', 'du', 'θu', 'ðu', 'su', 'zu', 'ʃu', 'ʒu', 'nu', 'ku', 'gu', 'xu', 'ɣu', 'ŋu', 'ru', 'ju']  "]
+ - generator 226@generate
+[2020-03-05 15:04:28] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @413173381
+ - generator 230@generate
+[2020-03-05 15:04:28] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:04:28] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:04:28] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 4 NCAD 0 IRR 0
+ - generator 265@generate
+[2020-03-05 15:04:28] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 2 CAND 8 NCAD 0 IRR 0
+ - generator 299@generate
+[2020-03-05 15:04:28] - DEBUG - Gen Mode 2 - str non ipa g mode - generator 348@generate
+[2020-03-05 15:04:28] - INFO - Data recorded: 
+UR ['pissub', 'ɣiʒdu', 'ʃidji', 'nidɣum', 'θurgus', 'ɣimʒi', 'munbu', 'ʒummi', 'dunkuf', 'θigzu', 'θanfuð', 'tarmun', 'kuʒuʒ', 'ki', 'zuguð', 'θasif', 'kitu', 'mu', 'zifxa', 'naθix']
+SR ['pisysub', 'ɣiʒydu', 'ʃidyji', 'nidyɣum', 'θurugus', 'ɣimyʒi', 'munubu', 'ʒumumi', 'dunukuf', 'θigyzu', 'θanfuð', 'tarmun', 'kuʒuʒ', 'ki', 'zuguð', 'θasif', 'kitu', 'mu', 'zifxa', 'naθix']
+POI ['{}', '[]']
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'j', 'i', 'u', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @413173381
+ - routes 47@index
+[2020-03-05 15:11:41] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-05 15:11:41] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-05 15:11:41] - DEBUG - Shuffle Result: False - routes 188@generate_questions
+[2020-03-05 15:11:41] - DEBUG - Rule size: 1 - generator 48@__init__
+[2020-03-05 15:11:47] - INFO - A matchers: ['']  CD matchers: ["['p', 'b', 'f', 'm', 't', 'd', 'θ', 's', 'ʃ', 'n', 'k', 'g', 'x', 'ŋ', 'r', 'l', 'j', 'h', 'ʔ']_['pi', 'bi', 'fi', 'mi', 'ti', 'di', 'θi', 'si', 'ʃi', 'ni', 'ki', 'gi', 'xi', 'ŋi', 'ri', 'li', 'ji', 'hi', 'ʔi', 'pu', 'bu', 'fu', 'mu', 'tu', 'du', 'θu', 'su', 'ʃu', 'nu', 'ku', 'gu', 'xu', 'ŋu', 'ru', 'lu', 'ju', 'hu', 'ʔu']  "]
+ - generator 226@generate
+[2020-03-05 15:11:47] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @302144941
+ - generator 230@generate
+[2020-03-05 15:11:47] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:11:47] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:11:47] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 2 CAND 4 NCAD 0 IRR 0
+ - generator 265@generate
+[2020-03-05 15:11:47] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 10 CADNT 2 CAND 8 NCAD 0 IRR 0
+ - generator 299@generate
+[2020-03-05 15:11:47] - DEBUG - Gen Mode 2 - str non ipa g mode - generator 348@generate
+[2020-03-05 15:11:47] - INFO - Data recorded: 
+UR ['gigbut', 'nidju', 'xokʔu', 'nudrup', 'xuθʔi', 'nɛmhi', 'pisfu', 'rurxib', 'ʃebgi', 'duθpib', 'kəʃʔur', 'θəggix', 'figna', 'kiltɛ', 'pɛlŋoʔ', 'ŋəggɛt', 'gi', 'siθə', 'jɛx', 'deʔ']
+SR ['gigybut', 'nidyju', 'xokoʔu', 'nudurup', 'xuθuʔi', 'nɛmœhi', 'pisyfu', 'ruruxib', 'ʃebøgi', 'duθupib', 'kəʃʔur', 'θəggix', 'figna', 'kiltɛ', 'pɛlŋoʔ', 'ŋəggɛt', 'gi', 'siθə', 'jɛx', 'deʔ']
+POI ['{}', '[]']
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'h', 'x', 'm', 'n', 'ŋ', 'r', 'l', 'j', 'i', 'e', 'ɛ', 'ɔ', 'o', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @302144941
+ - routes 47@index
+[2020-03-05 15:22:34] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-05 15:22:34] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-05 15:22:34] - DEBUG - Shuffle Result: False - routes 188@generate_questions
+[2020-03-05 15:22:34] - DEBUG - Rule size: 1 - generator 48@__init__
+[2020-03-05 15:22:39] - INFO - A matchers: ['']  CD matchers: ["['p', 'f', 'm', 't', 'θ', 's', 'ʃ', 'n', 'k', 'g', 'x', 'r', 'j', 'ʔ']_['pi', 'fi', 'mi', 'ti', 'θi', 'si', 'ʃi', 'ni', 'ki', 'gi', 'xi', 'ri', 'ji', 'ʔi', 'pu', 'fu', 'mu', 'tu', 'θu', 'su', 'ʃu', 'nu', 'ku', 'gu', 'xu', 'ru', 'ju', 'ʔu']  "]
+ - generator 226@generate
+[2020-03-05 15:22:39] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'r', 'j', 'i', 'ɛ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @520422691
+ - generator 230@generate
+[2020-03-05 15:22:39] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:22:39] - DEBUG - No NCAD type found.(4 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:22:39] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:22:39] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 8 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 265@generate
+[2020-03-05 15:22:39] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 12 CADNT 0 CAND 8 NCAD 0 IRR 0
+ - generator 299@generate
+[2020-03-05 15:22:39] - DEBUG - Gen Mode 1 - str ipa g mode - generator 338@generate
+[2020-03-05 15:22:39] - INFO - Data recorded: 
+UR ['ʃuɡji', 'θəɡnir', 'ɡukʃu', 'ʃispuʃ', 'nimtix', 'ʔimfuɡ', 'niθʔut', 'fəɡɡu', 'jəɡɡiʃ', 'fənju', 'tatti', 'xərru', 'kaku', 'marpə', 'paɡɡaf', 'ʔam', 'nɛɡmak', 'paʃu', 'kixpan', 'xukʔə']
+SR ['ʃuɡyji', 'θəɡynir', 'ɡukuʃu', 'ʃisupuʃ', 'nimytix', 'ʔimufuɡ', 'niθuʔut', 'fəɡuɡu', 'jəɡyɡiʃ', 'fənuju', 'tatyti', 'xəruru', 'kaku', 'marpə', 'paɡɡaf', 'ʔam', 'nɛɡmak', 'paʃu', 'kixpan', 'xukʔə']
+POI ['{}', '[]']
+copy cat insertion 2 =====  -> [rounded],[] / [consonant] _ [consonant][vowel,high] 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'x', 'm', 'n', 'r', 'j', 'i', 'ɛ', 'u', 'ə', 'a'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @520422691
+ - routes 47@index
+[2020-03-05 15:25:40] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-05 15:25:40] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-05 15:25:40] - DEBUG - Shuffle Result: False - routes 188@generate_questions
+[2020-03-05 15:25:40] - DEBUG - Rule size: 1 - generator 48@__init__
+[2020-03-05 15:25:43] - INFO - A matchers: ['']  CD matchers: ["['ip', 'up', 'if', 'uf', 'im', 'um', 'it', 'ut', 'iθ', 'uθ', 'is', 'us', 'iʃ', 'uʃ', 'in', 'un', 'ik', 'uk', 'ig', 'ug', 'ir', 'ur', 'il', 'ul', 'iw', 'uw', 'iʔ', 'uʔ']_[]  "]
+ - generator 226@generate
+[2020-03-05 15:25:43] - INFO - REQUEST: PIECES 1 CADT 8 CADNT 2 CAND 4 NCAD 4 IRR 2
+copy cat insertion 1 =====  -> None,[] / [vowel,high][consonant] _ # 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'i', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @492748272
+ - generator 230@generate
+[2020-03-05 15:25:43] - DEBUG - No CADT type found.(8 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:25:43] - DEBUG - No CAND type found.(4 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:25:43] - DEBUG - No IRR type found.(2 required, 0 found)
+ - generator 169@_generate_helper
+[2020-03-05 15:25:43] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 0 CADNT 2 CAND 0 NCAD 4 IRR 0
+ - generator 265@generate
+[2020-03-05 15:25:43] - WARNING - Condition Index 0 does not have any related data
+ - generator 268@generate
+[2020-03-05 15:25:43] - ERROR - UNEXPECTED ERROR - routes 209@_get_valid_data
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 203, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\generator.py", line 325, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+copy cat insertion 1 =====  -> None,[] / [vowel,high][consonant] _ # 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'i', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @492748272
+ 
+ copy cat insertion 1 =====  -> None,[] / [vowel,high][consonant] _ # 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'i', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @492748272
+
+[2020-03-05 15:25:43] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 190, in generate_questions
+    return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 210, in _get_valid_data
+    raise err
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 203, in _get_valid_data
+    data_set['gloss_grp'])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\generator.py", line 325, in generate
+    raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())
+script.generator.GeneratorError: All indexes failed! No result can be produced. 
+copy cat insertion 1 =====  -> None,[] / [vowel,high][consonant] _ # 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'i', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @492748272
+ 
+ copy cat insertion 1 =====  -> None,[] / [vowel,high][consonant] _ # 
+ ['p', 't', 'k', 'g', 'ʔ', 'f', 'θ', 's', 'ʃ', 'm', 'n', 'r', 'l', 'w', 'i', 'ɛ', 'ɔ', 'u', 'æ', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @492748272
+
+[2020-03-11 15:35:30] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-11 15:35:30] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-11 15:35:30] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 170, in generate_questions
+    rule_selection.get_d_matchers(None, data_set['f2ss'])])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\rules.py", line 301, in get_d_matchers
+    d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds)[0])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\rules.py", line 56, in _get_d_instance_matcher
+    matcher = Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 55, in generate_word_list
+    None))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 55, in generate_word_list
+    None))
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 55, in generate_word_list
+    None))
+  [Previous line repeated 969 more times]
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 49, in generate_word_list
+    part_sound = particle.get_matching_sounds(phonemes, feature_to_sounds)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\feature_lib.py", line 26, in get_matching_sounds
+    curr_sounds = list(dict.fromkeys(feature_to_sounds[feature.lstrip("!")]))
+RecursionError: maximum recursion depth exceeded while calling a Python object
+[2020-03-11 15:37:23] - DEBUG - Type Selection: 1 - routes 147@generate_questions
+[2020-03-11 15:37:23] - DEBUG - Manual Selection: True - routes 150@generate_questions
+[2020-03-11 15:38:00] - ERROR - Exception on / [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 38, in index
+    None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\app\routes.py", line 170, in generate_questions
+    rule_selection.get_d_matchers(None, data_set['f2ss'])])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\rules.py", line 301, in get_d_matchers
+    d_matchers.append(_get_d_instance_matcher(d_ins, phonemes, None, feature_to_sounds)[0])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\rules.py", line 56, in _get_d_instance_matcher
+    matcher = Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 75, in generate_word_list
+    result = self._recur_full_word_list(part_sounds, 0, [''])
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 132, in _recur_full_word_list
+    return self._recur_full_word_list(comb_sound, index + 1, new_words)
+  File "C:\Users\accel\ProjectHome\phonogenesis-flask\phonogenesis\script\templates.py", line 130, in _recur_full_word_list
+    new_words.append(word + str(sound))
+MemoryError

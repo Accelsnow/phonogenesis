@@ -5,12 +5,24 @@ from typing import List, Tuple, Dict, Optional
 
 from script import Sound, Word
 
+REP_LEN_LIM = 3
 
 class Particle:
     _features: List[str]
+    _is_replicated: bool
 
-    def __init__(self, features_: List[str]) -> None:
+    def __init__(self, features_: List[str], is_replicated: bool) -> None:
         self._features = features_
+        self._is_replicated = is_replicated
+
+    def __len__(self):
+        if self._is_replicated:
+            return REP_LEN_LIM
+        else:
+            return 1
+
+    def is_replicated(self) -> bool:
+        return self._is_replicated
 
     def get_matching_sounds(self, phonemes: Optional[List[Word], None], feature_to_sounds: Dict[str, List[Sound]]) -> \
             List[Sound]:
@@ -125,11 +137,11 @@ def _fetch_feature_csv(filename: str) -> Tuple[
 
             _sound = Sound(str(line[0]), features_)
 
-            if Particle(features_) in features_to_sound.keys():
+            if Particle(features_, False) in features_to_sound.keys():
                 raise ImportError(
                     "Sound %s has the same property as sound %s" % (str(_sound), features_to_sound[features_]))
 
-            features_to_sound[Particle(features_)] = _sound
+            features_to_sound[Particle(features_, False)] = _sound
             sounds.append(_sound)
 
             for i in range(0, len(features_)):
