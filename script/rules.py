@@ -126,63 +126,27 @@ class Rule:
             for i in range(0, len(self._Cs)):
                 c_instance = self._Cs[i]
                 d_instance = self._Ds[i]
-                c_matcher = None
-                c_size = -1
                 c_edge = self._Cs_edge[i]
                 d_edge = self._Ds_edge[i]
-                d_matcher = None
-                d_size = -1
-
-                if c_instance is not None:
-                    c_data = _get_c_instance_matcher(c_instance, phonemes, None, feature_to_sounds)
-                    c_matcher = c_data[0]
-                    c_size = c_data[1]
-
-                    if len(c_matcher) == 0 or c_matcher == []:
-                        continue
-
-                if d_instance is not None:
-                    d_data = _get_d_instance_matcher(d_instance, phonemes, None, feature_to_sounds)
-                    d_matcher = d_data[0]
-                    d_size = d_data[1]
-
-                    if len(d_matcher) == 0 or c_matcher == []:
-                        continue
 
                 c_rep_len = -1
                 d_rep_len = -1
                 for a_loc in a_locations:
                     a_size = len(a_data[a_loc])
 
-                    is_c = False
-
                     if c_edge and c_instance is None:
                         is_c = a_loc == 0
                     elif not c_edge and c_instance is None:
                         is_c = True
                     else:
-                        if not c_edge or a_loc - c_size == 0:
-                            for c_pattern in c_matcher:
-                                if len(c_pattern) > c_rep_len and a_loc - c_size >= 0 \
-                                        and word[a_loc - c_size:a_loc] == c_pattern:
-                                    c_rep_len = len(c_pattern)
-                                    is_c = True
-                                    break
-
-                    is_d = False
+                        is_c = Template(c_instance).is_c_match(word, a_loc, c_edge, feature_to_sounds, phonemes)[0]
 
                     if d_edge and d_instance is None:
                         is_d = a_loc + a_size == len(word)
                     elif not d_edge and d_instance is None:
                         is_d = True
                     else:
-                        if not d_edge or a_loc + a_size + d_size == len(word):
-                            for d_pattern in d_matcher:
-                                if len(d_pattern) > d_rep_len and a_loc + a_size < len(word) \
-                                        and word[a_loc + a_size:a_loc + a_size + d_size] == d_pattern:
-                                    d_rep_len = len(d_pattern)
-                                    is_d = True
-                                    break
+                        is_d = Template(d_instance).is_d_match(word, a_loc, d_edge, feature_to_sounds, phonemes)[0]
 
                     if is_c and is_d:
                         if word != self._do_replace(word, a_loc, a_loc + a_size, feature_to_type, feature_to_sounds):
@@ -370,8 +334,11 @@ class Rule:
                 else:
                     env_target = str(word[begin_index + copy_index:end_index + copy_index])
 
-                dest_sound = Sound('', [])[env_target].get_transformed_sound(dest_particle, ignored_types,
-                                                                             feature_to_type, feature_to_sounds)
+                if env_target == '' or len(env_target) == 0:
+                    dest_sound = None
+                else:
+                    dest_sound = Sound('', [])[env_target].get_transformed_sound(dest_particle, ignored_types,
+                                                                                 feature_to_type, feature_to_sounds)
 
             if dest_sound is not None:
                 return word.change_word(begin_index, end_index, Word([dest_sound]))

@@ -7,6 +7,7 @@ from script import Sound, Word
 
 REP_LEN_LIM = 3
 
+
 class Particle:
     _features: List[str]
     _is_replicated: bool

@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import List, Dict, Optional, Tuple
 
-from script import Word, Particle, Sound
+from script import Word, Particle, Sound, REP_LEN_LIM
 
 
 class Template:
@@ -24,34 +24,50 @@ class Template:
     def is_replicated(self) -> bool:
         return True in [c.is_replicated() for c in self._components]
 
-    def is_c_match(self, word: Word, index: int, feature_to_sounds, phonemes) -> Tuple[bool, int]:
-        if index - len(self) < 0:
-            if not self.is_replicated():
+    def is_c_match(self, word: Word, index: int, c_edge: bool, feature_to_sounds: Dict[str, List[Sound]], phonemes) -> \
+    Tuple[bool, int]:
+        if index - len(self) >= 0:
+            if c_edge and index - len(self) > 0:
                 return False, 0
-            else:
-                sector = word[:index]
-        else:
+
             sector = word[index - len(self):index]
+        else:
+            return False, 0
 
-        return self._recur_match(0, sector, 0, feature_to_sounds, phonemes), 0
+        match_data = self._recur_match(0, sector, 0, feature_to_sounds, phonemes)[0], 0
 
-    def is_d_match(self, word: Word, index: int, feature_to_sounds, phonemes) -> Tuple[bool, int]:
-        if index + len(self) >= len(word):
-            if not self.is_replicated():
+        if not match_data[1] and c_edge:
+            return False, 0
+        else:
+            return match_data[0], 0
+
+    def is_d_match(self, word: Word, index: int, d_edge: bool, feature_to_sounds: Dict[str, List[Sound]], phonemes) -> \
+    Tuple[bool, int]:
+        if index + len(self) <= len(word) - 1:
+            if d_edge and index + len(self) < len(word) - 1:
                 return False, 0
-            else:
-                sector = word[index:]
+
+            sector = word[index:]
         else:
             sector = word[index:index + len(self)]
 
-        return self._recur_match(0, sector, 0, feature_to_sounds, phonemes), 0
+        match_data = self._recur_match(0, sector, 0, feature_to_sounds, phonemes)[0], 0
 
-    def _recur_match(self, sec_index: int, sec: Word, part_index: int, feature_to_sounds, phonemes) -> False:
+        if not match_data[1] and d_edge:
+            return False, 0
+        else:
+            return match_data[0], 0
+
+    def _recur_match(self, sec_index: int, sec: Word, part_index: int, feature_to_sounds: Dict[str, List[Sound]],
+                     phonemes) -> Tuple[bool, bool]:
         if sec_index >= len(sec) and sec_index >= len(self._components):
-            return True
+            return True, True
 
-        if sec_index >= len(sec) or sec_index >= len(self._components):
-            return False
+        if part_index >= len(self._components):
+            return True, False
+
+        if sec_index >= len(sec):
+            return False, False
 
         target_word = sec[sec_index]
         if len(target_word) != 1:
@@ -59,14 +75,38 @@ class Template:
         target = target_word.get_sounds()[0]
 
         curr_part = self._components[part_index]
+        matching_sounds = curr_part.get_matching_sounds(phonemes, feature_to_sounds)
+
+        if target not in matching_sounds:
+            return False, False
 
         if curr_part.is_replicated():
-            raise ValueError("Currently no replicated")
-        else:
-            if target not in curr_part.get_matching_sounds(feature_to_sounds, phonemes):
-                return False
+            rep2 = False
+            rep3 = False
 
-            return self._recur_match(sec_index + 1, sec, part_index + 1, feature_to_sounds, phonemes)
+            if sec_index + 1 < len(sec):
+                target2 = sec[sec_index + 1].get_sounds()[0]
+
+                if target2 in matching_sounds:
+                    rep2 = True
+
+            if rep2 and sec_index + 2 < len(sec):
+                target3 = sec[sec_index + 2].get_sounds()[0]
+
+                if target3 in matching_sounds:
+                    rep3 = True
+
+            if rep3:
+                data3 = self._recur_match(sec_index + 3, sec, part_index + 1, feature_to_sounds, phonemes)
+                if data3[0]:
+                    return data3
+
+            if rep2:
+                data2 = self._recur_match(sec_index + 2, sec, part_index + 1, feature_to_sounds, phonemes)
+                if data2[0]:
+                    return data2
+
+        return self._recur_match(sec_index + 1, sec, part_index + 1, feature_to_sounds, phonemes)
 
     def generate_word_list(self, phonemes: Optional[List[Word], None], size_limit: Optional[int, None],
                            feature_to_sounds: Dict[str, List[Sound]], target_phones: Optional[List[Word], None]) -> \
@@ -102,20 +142,7 @@ class Template:
 
         for particle in self._components:
             part_sound = particle.get_matching_sounds(phonemes, feature_to_sounds)
-
-            if particle.is_replicated():
-                part_wrd_lst = []  # type: List[Word]
-                raw_particle = Particle(particle.get_features(), False)
-
-                part_wrd_lst.extend(
-                    Template([raw_particle, raw_particle, raw_particle]).generate_word_list(phonemes, None,
-                                                                                            feature_to_sounds, None))
-                part_wrd_lst.extend(
-                    Template([raw_particle, raw_particle]).generate_word_list(phonemes, None, feature_to_sounds, None))
-                part_wrd_lst.extend([Word([snd]) for snd in part_sound])
-                part_sounds.append(part_wrd_lst)
-            else:
-                part_sounds.append([Word([snd]) for snd in part_sound])
+            part_sounds.append(part_sound)
 
             if target_phones is not None:
                 interest_sound = [s for s in part_sound if Word([s]) in target_phones]
@@ -174,7 +201,7 @@ class Template:
             result = list(word_list)
             return result
 
-    def _recur_full_word_list(self, comb_sound: List[List[Word]], index: int, words: List[str]) -> List[str]:
+    def _recur_full_word_list(self, comb_sound: List[List[Sound]], index: int, words: List[str]) -> List[str]:
         if index >= len(comb_sound):
             return words
         else:
