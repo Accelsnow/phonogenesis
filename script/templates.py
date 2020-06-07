@@ -21,37 +21,23 @@ class Template:
 
         return size
 
+    def __reversed__(self):
+        return Template(self._components[::-1])
+
     def is_replicated(self) -> bool:
         return True in [c.is_replicated() for c in self._components]
 
-    def is_c_match(self, word: Word, index: int, c_edge: bool, feature_to_sounds: Dict[str, List[Sound]], phonemes) -> \
-    Tuple[bool, int]:
-        if index - len(self) >= 0:
-            if c_edge and index - len(self) > 0:
-                return False, 0
-
-            sector = word[index - len(self):index]
-        else:
-            return False, 0
-
-        match_data = self._recur_match(0, sector, 0, feature_to_sounds, phonemes)[0], 0
-
-        if not match_data[1] and c_edge:
-            return False, 0
-        else:
-            return match_data[0], 0
-
     def is_d_match(self, word: Word, index: int, d_edge: bool, feature_to_sounds: Dict[str, List[Sound]], phonemes) -> \
-    Tuple[bool, int]:
+            Tuple[bool, int]:
         if index + len(self) <= len(word) - 1:
             if d_edge and index + len(self) < len(word) - 1:
                 return False, 0
 
-            sector = word[index:]
+            sector = word[index + 1:]
         else:
-            sector = word[index:index + len(self)]
+            sector = word[index + 1:index + len(self)]
 
-        match_data = self._recur_match(0, sector, 0, feature_to_sounds, phonemes)[0], 0
+        match_data = self._recur_match(0, sector, 0, feature_to_sounds, phonemes)
 
         if not match_data[1] and d_edge:
             return False, 0

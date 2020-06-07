@@ -1,17 +1,19 @@
 from __future__ import annotations
 
+import random
 import sys
 from typing import List, Optional, Dict, Tuple
 
 from script.feature_lib import Particle, import_default_features
-from script.generator import Generator
+from script.generator import Generator, GenMode
 from random import randint
 from script.word import Word
 from script.rules import Rule, RuleFamily, import_default_rules
 from script.sound import Sound
 from script.glossgroup import import_default_gloss
 from script.templates import Template, import_default_templates
-from script.phonemes import import_default_randomized_phonemes
+from script.phonemes import import_default_randomized_phonemes, import_default_full_phonemes
+from script.doubleRule import DoubleWordType, DoubleRule, DoubleFeed, InteractionOrder
 
 
 def _print_result(rst: dict):
@@ -66,11 +68,11 @@ if __name__ == '__main__':
 
     templates = import_default_templates(features)  # type: List[Template]
 
-    # print("full templates: ")
-    # ti = 1
-    # for template in templates:
-    #     print(ti, template)
-    #     ti += 1
+    print("full templates: ")
+    ti = 1
+    for template in templates:
+        print(ti, template)
+        ti += 1
 
     rule_data = import_default_rules(features)  # type: Tuple[List[RuleFamily], List[Rule]]
     rule_families = rule_data[0]  # type: List[RuleFamily]
@@ -97,41 +99,48 @@ if __name__ == '__main__':
     #
     # print("\n==================================================\n")
 
-    manual_rule_select = randint(0, 80)
+    print("Rule Size: ", len(rules))
+
+    manual_rule_select = 95
 
     use_rule = rules[manual_rule_select]
     amount = 40
 
-    phonemes = import_default_randomized_phonemes([use_rule.get_a_matcher(None, None, feature_to_sounds),
-                                                   use_rule.get_c_matchers(None, feature_to_sounds),
-                                                   use_rule.get_d_matchers(None, feature_to_sounds)])
+    # phonemes = import_default_randomized_phonemes([use_rule.get_a_matcher(None, None, feature_to_sounds),
+    #                                                use_rule.get_c_matchers(None, feature_to_sounds),
+    #                                                use_rule.get_d_matchers(None, feature_to_sounds)])
+    phonemes = import_default_full_phonemes()
     psr = "phoneme: \""
     for p in phonemes:
         psr += str(p) + " "
     print(psr + "\",")
+
+    # df = DoubleFeed(rules[94], rules[95], InteractionOrder.Feeding, 5, phonemes, templates, feature_to_type,
+    #                 feature_to_sounds)
+    # print(df.generate())
+
+    while True:
+        # word = input("\nWord to check: ")
+        word = "kø"
+        print(rules[manual_rule_select])
+        print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
+        print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
+        break
+
+    # print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
+    # use_templates = templates
     #
-    # while True:
-    #     # word = input("\nWord to check: ")
-    #     word = "θəggix"
-    #     print(rules[manual_rule_select])
-    #     print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
-    #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
-    #     break
-
-    print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
-    use_templates = templates
-
     # print("\nUSING RULE: ", use_rule)
     # print("\nGENERATION AMOUNT:", amount, '\n')
-
-    interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
-    isr = "poi: \""
-    for i in interest:
-        isr += str(i) + " "
-    print(isr + "\",")
-
-    gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
-
-    result = gen.generate(1, amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
-
-    _print_result(result)
+    #
+    # interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
+    # isr = "poi: \""
+    # for i in interest:
+    #     isr += str(i) + " "
+    # print(isr + "\",")
+    #
+    # gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
+    #
+    # result = gen.generate(GenMode.IPAg, amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
+    #
+    # _print_result(result)

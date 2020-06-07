@@ -129,8 +129,6 @@ class Rule:
                 c_edge = self._Cs_edge[i]
                 d_edge = self._Ds_edge[i]
 
-                c_rep_len = -1
-                d_rep_len = -1
                 for a_loc in a_locations:
                     a_size = len(a_data[a_loc])
 
@@ -139,7 +137,9 @@ class Rule:
                     elif not c_edge and c_instance is None:
                         is_c = True
                     else:
-                        is_c = Template(c_instance).is_c_match(word, a_loc, c_edge, feature_to_sounds, phonemes)[0]
+                        is_c = \
+                        Template(c_instance[::-1]).is_d_match(word.reverse(), len(word) - 1 - a_loc,
+                                                              c_edge, feature_to_sounds, phonemes)[0]
 
                     if d_edge and d_instance is None:
                         is_d = a_loc + a_size == len(word)
@@ -420,6 +420,17 @@ class PredefinedRule(Rule):
             raise NotImplementedError(
                 "begin %d end %d type like this has not been implemented yet" % (begin_index, end_index))
         return word.change_word(begin_index, end_index, self._AtoB[word[begin_index:end_index]])
+
+    def get_interest_phones(self, phonemes: List[Word], feature_to_type: Dict[str, str],
+                            feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Dict[str, str], List[str]]:
+        a_to_b_str = {}  # type: Dict[str, str]
+        interest_list = []  # type: List[str]
+        for k in self._AtoB.keys():
+            interest_list.append(str(k))
+            interest_list.append(str(self._AtoB[k]))
+            a_to_b_str[str(k)] = str(self._AtoB[k])
+
+        return a_to_b_str, interest_list
 
     def get_a_matcher(self, phonemes: List[Word], size_limit: Optional[int, None],
                       feature_to_sounds: Dict[str, List[Sound]]) -> List[Word]:

@@ -190,7 +190,7 @@ def generate_questions(data_set, rule_selection_data, type_selection: int, size_
     return _get_valid_data(data_set, rule_selection, phonemes, size_, is_shuffled, _get_gen_mode(use_ipa_g), str(type_))
 
 
-def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool, gen_mode: int,
+def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, is_shuffled: bool, gen_mode: GenMode,
                     type_: str):
     global gen
     data_ = None
@@ -212,8 +212,8 @@ def _get_valid_data(data_set, rule_selected: Rule, phonemes: list, size_: int, i
     return data_
 
 
-def _get_gen_mode(use_ipa_g: bool) -> int:
+def _get_gen_mode(use_ipa_g: bool) -> GenMode:
     if use_ipa_g:
-        return 1
+        return GenMode.IPAg
     else:
-        return 2
+        return GenMode.nIPAg

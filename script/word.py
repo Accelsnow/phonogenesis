@@ -34,6 +34,9 @@ class Word:
     def get_sounds(self) -> List[Sound]:
         return self._sounds
 
+    def reverse(self) -> Word:
+        return Word(self._sounds[::-1])
+
     def change_word(self, begin_index: int, end_index: int, target: Optional[None, Word]) -> Word:
         """
         Build a new word with current word's given index replaced with target word.

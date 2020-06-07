@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import random
+from enum import IntEnum
 from typing import List, Tuple, Dict, Optional, Any, Set
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
 import logging
@@ -11,6 +12,13 @@ RELATED_PERCENTAGE = 0.9
 SPLIT_REFILL_RETRY_LIMIT = 5
 EXCLUSION_TYPES = [ExampleType.CADT, ExampleType.CADNT]
 LOGGER = logging.getLogger("app.logger")
+
+
+class GenMode(IntEnum):
+    rawData = 0,
+    IPAg = 1,
+    nIPAg = 2,
+    isolateGloss = 3
 
 
 class Generator:
@@ -197,9 +205,9 @@ class Generator:
         return "%s \n %s \n %s \n @%d" % (
             str(self._rule), [str(w) for w in self._phonemes], [str(t) for t in self._templates], self._unid)
 
-    def generate(self, gen_mode: int, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
+    def generate(self, gen_mode: GenMode, amount: Optional[int, List[int]], is_fresh: bool, is_shuffled: bool,
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                 gloss_groups: List[GlossGroup]) -> Optional[Dict[str, Any], None]:
+                 gloss_groups: Optional[None, List[GlossGroup]]) -> Optional[Dict[str, Any], None]:
         if is_fresh:
             self._duplicate_exclusion = set([])
 
@@ -319,6 +327,12 @@ class Generator:
                 index = 0
                 fill_retry_count += 1
 
+        if gen_mode == GenMode.rawData:
+            LOGGER.debug("GenMode 0 - raw data")
+            return {"CADT": cadt_words, "CADNT": cadnt_words, "CAND": cand_words, "NCAD": ncad_words, "IRR": irr_words}
+        elif gloss_groups is None:
+            raise ValueError("If GenMode is not 0 - raw data, then gloss group must be present.")
+
         ur_words = cadt_words + cadnt_words + cand_words + ncad_words + irr_words
 
         if len(ur_words) == 0 and len(failed_indexes) == split_size:
@@ -334,17 +348,16 @@ class Generator:
 
         phones_of_interest = self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)
 
-        if gen_mode == 1:
+        if gen_mode == GenMode.IPAg:
             LOGGER.debug("Gen Mode 1 - str ipa g mode")
-            a = {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
-                 "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
-                 "Gloss": [str(w) for w in gloss_words],
-                 "rule": str(self._rule),
-                 "templates": [str(w) for w in self._templates],
-                 "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
-                 "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
-            return a
-        elif gen_mode == 2:
+            return {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],
+                    "SR": [str(w).replace('g', 'ɡ') for w in sr_words],
+                    "Gloss": [str(w) for w in gloss_words],
+                    "rule": str(self._rule),
+                    "templates": [str(w) for w in self._templates],
+                    "phonemes": [str(w).replace('g', 'ɡ') for w in self._phonemes],
+                    "phone_interest": [str(w).replace('g', 'ɡ') for w in phones_of_interest]}
+        elif gen_mode == GenMode.nIPAg:
             LOGGER.debug("Gen Mode 2 - str non ipa g mode")
             return {"UR": [str(w) for w in ur_words],
                     "SR": [str(w) for w in sr_words],
@@ -353,11 +366,13 @@ class Generator:
                     "templates": [str(w) for w in self._templates],
                     "phonemes": [str(w) for w in self._phonemes],
                     "phone_interest": [str(w) for w in phones_of_interest]}
-        else:
-            LOGGER.debug("Gen Mode ~12 - org mode")
+        elif gen_mode == GenMode.isolateGloss:
+            LOGGER.debug("Gen Mode 3 - org mode")
             return {"UR": ur_words, "SR": sr_words, "Gloss": gloss_words, "rule": self._rule,
                     "templates": self._templates,
                     "phonemes": self._phonemes, "phone_interest": phones_of_interest}
+        else:
+            raise NotImplementedError("GenMode provided is not implemented")
 
 
 class GeneratorError(Exception):
