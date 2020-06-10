@@ -36,7 +36,7 @@ class Generator:
     _unid: int
 
     def __init__(self, phonemes: List[Word], templates: List[Template], rule: Rule, difficulty: int,
-                 feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]) -> None:
+                 feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]], **kwargs) -> None:
         self._templates = templates
         self._rule = rule
         self._CADT = [set([]) for _ in range(rule.get_c_split_size())]
@@ -52,17 +52,21 @@ class Generator:
             5: (0.4, 0.1, 0.2, 0.2, 0.1)
         }
 
+        special_interests = kwargs.get('special_interests', None)  # type: Optional[None, List[Word]]
+
         self._difficulty = difficulty
         LOGGER.debug("Rule size: %d" % self._rule.get_c_split_size())
-        self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds)
+        self._expand_library(WORD_POOL_DEFAULT_SIZE, feature_to_type, feature_to_sounds,
+                             special_interests=special_interests)
 
     def _expand_library(self, pool_size: int, feature_to_type: Dict[str, str],
-                        feature_to_sounds: Dict[str, List[Sound]]):
+                        feature_to_sounds: Dict[str, List[Sound]], **kwargs):
         template_pool_size = pool_size / len(self._templates)
         generation_summary = {ExampleType.CADT: 0, ExampleType.CADNT: 0, ExampleType.CAND: 0, ExampleType.NCAD: 0,
                               ExampleType.IRR: 0}
         a_matcher = self._rule.get_a_matcher(self._phonemes, None, feature_to_sounds)
         cd_validated = self._rule.validate_cd(self._phonemes, feature_to_sounds)
+        special_interests = kwargs.get('special_interests', None)  # type: Optional[None, List[Word]]
 
         if len(a_matcher) == 0 or a_matcher == [] or not cd_validated:
             raise GenerationNoCADTError(self)
@@ -84,17 +88,21 @@ class Generator:
 
         for template in self._templates:
             if irr_size > 0:
-                irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds, None)
+                irr_word_list = template.generate_word_list(irr_phoneme, irr_size, feature_to_sounds)
                 random.shuffle(irr_word_list)
             else:
                 irr_word_list = []
 
-            if is_insertion:
-                related_word_list = related_word_list = template.generate_word_list(self._phonemes, related_size,
-                                                                                    feature_to_sounds, None)
+            if special_interests is None:
+                if is_insertion:
+                    related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds)
+                else:
+                    related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds,
+                                                                    primary_interest=a_matcher)
             else:
                 related_word_list = template.generate_word_list(self._phonemes, related_size, feature_to_sounds,
-                                                                a_matcher)
+                                                                primary_interest=a_matcher,
+                                                                secondary_interest=special_interests)
 
             # RELATED
 
@@ -273,7 +281,7 @@ class Generator:
                 index, len(cadt_gen), len(cadnt_gen), len(cand_gen), len(ncad_gen), len(irr_gen)))
 
             if cadt_res == 0 and cadt_num > 0:
-                LOGGER.warning("Condition Index %d does not have any related data\n" % index)
+                LOGGER.warning("Condition Index %d in rule %s does not have any related data\n" % (index, self._rule))
                 failed_indexes.add(index)
                 index = 0
                 continue
@@ -342,7 +350,7 @@ class Generator:
             random.shuffle(ur_words)
 
         for word in ur_words:
-            sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds))
+            sr_words.append(self._rule.apply(word, self._phonemes, feature_to_type, feature_to_sounds)[0])
 
         gloss_words = [w.pick() for w in random.sample(gloss_groups, len(ur_words))]
 

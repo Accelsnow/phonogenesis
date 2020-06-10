@@ -116,3 +116,5 @@
 ,,
 "[back,vowel]>[front]/_#",feed1,testfeed
 "<<PREDEFINED>>{'k':'t͡ʃ','g':'d͡ʒ'}/_[front,vowel]#",feed2,testfeed
+<<PREDEFINED>>{'e':'i'}/_#,feed2-1,testfeed
+"<<PREDEFINED>>{'k':'ts'}/_[vowel,front,high,tense,unrounded,voiced,sonorant]",feed2-2,testfeed

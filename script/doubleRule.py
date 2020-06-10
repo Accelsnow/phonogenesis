@@ -19,23 +19,23 @@ class InteractionOrder(Enum):
 
 class DoubleWordType(IntEnum):
     """
-    Double rule has type FEEDING / BLEEDING:
-    FEEDING:
-    TYPE 0: UR -> R2 NT -> R1 T -> R2 T
-    TYPE 1: UR -> R2 NT -> R1 T -> R2 NT
-    TYPE 2: UR -> R2 T
-    TYPE 3: OTHER
+    • apply rule2 to UR, count how many changes it makes (X)
+    • apply rule1 to UR, count how many changes it makes (Y)
+    • apply rule2 to output of rule1(UR), count how many changes it makes (Z)
 
-    BLEEDING:
-    TYPE 0: UR -> R2 T -> R1 T -> R2 NT
-    TYPE 1: UR -> R2 NT -> R1 T -> R2 NT
-    TYPE 2: UR -> R2 T -> R1 NT
-    TYPE 3: OTHER
+    Then:
+    if X=Z=0 and Y>0, this is rule1 only (your Type 1)
+    if X=Z>0 and Y=0, this is rule2 only (your Type 2)
+    if X<Z and Y>0, this is both rules with feeding (your Type 0)
+    if X=Z>0 and Y>0, this is both rules without feeding (a mix of Type 1 and Type 2, call it Type 3)
+    if X=Z=0 and Y=0, this is neither rule (your Type 4)
+
     """
     Type0 = 0,
     Type1 = 1,
     Type2 = 2,
-    Type3 = 3
+    Type3 = 3,
+    Type4 = 4
 
     def __str__(self) -> str:
         return self.name
@@ -52,8 +52,8 @@ class DoubleRule(metaclass=ABCMeta):
     _feature_to_type: Dict[str, str]
     _feature_to_sounds: Dict[str, List[Sound]]
 
-    def __init__(self, rule1: Rule, rule2: Rule, order: Optional[InteractionOrder, None], difficulty: int,
-                 phonemes: List[Word], templates: List[Template], feature_to_type: Dict[str, str],
+    def __init__(self, rule1: Rule, rule2: Rule, order: InteractionOrder, is_counter: bool,
+                 difficulty: int, phonemes: List[Word], templates: List[Template], feature_to_type: Dict[str, str],
                  feature_to_sounds: Dict[str, List[Sound]]) -> None:
         self._rule1 = rule1
         self._rule2 = rule2
@@ -67,8 +67,13 @@ class DoubleRule(metaclass=ABCMeta):
             5: (0.3, 0.3, 0.3, 0.1)
         }
 
-        if order is None:
-            pass  # TODO: When order is not given, need order identifier
+        if is_counter:
+            if order == InteractionOrder.Feeding:
+                self._interactOrder = InteractionOrder.CounterFeeding
+            elif order == InteractionOrder.Bleeding:
+                self._interactOrder = InteractionOrder.CounterBleeding
+            else:
+                self._interactOrder = order
         else:
             self._interactOrder = order
 
@@ -77,8 +82,7 @@ class DoubleRule(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def get_word_type(self, word: Word, one_trans: Optional[None, bool],
-                      two_trans: Optional[None, bool]) -> DoubleWordType:
+    def get_word_type(self, word: Word) -> DoubleWordType:
         raise NotImplementedError
 
     def get_rule1(self) -> Rule:
@@ -93,65 +97,72 @@ class DoubleRule(metaclass=ABCMeta):
 
 class DoubleFeed(DoubleRule):
     """
-    FEEDING:
-    TYPE 0: UR -> R2 NT -> R1 T -> R2 T
-    TYPE 1: UR -> R2 NT -> R1 T -> R2 NT
-    TYPE 2: UR -> R2 T
+    • apply rule2 to UR, count how many changes it makes (X)
+    • apply rule1 to UR, count how many changes it makes (Y)
+    • apply rule2 to output of rule1(UR), count how many changes it makes (Z)
+
+    Then:
+    if X=Z=0 and Y>0, this is rule1 only (your Type 1)
+    if X=Z>0 and Y=0, this is rule2 only (your Type 2)
+    if X<Z and Y>0, this is both rules with feeding (your Type 0)
+    if X=Z>0 and Y>0, this is both rules without feeding (a mix of Type 1 and Type 2, call it Type 3)
+    if X=Z=0 and Y=0, this is neither rule (your Type 4)
+
     """
     _gen2: Generator
+    _gen1: Generator
 
-    def __init__(self, rule1: Rule, rule2: Rule, order: Optional[InteractionOrder, None], difficulty: int,
+    def __init__(self, rule1: Rule, rule2: Rule, order: InteractionOrder, is_counter: bool, difficulty: int,
                  phonemes: List[Word], templates: List[Template], feature_to_type: Dict[str, str],
                  feature_to_sounds: Dict[str, List[Sound]]) -> None:
-        DoubleRule.__init__(self, rule1, rule2, order, difficulty, phonemes, templates, feature_to_type,
+        DoubleRule.__init__(self, rule1, rule2, order, is_counter, difficulty, phonemes, templates, feature_to_type,
                             feature_to_sounds)
 
-        self._gen2 = Generator(phonemes, templates, rule2, 5, feature_to_type, feature_to_sounds)
+        self._gen2 = Generator(phonemes, templates, rule2, 5, feature_to_type, feature_to_sounds,
+                               special_interests=rule1.get_a_matcher(phonemes, None, feature_to_sounds))
+        self._gen1 = Generator(phonemes, templates, rule1, 5, feature_to_type, feature_to_sounds,
+                               special_interests=rule2.get_a_matcher(phonemes, None, feature_to_sounds))
 
-    def get_word_type(self, word: Word, one_trans: Optional[None, bool],
-                      two_trans: Optional[None, bool]) -> DoubleWordType:
-        if two_trans or (two_trans is None and self._rule2.apply(word, self._phonemes, self._feature_to_type,
-                                                                 self._feature_to_sounds) != word):
+    def get_word_type(self, word: Word) -> DoubleWordType:
+        word2, ct2 = self._rule2.apply(word, self._phonemes, self._feature_to_type, self._feature_to_sounds)
+        word1, ct1 = self._rule1.apply(word, self._phonemes, self._feature_to_type, self._feature_to_sounds)
+        word2to1, ct2to1 = self._rule2.apply(word1, None, self._feature_to_type, self._feature_to_sounds)
+
+        if ct2 == ct2to1 == 0 and ct1 > 0:
+            return DoubleWordType.Type1
+
+        if ct2 == ct2to1 > 0 and ct1 == 0:
             return DoubleWordType.Type2
 
-        print("org: ", word)
-        if one_trans is None:
-            word_1t = self._rule1.apply(word, self._phonemes, self._feature_to_type, self._feature_to_sounds)
-        else:
-            word_1t = None
-        print("1t: ", word_1t)
+        if ct2 < ct2to1 and ct1 > 0:
+            return DoubleWordType.Type0
 
-        if one_trans or (one_trans is None and word_1t != word):
-            word_12t = self._rule2.apply(word_1t, self._phonemes, self._feature_to_type, self._feature_to_sounds)
-            print("12t: ", word_12t)
+        if ct2 == ct2to1 > 0 and ct1 > 0:
+            return DoubleWordType.Type3
 
-            if word_1t != word_12t:
-                return DoubleWordType.Type0
-            else:
-                return DoubleWordType.Type1
+        if ct2 == ct2to1 == 0 and ct1 == 0:
+            return DoubleWordType.Type4
 
-        return DoubleWordType.Type3
+        raise TypeError("Unidentified double word type with ct2 %d, ct1 %d, ct2to1 %d" % (ct2, ct1, ct2to1))
 
     def generate(self, **kwargs):
-        data2 = self._gen2.generate(GenMode.rawData, 40, True, False, self._feature_to_type, self._feature_to_sounds,
+        data2 = self._gen2.generate(GenMode.rawData, 50, True, False, self._feature_to_type, self._feature_to_sounds,
+                                    None)
+        data1 = self._gen1.generate(GenMode.rawData, 50, True, False, self._feature_to_type, self._feature_to_sounds,
                                     None)
 
-        t2 = data2["CADT"] + data2["CADNT"]
-        nt2 = data2["CAND"] + data2["NCAD"] + data2["IRR"]
-
-        print([str(w) for w in t2])
-        print([str(w) for w in nt2])
-
         result = {DoubleWordType.Type0: [], DoubleWordType.Type1: [], DoubleWordType.Type2: [],
-                  DoubleWordType.Type3: []}
+                  DoubleWordType.Type3: [], DoubleWordType.Type4: []}
 
-        for word in nt2:
-            type_ = self.get_word_type(word, None, False)
-            print(type_)
+        words2 = data2["CADT"] + data2["CADNT"] + data2["CAND"] + data2["NCAD"] + data2["IRR"]
+        words1 = data1["CADT"] + data1["CADNT"] + data1["CAND"] + data1["NCAD"] + data1["IRR"]
+
+        for word in words2:
+            type_ = self.get_word_type(word)
             result[type_].append(str(word))
 
-        for word in t2:
-            type_ = self.get_word_type(word, None, True)
+        for word in words1:
+            type_ = self.get_word_type(word)
             result[type_].append(str(word))
 
         return result

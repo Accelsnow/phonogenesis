@@ -27,8 +27,8 @@ class Template:
     def is_replicated(self) -> bool:
         return True in [c.is_replicated() for c in self._components]
 
-    def is_d_match(self, word: Word, index: int, d_edge: bool, feature_to_sounds: Dict[str, List[Sound]], phonemes) -> \
-            Tuple[bool, int]:
+    def is_d_match(self, word: Word, index: int, d_edge: bool, feature_to_sounds: Dict[str, List[Sound]],
+                   phonemes: Optional[None, List[Word]]) -> Tuple[bool, int]:
         if index + len(self) <= len(word) - 1:
             if d_edge and index + len(self) < len(word) - 1:
                 return False, 0
@@ -45,7 +45,7 @@ class Template:
             return match_data[0], 0
 
     def _recur_match(self, sec_index: int, sec: Word, part_index: int, feature_to_sounds: Dict[str, List[Sound]],
-                     phonemes) -> Tuple[bool, bool]:
+                     phonemes: Optional[None, List[Word]]) -> Tuple[bool, bool]:
         if sec_index >= len(sec) and sec_index >= len(self._components):
             return True, True
 
@@ -95,7 +95,7 @@ class Template:
         return self._recur_match(sec_index + 1, sec, part_index + 1, feature_to_sounds, phonemes)
 
     def generate_word_list(self, phonemes: Optional[List[Word], None], size_limit: Optional[int, None],
-                           feature_to_sounds: Dict[str, List[Sound]], target_phones: Optional[List[Word], None]) -> \
+                           feature_to_sounds: Dict[str, List[Sound]], **kwargs) -> \
             List[Word]:
         """
         Generate a word list with current template using given environments.
@@ -111,8 +111,11 @@ class Template:
         If size_limit is None, then target_phone MUST be None too (i.e. to generate with phones of interest, a size
         limit must be defined).
         """
+        primary_interest = kwargs.get('primary_interest', None)
+        secondary_interest = kwargs.get('secondary_interest', None)
+
         if size_limit is None:
-            if target_phones is not None:
+            if primary_interest is not None:
                 raise AttributeError("Not allowed to have target phoneme when not having a size limit")
 
         word_len = len(self._components)
@@ -120,6 +123,8 @@ class Template:
         part_sounds = []
         interest_sounds = []
         interest_indexes = []
+        secondary_interest_sounds = []
+        secondary_interest_indexes = []
 
         word_list = set([])
 
@@ -130,12 +135,21 @@ class Template:
             part_sound = particle.get_matching_sounds(phonemes, feature_to_sounds)
             part_sounds.append(part_sound)
 
-            if target_phones is not None:
-                interest_sound = [s for s in part_sound if Word([s]) in target_phones]
-                interest_sounds.append(interest_sound)
+            if primary_interest is not None:
+                interest_sound = [s for s in part_sound if Word([s]) in primary_interest]
 
                 if interest_sound != [] and len(interest_sound) > 0:
-                    interest_indexes.append(len(interest_sounds) - 1)
+                    interest_indexes.append(len(interest_sounds))
+
+                interest_sounds.append(interest_sound)
+
+            if secondary_interest is not None:
+                secondary_interest_sound = [s for s in part_sound if Word([s]) in secondary_interest]
+
+                if secondary_interest_sound != [] and len(secondary_interest_sound) > 0:
+                    secondary_interest_indexes.append(len(secondary_interest_sounds))
+
+                secondary_interest_sounds.append(secondary_interest_sound)
 
         interest_total = len(interest_indexes)
 
@@ -145,7 +159,7 @@ class Template:
             return [Word(r) for r in result]
         else:
             word_count = 0
-            if target_phones is None:
+            if primary_interest is None:
                 while word_count < size_limit:
                     curr_word = []  # type: List[Sound]
 
@@ -178,6 +192,8 @@ class Template:
                                 curr_word[i] = random.choice(part_sounds[i])
 
                             interest_past += 1
+                        elif random.random() < 0.33 and i in secondary_interest_indexes:
+                            curr_word[i] = random.choice(secondary_interest_sounds[i])
                         else:
                             curr_word[i] = random.choice(part_sounds[i])
 

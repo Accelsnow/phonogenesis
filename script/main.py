@@ -115,17 +115,26 @@ if __name__ == '__main__':
         psr += str(p) + " "
     print(psr + "\",")
 
-    # df = DoubleFeed(rules[94], rules[95], InteractionOrder.Feeding, 5, phonemes, templates, feature_to_type,
-    #                 feature_to_sounds)
-    # print(df.generate())
+    rule1 = rules[96]
+    rule2 = rules[97]
+    df = DoubleFeed(rule1, rule2, InteractionOrder.Feeding, False, 5, phonemes, templates, feature_to_type,
+                    feature_to_sounds)
+    df_data = df.generate()
+    print("RULE1", str(rule1))
+    print("RULE2", str(rule2))
+    print("TYPE0", df_data[DoubleWordType.Type0])
+    print("TYPE1", df_data[DoubleWordType.Type1])
+    print("TYPE2", df_data[DoubleWordType.Type2])
+    print("TYPE3", df_data[DoubleWordType.Type3])
+    print("TYPE4", df_data[DoubleWordType.Type4])
 
-    while True:
-        # word = input("\nWord to check: ")
-        word = "kø"
-        print(rules[manual_rule_select])
-        print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
-        print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)))
-        break
+    # while True:
+    #     # word = input("\nWord to check: ")
+    #     word = "gɛgə"
+    #     print(rules[manual_rule_select])
+    #     print(rules[manual_rule_select].classify(Word(word), phonemes, feature_to_type, feature_to_sounds))
+    #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)[0]))
+    #     break
 
     # print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
     # use_templates = templates

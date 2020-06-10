@@ -35,7 +35,7 @@ def _get_c_instance_matcher(c_instance: Optional[List[Particle], None], phonemes
     List[Word], int]:
     if c_instance is None:
         return [], -1
-    matcher = Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+    matcher = Template(c_instance).generate_word_list(phonemes, size_limit, feature_to_sounds)
 
     return matcher, _get_max_len(matcher)
 
@@ -53,7 +53,7 @@ def _get_d_instance_matcher(d_instance: Optional[List[Particle], None], phonemes
     List[Word], int]:
     if d_instance is None:
         return [], -1
-    matcher = Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+    matcher = Template(d_instance).generate_word_list(phonemes, size_limit, feature_to_sounds)
     return matcher, _get_max_len(matcher)
 
 
@@ -93,27 +93,32 @@ class Rule:
 
         self._CADT_indexes = {}
 
-    def apply(self, word: Word, phonemes: List[Word], feature_to_type: Dict[str, str],
-              feature_to_sounds: Dict[str, List[Sound]]) -> Word:
+    def apply(self, word: Word, phonemes: Optional[None, List[Word]], feature_to_type: Dict[str, str],
+              feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Word, int]:
         if word not in self._CADT_indexes.keys():
             if ExampleType.CADT not in self.classify(word, phonemes, feature_to_type, feature_to_sounds):
-                return word
+                return word, 0
 
         indexes = self._CADT_indexes[word]
         new_word = word
         prev_len = len(new_word)
         len_diff = 0
+        old_word = word
+        chg_count = 0
 
         for index in indexes:
             new_word = self._do_replace(new_word, index[0] + len_diff, index[1] + len_diff, feature_to_type,
                                         feature_to_sounds)
+            if new_word != old_word:
+                old_word = new_word
+                chg_count += 1
             new_len = len(new_word)
             len_diff = new_len - prev_len
             prev_len = new_len
 
-        return new_word
+        return new_word, chg_count
 
-    def classify(self, word: Word, phonemes: List[Word], feature_to_type: Dict[str, str],
+    def classify(self, word: Word, phonemes: Optional[None, List[Word]], feature_to_type: Dict[str, str],
                  feature_to_sounds: Dict[str, List[Sound]]) -> List[ExampleType]:
         a_data = self.locations_a(word, phonemes, feature_to_sounds)
         a_locations = list(a_data.keys())  # type: List[int]
@@ -138,8 +143,8 @@ class Rule:
                         is_c = True
                     else:
                         is_c = \
-                        Template(c_instance[::-1]).is_d_match(word.reverse(), len(word) - 1 - a_loc,
-                                                              c_edge, feature_to_sounds, phonemes)[0]
+                            Template(c_instance[::-1]).is_d_match(word.reverse(), len(word) - 1 - a_loc,
+                                                                  c_edge, feature_to_sounds, phonemes)[0]
 
                     if d_edge and d_instance is None:
                         is_d = a_loc + a_size == len(word)
@@ -200,7 +205,8 @@ class Rule:
         all_phones.sort(key=lambda x: Sound('', [])[x].get_num())
         return result, all_phones
 
-    def locations_a(self, word: Word, phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]) -> Dict[
+    def locations_a(self, word: Word, phonemes: Optional[None, List[Word]],
+                    feature_to_sounds: Dict[str, List[Sound]]) -> Dict[
         int, Word]:
         if self._As is None:
             dict_ = {}
@@ -222,7 +228,7 @@ class Rule:
 
             while i < len(a_matcher):
                 a_pattern = a_matcher[i]
-                a_index = word.index(a_pattern, prev_index)
+                a_index = word.index_in_word(a_pattern, prev_index)
 
                 if a_index < 0:
                     i += 1
@@ -244,7 +250,7 @@ class Rule:
 
         a_matcher = []  # type: List[Word]
         for sec in self._As:
-            words = Template(sec).generate_word_list(phonemes, size_limit, feature_to_sounds, None)
+            words = Template(sec).generate_word_list(phonemes, size_limit, feature_to_sounds)
             a_matcher.extend(words)
         return a_matcher
 
@@ -296,7 +302,7 @@ class Rule:
             if (self._Cs[i] is None or len(
                     _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)[0]) > 0) and (
                     self._Ds[i] is None or len(
-                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)[0]) > 0):
+                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)[0]) > 0):
                 return True
         return False
 

@@ -53,7 +53,7 @@ class Word:
 
         return Word(clone_sounds)
 
-    def index(self, target: Word, start_index: int) -> int:
+    def index_in_word(self, target: Word, start_index: int) -> int:
         """
         Find the index of the first occurrence of target word starting from start_index in the current word.
         """
