@@ -38,7 +38,7 @@ def _fetch_randomized_phonemes(filename: str, interests: List[List[str]]) -> Lis
     drop_rules = []  # type: List[List[List[Any]]]
 
     with open(filename, encoding='utf-8') as data_file:
-        lines = [l.rstrip('\n').lstrip() for l in data_file.readlines()]
+        lines = [ln.rstrip('\n').lstrip() for ln in data_file.readlines()]
         rule_block = []
 
         for line in lines:
@@ -135,7 +135,7 @@ def _fetch_preset_phonemes(filename: str) -> List[Word]:
     phonemes = []
 
     with open(filename, encoding='utf-8') as data_file:
-        lines = [l.rstrip('\n') for l in data_file.readlines()]
+        lines = [ln.rstrip('\n') for ln in data_file.readlines()]
 
         for line in lines:
             line = line.replace('ɡ', 'g')

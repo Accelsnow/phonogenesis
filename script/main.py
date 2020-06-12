@@ -13,7 +13,7 @@ from script.sound import Sound
 from script.glossgroup import import_default_gloss
 from script.templates import Template, import_default_templates
 from script.phonemes import import_default_randomized_phonemes, import_default_full_phonemes
-from script.doubleRule import DoubleWordType, DoubleRule, DoubleFeed, InteractionOrder
+from script.doubleRule import DoubleWordType, DoubleRule, DoubleFeed, InteractionOrder, DoubleWordDifficulty
 
 
 def _print_result(rst: dict):
@@ -117,16 +117,15 @@ if __name__ == '__main__':
 
     rule1 = rules[96]
     rule2 = rules[97]
-    df = DoubleFeed(rule1, rule2, InteractionOrder.Feeding, False, 5, phonemes, templates, feature_to_type,
+    df = DoubleFeed(rule1, rule2, InteractionOrder.Feeding, False, DoubleWordDifficulty.Easy, phonemes, templates, feature_to_type,
                     feature_to_sounds)
-    df_data = df.generate()
+    df_data = df.generate(30)
     print("RULE1", str(rule1))
     print("RULE2", str(rule2))
-    print("TYPE0", df_data[DoubleWordType.Type0])
-    print("TYPE1", df_data[DoubleWordType.Type1])
-    print("TYPE2", df_data[DoubleWordType.Type2])
-    print("TYPE3", df_data[DoubleWordType.Type3])
-    print("TYPE4", df_data[DoubleWordType.Type4])
+    print("BLOCKA", [str(w) for w in df_data[0]])
+    print("BLOCKB", [str(w) for w in df_data[1]])
+    print("BLOCKC", [str(w) for w in df_data[2]])
+    print("BLOCKD", [str(w) for w in df_data[3]])
 
     # while True:
     #     # word = input("\nWord to check: ")
