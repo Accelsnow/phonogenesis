@@ -1,17 +1,15 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /.idea
 # dependencies
-/api/node_modules
-/client/node_modules
+/node_modules
 /.pnp
 .pnp.js
-/database
 
 # testing
 /coverage
 
 # production
-/client/build
+/build
 
 # misc
 .DS_Store
@@ -20,16 +18,8 @@
 .env.test.local
 .env.production.local
 
-/client/.env
 .env
-
-/mongo-data
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/pyscirpt/venv/
-/pyscirpt/.idea/
-/pyscirpt/__pycache__/
-/pyscirpt/script/data/~$*

@@ -1,0 +1,9 @@
+#check-quiz{
+	margin-top: 50px;
+	align-items: center;
+	align-content: center;
+}
+
+#stu-quiz-table *{
+	font-size: 1.02em;
+}

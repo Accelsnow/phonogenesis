@@ -1,0 +1,13 @@
+.ownerTxt {
+    font-weight: bolder;
+}
+
+.title {
+    padding: 10px;
+}
+
+#groupName {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+}
