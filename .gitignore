@@ -1,35 +1,16 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/.idea
-# dependencies
-/api/node_modules
-/client/node_modules
-/.pnp
-.pnp.js
-/database
+/web/.idea
+/web/node_modules
+/web/client/node_modules
+/web/database
 
-# testing
-/coverage
+/web/client/build
 
-# production
-/client/build
+/web/client/.env
+/web/.env
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/web/mongo-data
 
-/client/.env
-.env
-
-/mongo-data
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-/pyscirpt/venv/
-/pyscirpt/.idea/
-/pyscirpt/__pycache__/
-/pyscirpt/script/data/~$*
+/pyscript/venv/
+/pyscript/.idea/
+/pyscript/__pycache__/
+/pyscript/script/data/~$*
