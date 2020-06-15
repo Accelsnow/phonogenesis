@@ -29,6 +29,9 @@ class Sound:
         if self._num >= 1 and symbol != '':
             _SYMBOL[symbol] = self
 
+    def serialize(self):
+        return str(self)
+
     def get_features(self) -> List[str]:
         return [f for f in self._features]
 

@@ -4,7 +4,7 @@ import random
 from enum import IntEnum
 from typing import List, Tuple, Dict, Optional, Any, Set
 from script import Word, Rule, ExampleType, Sound, Template, GlossGroup
-import logging
+import logging, time
 
 WORD_POOL_DEFAULT_SIZE = 300
 IRR_PERCENTAGE = 0.1
@@ -46,7 +46,7 @@ class Generator:
         self._IRR = [set([]) for _ in range(rule.get_c_split_size())]
         self._duplicate_exclusion = set([])
         self._phonemes = phonemes
-        self._unid = random.getrandbits(30)
+        self._unid = random.getrandbits(20) + int(round(time.time() * 1000.0))
 
         self._difficulty_to_percent = {
             5: (0.4, 0.1, 0.2, 0.2, 0.1)

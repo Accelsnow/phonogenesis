@@ -93,6 +93,9 @@ class DoubleRule(metaclass=ABCMeta):
     def get_word_type(self, word: Word) -> DoubleWordType:
         raise NotImplementedError
 
+    def serialize(self):
+        raise NotImplementedError
+
     def get_difficulty(self) -> DoubleWordDifficulty:
         return self._difficulty
 
@@ -133,6 +136,13 @@ class DoubleFeed(DoubleRule):
                                special_interests=rule1.get_a_matcher(phonemes, None, feature_to_sounds))
         self._gen1 = Generator(phonemes, templates, rule1, 5, feature_to_type, feature_to_sounds,
                                special_interests=rule2.get_a_matcher(phonemes, None, feature_to_sounds))
+
+    def serialize(self):
+        return {
+            "rule1": self.get_rule1().serialize(),
+            "rule2": self.get_rule2().serialize(),
+            "order": str(InteractionOrder.Feeding)
+        }
 
     def get_word_type(self, word: Word) -> DoubleWordType:
         word2, ct2 = self._rule2.apply(word, self._phonemes, self._feature_to_type, self._feature_to_sounds)

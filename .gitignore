@@ -1,16 +1,10 @@
-/web/.idea
-/web/node_modules
-/web/client/node_modules
-/web/database
-
-/web/client/build
-
-/web/client/.env
-/web/.env
+node_modules/
+.idea/
+__pycache__/
+venv/
+build/
+database/
 
 /web/mongo-data
 
-/pyscript/venv/
-/pyscript/.idea/
-/pyscript/__pycache__/
 /pyscript/script/data/~$*

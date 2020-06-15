@@ -71,7 +71,6 @@ class Rule:
     _Ds_edge: List[bool]
     _name: str
     _family: Optional[RuleFamily, None]
-    _id: int
 
     def __init__(self, name: str, family: Optional[RuleFamily, None], a: List[List[Particle]],
                  b: Optional[Tuple[Optional[None, Particle], List[str], int], None],
@@ -92,6 +91,13 @@ class Rule:
         self._Ds_edge = d_edge
 
         self._CADT_indexes = {}
+
+    def serialize(self):
+        return {
+            "name": self._name,
+            "family": self._family,
+            "expr": self.get_content_str()
+        }
 
     def apply(self, word: Word, phonemes: Optional[None, List[Word]], feature_to_type: Dict[str, str],
               feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[Word, int]:
@@ -474,6 +480,9 @@ class RuleFamily:
 
     def get_name(self) -> str:
         return self._name
+
+    def serialize(self):
+        return self.get_name()
 
     def __str__(self) -> str:
         return "%s : %s" % (self._name, str([r.get_name() for r in self._rules]))

@@ -24,6 +24,9 @@ class Template:
     def __reversed__(self):
         return Template(self._components[::-1])
 
+    def serialize(self):
+        return str(self)
+
     def is_replicated(self) -> bool:
         return True in [c.is_replicated() for c in self._components]
 

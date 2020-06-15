@@ -64,7 +64,6 @@ if __name__ == '__main__':
     type_to_features = tup[2]  # type: Dict[str, List[str]]
     feature_to_type = tup[3]  # type: Dict[str, str]
     feature_to_sounds = tup[4]  # type: Dict[str, List[Sound]]
-    features_to_sound = tup[5]  # type: Dict[Particle, Sound]
 
     templates = import_default_templates(features)  # type: List[Template]
 

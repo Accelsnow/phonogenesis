@@ -153,7 +153,6 @@ def get_default_data() -> Dict[str, Any]:
     type_to_features = _feature_data[2]
     feature_to_type = _feature_data[3]
     feature_to_sounds = _feature_data[4]
-    features_to_sound = _feature_data[5]
 
     templates = import_default_templates(features)
 
@@ -164,7 +163,8 @@ def get_default_data() -> Dict[str, Any]:
     gloss_data = import_default_gloss()
     gloss_families = gloss_data[0]
     gloss_groups = gloss_data[1]
+    print([str(s) for s in feature_to_sounds["NA"]])
 
     return {"features": features, "sounds": sounds, "t2fs": type_to_features, "f2t": feature_to_type,
-            "f2ss": feature_to_sounds, "fs2s": features_to_sound, "templates": templates, "rule_fam": rule_families,
+            "f2ss": feature_to_sounds, "templates": templates, "rule_fam": rule_families,
             "rules": rules, "gloss_fam": gloss_families, "gloss_grp": gloss_groups}

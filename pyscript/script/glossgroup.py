@@ -19,6 +19,9 @@ class GlossGroup:
     def get_glosses(self) -> List[str]:
         return self._glosses
 
+    def serialize(self):
+        return str(self)
+
     def pick(self) -> str:
         return random.choice(self._glosses)
 
@@ -43,6 +46,9 @@ class GlossFamily:
 
     def get_members(self) -> List[GlossGroup]:
         return self._members
+
+    def serialize(self):
+        return str(self)
 
     def __str__(self):
         return self._name

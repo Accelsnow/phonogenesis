@@ -22,6 +22,9 @@ class Particle:
         else:
             return 1
 
+    def serialize(self):
+        return str(self)
+
     def is_replicated(self) -> bool:
         return self._is_replicated
 
@@ -84,18 +87,17 @@ class Particle:
 
 
 def import_default_features() -> Tuple[
-    List[str], List[Sound], Dict[str, List[str]], Dict[str, str], Dict[str, List[Sound]], Dict[Particle, Sound]]:
+    List[str], List[Sound], Dict[str, List[str]], Dict[str, str], Dict[str, List[Sound]]]:
     import os
     return _fetch_feature_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/defaultipa.csv'))
 
 
 def _fetch_feature_csv(filename: str) -> Tuple[
-    List[str], List[Sound], Dict[str, List[str]], Dict[str, str], Dict[str, List[Sound]], Dict[Particle, Sound]]:
+    List[str], List[Sound], Dict[str, List[str]], Dict[str, str], Dict[str, List[Sound]]]:
     features = []  # type: List[str]
     type_to_features = {}  # type: Dict[str, List[str]]
     feature_to_type = {}  # type: Dict[str, str]
     feature_to_sounds = {}  # type: Dict[str, List[Sound]]
-    features_to_sound = {}  # type: Dict[Particle, Sound]
     sounds = []  # type: List[Sound]
 
     feature_types = []
@@ -137,12 +139,6 @@ def _fetch_feature_csv(filename: str) -> Tuple[
                 raise ImportError("Feature line \'%s\' does not align with types" % str(features_))
 
             _sound = Sound(str(line[0]), features_)
-
-            if Particle(features_, False) in features_to_sound.keys():
-                raise ImportError(
-                    "Sound %s has the same property as sound %s" % (str(_sound), features_to_sound[features_]))
-
-            features_to_sound[Particle(features_, False)] = _sound
             sounds.append(_sound)
 
             for i in range(0, len(features_)):
@@ -161,6 +157,7 @@ def _fetch_feature_csv(filename: str) -> Tuple[
                 if feature_ not in feature_to_sounds.keys():
                     feature_to_sounds[feature_] = []
 
-                feature_to_sounds[feature_].append(_sound)
+                if _sound not in feature_to_sounds[feature_]:
+                    feature_to_sounds[feature_].append(_sound)
 
-    return features, sounds, type_to_features, feature_to_type, feature_to_sounds, features_to_sound
+    return features, sounds, type_to_features, feature_to_type, feature_to_sounds

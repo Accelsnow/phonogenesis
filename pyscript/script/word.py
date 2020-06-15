@@ -31,6 +31,9 @@ class Word:
         else:
             raise TypeError("data must be either sound list or string, get %s" % str(type(data)))
 
+    def serialize(self):
+        return str(self)
+
     def get_sounds(self) -> List[Sound]:
         return self._sounds
 
