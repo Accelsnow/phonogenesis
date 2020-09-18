@@ -331,7 +331,6 @@ class Generator:
             index += 1
 
             if index >= split_size and amount_generated < total_amount:
-                print("HERE")
                 index = 0
                 fill_retry_count += 1
 

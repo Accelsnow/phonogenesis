@@ -1,7 +1,11 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask.json import JSONEncoder
-
+from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_login import LoginManager
+from flask_socketio import SocketIO, emit
 from config import Config
 from script import get_default_data, Sound, Word, Template, Rule, DoubleRule, Particle, GlossFamily, GlossGroup, \
     RuleFamily
@@ -17,9 +21,7 @@ TOTAL_RULE_COUNT = len(DEFAULT_DATA['rules'])
 
 class PhonogenesisJSONEncoder(JSONEncoder):
     def default(self, o):
-        if isinstance(o, Sound) or isinstance(o, Word) or isinstance(o, Template) or isinstance(o, Rule) or isinstance(
-                o, DoubleRule) or isinstance(o, Particle) or isinstance(o, GlossFamily) or isinstance(o, GlossGroup) \
-                or isinstance(o, RuleFamily):
+        if callable(getattr(o, 'serialize', None)):
             return o.serialize()
 
         return super(PhonogenesisJSONEncoder, self).default(o)
@@ -27,10 +29,16 @@ class PhonogenesisJSONEncoder(JSONEncoder):
 
 # flask initialization
 app = Flask(__name__)
+CORS(app=app, supports_credentials=True)
 Bootstrap(app)
 app.config.from_object(Config)
-app.json_encoder = PhonogenesisJSONEncoder
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+socketio = SocketIO(app)
+# login = LoginManager()
+# login.init_app(app)
 
+app.json_encoder = PhonogenesisJSONEncoder
 app.logger.setLevel(logging.DEBUG)
 app.logger.removeHandler(default_handler)
 
@@ -46,4 +54,4 @@ console_handler.setLevel(logging.WARNING)
 console_handler.setFormatter(formatter)
 app.logger.addHandler(console_handler)
 
-from app import routes
+from app import routes, models

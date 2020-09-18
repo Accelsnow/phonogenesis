@@ -4,7 +4,7 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 
 export const getGroupUserList = (page, username) => {
-	axios.get(`https://accelsnow.com/groups/objectify/${username}`).then(res => {
+	axios.get(`http://127.0.0.1:9000/groups/objectify/${username}`).then(res => {
 		const groupToUser = res.data;
 		if (groupToUser === null || groupToUser === undefined) {
 			console.log("NO G2U RESPONDED");
@@ -18,7 +18,7 @@ export const getGroupUserList = (page, username) => {
 };
 
 export const getGroupNames = (page) => {
-	axios.get("https://accelsnow.com/groups").then(res => {
+	axios.get("http://127.0.0.1:9000/groups").then(res => {
 		if (res.data) {
 			page.setState({groups: res.data.map(group => group.name)});
 		} else {
@@ -30,7 +30,7 @@ export const getGroupNames = (page) => {
 };
 
 export const removeGroup = (page, name) => {
-	axios.delete(`https://accelsnow.com/groups/${name}`).then(res => {
+	axios.delete(`http://127.0.0.1:9000/groups/${name}`).then(res => {
 		if (res.data.result) {
 			getGroupUserList(page, page.props.app.state.currentUser.username);
 			res.data.students.forEach(stu => {
@@ -53,7 +53,7 @@ export const addGroup = (page, name) => {
 		alert("Group must be alphanumeric strings with an optional - in the middle!");
 		page.setState({err: true});
 	} else {
-		axios.post("https://accelsnow.com/groups/", {
+		axios.post("http://127.0.0.1:9000/groups/", {
 				name: name,
 				owner: prof.username,
 				students: []
@@ -74,7 +74,7 @@ export const addGroup = (page, name) => {
 };
 
 export const addToGroup = (page, username, groupName) => {
-	axios.patch("https://accelsnow.com/groups/add", {
+	axios.patch("http://127.0.0.1:9000/groups/add", {
 		studentName: username,
 		groupName: groupName
 	}).then(res => {
@@ -92,7 +92,7 @@ export const addToGroup = (page, username, groupName) => {
 };
 
 export const removeFromGroup = (page, username, groupName) => {
-	axios.patch("https://accelsnow.com/groups/remove", {
+	axios.patch("http://127.0.0.1:9000/groups/remove", {
 		studentName: username,
 		groupName: groupName
 	}).then(res => {
@@ -116,7 +116,7 @@ export const removeFromGroup = (page, username, groupName) => {
 };
 
 export const broadcastMessage = (app, groupName, message) => {
-	axios.post("https://accelsnow.com/groups/message", {groupName: groupName, message: message}).then(res => {
+	axios.post("http://127.0.0.1:9000/groups/message", {groupName: groupName, message: message}).then(res => {
 		if (!res.data.result) {
 			console.log("FAILED TO BROADCAST MESSAGE");
 		} else {

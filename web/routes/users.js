@@ -61,8 +61,11 @@ router.post("/login", (req, res) => {
 
 	User.findByUsernamePassword(username, password).then(user => {
 		req.session.username = user.username;
-		res.send({result: true, currentUser: parseClientUser(user)});
-		res.end();
+		req.session.save(function () {
+			res.send({result: true, currentUser: parseClientUser(user)});
+			res.end();
+			console.log(req.session);
+		});
 	}).catch(error => {
 		res.send({result: false});
 		res.end();
@@ -82,6 +85,8 @@ router.get("/logout", (req, res) => {
 
 // Route to check if a user is already logged in
 router.get("/check-session", (req, res) => {
+
+	console.log(req.session);
 	if (req.session.username) {
 		User.findOne({username: req.session.username}).then(user => {
 			if (user){

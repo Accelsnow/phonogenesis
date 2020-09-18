@@ -5,7 +5,7 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 
 export const registerPastResult = (pastResult, username, quizName, app) => {
-	axios.post("https://accelsnow.com/quiz/register", {
+	axios.post("http://127.0.0.1:9000/quiz/register", {
 		username: username,
 		quizName: quizName,
 		pastResult: pastResult
@@ -17,7 +17,7 @@ export const registerPastResult = (pastResult, username, quizName, app) => {
 };
 
 export const getUserQuizzes = (page, username) => {
-	axios.get(`https://accelsnow.com/quiz/user/${username}`).then(res => {
+	axios.get(`http://127.0.0.1:9000/quiz/user/${username}`).then(res => {
 		page.setState({quizzes: res.data});
 	}).catch(err => {
 		console.log(err);
@@ -25,7 +25,7 @@ export const getUserQuizzes = (page, username) => {
 };
 
 export const getDistinctRuleList = (page) => {
-	axios.get("https://accelsnow.com/quiz/rule").then(res => {
+	axios.get("http://127.0.0.1:9000/quiz/rule").then(res => {
 		const ruleTxtList = [];
 		const ruleList = [];
 		res.data.forEach(ruleObj => {
@@ -41,7 +41,7 @@ export const getDistinctRuleList = (page) => {
 };
 
 export const distributeQuiz = (page, quizObj) => {
-	axios.post("https://accelsnow.com/quiz/makeQuiz", {
+	axios.post("http://127.0.0.1:9000/quiz/makeQuiz", {
 		timeLim: quizObj.timeLim,
 		name: quizObj.name,
 		owner: quizObj.owner,
@@ -64,7 +64,7 @@ export const distributeQuiz = (page, quizObj) => {
 };
 
 export const getStudentQuizObj = (page, groupName, quizName) => {
-	axios.get(`https://accelsnow.com/groups//get/${groupName}`).then(res => {
+	axios.get(`http://127.0.0.1:9000/groups//get/${groupName}`).then(res => {
 		const studentQuizObjs = [];
 		const students = res.data;
 		students.forEach(student => {

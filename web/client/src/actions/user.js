@@ -1,8 +1,9 @@
-const axios = require('axios');
+const axios = require('axios').create({ withCredentials: true});
 axios.defaults.withCredentials = true;
 
 export const readCookie = (app) => {
-	axios.get("https://accelsnow.com/users/check-session/").then(function (res) {
+	axios.get("http://127.0.0.1:5000/user/check-session").then(function (res) {
+		console.log(res);
 		if (res.data.currentUser) {
 			app.setState({currentUser: res.data.currentUser});
 		} else {
@@ -14,10 +15,12 @@ export const readCookie = (app) => {
 };
 
 export const login = (page, username, password) => {
-	axios.post("https://accelsnow.com/users/login", {
+	axios.post("http://127.0.0.1:5000/user/login", {
 		username: username,
 		password: password
 	}).then(function (res) {
+		console.log("Login info")
+		console.log(res)
 		if (res.data.result) {
 			readCookie(page.props.app);
 			page.setState({err: false});
@@ -31,7 +34,7 @@ export const login = (page, username, password) => {
 };
 
 export const logout = () => {
-	const url = "https://accelsnow.com/users/logout";
+	const url = "http://127.0.0.1:9000/users/logout";
 	axios.get(url,).then(res => {
 
 	}).catch(error => {
@@ -40,13 +43,13 @@ export const logout = () => {
 };
 
 export const getUsers = (page) => {
-	axios.get("https://accelsnow.com/users").then(res => {
+	axios.get("http://127.0.0.1:9000/users").then(res => {
 		page.setState({users: res.data.users});
 	})
 };
 
 export const removeUser = (page, username) => {
-	axios.delete(`https://accelsnow.com/users/${username}`).then(res => {
+	axios.delete(`http://127.0.0.1:9000/users/${username}`).then(res => {
 		getUsers(page);
 	}).catch(err => {
 		console.log(err);
@@ -63,7 +66,7 @@ export const addUser = (page) => {
 		return;
 	}
 
-	axios.post("https://accelsnow.com/users/", {
+	axios.post("http://127.0.0.1:9000/users/", {
 			name: page.state.name,
 			type: page.state.type,
 			email: page.state.email,
@@ -87,7 +90,7 @@ export const addUser = (page) => {
 };
 
 export const deleteMessage = (app, username, msgid) => {
-	axios.delete(`https://accelsnow.com/users/message/${username}/${msgid}`).then(res => {
+	axios.delete(`http://127.0.0.1:9000/users/message/${username}/${msgid}`).then(res => {
 		if (!res.data.user) {
 			console.log("FAILED TO DELETE MESSAGE");
 		} else {
@@ -99,7 +102,7 @@ export const deleteMessage = (app, username, msgid) => {
 };
 
 export const sendMessage = (app, username, message) => {
-	axios.post("https://accelsnow.com/users/message", {message: message, username: username}).then(res => {
+	axios.post("http://127.0.0.1:9000/users/message", {message: message, username: username}).then(res => {
 		if (!res.data.result) {
 			console.log("FAILED TO SEND MESSAGE TO USER");
 		} else {
@@ -112,7 +115,7 @@ export const sendMessage = (app, username, message) => {
 
 
 export const editUser = (page, username, info) => {
-	axios.patch(`https://accelsnow.com/users/${username}`, info).then(res => {
+	axios.patch(`http://127.0.0.1:9000/users/${username}`, info).then(res => {
 		getUsers(page);
 		sendMessage(page.props.app, username, "Your account information has been edited by an admin.");
 	}).catch(err => {
