@@ -14,6 +14,8 @@ class StudentHome extends React.Component {
 
 	render() {
 		const student = this.props.app.state.currentUser;
+		const joined_groups = [];
+		student.groups.forEach(g => joined_groups.push(g.group));
 
 		if (!student) {
 			return <div/>
@@ -29,7 +31,7 @@ class StudentHome extends React.Component {
 					<p><span className="bold">Name: {student.name ? student.name : "Anonymous"}</span></p>
 					<p><span className="bold">Email: {student.email ? student.email : "Undefined"}</span></p>
 					<p><span onClick={() => this.props.history.push("/student/groups")} className="bold"
-					         id="link-button">Enrolled: {student.groups.length > 0 ? student.groups.join(", ") : "None"}</span>
+					         id="link-button">Enrolled: {joined_groups.length > 0 ? joined_groups.join(", ") : "None"}</span>
 					</p>
 					<br/>
 					<MessagePanel app={this.props.app}/>

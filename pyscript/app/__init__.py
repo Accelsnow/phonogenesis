@@ -4,11 +4,9 @@ from flask.json import JSONEncoder
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_login import LoginManager
 from flask_socketio import SocketIO, emit
 from config import Config
-from script import get_default_data, Sound, Word, Template, Rule, DoubleRule, Particle, GlossFamily, GlossGroup, \
-    RuleFamily
+from script import get_default_data
 import logging
 from logging.handlers import RotatingFileHandler
 from flask.logging import default_handler
