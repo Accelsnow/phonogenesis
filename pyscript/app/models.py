@@ -2,8 +2,10 @@ from app import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from serializable import Serializable
 
-class Message(db.Model):
+
+class Message(db.Model, Serializable):
     __tablename__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(256))
@@ -14,16 +16,19 @@ class Message(db.Model):
     from_user = db.relationship("User", back_populates='sent_messages', foreign_keys=[from_user_id])
     to_user = db.relationship("User", back_populates='recv_messages', foreign_keys=[to_user_id])
 
-    def serialize(self):
-        return {'id': self.id, 'content': self.content, 'timestamp': str(self.timestamp),
-                'from_user_id': self.from_user_id, 'to_user_id': self.to_user_id, 'from_user': self.from_user,
-                'to_user': self.to_user}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'content': self.content, 'timestamp': str(self.timestamp),
+                      'from_user_id': self.from_user_id, 'to_user_id': self.to_user_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['from_user'] = self.from_user.serialize()
+            serialized['to_user'] = self.to_user.serialize()
+        return serialized
 
     def __repr__(self):
         return '<Message({}) from {} to {}: {}>'.format(self.id, self.from_user_id, self.to_user_id, self.content)
 
 
-class Group(db.Model):
+class Group(db.Model, Serializable):
     __tablename__ = 'group'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), unique=True, index=True, nullable=False)
@@ -32,17 +37,18 @@ class Group(db.Model):
     owner = db.relationship("User", back_populates="owned_groups", foreign_keys=[owner_id])
     users_bond = db.relationship('UserGroup', back_populates="group")
 
-    def users(self) -> list:
-        return [bond.user for bond in self.users_bond]
-
-    def serialize(self):
-        return {'id': self.id, 'name': self.name, 'owner_id': self.owner_id, 'owner': self.owner, 'users': self.users()}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'name': self.name, 'owner_id': self.owner_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['owner'] = self.owner.serialize()
+            serialized['users'] = [bond.user.serialize() for bond in self.users_bond]
+        return serialized
 
     def __repr__(self):
         return '<Group {} {} Owner {}>'.format(self.id, self.name, self.owner_id)
 
 
-class Quiz(db.Model):
+class Quiz(db.Model, Serializable):
     __tablename__ = 'quiz'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, nullable=False)
@@ -53,21 +59,20 @@ class Quiz(db.Model):
     questions_bond = db.relationship("QuizQuestion", back_populates='quiz')
     targets_bond = db.relationship("UserQuiz", back_populates="quiz")
 
-    def questions(self) -> list:
-        return [bond.question for bond in self.questions_bond]
-
-    def targets(self) -> list:
-        return [bond.targets for bond in self.targets_bond]
-
-    def serialize(self):
-        return {'id': self.id, 'name': self.name, 'owner_id': self.owner_id, 'owner': self.owner,
-                'attempts': self.attempts, 'questions': self.questions(), 'targets': self.targets()}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'name': self.name, 'owner_id': self.owner_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['owner'] = self.owner.serialize()
+            serialized['attempts'] = [attempt.serialize() for attempt in self.attempts]
+            serialized['questions'] = [bond.question.serialize() for bond in self.questions_bond]
+            serialized['targets'] = [bond.user.serialize() for bond in self.targets_bond]
+        return serialized
 
     def __repr__(self):
         return '<Quiz {} {} Owner {} {}>'.format(self.id, self.name, self.owner_id, self.owner.username)
 
 
-class UserQuiz(db.Model):
+class UserQuiz(db.Model, Serializable):
     __tablename__ = 'userquiz'
     id = db.Column(db.Integer, primary_key=True)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
@@ -76,15 +81,18 @@ class UserQuiz(db.Model):
     quiz = db.relationship("Quiz", back_populates="targets_bond", foreign_keys=[quiz_id])
     user = db.relationship("User", back_populates="recv_quizzes_bond", foreign_keys=[user_id])
 
-    def serialize(self):
-        return {'id': self.id, 'username': self.user.username, 'quiz': self.quiz.name,
-                'quiz_owner': self.quiz.owner.username}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'quiz_id': self.quiz_id, 'user_id': self.user_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['quiz'] = self.quiz.serialize()
+            serialized['user'] = self.user.serialize()
+        return serialized
 
     def __repr__(self):
         return '<Quiz {} User {}>'.format(self.quiz_id, self.user_id)
 
 
-class QuizQuestion(db.Model):
+class QuizQuestion(db.Model, Serializable):
     __tablename__ = 'quizquestion'
     id = db.Column(db.Integer, primary_key=True)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
@@ -93,14 +101,18 @@ class QuizQuestion(db.Model):
     quiz = db.relationship("Quiz", back_populates='questions_bond', foreign_keys=[quiz_id])
     question = db.relationship("Question", back_populates='quizzes_bond', foreign_keys=[question_id])
 
-    def serialize(self):
-        return {'id': self.id, 'question_id': self.question_id, 'quiz_id': self.quiz_id}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'question_id': self.question_id, 'quiz_id': self.quiz_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['quiz'] = self.quiz.serialize()
+            serialized['question'] = self.question.serialize()
+        return serialized
 
     def __repr__(self):
         return '<Quiz {} Question {}>'.format(self.quiz_id, self.question_id)
 
 
-class Attempt(db.Model):
+class Attempt(db.Model, Serializable):
     __tablename__ = 'tablename'
     id = db.Column(db.Integer, primary_key=True)
     score = db.Column(db.Integer, nullable=False)
@@ -112,16 +124,20 @@ class Attempt(db.Model):
     quiz = db.relationship("Quiz", back_populates="attempts", foreign_keys=[quiz_id])
     user = db.relationship("User", back_populates="quiz_attempts", foreign_keys=[user_id])
 
-    def serialize(self):
-        return {'id': self.id, 'score': self.score, 'answers': self.answers, 'timestamp': self.timestamp,
-                'user_id': self.user_id, 'quiz_id': self.quiz_id}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'score': self.score, 'answers': self.answers, 'timestamp': self.timestamp,
+                      'user_id': self.user_id, 'quiz_id': self.quiz_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['quiz'] = self.quiz.serialize()
+            serialized['user'] = self.user.serialize()
+        return serialized
 
     def __repr__(self):
         return '<Attempt({}) User {} {} Quiz {} {} Score {}>'.format(self.id, self.user_id, self.user.username,
                                                                      self.quiz_id, self.quiz.name, self.score)
 
 
-class Question(db.Model):
+class Question(db.Model, Serializable):
     __tablename__ = 'question'
     id = db.Column(db.Integer, primary_key=True)
 
@@ -141,20 +157,20 @@ class Question(db.Model):
 
     quizzes_bond = db.relationship("QuizQuestion", back_populates='question')
 
-    def quizzes(self) -> list:
-        return [bond.quiz for bond in self.quizzes_bond]
-
-    def serialize(self):
-        return {'id': self.id, 'templates': self.templates, 'poi': self.poi,
-                'ruleType': self.ruleType, 'phoneme': self.phoneme, 'ruleTxt': self.ruleTxt, 'gloss': self.gloss,
-                'UR': self.UR, 'SR': self.SR, 'size': self.size, 'canUR': self.canUR, 'canPhoneme': self.canPhoneme,
-                'maxCADT': self.maxCADT, 'quizzes': self.quizzes()}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'templates': self.templates, 'poi': self.poi, 'ruleType': self.ruleType,
+                      'phoneme': self.phoneme, 'ruleTxt': self.ruleTxt, 'gloss': self.gloss,
+                      'UR': self.UR, 'SR': self.SR, 'size': self.size, 'canUR': self.canUR,
+                      'canPhoneme': self.canPhoneme, 'maxCADT': self.maxCADT}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['quizzes'] = [bond.quiz.serialize() for bond in self.quizzes_bond]
+        return serialized
 
     def __repr__(self):
         return '<Rule {} {}>'.format(self.id, self.ruleTxt)
 
 
-class UserGroup(db.Model):
+class UserGroup(db.Model, Serializable):
     __tablename__ = 'usergroup'
     id = db.Column(db.Integer, primary_key=True)
     group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=False)
@@ -163,15 +179,18 @@ class UserGroup(db.Model):
     group = db.relationship("Group", back_populates="users_bond", foreign_keys=[group_id])
     user = db.relationship("User", back_populates="joined_groups_bond", foreign_keys=[user_id])
 
-    def serialize(self):
-        return {'id': self.id, 'user_id': self.user_id, 'group_id': self.group_id, 'group': self.group,
-                'user': self.user}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'user_id': self.user_id, 'group_id': self.group_id}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['group'] = self.group.serialize()
+            serialized['user'] = self.user
+        return serialized
 
     def __repr__(self):
         return '<Group {} User {}>'.format(self.group_id, self.user_id)
 
 
-class User(db.Model):
+class User(db.Model, Serializable):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(10), index=True, unique=False, nullable=False)
@@ -199,18 +218,18 @@ class User(db.Model):
             return False
         return check_password_hash(self.password_hash, password)
 
-    def joined_groups(self) -> list:
-        return [bond.group for bond in self.joined_groups_bond]
-
-    def recv_quizzes(self) -> list:
-        return [bond.quiz for bond in self.recv_quizzes_bond]
-
-    def serialize(self):
-        return {'id': self.id, 'type': self.type, 'name': self.name, 'email': self.email, 'username': self.username,
-                'joined_groups': self.joined_groups(), 'owned_groups': self.owned_groups,
-                'quiz_attempts': self.quiz_attempts, 'recv_quizzes': self.recv_quizzes(),
-                'owned_quizzes': self.owned_quizzes, 'recv_messages': self.recv_messages,
-                'sent_messages': self.sent_messages}
+    def serialize(self, **kwargs):
+        serialized = {'id': self.id, 'type': self.type, 'name': self.name, 'email': self.email,
+                      'username': self.username}
+        if 'recur' in kwargs and kwargs['recur']:
+            serialized['joined_groups'] = [bond.group.serialize() for bond in self.joined_groups_bond]
+            serialized['owned_groups'] = [group.serialize() for group in self.owned_groups]
+            serialized['quiz_attempts'] = [attempt.serialize() for attempt in self.quiz_attempts]
+            serialized['recv_quizzes'] = [bond.quiz.serialize() for bond in self.recv_quizzes_bond]
+            serialized['owned_quizzes'] = [quiz.serialize() for quiz in self.owned_quizzes]
+            serialized['recv_messages'] = [msg.serialize() for msg in self.recv_messages]
+            serialized['sent_messages'] = [msg.serialize() for msg in self.sent_messages]
+        return serialized
 
     def __repr__(self):
         return '<User {} {}>'.format(self.id, self.username)

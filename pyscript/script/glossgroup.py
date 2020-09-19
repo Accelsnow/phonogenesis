@@ -3,8 +3,10 @@ from __future__ import annotations
 from typing import List, Tuple
 import random
 
+from serializable import Serializable
 
-class GlossGroup:
+
+class GlossGroup(Serializable):
     _glosses: List[str]
     _family: GlossFamily
 
@@ -19,7 +21,7 @@ class GlossGroup:
     def get_glosses(self) -> List[str]:
         return self._glosses
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def pick(self) -> str:
@@ -29,7 +31,7 @@ class GlossGroup:
         return "GROUP %s - %s" % (str(self._family), str(self._glosses))
 
 
-class GlossFamily:
+class GlossFamily(Serializable):
     _name: str
     _members: List[GlossGroup]
 
@@ -47,7 +49,7 @@ class GlossFamily:
     def get_members(self) -> List[GlossGroup]:
         return self._members
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def __str__(self):

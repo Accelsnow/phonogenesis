@@ -8,6 +8,8 @@ from script import Word, Rule, ExampleType, Sound, Template, Generator, GenMode
 import random
 import logging
 
+from serializable import Serializable
+
 LOGGER = logging.getLogger("app.logger")
 
 
@@ -54,7 +56,7 @@ class DoubleWordType(IntEnum):
         return self.name
 
 
-class DoubleRule(metaclass=ABCMeta):
+class DoubleRule(Serializable, metaclass=ABCMeta):
     _rule1: Rule
     _rule2: Rule
     _difficulty: DoubleWordDifficulty
@@ -93,7 +95,7 @@ class DoubleRule(metaclass=ABCMeta):
     def get_word_type(self, word: Word) -> DoubleWordType:
         raise NotImplementedError
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         raise NotImplementedError
 
     def get_difficulty(self) -> DoubleWordDifficulty:
@@ -137,7 +139,7 @@ class DoubleFeed(DoubleRule):
         self._gen1 = Generator(phonemes, templates, rule1, 5, feature_to_type, feature_to_sounds,
                                special_interests=rule2.get_a_matcher(phonemes, None, feature_to_sounds))
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return {
             "rule1": self.get_rule1().serialize(),
             "rule2": self.get_rule2().serialize(),

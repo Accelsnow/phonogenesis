@@ -2,11 +2,12 @@ from __future__ import annotations
 from typing import List, Optional
 from script.sound import Sound, _SYMBOL
 import logging
+from serializable import Serializable
 
 LOGGER = logging.getLogger("app.logger")
 
 
-class Word:
+class Word(Serializable):
     _sounds: List[Sound]
 
     def __init__(self, data: Optional[List[Sound], str]) -> None:
@@ -31,7 +32,7 @@ class Word:
         else:
             raise TypeError("data must be either sound list or string, get %s" % str(type(data)))
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def get_sounds(self) -> List[Sound]:

@@ -4,9 +4,10 @@ import random
 from typing import List, Dict, Optional, Tuple
 
 from script import Word, Particle, Sound, REP_LEN_LIM
+from serializable import Serializable
 
 
-class Template:
+class Template(Serializable):
     _size: int
     _components: List[Particle]
 
@@ -24,7 +25,7 @@ class Template:
     def __reversed__(self):
         return Template(self._components[::-1])
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def is_replicated(self) -> bool:

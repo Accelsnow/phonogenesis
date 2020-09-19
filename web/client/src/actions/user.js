@@ -19,8 +19,6 @@ export const login = (page, username, password) => {
 		username: username,
 		password: password
 	}).then(function (res) {
-		console.log("Login info")
-		console.log(res)
 		if (res.data.result) {
 			readCookie(page.props.app);
 			page.setState({err: false});

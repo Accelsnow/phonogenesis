@@ -1317,3 +1317,258 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/json/encoder.py", line 179, in default
     raise TypeError(f'Object of type {o.__class__.__name__} '
 TypeError: Object of type UserGroup is not JSON serializable
+[2020-09-18 21:52:43] - ERROR - Exception on /user/login [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+[2020-09-18 21:52:43] - ERROR - Request finalizing failed with an error while handling an error - app 1975@finalize_request
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1970, in finalize_request
+    response = self.process_response(response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2269, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/sessions.py", line 378, in save_session
+    val = self.get_signing_serializer(app).dumps(dict(session))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 166, in dumps
+    payload = want_bytes(self.dump_payload(obj))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/url_safe.py", line 42, in dump_payload
+    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 133, in dump_payload
+    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/tag.py", line 305, in dumps
+    return dumps(self.tag(value), separators=(",", ":"))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+[2020-09-18 22:06:05] - ERROR - Exception on /user/login [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+[2020-09-18 22:06:05] - ERROR - Request finalizing failed with an error while handling an error - app 1975@finalize_request
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1970, in finalize_request
+    response = self.process_response(response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2269, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/sessions.py", line 378, in save_session
+    val = self.get_signing_serializer(app).dumps(dict(session))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 166, in dumps
+    payload = want_bytes(self.dump_payload(obj))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/url_safe.py", line 42, in dump_payload
+    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 133, in dump_payload
+    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/tag.py", line 305, in dumps
+    return dumps(self.tag(value), separators=(",", ":"))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+[2020-09-18 22:17:01] - ERROR - Exception on /user/login [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+[2020-09-18 22:17:01] - ERROR - Request finalizing failed with an error while handling an error - app 1975@finalize_request
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 35, in login
+    return jsonify(result=session['user'])
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1970, in finalize_request
+    response = self.process_response(response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2269, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/sessions.py", line 378, in save_session
+    val = self.get_signing_serializer(app).dumps(dict(session))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 166, in dumps
+    payload = want_bytes(self.dump_payload(obj))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/url_safe.py", line 42, in dump_payload
+    json = super(URLSafeSerializerMixin, self).dump_payload(obj)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/itsdangerous/serializer.py", line 133, in dump_payload
+    return want_bytes(self.serializer.dumps(obj, **self.serializer_kwargs))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/tag.py", line 305, in dumps
+    return dumps(self.tag(value), separators=(",", ":"))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected

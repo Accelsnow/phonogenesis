@@ -4,11 +4,12 @@ import csv
 from typing import List, Tuple, Dict, Optional
 
 from script import Sound, Word
+from serializable import Serializable
 
 REP_LEN_LIM = 3
 
 
-class Particle:
+class Particle(Serializable):
     _features: List[str]
     _is_replicated: bool
 
@@ -22,7 +23,7 @@ class Particle:
         else:
             return 1
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def is_replicated(self) -> bool:

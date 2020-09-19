@@ -11,16 +11,18 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask.logging import default_handler
 import sys
+from serializable import Serializable
 
 # DATA initialization
 DEFAULT_DATA = get_default_data()
 TOTAL_RULE_COUNT = len(DEFAULT_DATA['rules'])
+serialize_limit = 0
 
 
 class PhonogenesisJSONEncoder(JSONEncoder):
     def default(self, o):
-        if callable(getattr(o, 'serialize', None)):
-            return o.serialize()
+        if isinstance(o, Serializable):
+            return o.serialize(recur=True)
 
         return super(PhonogenesisJSONEncoder, self).default(o)
 

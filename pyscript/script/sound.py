@@ -2,11 +2,13 @@ from __future__ import annotations
 
 from typing import List, Dict, Any, Optional
 
+from serializable import Serializable
+
 _SYMBOL = {}  # type: Dict[str, Sound]
 id_num = 1  # type: int
 
 
-class Sound:
+class Sound(Serializable):
     _num: int
     _features: List[str]
     _symbol: str
@@ -29,7 +31,7 @@ class Sound:
         if self._num >= 1 and symbol != '':
             _SYMBOL[symbol] = self
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return str(self)
 
     def get_features(self) -> List[str]:

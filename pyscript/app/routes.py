@@ -26,12 +26,10 @@ def login():
     if 'user' in session:
         return jsonify(result=session['user'])
 
-    print('performing login')
     username = request.json['username']
     password = request.json['password']
     user = User.query.filter_by(username=username).first()
     if user is None or not user.check_password(password):
-        print("failed login")
         return jsonify(result=None)
     session['user'] = user
     return jsonify(result=session['user'])

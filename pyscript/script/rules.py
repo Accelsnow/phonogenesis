@@ -7,6 +7,8 @@ from script import Word, Particle, Sound, Template
 
 import csv
 
+from serializable import Serializable
+
 EDGE_SYMBOL = '#'
 
 
@@ -57,7 +59,7 @@ def _get_d_instance_matcher(d_instance: Optional[List[Particle], None], phonemes
     return matcher, _get_max_len(matcher)
 
 
-class Rule:
+class Rule(Serializable):
     """
     A>B/C_D
     """
@@ -92,7 +94,7 @@ class Rule:
 
         self._CADT_indexes = {}
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return {
             "name": self._name,
             "family": self._family,
@@ -460,7 +462,7 @@ class PredefinedRule(Rule):
         return "<Predefined> {%s} %s" % (ab_str, parent_str[parent_str.index('/'):])
 
 
-class RuleFamily:
+class RuleFamily(Serializable):
     _rules: List[Rule]
     _name: str
 
@@ -481,7 +483,7 @@ class RuleFamily:
     def get_name(self) -> str:
         return self._name
 
-    def serialize(self):
+    def serialize(self, **kwargs):
         return self.get_name()
 
     def __str__(self) -> str:
