@@ -22,7 +22,7 @@ serialize_limit = 0
 class PhonogenesisJSONEncoder(JSONEncoder):
     def default(self, o):
         if isinstance(o, Serializable):
-            return o.serialize(recur=True)
+            return o.serialize(recur=0)
 
         return super(PhonogenesisJSONEncoder, self).default(o)
 

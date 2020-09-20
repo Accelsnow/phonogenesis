@@ -2,127 +2,125 @@ import {readCookie, sendMessage} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
+const SERVER_URL = "http://127.0.0.1:5000"
 
-export const getGroupUserList = (page, username) => {
-	axios.get(`http://127.0.0.1:9000/groups/objectify/${username}`).then(res => {
-		const groupToUser = res.data;
-		if (groupToUser === null || groupToUser === undefined) {
-			console.log("NO G2U RESPONDED");
-		} else {
-			page.setState({g2u: groupToUser});
-		}
-	}).catch(err => {
-		console.log(err);
-	});
+// TODO DELETE THIS
+export const getGroups = (page, username) => {
+    axios.get(`${SERVER_URL}/groups/objectify/${username}`).then(res => {
+        const groupToUser = res.data;
+        page.setState({g2u: groupToUser});
+    }).catch(err => {
+        console.log(err);
+    });
 
 };
 
 export const getGroupNames = (page) => {
-	axios.get("http://127.0.0.1:9000/groups").then(res => {
-		if (res.data) {
-			page.setState({groups: res.data.map(group => group.name)});
-		} else {
-			console.log("NO GROUP DATA");
-		}
-	}).catch(err => {
-		console.log(err);
-	})
+    axios.get(`${SERVER_URL}/groups`).then(res => {
+        if (res.data) {
+            page.setState({groups: res.data.map(group => group.name)});
+        } else {
+            console.log("NO GROUP DATA");
+        }
+    }).catch(err => {
+        console.log(err);
+    })
 };
 
-export const removeGroup = (page, name) => {
-	axios.delete(`http://127.0.0.1:9000/groups/${name}`).then(res => {
-		if (res.data.result) {
-			getGroupUserList(page, page.props.app.state.currentUser.username);
-			res.data.students.forEach(stu => {
-				sendMessage(page.props.app, stu,
-					`Professor ${page.props.app.state.currentUser.username} has disassembled group ${name}.`);
-			});
-		} else {
-			console.log("GROUP DELETION FAILED");
-		}
-	}).catch(err => {
-		console.log(err);
-	});
+export const removeGroup = (page, group) => {
+    axios.delete(`${SERVER_URL}/group/${group.id}`).then(res => {
+        if (res.data.success) {
+            res.data.students.forEach(stu => {
+                sendMessage(page.props.app, stu.username,
+                    `Professor ${page.props.app.state.currentUser.username} has disassembled group ${group.name}.`, true);
+            });
+            alert("Group disassembled.");
+            readCookie(page.props.app);
+        } else {
+            alert(res.data.message);
+        }
+    }).catch(err => {
+        console.log(err);
+    });
 };
 
 export const addGroup = (page, name) => {
-	const prof = page.props.app.state.currentUser;
-	let reg = /^[0-9a-zA-Z]+[-]?[0-9a-zA-Z]+$/;
+    const owner = page.props.app.state.currentUser;
+    let reg = /^[0-9a-zA-Z]+[-]?[0-9a-zA-Z]+$/;
 
-	if (!reg.test(name)) {
-		alert("Group must be alphanumeric strings with an optional - in the middle!");
-		page.setState({err: true});
-	} else {
-		axios.post("http://127.0.0.1:9000/groups/", {
-				name: name,
-				owner: prof.username,
-				students: []
-			}
-		).then(res => {
-			if (!res.data.result) {
-				alert("Group already exists!");
-				page.setState({err: true});
-			} else {
-				alert("Group added!");
-				getGroupUserList(page, res.data.result.username);
-				page.setState({err: false});
-			}
-		}).catch(error => {
-			console.log(error)
-		});
-	}
+    if (!reg.test(name)) {
+        alert("Group must be alphanumeric strings with an optional - in the middle!");
+        page.setState({err: true});
+    } else {
+        axios.post(`${SERVER_URL}/group`, {
+                name: name,
+                ownerid: owner.id
+            }
+        ).then(res => {
+            if (res.data.success) {
+                readCookie(page.props.app);
+                alert("Group created!");
+                page.setState({err: false});
+            } else {
+                alert(res.data.message);
+                page.setState({err: true});
+            }
+        }).catch(error => {
+            console.log(error)
+        });
+    }
 };
 
-export const addToGroup = (page, username, groupName) => {
-	axios.patch("http://127.0.0.1:9000/groups/add", {
-		studentName: username,
-		groupName: groupName
-	}).then(res => {
-		if (!res.data.result) {
-			alert("Student must be present and not enrolled in this group yet");
-		} else {
-			alert(`Student ${username} Added to group ${groupName}!`);
-			sendMessage(page.props.app, username, `You have been added to group ${groupName} by professor 
-			${page.props.app.state.currentUser.name}(${page.props.app.state.currentUser.username})`);
-		}
-		getGroupUserList(page, page.props.app.state.currentUser.username);
-	}).catch(err => {
-		console.log(err);
-	});
+export const addToGroup = (page, username, group) => {
+    axios.post(`${SERVER_URL}/group/user`, {
+        username: username,
+        groupid: group.id
+    }).then(res => {
+        if (res.data.success) {
+            readCookie(page.props.app);
+            alert(`Student ${username} Added to group ${group.name}!`);
+            sendMessage(page.props.app, username, `You have been added to group ${group.name} by professor 
+			${page.props.app.state.currentUser.name}(${page.props.app.state.currentUser.username})`, true);
+        } else {
+            alert(res.data.message);
+        }
+    }).catch(err => {
+        console.log(err);
+    });
 };
 
-export const removeFromGroup = (page, username, groupName) => {
-	axios.patch("http://127.0.0.1:9000/groups/remove", {
-		studentName: username,
-		groupName: groupName
-	}).then(res => {
-		if (!res.data.result) {
-			alert("Student must be present and enrolled in this group yet");
-		} else {
-			if (page.props.app.state.currentUser.type === "student") {
-				alert(`You have dropped from group ${groupName}!`);
-				sendMessage(page.props.app, page.state.g2u[groupName][0].username,
-					`Student ${username} has dropped from group ${groupName}!`);
-			} else {
-				alert(`Student ${username} Removed from group ${groupName}!`);
-				sendMessage(page.props.app, username, `You have been removed from group ${groupName} 
-				by professor ${page.props.app.state.currentUser.name}(${page.props.app.state.currentUser.username})`);
-			}
-		}
-		getGroupUserList(page, page.props.app.state.currentUser.username);
-	}).catch(err => {
-		console.log(err);
-	});
+export const removeFromGroup = (page, user, group) => {
+    axios.patch(`${SERVER_URL}/group/user`, {
+        userid: user.id,
+        groupid: group.id
+    }).then(res => {
+        if (res.data.success) {
+            if (page.props.app.state.currentUser.type === "student") {
+                alert(`You have dropped from group ${group.name}!`);
+                sendMessage(page.props.app, group.owner.username,
+                    `Student ${user.username} has dropped from group ${group.name}!`, true);
+            } else {
+                alert(`Student ${user.username} is removed from group ${group.name}!`);
+                sendMessage(page.props.app, user.username, `You have been removed from group ${group.groupName} 
+				by professor ${page.props.app.state.currentUser.name}(${page.props.app.state.currentUser.username})`, true);
+            }
+        } else {
+            alert(res.data.message);
+        }
+    }).catch(err => {
+        console.log(err);
+    });
 };
 
 export const broadcastMessage = (app, groupName, message) => {
-	axios.post("http://127.0.0.1:9000/groups/message", {groupName: groupName, message: message}).then(res => {
-		if (!res.data.result) {
-			console.log("FAILED TO BROADCAST MESSAGE");
-		} else {
-			readCookie(app);
-		}
-	}).catch(err => {
-		console.log(err);
-	});
+    axios.post(`${SERVER_URL}/groups/message`, {groupName: groupName, message: message}).then(res => {
+        if (!res.data.result) {
+            console.log("FAILED TO BROADCAST MESSAGE");
+        } else {
+            alert("Message sent!");
+            readCookie(app);
+        }
+    }).catch(err => {
+        console.log(err);
+    });
 };

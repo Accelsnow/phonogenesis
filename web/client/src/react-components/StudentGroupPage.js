@@ -12,24 +12,19 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
-import {getGroupUserList, removeFromGroup} from "../actions/group";
+import {removeFromGroup} from "../actions/group";
 import Button from "@material-ui/core/Button";
 
 class StudentGroupPage extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			g2u: null
-		};
-		getGroupUserList(this, this.props.app.state.currentUser.username);
-	}
 
 	onDrop = (group) => {
-		removeFromGroup(this, this.props.app.state.currentUser.username, group);
+		removeFromGroup(this, this.props.app.state.currentUser, group);
 	};
 
 	render() {
-		if (this.state.g2u === null) {
+		const groups = this.props.app.state.currentUser.joined_groups;
+
+		if (groups === null || groups === []) {
 			return (<div/>);
 		}
 
@@ -44,12 +39,12 @@ class StudentGroupPage extends React.Component {
 					<Grid container justify={"flex-start"} alignItems={"center"} spacing={3}
 					      id={"group-table-containers"}>
 						{
-							Object.keys(this.state.g2u).sort().map(group => (
-								<Grid item key={group}>
+							groups.map(group => (
+								<Grid item key={group.id}>
 									<Grid container direction="row" justify="flex-start" alignItems="center"
 									      spacing={2}>
 										<Grid item>
-											<h2>{group}</h2>
+											<h2>{group.name}</h2>
 										</Grid>
 										<Grid item>
 											<Button variant="contained" size="small"
@@ -66,7 +61,7 @@ class StudentGroupPage extends React.Component {
 											</TableRow>
 										</TableHead>
 										<TableBody>{
-											this.state.g2u[group].map((userObj, index) => {
+											group.users.map((userObj, index) => {
 												if (index === 0) {
 													return <TableRow key={userObj.username}>
 														<TableCell><span

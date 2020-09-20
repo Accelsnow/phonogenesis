@@ -1,9 +1,9 @@
-const axios = require('axios').create({ withCredentials: true});
+const axios = require('axios');
 axios.defaults.withCredentials = true;
+const SERVER_URL = "http://127.0.0.1:5000"
 
 export const readCookie = (app) => {
-	axios.get("http://127.0.0.1:5000/user/check-session").then(function (res) {
-		console.log(res);
+	axios.get(`${SERVER_URL}/user/check-session`).then(function (res) {
 		if (res.data.currentUser) {
 			app.setState({currentUser: res.data.currentUser});
 		} else {
@@ -15,7 +15,7 @@ export const readCookie = (app) => {
 };
 
 export const login = (page, username, password) => {
-	axios.post("http://127.0.0.1:5000/user/login", {
+	axios.post(`${SERVER_URL}/user/login`, {
 		username: username,
 		password: password
 	}).then(function (res) {
@@ -32,7 +32,7 @@ export const login = (page, username, password) => {
 };
 
 export const logout = () => {
-	const url = "http://127.0.0.1:9000/users/logout";
+	const url = `${SERVER_URL}/user/logout`;
 	axios.get(url,).then(res => {
 
 	}).catch(error => {
@@ -41,14 +41,20 @@ export const logout = () => {
 };
 
 export const getUsers = (page) => {
-	axios.get("http://127.0.0.1:9000/users").then(res => {
-		page.setState({users: res.data.users});
+	axios.get(`${SERVER_URL}/users`).then(res => {
+		page.setState({users: res.data});
+	}).catch(err => {
+		console.log(err)
 	})
 };
 
 export const removeUser = (page, username) => {
-	axios.delete(`http://127.0.0.1:9000/users/${username}`).then(res => {
-		getUsers(page);
+	axios.delete(`${SERVER_URL}/user/${username}`).then(res => {
+		if (res.data.success){
+			getUsers(page);
+		} else {
+			alert(res.data.message);
+		}
 	}).catch(err => {
 		console.log(err);
 	});
@@ -64,47 +70,56 @@ export const addUser = (page) => {
 		return;
 	}
 
-	axios.post("http://127.0.0.1:9000/users/", {
+	axios.post(`${SERVER_URL}/user`, {
 			name: page.state.name,
 			type: page.state.type,
 			email: page.state.email,
 			username: page.state.username,
-			password: page.state.password,
-			groups: [],
-			quizzes: []
+			password: page.state.password
 		}
 	).then(res => {
-		if (res.data.result) {
+		if (res.data.success) {
 			getUsers(page);
 			page.setState({currEdit: -1, usernameError: ""});
 			alert(`User ${page.state.username} successfully created.`);
 		} else {
-			alert("Failed to add user (username must be unique)!");
+			alert(res.data.message);
 			page.setState({usernameError: "must be unique"});
 		}
-	}).catch(error => {
-		console.log(error)
+	}).catch(err => {
+		if (err.status === 401){
+			alert("You need admin privilege to create a user of this type!")
+		} else {
+			console.log(err)
+		}
 	});
 };
 
 export const deleteMessage = (app, username, msgid) => {
-	axios.delete(`http://127.0.0.1:9000/users/message/${username}/${msgid}`).then(res => {
-		if (!res.data.user) {
-			console.log("FAILED TO DELETE MESSAGE");
-		} else {
+	axios.delete(`${SERVER_URL}/message/${msgid}`).then(res => {
+		if (res.data.success) {
 			readCookie(app);
+		} else {
+			alert(res.data.message)
 		}
 	}).catch(err => {
-		console.log(err);
+		if (err.status === 401){
+			alert("You do not have permission for deleting this message.");
+		} else {
+			console.log(err);
+		}
 	})
 };
 
-export const sendMessage = (app, username, message) => {
-	axios.post("http://127.0.0.1:9000/users/message", {message: message, username: username}).then(res => {
-		if (!res.data.result) {
-			console.log("FAILED TO SEND MESSAGE TO USER");
-		} else {
+export const sendMessage = (app, username, message, silent) => {
+	axios.post(`${SERVER_URL}/message/${username}`, {message: message}).then(res => {
+		if (res.data.success) {
 			readCookie(app);
+			if (!silent){
+				alert("Message sent!");
+			}
+		} else {
+			alert(res.data.message)
 		}
 	}).catch(err => {
 		console.log(err);
@@ -115,7 +130,7 @@ export const sendMessage = (app, username, message) => {
 export const editUser = (page, username, info) => {
 	axios.patch(`http://127.0.0.1:9000/users/${username}`, info).then(res => {
 		getUsers(page);
-		sendMessage(page.props.app, username, "Your account information has been edited by an admin.");
+		sendMessage(page.props.app, username, "Your account information has been edited by an admin.", true);
 	}).catch(err => {
 		console.log(err);
 	});

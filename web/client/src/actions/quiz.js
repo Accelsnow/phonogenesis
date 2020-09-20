@@ -3,9 +3,10 @@ import {readCookie} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
+const SERVER_URL = "http://127.0.0.1:5000"
 
 export const registerPastResult = (pastResult, username, quizName, app) => {
-	axios.post("http://127.0.0.1:9000/quiz/register", {
+	axios.post(`${SERVER_URL}/quiz/register`, {
 		username: username,
 		quizName: quizName,
 		pastResult: pastResult
@@ -17,7 +18,7 @@ export const registerPastResult = (pastResult, username, quizName, app) => {
 };
 
 export const getUserQuizzes = (page, username) => {
-	axios.get(`http://127.0.0.1:9000/quiz/user/${username}`).then(res => {
+	axios.get(`${SERVER_URL}/quiz/user/${username}`).then(res => {
 		page.setState({quizzes: res.data});
 	}).catch(err => {
 		console.log(err);
@@ -25,7 +26,7 @@ export const getUserQuizzes = (page, username) => {
 };
 
 export const getDistinctRuleList = (page) => {
-	axios.get("http://127.0.0.1:9000/quiz/rule").then(res => {
+	axios.get(`${SERVER_URL}/quiz/rule`).then(res => {
 		const ruleTxtList = [];
 		const ruleList = [];
 		res.data.forEach(ruleObj => {
@@ -41,7 +42,7 @@ export const getDistinctRuleList = (page) => {
 };
 
 export const distributeQuiz = (page, quizObj) => {
-	axios.post("http://127.0.0.1:9000/quiz/makeQuiz", {
+	axios.post(`${SERVER_URL}/quiz/makeQuiz`, {
 		timeLim: quizObj.timeLim,
 		name: quizObj.name,
 		owner: quizObj.owner,
@@ -64,7 +65,7 @@ export const distributeQuiz = (page, quizObj) => {
 };
 
 export const getStudentQuizObj = (page, groupName, quizName) => {
-	axios.get(`http://127.0.0.1:9000/groups//get/${groupName}`).then(res => {
+	axios.get(`${SERVER_URL}/groups//get/${groupName}`).then(res => {
 		const studentQuizObjs = [];
 		const students = res.data;
 		students.forEach(student => {

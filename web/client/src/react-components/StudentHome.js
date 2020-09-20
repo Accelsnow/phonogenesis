@@ -15,8 +15,7 @@ class StudentHome extends React.Component {
 	render() {
 		const student = this.props.app.state.currentUser;
 		const joined_groups = [];
-		console.log(student)
-		student.joined_groups().forEach(g => joined_groups.push(g.group));
+		student.joined_groups.forEach(g => joined_groups.push(g.name));
 
 		if (!student) {
 			return <div/>

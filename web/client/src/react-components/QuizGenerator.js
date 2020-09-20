@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import {getGroupUserList} from "../actions/group";
+import {getGroups} from "../actions/group";
 import {distributeQuiz, getDistinctRuleList} from "../actions/quiz";
 import "./QuizGenerator.css";
 import "./mainstyle.css"
@@ -28,7 +28,7 @@ class QuizGenerator extends React.Component {
 			rules: null,
 			selectedGroup: ""
 		};
-		getGroupUserList(this, this.props.app.state.currentUser.username);
+		getGroups(this, this.props.app.state.currentUser.username);
 		getDistinctRuleList(this);
 	};
 

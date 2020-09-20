@@ -34,6 +34,8 @@ class ProfessorHome extends React.Component {
 
 	render() {
 		const prof = this.props.app.state.currentUser;
+		const owned_groups = [];
+		prof.owned_groups.forEach(g => owned_groups.push(g.name));
 
 		return (
 			<div className="render-container">
@@ -46,7 +48,7 @@ class ProfessorHome extends React.Component {
 					<p><span className="bold">Name: {prof.name ? prof.name : "Anonymous"}</span></p>
 					<p><span className="bold">Email: {prof.email ? prof.email : "Undefined"}</span></p>
 					<p><span onClick={() => this.props.history.push("/professor/groups")} className="bold"
-					         id="link-button">Instructing: {prof.groups.length > 0 ? prof.groups.join(", ") : "None"}</span>
+					         id="link-button">Instructing: {prof.owned_groups.length > 0 ? owned_groups.join(", ") : "None"}</span>
 					</p>
 					<br/>
 					<MessagePanel app={this.props.app}/>

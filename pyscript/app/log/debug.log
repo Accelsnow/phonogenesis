@@ -1572,3 +1572,515 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
     return _iterencode(o, 0)
 ValueError: Circular reference detected
+[2020-09-19 10:12:01] - ERROR - Exception on /user/logout [GET] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[2020-09-19 10:14:57] - ERROR - Exception on /user/logout [GET] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 41, in logout
+    return make_response(200)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/helpers.py", line 223, in make_response
+    return current_app.make_response(args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2127, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a int.
+[2020-09-19 13:21:26] - ERROR - Exception on /message/1 [DELETE] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 135, in delete_message
+    if session['user'].type != 'admin' and target_message.from_user_id != session[
+AttributeError: 'dict' object has no attribute 'type'
+[2020-09-19 13:22:47] - ERROR - Exception on /message/1 [DELETE] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 135, in delete_message
+    if session['user']['type'] != 'admin' and target_message.from_user_id != session[
+AttributeError: 'dict' object has no attribute 'id'
+[2020-09-19 13:37:04] - ERROR - Exception on /message/prof [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 157, in send_message
+    message = Message(content=request.json['message'], from_user_id=session['user'].id, to_user_id=target_user.id)
+AttributeError: 'dict' object has no attribute 'id'
+[2020-09-19 20:33:57] - ERROR - Exception on /group/2 [DELETE] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 223, in delete_group
+    previous_members = target_group.users
+AttributeError: 'Group' object has no attribute 'users'
+[2020-09-19 20:54:19] - ERROR - Exception on /group/user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 198, in add_to_group
+    group_id = int(request.json['groupid'])
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'dict'
+[2020-09-19 20:56:03] - ERROR - Exception on /group/user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 203, in add_to_group
+    if not target_user or len(target_user) == 0:
+TypeError: object of type 'BaseQuery' has no len()
+[2020-09-19 21:35:10] - ERROR - Exception on /group/user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 208, in add_to_group
+    db.session.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 212, in add_to_group
+    message="Enrolment failed! (user {} already in group?)".format(target_user.username))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 287, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 718, in get
+    value = state._load_expired(state, passive)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 652, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 1008, in load_scalar_attributes
+    result = load_on_ident(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 200, in load_on_ident
+    return load_on_pk_identity(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3463, in one
+    ret = self.one_or_none()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3432, in one_or_none
+    ret = list(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3529, in _execute_and_instances
+    conn = self._get_bind_args(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3544, in _get_bind_args
+    return fn(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3523, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1138, in connection
+    return self._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1146, in _connection_for_bind
+    return self.transaction._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 409, in _connection_for_bind
+    self._assert_active()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 289, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj) (Background on this error at: http://sqlalche.me/e/13/7s2a)
+[2020-09-19 21:37:14] - ERROR - Exception on /group/user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 208, in add_to_group
+    db.session.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 212, in add_to_group
+    message="Enrolment failed! (user {} already in group?)".format(target_user.username))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 287, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 718, in get
+    value = state._load_expired(state, passive)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 652, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 1008, in load_scalar_attributes
+    result = load_on_ident(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 200, in load_on_ident
+    return load_on_pk_identity(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3463, in one
+    ret = self.one_or_none()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3432, in one_or_none
+    ret = list(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3529, in _execute_and_instances
+    conn = self._get_bind_args(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3544, in _get_bind_args
+    return fn(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3523, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1138, in connection
+    return self._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1146, in _connection_for_bind
+    return self.transaction._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 409, in _connection_for_bind
+    self._assert_active()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 289, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj) (Background on this error at: http://sqlalche.me/e/13/7s2a)
+[2020-09-19 21:41:05] - ERROR - Exception on /group/user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 208, in add_to_group
+    db.session.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 212, in add_to_group
+    message="Enrolment failed! (user {} already in group?)".format(target_user.username))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 287, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 718, in get
+    value = state._load_expired(state, passive)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/state.py", line 652, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 1008, in load_scalar_attributes
+    result = load_on_ident(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 200, in load_on_ident
+    return load_on_pk_identity(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3463, in one
+    ret = self.one_or_none()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3432, in one_or_none
+    ret = list(self)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3529, in _execute_and_instances
+    conn = self._get_bind_args(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3544, in _get_bind_args
+    return fn(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3523, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1138, in connection
+    return self._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1146, in _connection_for_bind
+    return self.transaction._connection_for_bind(
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 409, in _connection_for_bind
+    self._assert_active()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 289, in _assert_active
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.IntegrityError) UNIQUE constraint failed: usergroup.group_id, usergroup.user_id
+[SQL: INSERT INTO usergroup (group_id, user_id) VALUES (?, ?)]
+[parameters: (2, 1)]
+(Background on this error at: http://sqlalche.me/e/13/gkpj) (Background on this error at: http://sqlalche.me/e/13/7s2a)
+[2020-09-19 22:03:20] - ERROR - Exception on /group/user [DELETE] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 171, in remove_from_group
+    if 'userid' not in request.json or 'groupid' not in request.json:
+TypeError: argument of type 'NoneType' is not iterable

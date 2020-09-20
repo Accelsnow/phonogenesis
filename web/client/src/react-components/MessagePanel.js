@@ -22,8 +22,8 @@ class MessagePanel extends React.Component {
 		super(props);
 
 		let defaultGroup;
-		if (this.props.app.state.currentUser.groups.length > 0) {
-			defaultGroup = this.props.app.state.currentUser.groups[0];
+		if (this.props.app.state.currentUser.joined_groups.length > 0) {
+			defaultGroup = this.props.app.state.currentUser.joined_groups.name;
 		} else {
 			defaultGroup = "";
 		}
@@ -51,7 +51,7 @@ class MessagePanel extends React.Component {
 	};
 
 	onDeleteMessage = (msg) => {
-		deleteMessage(this.props.app, this.props.app.state.currentUser.username, msg._id);
+		deleteMessage(this.props.app, this.props.app.state.currentUser.username, msg.id);
 	};
 
 	onSend = (event) => {
@@ -71,8 +71,7 @@ class MessagePanel extends React.Component {
 					alert("Must select target user!");
 					return;
 				}
-				sendMessage(this.props.app, this.state.targetUser, message);
-				alert("Message Sent");
+				sendMessage(this.props.app, this.state.targetUser, message, false);
 				break;
 
 			case "p2g":
@@ -81,7 +80,6 @@ class MessagePanel extends React.Component {
 					return;
 				}
 				broadcastMessage(this.props.app, this.state.targetGroup, message);
-				alert("Message Sent");
 				break;
 
 			default:
@@ -154,16 +152,16 @@ class MessagePanel extends React.Component {
 				<Divider/>
 				<br/>
 				{
-					this.props.app.state.currentUser.messages.length === 0 ? (
+					this.props.app.state.currentUser.recv_messages.length === 0 ? (
 						<h3>You have no incoming message.</h3>
 					) : (
 						<div>
 							<GridList cols={3} cellHeight="auto">
-								{this.props.app.state.currentUser.messages.map((msg, index) => (
-									<GridListTile key={index} className={"message-tile"}>
+								{this.props.app.state.currentUser.recv_messages.map(msg => (
+									<GridListTile key={msg.id} className={"message-tile"}>
 										<Card variant="outlined">
 											<CardContent>
-												<p className={"message-timestamp-text"}>{msg.timeStamp}</p>
+												<p className={"message-timestamp-text"}>{msg.time_stamp}</p>
 												<p className={"message-content-text"}>{msg.content}</p>
 											</CardContent>
 
