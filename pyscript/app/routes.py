@@ -11,6 +11,8 @@ LOGGER = logging.getLogger("app.logger")
 show_ur = False
 show_full_phonemes = False
 ACCOUNT_TYPES = ['student', 'professor', 'admin']
+registered_ip = {}
+SAME_IP_REGISTER_LIMIT = 1
 
 
 @socketio.on('disconnect')
@@ -79,8 +81,17 @@ def delete_user(username):
 
 @app.route('/user', methods=['POST'])
 def create_user():
-    if not _validate_session():
-        abort(401)
+    is_logged_in = _validate_session()
+    curr_ip = str(request.remote_addr)
+    if not is_logged_in:
+        if curr_ip in registered_ip:
+            if registered_ip[curr_ip] >= SAME_IP_REGISTER_LIMIT:
+                return jsonify(success=False,
+                               message='You have created more than {} accounts from your current IP. Please contact '
+                                       'an admin to register the account for you.'.format(SAME_IP_REGISTER_LIMIT))
+        else:
+            registered_ip[curr_ip] = 0
+
     data = request.json
     if 'name' not in data or 'type' not in data or 'email' not in data or 'username' not in data or 'password' not in data:
         abort(400)
@@ -93,8 +104,10 @@ def create_user():
 
     if type_ not in ACCOUNT_TYPES:
         abort(400)
-    if type_ != 'student' and session['user']['type'] != 'admin':
-        abort(401)
+    if type_ != 'student' and (not is_logged_in or session['user']['type'] != 'admin'):
+        return jsonify(success=False,
+                       message='You do not have permission to create an account of this type. Please contact admin to '
+                               'create an account for you.')
 
     new_user = User(name=name, type=type_, email=email, username=username)
     new_user.set_password(password)
@@ -102,6 +115,7 @@ def create_user():
     try:
         db.session.add(new_user)
         db.session.commit()
+        registered_ip[curr_ip] += 1
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message='User creation failed(username unique? non-empty password?)')
@@ -168,7 +182,6 @@ def get_groups():
 def remove_from_group():
     if not _validate_session():
         abort(401)
-    print(request.json)
     if 'userid' not in request.json or 'groupid' not in request.json:
         abort(400)
     if request.json['userid'] != session['user']['id'] and session['user']['type'] == 'student':
@@ -247,3 +260,33 @@ def delete_group(groupid):
     db.session.delete(target_group)
     db.session.commit()
     return jsonify(success=True, students=previous_members)
+
+
+@app.route('/user', methods=['PATCH'])
+def edit_user():
+    if not _validate_session() or session['user']['type'] != 'admin':
+        abort(401)
+    data = request.json
+    if 'username' not in data or 'password' not in data or 'email' not in data or 'name' not in data:
+        abort(400)
+    username = data['username']
+    name = data['name']
+    email = data['email']
+    password = data['password']
+
+    target_user = User.query.filter_by(username=username).first()
+
+    if not target_user:
+        return jsonify(success=False, message="User {} does not exist!".format(username))
+
+    target_user.name = name
+    target_user.email = email
+
+    if len(password) > 0:
+        target_user.set_password(password)
+
+    try:
+        db.session.commit()
+        return jsonify(success=True)
+    except IntegrityError:
+        return jsonify(success=False, message="Update failed!")

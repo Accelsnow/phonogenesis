@@ -47,15 +47,13 @@ class AdminPage extends React.Component {
 
 			const info = {
 				name: newName,
-				type: this.state.users[i].type,
 				username: currUsername,
 				password: newPassword,
-				email: newEmail,
-				groups: this.state.users[i].groups,
-				quizzes: this.state.users[i].quizzes
+				email: newEmail
 			};
 			editUser(this, this.state.users[i].username, info);
 			this.setState({currEdit: -1});
+			document.getElementById("edit-password".concat(i.toString())).value = ""
 		} else {
 			this.setState({currEdit: i});
 		}
@@ -168,8 +166,8 @@ class AdminPage extends React.Component {
 												<TableCell align="center"><TextField variant="outlined" required
 												                                     disabled={this.state.currEdit !== i}
 												                                     align="center"
-												                                     defaultValue={user.password}
-												                                     id={"edit-password".concat(i.toString())}>{user.password}</TextField></TableCell>
+												                                     defaultValue=""
+												                                     id={"edit-password".concat(i.toString())}>{""}</TextField></TableCell>
 
 												<TableCell align="center">
 													{

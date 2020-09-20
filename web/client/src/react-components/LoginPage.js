@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Grid from '@material-ui/core/Grid';
-import "./LoginSignup.css"
+import "./Signup.css"
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -34,7 +34,7 @@ class Login extends React.Component {
 		return (
 			<div id="outer-container">
 				<div id="grid-container">
-					<Grid container direction="column" justify="center" alignItems="flex-end" spacing={2} id="input-grid" className="login-grid">
+					<Grid container direction="column" justify="center" alignItems="center" spacing={2} id="input-grid" className="login-grid">
 						<Grid item>
 							<Grid className="grid-item" container spacing={1} justify="center" alignItems="flex-end">
 								<Grid item>

@@ -6,7 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import {addUser} from '../actions/user'
 import {withRouter} from "react-router-dom"
-import "./LoginSignup.css";
+import "./Signup.css";
 import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 
@@ -42,10 +42,8 @@ class SignUp extends React.Component {
 					<Grid container justify="center" alignItems="center" direction="column" spacing={2}
 					      id="input-grid">
 						<Grid item>
-							<TextField id="username" className="grid-item" label="Username"
-							           error={this.state.usernameError !== ""} required
-							           helperText={this.state.usernameError} variant="outlined"
-							           onChange={this.handleTextFieldChange}/>
+							<TextField required id="username" className="grid-item" label="Username"
+							           variant="outlined" onChange={this.handleTextFieldChange}/>
 						</Grid>
 						<Grid item>
 							<TextField required id="password" className="grid-item" label="Password" variant="outlined"

@@ -1,6 +1,5 @@
 #outer-container {
     display: table;
-    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
@@ -14,9 +13,10 @@
 }
 
 #input-grid {
-    margin-top: -150px;
+    margin-top: 4%;
     width: 300px;
     margin-left: 42%;
+    margin-bottom: 8%;
     border: 2px solid dimgrey;
     border-radius: 25px;
     padding: 20px;
