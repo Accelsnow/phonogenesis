@@ -5,13 +5,17 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 const SERVER_URL = "http://127.0.0.1:5000"
 
-export const registerPastResult = (pastResult, username, quizName, app) => {
+export const registerResult = (result, user, quiz, page) => {
 	axios.post(`${SERVER_URL}/quiz/register`, {
-		username: username,
-		quizName: quizName,
-		pastResult: pastResult
+		userid: user.id,
+		quizid: quiz.id,
+		result: result
 	}).then(res => {
-		app.setState({currentUser: res.data});
+		if (res.data.success){
+			readCookie(page.props.app);
+		} else {
+			alert(res.data.message);
+		}
 	}).catch(err => {
 		console.log(err);
 	});

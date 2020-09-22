@@ -11,7 +11,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-//  instTxt, rule, isReadOnly, showAnswer, genMoreLimit, isQuiz, canShowUR, canShowPhoneme
 export default class QuestionBlock extends React.Component {
 	constructor(props) {
 		super(props);
@@ -19,7 +18,7 @@ export default class QuestionBlock extends React.Component {
 			showAns: props.showAnswer || false,
 			showUR: false,
 			showPhoneme: false,
-			qCount: props.qCount,
+			qCount: props.question.size,
 			genMoreCount: 0
 		};
 	}
@@ -42,10 +41,11 @@ export default class QuestionBlock extends React.Component {
 	};
 
 	onMoreCADT = (e) => {
+		const question = this.props.question;
 		const newGenMoreCt = this.state.genMoreCount + 1;
-		const capacity = this.props.rule.UR.length;
+		const capacity = question.UR.length;
 
-		if (newGenMoreCt > this.props.genMoreLimit || capacity - this.state.qCount - 5 < 0) {
+		if (newGenMoreCt > question.maxCADT || capacity - this.state.qCount - 5 < 0) {
 			alert("You've reach maximum allowance to generate more instances for this rule!");
 		} else {
 			this.setState({genMoreCount: newGenMoreCt});
@@ -56,22 +56,29 @@ export default class QuestionBlock extends React.Component {
 	};
 
 	render() {
-		if (!this.props.rule) {
+		if (!this.props.question) {
 			return (<br/>);
 		}
-
+		const showAns = this.props.showAns || this.state.showAns;
+		const question = this.props.question;
+		const readOnly = this.props.isReadOnly;
 		const showUR = this.state.showUR;
-		const showAns = this.props.showAnswer || this.state.showAns;
 		const showPhoneme = this.state.showPhoneme;
-		const rule = this.props.rule;
-		const endIndex = Math.min(this.state.qCount, rule.UR.length);
-		const templates = rule.templates;
-		const sp1 = endIndex / 3;
-		const sp2 = endIndex / 3 * 2;
-		const urs = [rule.UR.slice(0, sp1), rule.UR.slice(sp1, sp2), rule.UR.slice(sp2, endIndex)];
-		const srs = [rule.SR.slice(0, sp1), rule.SR.slice(sp1, sp2), rule.SR.slice(sp2, endIndex)];
-		const gls = [rule.gloss.slice(0, sp1), rule.gloss.slice(sp1, sp2),
-			rule.gloss.slice(sp2, rule.gloss.length)];
+
+		const size = Math.min(this.state.qCount, question.UR.length);
+		const templates = question.templates;
+		const sp1 = size / 3;
+		const sp2 = size / 3 * 2;
+		const urs = [question.UR.slice(0, sp1), question.UR.slice(sp1, sp2), question.UR.slice(sp2, size)];
+		const srs = [question.SR.slice(0, sp1), question.SR.slice(sp1, sp2), question.SR.slice(sp2, size)];
+		const gls = [question.gloss.slice(0, sp1), question.gloss.slice(sp1, sp2),
+			question.gloss.slice(sp2, question.gloss.length)];
+		const ruleTxt = question.ruleTxt;
+		const phoneme = question.phoneme;
+		const poi = question.poi;
+		const ruleType = question.ruleType;
+		const canPhoneme = question.canPhoneme;
+		const canUR = question.canUR;
 
 		return (
 			<div className="question-block-container">
@@ -90,12 +97,12 @@ export default class QuestionBlock extends React.Component {
 								</ul>
 							</Grid>
 
-							{showAns ? (<Grid item>Rule: {rule.ruleTxt}</Grid>) : null}
-							{showPhoneme ? (<Grid item>Phonemes: {rule.phoneme}</Grid>) : null}
-							<Grid item>Phones of Interest: {rule.poi}</Grid>
-							<Grid item>Rule Type: {rule.ruleType} &nbsp;&nbsp; Count: {this.state.qCount}</Grid>
+							{showAns ? (<Grid item>Rule: {ruleTxt}</Grid>) : null}
+							{showPhoneme ? (<Grid item>Phonemes: {phoneme}</Grid>) : null}
+							<Grid item>Phones of Interest: {poi}</Grid>
+							<Grid item>Rule Type: {ruleType} &nbsp;&nbsp; Count: {this.state.qCount}</Grid>
 
-							{!this.props.isReadOnly ? (<Grid item id="helper-button-panel">
+							{!readOnly ? (<Grid item id="helper-button-panel">
 								<Grid container direction={"row"} justify="flex-start" alignItems={"center"}
 								      spacing={7}>
 									<Grid item>
@@ -105,10 +112,10 @@ export default class QuestionBlock extends React.Component {
 											<Grid item>
 												<ButtonGroup variant="outlined" color="secondary"
 												             aria-label={"contained primary hint button group"}>
-													{this.props.canShowPhoneme ? (
+													{canPhoneme ? (
 														<Button onClick={this.onGetPhonemes}>Get Phonemes</Button>
 													) : null}
-													{this.props.canShowUR ? (
+													{canUR ? (
 														<Button onClick={this.onGetUR}>Get UR</Button>
 													) : null}
 												</ButtonGroup>
