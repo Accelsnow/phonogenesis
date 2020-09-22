@@ -115,7 +115,8 @@ def create_user():
     try:
         db.session.add(new_user)
         db.session.commit()
-        registered_ip[curr_ip] += 1
+        if not is_logged_in:
+            registered_ip[curr_ip] += 1
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message='User creation failed(username unique? non-empty password?)')
@@ -290,3 +291,36 @@ def edit_user():
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message="Update failed!")
+
+
+@app.route('/group/message', methods=['POST'])
+def broadcast_group_message():
+    if not _validate_session():
+        abort(401)
+
+    if 'groupName' not in request.json or 'message' not in request.json:
+        abort(400)
+
+    group_name = request.json['groupName']
+    message = request.json['message']
+
+    target_group = Group.query.filter_by(name=group_name).first()
+
+    if not target_group:
+        return jsonify(success=False, message="Group {} does not exist.".format(group_name))
+
+    messages = []
+    curr_userid = session['user']['id']
+    if curr_userid != target_group.owner_id:
+        messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=target_group.owner_id))
+    for user in target_group.users():
+        if user.id != curr_userid:
+            messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=user.id))
+
+    try:
+        for msg in messages:
+            db.session.add(msg)
+        db.session.commit()
+        return jsonify(success=True)
+    except IntegrityError:
+        return jsonify(success=False, message="Broadcast failed!")
