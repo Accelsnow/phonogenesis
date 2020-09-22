@@ -1,7 +1,6 @@
 from sqlalchemy import UniqueConstraint
 
-from app import db
-from datetime import datetime
+from app import db, get_formatted_timestr
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from serializable import Serializable
@@ -13,7 +12,7 @@ class Message(db.Model, Serializable):
     __tablename__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(256))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.String, index=True, default=get_formatted_timestr())
     from_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     to_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -68,6 +67,7 @@ class Quiz(db.Model, Serializable):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    time_limit_seconds = db.Column(db.Integer, nullable=False)
 
     owner = db.relationship("User", back_populates='owned_quizzes', foreign_keys=[owner_id])
     attempts = db.relationship("Attempt", back_populates='quiz')
@@ -75,7 +75,8 @@ class Quiz(db.Model, Serializable):
     targets_bond = db.relationship("UserQuiz", back_populates="quiz")
 
     def serialize(self, **kwargs):
-        serialized = {'id': self.id, 'name': self.name, 'owner_id': self.owner_id}
+        serialized = {'id': self.id, 'name': self.name, 'owner_id': self.owner_id,
+                      'time_limit_seconds': self.time_limit_seconds}
         if 'recur' in kwargs and kwargs['recur'] < SERIALIZE_RECUR_LIMIT:
             next_recur = kwargs['recur'] + 1
             serialized['owner'] = self.owner.serialize(recur=next_recur)
@@ -146,9 +147,9 @@ class QuizQuestion(db.Model, Serializable):
 class Attempt(db.Model, Serializable):
     __tablename__ = 'tablename'
     id = db.Column(db.Integer, primary_key=True)
-    score = db.Column(db.Integer, nullable=False)
+    score = db.Column(db.PickleType, nullable=False)
     answers = db.Column(db.PickleType, nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow())
+    timestamp = db.Column(db.String, index=True, default=get_formatted_timestr())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
 
@@ -188,7 +189,7 @@ class Question(db.Model, Serializable):
     size = db.Column(db.Integer, default=20)
     canUR = db.Column(db.Boolean, default=False)
     canPhoneme = db.Column(db.Boolean, default=False)
-    maxCADT = db.Column(db.Integer, default=5)
+    maxCADT = db.Column(db.Integer, default=0)
 
     quizzes_bond = db.relationship("QuizQuestion", back_populates='question')
 

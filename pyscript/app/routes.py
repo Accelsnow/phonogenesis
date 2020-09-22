@@ -1,7 +1,7 @@
 from flask import jsonify, request, json, session, abort, make_response
 from app import app, DEFAULT_DATA, socketio, db
 # from flask_login import current_user, login_user
-from app.models import User, Message, Group, UserGroup
+from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
 from sqlalchemy.exc import IntegrityError, InvalidRequestError
 import logging
@@ -324,3 +324,29 @@ def broadcast_group_message():
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message="Broadcast failed!")
+
+
+@app.route('/quiz/register', methods=['POST'])
+def register_quiz_result():
+    if not _validate_session():
+        abort(401)
+
+    data = request.json
+    if 'userid' not in data or 'quizid' not in data or 'result' not in data or 'score' not in data[
+        'result'] or 'answers' not in data['result']:
+        abort(400)
+    try:
+        user_id = int(data['userid'])
+        quiz_id = int(data['quizid'])
+    except ValueError:
+        abort(400)
+        return
+
+    attempt = Attempt(score=data['result']['score'], answers=data['result']['answers'], user_id=user_id,
+                      quiz_id=quiz_id)
+    try:
+        db.session.add(attempt)
+        db.session.commit()
+        return jsonify(success=True)
+    except IntegrityError:
+        return jsonify(success=False, message="Quiz result registration failed!")

@@ -2084,3 +2084,106 @@ Traceback (most recent call last):
   File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 171, in remove_from_group
     if 'userid' not in request.json or 'groupid' not in request.json:
 TypeError: argument of type 'NoneType' is not iterable
+[2020-09-20 11:57:58] - ERROR - Exception on /user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 109, in create_user
+    if type_ != 'student' and session['user']['type'] != 'admin':
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/werkzeug/local.py", line 377, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/sessions.py", line 84, in __getitem__
+    return super(SecureCookieSession, self).__getitem__(key)
+KeyError: 'user'
+[2020-09-20 12:01:02] - ERROR - Exception on /user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 111, in create_user
+    if type_ != 'student' and session['user']['type'] != 'admin':
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/werkzeug/local.py", line 377, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/sessions.py", line 84, in __getitem__
+    return super(SecureCookieSession, self).__getitem__(key)
+KeyError: 'user'
+[2020-09-21 21:10:27] - ERROR - Exception on /group/message [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 313, in broadcast_group_message
+    messages.append(Message(content=message, from_user_id=session['user'].id, to_user_id=user.id))
+AttributeError: 'dict' object has no attribute 'id'
+[2020-09-21 21:17:25] - ERROR - Exception on /user [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 118, in create_user
+    registered_ip[curr_ip] += 1
+KeyError: '127.0.0.1'
+[2020-09-22 12:47:29] - ERROR - Exception on /quiz/register [POST] - app 1891@log_exception
+Traceback (most recent call last):
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/snowsr/Projects/phonogenesis/pyscript/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/snowsr/Projects/phonogenesis/pyscript/app/routes.py", line 345, in register_quiz_result
+    attempt = Attempt(score=data['score'], answers=data['answers'], user_id=user_id, quiz_id=quiz_id)
+KeyError: 'score'

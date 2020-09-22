@@ -8,6 +8,8 @@ from flask_socketio import SocketIO, emit
 from config import Config
 from script import get_default_data
 import logging
+import pytz
+from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from flask.logging import default_handler
 import sys
@@ -53,5 +55,13 @@ console_handler = logging.StreamHandler(stream=sys.stderr)
 console_handler.setLevel(logging.WARNING)
 console_handler.setFormatter(formatter)
 app.logger.addHandler(console_handler)
+
+timezone = pytz.timezone("America/Toronto")
+time_format = '{0:%Y-%m-%d %H:%M:%S EDT}'
+
+
+def get_formatted_timestr() -> str:
+    return time_format.format(timezone.localize(datetime.now()))
+
 
 from app import routes, models

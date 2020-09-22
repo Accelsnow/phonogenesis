@@ -11,7 +11,7 @@ if __name__ == '__main__':
     grp = Group(id=1, name='pg1', owner_id=2)
     usr_grp = UserGroup(group_id=1, user_id=1)
     msg = Message(content='This is a default message', from_user_id=2, to_user_id=1)
-    qiz = Quiz(id=1, name='Test Quiz', owner_id=2)
+    qiz = Quiz(id=1, name='Test Quiz', owner_id=2, time_limit_seconds=360)
     usr_qiz = UserQuiz(quiz_id=1, user_id=1)
     qiz_que = QuizQuestion(quiz_id=1, question_id=1)
     att = Attempt(id=1, score=20, answers=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
