@@ -112,13 +112,15 @@ export const removeFromGroup = (page, user, group) => {
     });
 };
 
-export const broadcastMessage = (app, groupName, message) => {
-    axios.post(`${SERVER_URL}/groups/message`, {groupName: groupName, message: message}).then(res => {
-        if (!res.data.result) {
-            console.log("FAILED TO BROADCAST MESSAGE");
-        } else {
-            alert("Message sent!");
+export const broadcastMessage = (app, groupName, message, silent) => {
+    axios.post(`${SERVER_URL}/group/message`, {groupName: groupName, message: message}).then(res => {
+        if (res.data.success) {
             readCookie(app);
+            if (!silent){
+                alert("Message broadcast succeeded!");
+            }
+        } else {
+            alert(res.data.message);
         }
     }).catch(err => {
         console.log(err);
