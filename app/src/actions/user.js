@@ -1,6 +1,6 @@
 const axios = require('axios');
 axios.defaults.withCredentials = true;
-const SERVER_URL = "http://127.0.0.1:5000"
+const SERVER_URL = "https://accelsnow.com:5000"
 
 export const readCookie = (app) => {
     axios.get(`${SERVER_URL}/user/check-session`).then(function (res) {

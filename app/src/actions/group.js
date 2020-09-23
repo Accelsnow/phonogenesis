@@ -2,7 +2,7 @@ import {readCookie, sendMessage} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
-const SERVER_URL = "http://127.0.0.1:5000"
+const SERVER_URL = "https://accelsnow.com:5000"
 
 export const getGroupNames = (page) => {
     axios.get(`${SERVER_URL}/groups`).then(res => {
