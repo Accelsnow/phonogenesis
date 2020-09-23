@@ -12,7 +12,7 @@ class Message(db.Model, Serializable):
     __tablename__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(256))
-    timestamp = db.Column(db.String, index=True, nullable=False)
+    timestamp = db.Column(db.String(64), index=True, nullable=False)
     from_user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
     to_user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
 
@@ -149,7 +149,7 @@ class Attempt(db.Model, Serializable):
     id = db.Column(db.Integer, primary_key=True)
     score = db.Column(db.PickleType, nullable=False)
     answers = db.Column(db.PickleType, nullable=False)
-    timestamp = db.Column(db.String, index=True, nullable=False)
+    timestamp = db.Column(db.String(64), index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
     quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id', ondelete='CASCADE'), nullable=False)
 
