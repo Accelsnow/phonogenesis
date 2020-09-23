@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import List, Dict, Optional, Tuple
 
-from script import Word, Particle, Sound, REP_LEN_LIM
+from script import Word, Particle, Sound
 from serializable import Serializable
 
 

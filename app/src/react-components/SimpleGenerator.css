@@ -1,0 +1,28 @@
+#gen-form {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.question-block-container {
+    font-family: "Times New Roman", serif;
+    font-size: 1.1em;
+    letter-spacing: 0.03em;
+}
+
+#gen-switches {
+    margin-top: -10px;
+}
+
+#size-input-field {
+    width: 70px;
+}
+
+.ipa-font-sensitive {
+    font-family: "Times New Roman", serif;
+    font-size: 1.3em;
+    letter-spacing: 0.03em;
+}
+
+#helper-button-panel {
+    margin-top: 25px;
+}

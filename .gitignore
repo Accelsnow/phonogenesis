@@ -3,8 +3,7 @@ node_modules/
 __pycache__/
 venv/
 build/
-database/
-
-/web/mongo-data
+migrations/
+app.db
 
 /pyscript/script/data/~$*

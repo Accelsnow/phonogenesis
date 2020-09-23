@@ -1,9 +1,11 @@
+import logging
+
 from flask import jsonify, request, session, abort
-from app import app, DEFAULT_DATA, socketio, db
+from sqlalchemy.exc import IntegrityError
+
+from app import app, DEFAULT_DATA, db, get_formatted_timestr
 from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
-from sqlalchemy.exc import IntegrityError
-import logging
 
 TYPE_MISMATCH_RETRY_LIMIT = 50
 LOGGER = logging.getLogger("app.logger")
@@ -12,12 +14,6 @@ show_full_phonemes = False
 ACCOUNT_TYPES = ['student', 'professor', 'admin']
 registered_ip = {}
 SAME_IP_REGISTER_LIMIT = 1
-
-
-@socketio.on('disconnect')
-def reset_on_exit():
-    print("actually invoked")
-    session.pop('userid', None)
 
 
 @app.route('/env', methods=['GET'])
@@ -164,7 +160,8 @@ def send_message(username):
     if not target_user:
         return jsonify(success=False, message="Target user {} does not exist.".format(username))
 
-    message = Message(content=request.json['message'], from_user_id=session_user.id, to_user_id=target_user.id)
+    message = Message(content=request.json['message'], from_user_id=session_user.id, to_user_id=target_user.id,
+                      timestamp=get_formatted_timestr())
     db.session.add(message)
     db.session.commit()
     return jsonify(success=True)
@@ -315,11 +312,13 @@ def broadcast_group_message():
 
     messages = []
     curr_userid = session_user.id
+    timestamp = get_formatted_timestr()
     if curr_userid != target_group.owner_id:
-        messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=target_group.owner_id))
+        messages.append(
+            Message(content=message, from_user_id=curr_userid, to_user_id=target_group.owner_id, timestamp=timestamp))
     for user in target_group.users():
         if user.id != curr_userid:
-            messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=user.id))
+            messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=user.id, timestamp=timestamp))
 
     try:
         for msg in messages:
@@ -352,7 +351,7 @@ def register_quiz_result():
         return
 
     attempt = Attempt(score=data['result']['score'], answers=data['result']['answers'], user_id=user_id,
-                      quiz_id=quiz_id)
+                      quiz_id=quiz_id, timestamp=get_formatted_timestr())
     try:
         db.session.add(attempt)
         db.session.commit()
@@ -416,3 +415,53 @@ def create_quiz():
 
     db.session.commit()
     return jsonify(success=True)
+
+
+@app.route('/question', methods=['POST'])
+def get_simple_question():
+    if not _validate_session():
+        abort(401)
+
+    data = request.json
+    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or 'rule_name' not in data:
+        abort(400)
+    try:
+        shuffle = bool(data['shuffle'])
+        isIPAg = bool(data['isIPAg'])
+        size = int(data['size'])
+    except ValueError:
+        abort(400)
+        return
+    rule_type = data['type']
+    rule_name = data['rule_name']
+    rules = list(DEFAULT_DATA['rules'].values())
+    phonemes = DEFAULT_DATA['phonemes']
+    rule: Rule
+
+    if rule_name == "Random":
+        import random
+        if rule_type != "Random":
+            rules = [r for r in rules if
+                     str(r.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])) == rule_type]
+            rule = random.choice(rules)
+        else:
+            rule = random.choice(rules)
+            rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+    else:
+        rule = DEFAULT_DATA['rules'][rule_name]
+        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+
+    if isIPAg:
+        gen_mode = GenMode.IPAg
+    else:
+        gen_mode = GenMode.nIPAg
+
+    gen = Generator(phonemes, DEFAULT_DATA['templates'], rule, 5, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+    q_data = gen.generate(gen_mode, size, True, shuffle, DEFAULT_DATA['gloss_grp'])
+
+    simple_question = {'templates': q_data['templates'], 'poi': str(q_data['phone_interest']),
+                       'rule_type': str(rule_type), 'phonemes': str(q_data['phonemes']), 'rule_name': rule.get_name(),
+                       'gloss': q_data['Gloss'], 'UR': q_data['UR'], 'SR': q_data['SR'], 'size': size,
+                       'canUR': True, 'canPhoneme': True, 'maxCADT': 0, 'rule_content': rule.get_content_str()}
+
+    return jsonify(success=True, question=simple_question)

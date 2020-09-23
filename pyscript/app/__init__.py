@@ -4,7 +4,6 @@ from flask.json import JSONEncoder
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_socketio import SocketIO, emit
 from config import Config
 from script import get_default_data
 import logging
@@ -36,7 +35,6 @@ Bootstrap(app)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-socketio = SocketIO(app)
 
 app.json_encoder = PhonogenesisJSONEncoder
 app.logger.setLevel(logging.DEBUG)

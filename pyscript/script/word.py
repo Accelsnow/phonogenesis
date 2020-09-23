@@ -1,7 +1,9 @@
 from __future__ import annotations
-from typing import List, Optional
-from script.sound import Sound, _SYMBOL
+
 import logging
+from typing import List, Optional
+
+from script.sound import Sound, _SYMBOL
 from serializable import Serializable
 
 LOGGER = logging.getLogger("app.logger")

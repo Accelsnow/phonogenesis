@@ -1,12 +1,10 @@
 from __future__ import annotations
 
+import csv
 from enum import Enum
 from typing import List, Optional, Dict, Tuple, Set
 
 from script import Word, Particle, Sound, Template
-
-import csv
-
 from serializable import Serializable
 
 EDGE_SYMBOL = '#'
@@ -98,7 +96,7 @@ class Rule(Serializable):
         return {
             "name": self._name,
             "family": self._family,
-            "expr": self.get_content_str()
+            "content": self.get_content_str()
         }
 
     def apply(self, word: Word, phonemes: Optional[None, List[Word]], feature_to_type: Dict[str, str],
@@ -188,7 +186,8 @@ class Rule(Serializable):
         if len(a_matcher) == 1 and str(a_matcher[0]) == '':
             return {}, []
 
-        if self._B[2] != 0:
+        # TODO when B is None not sure about behaviour
+        if not self._B or self._B[2] != 0:
             return {}, []
 
         result = {}
@@ -310,7 +309,7 @@ class Rule(Serializable):
             if (self._Cs[i] is None or len(
                     _get_c_instance_matcher(self._Cs[i], phonemes, None, feature_to_sounds)[0]) > 0) and (
                     self._Ds[i] is None or len(
-                    _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)[0]) > 0):
+                _get_d_instance_matcher(self._Ds[i], phonemes, None, feature_to_sounds)[0]) > 0):
                 return True
         return False
 

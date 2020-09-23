@@ -1,12 +1,10 @@
-﻿﻿rule,name,family
+﻿rule,name,family
 "[obstruent,voiced]>[voiceless]/_#",word-final obstruent devoicing,consonant devoicing
 "[voiceless,oral stop,not spread]>[spread]/#_",word-initial aspiration of voiceless stops,aspiration
 "[not spread,fricative,voiceless]>[voiced]/[vowel]_[vowel]",intervocalic fricative voicing,lenition
 "[vowel,tense]>[lax]/_[consonant]#&_[consonant][consonant]",vowel laxing in closed syllables,vowel tenseness
-"<<PREDEFINED>>{'k':'t͡ʃ','g':'d͡ʒ'}/_[front,vowel]",palatal mutation of velar stops to postalveolar affricates before front vowels,palatalization
 "[consonant,voiced]>[voiceless]/_#",word-final stop devoicing,consonant devoicing
 "[oral stop,voiced]>[voiceless]/_#",word-final consonant devoicing,consonant devoicing
-"[obstruent,voiced]>[voiceless]/_#&_[voiceless,consonant]&_[sonorant,consonant]",obstruent devoicing in codas,consonant devoicing
 "[obstruent,voiced]>[voiceless]/_#&_[voiceless,consonant]&_[sonorant,consonant]",obstruent devoicing in codas,consonant devoicing
 "[voiceless,oral stop,not spread]>[spread]/_[vowel]",aspiration of voiceless stops in onsets,aspiration
 "[voiceless,oral stop,not spread]>[spread]/_[consonant]&_#",aspiration of voiceless stops in codas,aspiration

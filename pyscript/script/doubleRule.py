@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from typing import List, Optional, Dict, Tuple
-from enum import Enum, IntEnum
-from abc import ABCMeta, abstractmethod
-
-from script import Word, Rule, ExampleType, Sound, Template, Generator, GenMode
-import random
 import logging
+import random
+from abc import ABCMeta, abstractmethod
+from enum import Enum, IntEnum
+from typing import List, Dict
 
+from script import Word, Rule, Sound, Template, Generator, GenMode
 from serializable import Serializable
 
 LOGGER = logging.getLogger("app.logger")

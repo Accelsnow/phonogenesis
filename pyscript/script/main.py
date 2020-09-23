@@ -1,19 +1,15 @@
 from __future__ import annotations
 
 import random
-import sys
-from typing import List, Optional, Dict, Tuple
+from typing import List, Dict, Tuple
 
-from script.feature_lib import Particle, import_default_features
+from script.feature_lib import import_default_features
 from script.generator import Generator, GenMode
-from random import randint
-from script.word import Word
+from script.glossgroup import import_default_gloss
+from script.phonemes import import_default_full_phonemes
 from script.rules import Rule, RuleFamily, import_default_rules
 from script.sound import Sound
-from script.glossgroup import import_default_gloss
 from script.templates import Template, import_default_templates
-from script.phonemes import import_default_randomized_phonemes, import_default_full_phonemes
-from script.doubleRule import DoubleWordType, DoubleRule, DoubleFeed, InteractionOrder, DoubleWordDifficulty
 
 
 def _print_result(rst: dict):
@@ -100,7 +96,7 @@ if __name__ == '__main__':
 
     print("Rule Size: ", len(rules))
 
-    manual_rule_select = 95
+    manual_rule_select = 1
 
     use_rule = rules[manual_rule_select]
     amount = 40
@@ -114,17 +110,17 @@ if __name__ == '__main__':
         psr += str(p) + " "
     print(psr + "\",")
 
-    rule1 = rules[96]
-    rule2 = rules[97]
-    df = DoubleFeed(rule1, rule2, InteractionOrder.Feeding, False, DoubleWordDifficulty.Easy, phonemes, templates, feature_to_type,
-                    feature_to_sounds)
-    df_data = df.generate(30)
-    print("RULE1", str(rule1))
-    print("RULE2", str(rule2))
-    print("BLOCKA", [str(w) for w in df_data[0]])
-    print("BLOCKB", [str(w) for w in df_data[1]])
-    print("BLOCKC", [str(w) for w in df_data[2]])
-    print("BLOCKD", [str(w) for w in df_data[3]])
+    # rule1 = rules[96]
+    # rule2 = rules[97]
+    # df = DoubleFeed(rule1, rule2, InteractionOrder.Feeding, False, DoubleWordDifficulty.Easy, phonemes, templates, feature_to_type,
+    #                 feature_to_sounds)
+    # df_data = df.generate(30)
+    # print("RULE1", str(rule1))
+    # print("RULE2", str(rule2))
+    # print("BLOCKA", [str(w) for w in df_data[0]])
+    # print("BLOCKB", [str(w) for w in df_data[1]])
+    # print("BLOCKC", [str(w) for w in df_data[2]])
+    # print("BLOCKD", [str(w) for w in df_data[3]])
 
     # while True:
     #     # word = input("\nWord to check: ")
@@ -134,20 +130,20 @@ if __name__ == '__main__':
     #     print(str(rules[manual_rule_select].apply(Word(word), phonemes, feature_to_type, feature_to_sounds)[0]))
     #     break
 
-    # print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
-    # use_templates = templates
-    #
-    # print("\nUSING RULE: ", use_rule)
-    # print("\nGENERATION AMOUNT:", amount, '\n')
-    #
-    # interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
-    # isr = "poi: \""
-    # for i in interest:
-    #     isr += str(i) + " "
-    # print(isr + "\",")
-    #
-    # gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
-    #
-    # result = gen.generate(GenMode.IPAg, amount, True, False, feature_to_type, feature_to_sounds, gloss_groups)
-    #
-    # _print_result(result)
+    print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
+    use_templates = templates
+
+    print("\nUSING RULE: ", use_rule)
+    print("\nGENERATION AMOUNT:", amount, '\n')
+
+    interest = rules[manual_rule_select].get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
+    isr = "poi: \""
+    for i in interest:
+        isr += str(i) + " "
+    print(isr + "\",")
+
+    gen = Generator(phonemes, use_templates, use_rule, 5, feature_to_type, feature_to_sounds)
+
+    result = gen.generate(GenMode.IPAg, amount, True, False, gloss_groups)
+
+    _print_result(result)
