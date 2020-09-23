@@ -28,11 +28,12 @@ class QuizTaker extends React.Component {
                 needFetch: true,
                 answerError: "",
             };
+            this.questionBlockElement = React.createRef();
         }
     }
 
 
-    onSubmitAnswer = (e) => {
+    onSubmitAnswer = () => {
         const quiz = this.state.quiz;
         const curr_answer = document.getElementById('answer-input').value;
 
@@ -47,6 +48,7 @@ class QuizTaker extends React.Component {
         this.setState({questionIndex: newIndex});
 
         if (newIndex >= quiz.questions.length) {
+            localStorage.setItem("isActive", "0");
             const quizResult = {
                 score: "Not Graded",
                 answers: this.state.studentAnswers.concat(curr_answer)
@@ -56,6 +58,8 @@ class QuizTaker extends React.Component {
         }
 
         this.setState({studentAnswers: this.state.studentAnswers.concat(curr_answer)});
+        document.getElementById('answer-input').value = "";
+        this.questionBlockElement.current.resetState();
     };
 
     onTimeUp = () => {
@@ -63,7 +67,7 @@ class QuizTaker extends React.Component {
         this.setState({questionIndex: this.state.quiz.questions.length});
     };
 
-    onBack = (e) => {
+    onBack = () => {
         localStorage.clear();
         this.props.history.goBack();
     };
@@ -86,7 +90,8 @@ class QuizTaker extends React.Component {
                     <br/>
                     <h3 id="quiz-title">Quiz: {quiz.name}</h3>
                     <hr className="qtaker-hr"/>
-                    <QuestionBlock question={currQuestion} showAnswer={false} isReadOnly={false} isQuiz={true}/>
+                    <QuestionBlock ref={this.questionBlockElement} question={currQuestion} showAnswer={false}
+                                   isReadOnly={false} isQuiz={true}/>
                     <hr className="qtaker-hr"/>
                     <Grid container direction="column" justify="center" alignItems="center" spacing={5}>
                         <Grid item id="ctd"> Time Remaining &nbsp; <CountdownTimer id="ctd-timer"
@@ -115,7 +120,7 @@ class QuizTaker extends React.Component {
             if (!attempt) {
                 return (<div>
                     <Grid container direction="column" justify="flex-start" alignItems="center" spacing={5}>
-                        <Grid item><h3>You haven't taken this quiz yet!</h3></Grid>
+                        <Grid item><h3>Quiz is no longer active.</h3></Grid>
                         <Grid item><Button variant="contained" onClick={this.onBack.bind(this)}>back to quiz
                             page</Button></Grid>
                     </Grid>
@@ -140,9 +145,9 @@ class QuizTaker extends React.Component {
                         <Grid item>
                             {quiz.questions.map((question, index) => (
                                 <div key={index}>
-                                    <QuestionBlock question={question} isReadOnly={true} showAnswer={true}
-                                                   isQuiz={false}/>
-                                    <p><span id="correctAnswerTxt">Correct Answer: {question.ruleTxt}</span></p>
+                                    <QuestionBlock ref={this.questionBlockElement} question={question} isReadOnly={true}
+                                                   showAnswer={true} isQuiz={false}/>
+                                    <p><span id="correctAnswerTxt">Correct Answer: {question.rule_name}</span></p>
                                     <p><span id="studentAnswerTxt">Your Answer: {
                                         displayAns[index] ? displayAns[index] : "Timed Out"
                                     }</span></p>

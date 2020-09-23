@@ -5,6 +5,10 @@
 	align-content: center;
 }
 
+.family-header {
+	font-weight: bold;
+}
+
 #add-question-header {
 	margin: 12px;
 }

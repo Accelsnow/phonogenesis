@@ -4,17 +4,6 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 const SERVER_URL = "http://127.0.0.1:5000"
 
-// TODO DELETE THIS
-export const getGroups = (page, username) => {
-    axios.get(`${SERVER_URL}/groups/objectify/${username}`).then(res => {
-        const groupToUser = res.data;
-        page.setState({g2u: groupToUser});
-    }).catch(err => {
-        console.log(err);
-    });
-
-};
-
 export const getGroupNames = (page) => {
     axios.get(`${SERVER_URL}/groups`).then(res => {
         if (res.data) {
@@ -116,7 +105,7 @@ export const broadcastMessage = (app, groupName, message, silent) => {
     axios.post(`${SERVER_URL}/group/message`, {groupName: groupName, message: message}).then(res => {
         if (res.data.success) {
             readCookie(app);
-            if (!silent){
+            if (!silent) {
                 alert("Message broadcast succeeded!");
             }
         } else {

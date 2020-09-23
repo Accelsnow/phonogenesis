@@ -1,9 +1,8 @@
-from flask import jsonify, request, json, session, abort, make_response
+from flask import jsonify, request, session, abort
 from app import app, DEFAULT_DATA, socketio, db
-# from flask_login import current_user, login_user
 from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
-from sqlalchemy.exc import IntegrityError, InvalidRequestError
+from sqlalchemy.exc import IntegrityError
 import logging
 
 TYPE_MISMATCH_RETRY_LIMIT = 50
@@ -17,43 +16,48 @@ SAME_IP_REGISTER_LIMIT = 1
 
 @socketio.on('disconnect')
 def reset_on_exit():
-    session.pop('user', None)
+    print("actually invoked")
+    session.pop('userid', None)
 
 
 @app.route('/env', methods=['GET'])
 def environment_data():
-    return jsonify(DEFAULT_DATA)
+    return jsonify(env=DEFAULT_DATA)
 
 
 @app.route('/user/login', methods=['POST'])
 def login():
-    if 'user' in session:
-        return jsonify(result=session['user'])
+    if 'userid' in session:
+        return jsonify(result=User.query.get(session['userid']))
 
     username = request.json['username']
     password = request.json['password']
     user = User.query.filter_by(username=username).first()
     if user is None or not user.check_password(password):
         return jsonify(result=None)
-    session['user'] = user
-    return jsonify(result=session['user'])
+    session['userid'] = user.id
+    return jsonify(result=user)
 
 
 def _validate_session():
-    return 'user' in session and session['user']
+    if 'userid' in session and session['userid']:
+        session_user = User.query.get(session['userid'])
+        if session_user:
+            return session_user
+    return None
 
 
 @app.route('/user/logout', methods=['GET'])
 def logout():
-    session.pop('user', None)
+    session.pop('userid', None)
     return jsonify()
 
 
 @app.route('/user/check-session', methods=['GET'])
 def check_session():
-    if _validate_session():
-        session['user'] = User.query.get(session['user']['id'])
-        return jsonify(currentUser=session['user'])
+    session_user = _validate_session()
+    if session_user:
+        return jsonify(currentUser=session_user)
     else:
         return jsonify(currentUser=None)
 
@@ -67,7 +71,8 @@ def get_users():
 
 @app.route('/user/<username>', methods=['DELETE'])
 def delete_user(username):
-    if not _validate_session() or session['user']['type'] != 'admin':
+    session_user = _validate_session()
+    if not session_user or session_user.type != 'admin':
         abort(401)
 
     target_user = User.query.filter_by(username=username).first()
@@ -81,9 +86,9 @@ def delete_user(username):
 
 @app.route('/user', methods=['POST'])
 def create_user():
-    is_logged_in = _validate_session()
+    session_user = _validate_session()
     curr_ip = str(request.remote_addr)
-    if not is_logged_in:
+    if not session_user:
         if curr_ip in registered_ip:
             if registered_ip[curr_ip] >= SAME_IP_REGISTER_LIMIT:
                 return jsonify(success=False,
@@ -104,7 +109,7 @@ def create_user():
 
     if type_ not in ACCOUNT_TYPES:
         abort(400)
-    if type_ != 'student' and (not is_logged_in or session['user']['type'] != 'admin'):
+    if type_ != 'student' and (not session_user or session['userid']['type'] != 'admin'):
         return jsonify(success=False,
                        message='You do not have permission to create an account of this type. Please contact admin to '
                                'create an account for you.')
@@ -115,25 +120,17 @@ def create_user():
     try:
         db.session.add(new_user)
         db.session.commit()
-        if not is_logged_in:
+        if not session_user:
             registered_ip[curr_ip] += 1
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message='User creation failed(username unique? non-empty password?)')
 
 
-@app.route('/user/groups', methods=['POST'])
-def get_user_groups():
-    if not _validate_session():
-        abort(401)
-    curr_user = session['user']
-    usergroup_entries = UserGroup.query.filter_by(user_id=curr_user.id).all()
-    return jsonify(result=usergroup_entries)
-
-
 @app.route('/message/<msgid>', methods=['DELETE'])
 def delete_message(msgid):
-    if not _validate_session():
+    session_user = _validate_session()
+    if not session_user:
         abort(401)
 
     try:
@@ -145,8 +142,8 @@ def delete_message(msgid):
     if not target_message:
         return jsonify(success=False, message='Message with id {} does not exist.'.format(msgid))
 
-    if session['user']['type'] != 'admin' and target_message.from_user_id != session[
-        'user']['id'] and target_message.to_user_id != session['user']['id']:
+    if session_user.type != 'admin' and target_message.from_user_id != session[
+        'user']['id'] and target_message.to_user_id != session_user.id:
         abort(401)
 
     db.session.delete(target_message)
@@ -156,7 +153,8 @@ def delete_message(msgid):
 
 @app.route('/message/<username>', methods=['POST'])
 def send_message(username):
-    if not _validate_session():
+    session_user = _validate_session()
+    if not session_user:
         abort(401)
     if 'message' not in request.json:
         abort(400)
@@ -166,7 +164,7 @@ def send_message(username):
     if not target_user:
         return jsonify(success=False, message="Target user {} does not exist.".format(username))
 
-    message = Message(content=request.json['message'], from_user_id=session['user']['id'], to_user_id=target_user.id)
+    message = Message(content=request.json['message'], from_user_id=session_user.id, to_user_id=target_user.id)
     db.session.add(message)
     db.session.commit()
     return jsonify(success=True)
@@ -181,11 +179,12 @@ def get_groups():
 
 @app.route('/group/user', methods=['PATCH'])
 def remove_from_group():
-    if not _validate_session():
+    session_user = _validate_session()
+    if not session_user:
         abort(401)
     if 'userid' not in request.json or 'groupid' not in request.json:
         abort(400)
-    if request.json['userid'] != session['user']['id'] and session['user']['type'] == 'student':
+    if request.json['userid'] != session_user.id and session_user.id == 'student':
         abort(401)
     try:
         user_id = int(request.json['userid'])
@@ -205,7 +204,8 @@ def remove_from_group():
 
 @app.route('/group/user', methods=['POST'])
 def add_to_group():
-    if not _validate_session() or session['user']['type'] == 'student':
+    session_user = _validate_session()
+    if not session_user or session_user.type == 'student':
         abort(401)
     if 'username' not in request.json or 'groupid' not in request.json:
         abort(400)
@@ -227,7 +227,8 @@ def add_to_group():
 
 @app.route('/group', methods=['POST'])
 def create_group():
-    if not _validate_session() or session['user']['type'] == 'student':
+    session_user = _validate_session()
+    if not session_user or session_user.type == 'student':
         abort(401)
     if 'ownerid' not in request.json or 'name' not in request.json:
         abort(400)
@@ -248,7 +249,8 @@ def create_group():
 
 @app.route('/group/<groupid>', methods=['DELETE'])
 def delete_group(groupid):
-    if not _validate_session() or session['user']['type'] == 'student':
+    session_user = _validate_session()
+    if not session_user or session_user.type == 'student':
         abort(401)
     try:
         group_id = int(groupid)
@@ -265,7 +267,8 @@ def delete_group(groupid):
 
 @app.route('/user', methods=['PATCH'])
 def edit_user():
-    if not _validate_session() or session['user']['type'] != 'admin':
+    session_user = _validate_session()
+    if not session_user or session_user.type != 'admin':
         abort(401)
     data = request.json
     if 'username' not in data or 'password' not in data or 'email' not in data or 'name' not in data:
@@ -295,7 +298,8 @@ def edit_user():
 
 @app.route('/group/message', methods=['POST'])
 def broadcast_group_message():
-    if not _validate_session():
+    session_user = _validate_session()
+    if not session_user:
         abort(401)
 
     if 'groupName' not in request.json or 'message' not in request.json:
@@ -310,7 +314,7 @@ def broadcast_group_message():
         return jsonify(success=False, message="Group {} does not exist.".format(group_name))
 
     messages = []
-    curr_userid = session['user']['id']
+    curr_userid = session_user.id
     if curr_userid != target_group.owner_id:
         messages.append(Message(content=message, from_user_id=curr_userid, to_user_id=target_group.owner_id))
     for user in target_group.users():
@@ -324,6 +328,11 @@ def broadcast_group_message():
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message="Broadcast failed!")
+
+
+@app.route('/rules', methods=['GET'])
+def get_rules():
+    return jsonify(rules=DEFAULT_DATA['rules'])
 
 
 @app.route('/quiz/register', methods=['POST'])
@@ -350,3 +359,60 @@ def register_quiz_result():
         return jsonify(success=True)
     except IntegrityError:
         return jsonify(success=False, message="Quiz result registration failed!")
+
+
+@app.route('/makequiz', methods=['POST'])
+def create_quiz():
+    if not _validate_session():
+        abort(401)
+
+    data = request.json
+    if 'timeLim' not in data or 'name' not in data or 'ownerid' not in data or 'groupName' not in data or 'questions' not in data:
+        abort(400)
+
+    try:
+        time_limit = int(data['timeLim'])
+        ownerid = int(data['ownerid'])
+        questions_attrs = list(data['questions'])
+    except ValueError:
+        abort(400)
+        return
+    name = data['name']
+    group_name = data['groupName']
+    target_group = Group.query.filter_by(name=group_name).first()
+
+    if not target_group:
+        return jsonify(success=False, message="Group {} does not exist!".format(group_name))
+
+    questions = []
+    for question_attr in questions_attrs:
+        size = int(question_attr['size'])
+        max_cadt = int(question_attr['maxCADT'])
+        rule = DEFAULT_DATA['rules'][question_attr['rule']]
+        phonemes = DEFAULT_DATA['phonemes']
+        gen = Generator(phonemes, DEFAULT_DATA['templates'], rule, 5, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+
+        q_data = gen.generate(GenMode.IPAg, [size, max_cadt * 5], True, False,
+                              DEFAULT_DATA['gloss_grp'])
+
+        question_obj = Question(templates=q_data['templates'], poi=str(q_data['phone_interest']),
+                                rule_type=str(rule_type), phonemes=str(q_data['phonemes']), rule_name=rule.get_name(),
+                                gloss=q_data['Gloss'], UR=q_data['UR'], SR=q_data['SR'], size=size,
+                                canUR=bool(question_attr['canUR']), canPhoneme=bool(question_attr['canPhoneme']),
+                                maxCADT=max_cadt, rule_content=rule.get_content_str())
+        questions.append(question_obj)
+        db.session.add(question_obj)
+
+    quiz = Quiz(name=name, owner_id=ownerid, time_limit_seconds=time_limit)
+    db.session.add(quiz)
+    db.session.flush()
+
+    for question in questions:
+        db.session.add(QuizQuestion(quiz_id=quiz.id, question_id=question.id))
+
+    for user_bond in target_group.users_bond:
+        db.session.add(UserQuiz(quiz_id=quiz.id, user_id=user_bond.user_id))
+
+    db.session.commit()
+    return jsonify(success=True)

@@ -37,8 +37,6 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 socketio = SocketIO(app)
-# login = LoginManager()
-# login.init_app(app)
 
 app.json_encoder = PhonogenesisJSONEncoder
 app.logger.setLevel(logging.DEBUG)

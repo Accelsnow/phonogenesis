@@ -52,7 +52,7 @@ class StudentQuizzes extends React.Component {
 
                             <TableBody>
                                 {quizzes.map((quiz) => {
-                                    return (<TableRow key={quiz.name}>
+                                    return (<TableRow key={quiz.id}>
                                         <TableCell>{quiz.name}</TableCell>
                                         <TableCell>{quiz.owner.username}</TableCell>
                                         {quiz.attempts.length === 0 ? (

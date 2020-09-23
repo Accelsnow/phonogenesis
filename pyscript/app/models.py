@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from serializable import Serializable
 
-SERIALIZE_RECUR_LIMIT = 3
+SERIALIZE_RECUR_LIMIT = 2
 
 
 class Message(db.Model, Serializable):
@@ -13,8 +13,8 @@ class Message(db.Model, Serializable):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(256))
     timestamp = db.Column(db.String, index=True, default=get_formatted_timestr())
-    from_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    to_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    from_user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
+    to_user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
 
     from_user = db.relationship("User", back_populates='sent_messages', foreign_keys=[from_user_id])
     to_user = db.relationship("User", back_populates='recv_messages', foreign_keys=[to_user_id])
@@ -39,10 +39,10 @@ class Group(db.Model, Serializable):
     __tablename__ = 'group'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32), unique=True, index=True, nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
 
     owner = db.relationship("User", back_populates="owned_groups", foreign_keys=[owner_id])
-    users_bond = db.relationship('UserGroup', back_populates="group")
+    users_bond = db.relationship('UserGroup', back_populates="group", cascade="all, delete")
 
     def users(self) -> list:
         return [bond.user for bond in self.users_bond]
@@ -66,13 +66,13 @@ class Quiz(db.Model, Serializable):
     __tablename__ = 'quiz'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
     time_limit_seconds = db.Column(db.Integer, nullable=False)
 
     owner = db.relationship("User", back_populates='owned_quizzes', foreign_keys=[owner_id])
-    attempts = db.relationship("Attempt", back_populates='quiz')
-    questions_bond = db.relationship("QuizQuestion", back_populates='quiz')
-    targets_bond = db.relationship("UserQuiz", back_populates="quiz")
+    attempts = db.relationship("Attempt", back_populates='quiz', cascade="all, delete")
+    questions_bond = db.relationship("QuizQuestion", back_populates='quiz', cascade="all, delete")
+    targets_bond = db.relationship("UserQuiz", back_populates="quiz", cascade="all, delete")
 
     def serialize(self, **kwargs):
         serialized = {'id': self.id, 'name': self.name, 'owner_id': self.owner_id,
@@ -97,8 +97,8 @@ class Quiz(db.Model, Serializable):
 class UserQuiz(db.Model, Serializable):
     __tablename__ = 'userquiz'
     id = db.Column(db.Integer, primary_key=True)
-    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
     __table_args__ = (UniqueConstraint('user_id', 'quiz_id', name='_user_quiz_uc'),)
 
     quiz = db.relationship("Quiz", back_populates="targets_bond", foreign_keys=[quiz_id])
@@ -122,8 +122,8 @@ class UserQuiz(db.Model, Serializable):
 class QuizQuestion(db.Model, Serializable):
     __tablename__ = 'quizquestion'
     id = db.Column(db.Integer, primary_key=True)
-    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
-    question_id = db.Column(db.Integer, db.ForeignKey('question.id'), nullable=False)
+    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id', ondelete='CASCADE'), nullable=False)
+    question_id = db.Column(db.Integer, db.ForeignKey('question.id', ondelete='CASCADE'), nullable=False)
 
     quiz = db.relationship("Quiz", back_populates='questions_bond', foreign_keys=[quiz_id])
     question = db.relationship("Question", back_populates='quizzes_bond', foreign_keys=[question_id])
@@ -145,13 +145,13 @@ class QuizQuestion(db.Model, Serializable):
 
 
 class Attempt(db.Model, Serializable):
-    __tablename__ = 'tablename'
+    __tablename__ = 'attempt'
     id = db.Column(db.Integer, primary_key=True)
     score = db.Column(db.PickleType, nullable=False)
     answers = db.Column(db.PickleType, nullable=False)
     timestamp = db.Column(db.String, index=True, default=get_formatted_timestr())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
+    quiz_id = db.Column(db.Integer, db.ForeignKey('quiz.id', ondelete='CASCADE'), nullable=False)
 
     quiz = db.relationship("Quiz", back_populates="attempts", foreign_keys=[quiz_id])
     user = db.relationship("User", back_populates="quiz_attempts", foreign_keys=[user_id])
@@ -179,9 +179,10 @@ class Question(db.Model, Serializable):
 
     templates = db.Column(db.PickleType, nullable=False)
     poi = db.Column(db.String(128), nullable=False)
-    ruleType = db.Column(db.String(32), nullable=False)
-    phoneme = db.Column(db.String(128), nullable=False)
-    ruleTxt = db.Column(db.String(256), nullable=False)
+    rule_type = db.Column(db.String(32), nullable=False)
+    phonemes = db.Column(db.String(128), nullable=False)
+    rule_name = db.Column(db.String(256), nullable=False)
+    rule_content = db.Column(db.String(256), nullable=False)
     gloss = db.Column(db.PickleType, nullable=False)
     UR = db.Column(db.PickleType, nullable=False)
     SR = db.Column(db.PickleType, nullable=False)
@@ -191,13 +192,13 @@ class Question(db.Model, Serializable):
     canPhoneme = db.Column(db.Boolean, default=False)
     maxCADT = db.Column(db.Integer, default=0)
 
-    quizzes_bond = db.relationship("QuizQuestion", back_populates='question')
+    quizzes_bond = db.relationship("QuizQuestion", back_populates='question', cascade="all, delete")
 
     def serialize(self, **kwargs):
-        serialized = {'id': self.id, 'templates': self.templates, 'poi': self.poi, 'ruleType': self.ruleType,
-                      'phoneme': self.phoneme, 'ruleTxt': self.ruleTxt, 'gloss': self.gloss,
+        serialized = {'id': self.id, 'templates': self.templates, 'poi': self.poi, 'rule_type': self.rule_type,
+                      'phonemes': self.phonemes, 'rule_name': self.rule_name, 'gloss': self.gloss,
                       'UR': self.UR, 'SR': self.SR, 'size': self.size, 'canUR': self.canUR,
-                      'canPhoneme': self.canPhoneme, 'maxCADT': self.maxCADT}
+                      'canPhoneme': self.canPhoneme, 'maxCADT': self.maxCADT, 'rule_content': self.rule_content}
         if 'recur' in kwargs and kwargs['recur'] < SERIALIZE_RECUR_LIMIT:
             next_recur = kwargs['recur'] + 1
             serialized['quizzes'] = [bond.quiz.serialize(recur=next_recur) for bond in self.quizzes_bond]
@@ -206,14 +207,14 @@ class Question(db.Model, Serializable):
         return serialized
 
     def __repr__(self):
-        return '<Rule {} {}>'.format(self.id, self.ruleTxt)
+        return '<Rule {} {}>'.format(self.id, self.rule_name)
 
 
 class UserGroup(db.Model, Serializable):
     __tablename__ = 'usergroup'
     id = db.Column(db.Integer, primary_key=True)
-    group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id', ondelete='CASCADE'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
 
     group = db.relationship("Group", back_populates="users_bond", foreign_keys=[group_id])
     user = db.relationship("User", back_populates="joined_groups_bond", foreign_keys=[user_id])
@@ -243,15 +244,15 @@ class User(db.Model, Serializable):
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
 
-    joined_groups_bond = db.relationship('UserGroup', back_populates="user")
-    owned_groups = db.relationship('Group', back_populates="owner")
-    quiz_attempts = db.relationship('Attempt', back_populates='user')
+    joined_groups_bond = db.relationship('UserGroup', back_populates="user", cascade="all, delete")
+    owned_groups = db.relationship('Group', back_populates="owner", cascade="all, delete")
+    quiz_attempts = db.relationship('Attempt', back_populates='user', cascade="all, delete")
 
-    recv_quizzes_bond = db.relationship('UserQuiz', back_populates='user')
-    owned_quizzes = db.relationship('Quiz', back_populates='owner')
-    recv_messages = db.relationship('Message', back_populates='to_user',
+    recv_quizzes_bond = db.relationship('UserQuiz', back_populates='user', cascade="all, delete")
+    owned_quizzes = db.relationship('Quiz', back_populates='owner', cascade="all, delete")
+    recv_messages = db.relationship('Message', back_populates='to_user', cascade="all, delete",
                                     primaryjoin='and_(User.id==Message.to_user_id)')
-    sent_messages = db.relationship('Message', back_populates='from_user',
+    sent_messages = db.relationship('Message', back_populates='from_user', cascade="all, delete",
                                     primaryjoin='and_(User.id==Message.from_user_id)')
 
     def set_password(self, password: str) -> None:
