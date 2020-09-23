@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
 from flask.json import JSONEncoder
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -31,7 +30,6 @@ class PhonogenesisJSONEncoder(JSONEncoder):
 # flask initialization
 app = Flask(__name__)
 CORS(app=app, supports_credentials=True)
-Bootstrap(app)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

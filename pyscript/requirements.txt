@@ -9,7 +9,6 @@ colorlog==4.1.0
 csvw==1.7.0
 dominate==2.5.1
 Flask==1.1.2
-Flask-Bootstrap==3.3.7.1
 Flask-Cors==3.0.9
 Flask-Login==0.5.0
 Flask-Migrate==2.5.3
