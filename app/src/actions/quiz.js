@@ -3,7 +3,7 @@ import {readCookie} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
-const SERVER_URL = "https://accelsnow.com:5000"
+const SERVER_URL = "https://accelsnow.com/phonogenesisapi"
 
 export const registerResult = (result, user, quiz, page) => {
     axios.post(`${SERVER_URL}/quiz/register`, {
