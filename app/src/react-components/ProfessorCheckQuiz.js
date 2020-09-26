@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import TopBar from "./TopBar.js";
+import ToolBar from "./ToolBar.js";
 import {withRouter} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "./ProfessorCheckQuiz.css"
@@ -17,6 +17,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import {readCookie} from "../actions/user";
+import {adjustFooter, footer, theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 class ProfessorCheckQuiz extends React.Component {
 
@@ -24,6 +26,7 @@ class ProfessorCheckQuiz extends React.Component {
         super(props);
         this.props.history.push("/professor/quizresult");
         this.state = {
+            footerClass: "copyright-info abs-bottom",
             showResult: false,
             studentQuizObj: [],
             quizIndex: "",
@@ -52,12 +55,20 @@ class ProfessorCheckQuiz extends React.Component {
         this.setState({quizIndex: event.target.value});
     };
 
+    componentDidUpdate(prevProps, prevState, snap) {
+        adjustFooter(this);
+    };
+
+    componentDidMount() {
+        adjustFooter(this);
+    }
+
     render() {
         const quizzes = this.props.app.state.currentUser.owned_quizzes;
 
         return (
-            <div>
-                <TopBar history={this.props.history} app={this.props.app}/>
+            <ThemeProvider theme={theme}>
+                <ToolBar history={this.props.history} app={this.props.app}/>
                 <br/><br/>
 
                 <Grid container direction="column" spacing={2} justify="center" alignItems="center">
@@ -118,7 +129,8 @@ class ProfessorCheckQuiz extends React.Component {
                         </TableContainer>
                     </Grid> : null}
                 </Grid>
-            </div>
+                {footer(this)}
+            </ThemeProvider>
         )
     }
 }

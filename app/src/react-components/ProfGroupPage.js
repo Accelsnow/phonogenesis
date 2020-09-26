@@ -12,10 +12,12 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
-import TopBar from "./TopBar.js";
+import ToolBar from "./ToolBar.js";
 import {withRouter} from "react-router-dom";
 import "./mainstyle.css"
 import {addGroup, addToGroup, removeFromGroup, removeGroup} from "../actions/group";
+import {adjustFooter, footer, theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 
 import "./ProfGroupPage.css";
@@ -27,6 +29,7 @@ class ProfGroupPage extends React.Component {
         super(props);
 
         this.state = {
+            footerClass: "copyright-info abs-bottom",
             newGroupName: '',
             err: false
         };
@@ -50,12 +53,20 @@ class ProfGroupPage extends React.Component {
         removeGroup(this, group);
     };
 
+    componentDidUpdate(prevProps, prevState, snap) {
+        adjustFooter(this);
+    };
+
+    componentDidMount() {
+        adjustFooter(this);
+    }
+
     render() {
         const groups = this.props.app.state.currentUser.owned_groups;
 
         return (
-            <div>
-                <TopBar history={this.props.history} app={this.props.app}/>
+            <ThemeProvider theme={theme}>
+                <ToolBar history={this.props.history} app={this.props.app}/>
                 <Grid container id="prof-group-lst" direction="column" justify="flex-start" alignItems="flex-start">
                     <Grid item id={"prof-group-header"}>
                         <Grid id={"add-group-grid"} container direction="row" justify="flex-start" alignItems="center"
@@ -120,7 +131,8 @@ class ProfGroupPage extends React.Component {
                         })
                     }
                 </Grid>
-            </div>
+                {footer(this)}
+            </ThemeProvider>
         )
 
     }

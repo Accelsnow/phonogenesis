@@ -1,7 +1,7 @@
 import React from "react";
 
 import TextField from "@material-ui/core/TextField";
-import TopBar from "./TopBar.js"
+import ToolBar from "./ToolBar.js"
 import {withRouter} from "react-router-dom"
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -16,12 +16,15 @@ import {ListSubheader, Select} from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
+import {adjustFooter, footer, theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 
 class QuizGenerator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            footerClass: "copyright-info abs-bottom",
             timeErr: "",
             qCount: 0,
             rules: null,
@@ -101,11 +104,18 @@ class QuizGenerator extends React.Component {
         this.setState({selectedGroup: event.target.value});
     };
 
-    render() {
+    componentDidUpdate(prevProps, prevState, snap) {
+        adjustFooter(this);
+    };
 
+    componentDidMount() {
+        adjustFooter(this);
+    }
+
+    render() {
         return (
-            <div>
-                <TopBar history={this.props.history} app={this.props.app}/>
+            <ThemeProvider theme={theme}>
+                <ToolBar history={this.props.history} app={this.props.app}/>
                 <br/><br/>
 
                 <Grid container direction="column" spacing={4} justify="center" alignItems="center">
@@ -189,7 +199,8 @@ class QuizGenerator extends React.Component {
                             Quiz</Button>
                     </Grid>
                 </Grid>
-            </div>
+                {footer(this)}
+            </ThemeProvider>
         )
     }
 }

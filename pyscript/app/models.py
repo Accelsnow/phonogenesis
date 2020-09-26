@@ -180,6 +180,7 @@ class Question(db.Model, Serializable):
     templates = db.Column(db.PickleType, nullable=False)
     poi = db.Column(db.String(1024), nullable=False)
     rule_type = db.Column(db.String(32), nullable=False)
+    rule_family = db.Column(db.String(128), nullable=False)
     phonemes = db.Column(db.String(1024), nullable=False)
     rule_name = db.Column(db.String(128), nullable=False)
     rule_content = db.Column(db.String(512), nullable=False)

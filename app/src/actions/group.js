@@ -1,8 +1,7 @@
-import {readCookie, sendMessage} from "./user";
+import {readCookie, sendMessage, SERVER_URL} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
-const SERVER_URL = "https://accelsnow.com/phonogenesisapi"
 
 export const getGroupNames = (page) => {
     axios.get(`${SERVER_URL}/groups`).then(res => {

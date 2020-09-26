@@ -7,16 +7,19 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Divider from '@material-ui/core/Divider'
-
 import {withRouter} from "react-router-dom"
 import {logout} from "../actions/user";
+import {theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
-const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Log Out'];
-const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Log Out'];
+const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'About', 'Log Out'];
+const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'About', 'Log Out'];
+const guestNav = ['Home', 'Advanced', 'Login/Sign up', 'About']
 
-class TopBar extends React.Component {
+
+class ToolBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,7 +36,29 @@ class TopBar extends React.Component {
         const currentUser = this.props.app.state.currentUser;
 
         if (!currentUser) {
-            destPath = '/';
+            switch (text) {
+                case 'Home':
+                    destPath = '/';
+                    break;
+
+                case "Advanced":
+                    destPath = '/advanced';
+                    break;
+
+                case "Login/Sign up":
+                    destPath = '/login';
+                    break;
+
+                case "About":
+                    destPath = '/about';
+                    break;
+
+                default:
+                    console.log("UNKNOWN TOP BAR BRANCH");
+                    alert("Invalid redirection! Page may be under construction. Redirecting you back to front page.");
+                    destPath = '/';
+                    break;
+            }
         } else {
             const type = currentUser.type;
 
@@ -76,14 +101,19 @@ class TopBar extends React.Component {
                     destPath = "/professor/makequiz";
                     break;
 
+                case "About":
+                    destPath = "/about";
+                    break;
+
                 case "Log Out":
                     logout();
                     this.props.app.setState({currentUser: null});
-                    destPath = "/login";
+                    destPath = "/";
                     break;
 
                 default:
                     console.log("UNKNOWN TOP BAR BRANCH");
+                    alert("Invalid redirection! Page may be under construction. Redirecting you back to front page.");
                     destPath = '/';
                     break;
             }
@@ -97,9 +127,10 @@ class TopBar extends React.Component {
     };
 
     render() {
-        const type = this.props.app.state.currentUser.type;
+        const user = this.props.app.state.currentUser;
+
         return (
-            <div>
+            <ThemeProvider theme={theme}>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton edge="start" onClick={this.openDrawer} color="inherit" aria-label="menu">
@@ -111,20 +142,21 @@ class TopBar extends React.Component {
 
                 <Drawer variant="persistent" anchor="left" open={this.state.isOpen}>
                     <IconButton onClick={this.closeDrawer}>
-                        <ChevronRightIcon/>
+                        <ChevronLeftIcon/>
                     </IconButton>
                     <Divider/>
                     <List>
-                        {(type === "student" ? studentNav : (type === "professor" ? profNav : ["Log Out"])).map((text) => (
+                        {(user ? user.type === "student" ? studentNav : (user.type === "professor" ? profNav : (user.type === "admin" ? ['About', 'Log Out'] : ['About', 'Login/Sign up'])) : guestNav).map((text) => (
                             <ListItem button onClick={() => this.navigate(text)} key={text}>
                                 <ListItemText primary={text}/>
                             </ListItem>
                         ))}
                     </List>
                 </Drawer>
-            </div>
+
+            </ThemeProvider>
         )
     }
 }
 
-export default withRouter(TopBar);
+export default withRouter(ToolBar);

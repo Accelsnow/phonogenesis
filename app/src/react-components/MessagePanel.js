@@ -15,6 +15,8 @@ import GridListTile from "@material-ui/core/GridListTile";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
+import {theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 
 class MessagePanel extends React.Component {
@@ -106,77 +108,80 @@ class MessagePanel extends React.Component {
         }
 
         return (
-            <div id="msg-panel-container">
-                <h2>Send Message</h2>
-                <Divider/>
-                <br/>
-                <Grid container justify="flex-start" alignItems="flex-end" spacing={3}>
-                    <Grid item>
-                        <TextField error={this.state.contentErr} multiline required label={"message"}
-                                   id={"message-textfield"}/>
+            <ThemeProvider theme={theme}>
+                <div id="msg-panel-container">
+                    <h2>Send Message</h2>
+                    <Divider/>
+                    <br/>
+                    <Grid container justify="flex-start" alignItems="flex-end" spacing={3}>
+                        <Grid item>
+                            <TextField error={this.state.contentErr} multiline required label={"message"}
+                                       id={"message-textfield"}/>
+                        </Grid>
+                        <Grid item>
+                            <Select onChange={this.onModeChange} value={this.state.mode} id={"mode-sel"}>
+                                <MenuItem value={"p2p"}>Send to User</MenuItem>
+                                <MenuItem value={"p2g"}>Broadcast to Group</MenuItem>
+                            </Select>
+                        </Grid>
+                        <Grid item>
+                            {
+                                this.state.mode === "p2p" ? (
+                                    <Select value={this.state.targetUser} onChange={this.onUserChange} id={"user-sel"}>
+                                        {
+                                            users.map(user => (
+                                                <MenuItem key={user.username}
+                                                          value={user.username}>{user.username}</MenuItem>
+                                            ))
+                                        }
+                                    </Select>
+                                ) : (
+                                    <Select value={this.state.targetGroup} onChange={this.onGroupChange}
+                                            id={"group-sel"}>
+                                        {
+                                            groups.map(group => (
+                                                <MenuItem key={group.id} value={group.name}>{group.name}</MenuItem>
+                                            ))
+                                        }
+                                    </Select>
+                                )
+                            }
+                        </Grid>
+                        <Grid item>
+                            <Button variant="contained" color="primary" onClick={this.onSend}>Send</Button>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Select onChange={this.onModeChange} value={this.state.mode} id={"mode-sel"}>
-                            <MenuItem value={"p2p"}>Send to User</MenuItem>
-                            <MenuItem value={"p2g"}>Broadcast to Group</MenuItem>
-                        </Select>
-                    </Grid>
-                    <Grid item>
-                        {
-                            this.state.mode === "p2p" ? (
-                                <Select value={this.state.targetUser} onChange={this.onUserChange} id={"user-sel"}>
-                                    {
-                                        users.map(user => (
-                                            <MenuItem key={user.username}
-                                                      value={user.username}>{user.username}</MenuItem>
-                                        ))
-                                    }
-                                </Select>
-                            ) : (
-                                <Select value={this.state.targetGroup} onChange={this.onGroupChange} id={"group-sel"}>
-                                    {
-                                        groups.map(group => (
-                                            <MenuItem key={group.id} value={group.name}>{group.name}</MenuItem>
-                                        ))
-                                    }
-                                </Select>
-                            )
-                        }
-                    </Grid>
-                    <Grid item>
-                        <Button variant="contained" color="primary" onClick={this.onSend}>Send</Button>
-                    </Grid>
-                </Grid>
-                <br/>
-                <h2>Incoming Messages</h2>
-                <Divider/>
-                <br/>
-                {
-                    this.props.app.state.currentUser.recv_messages.length === 0 ? (
-                        <h3>You have no incoming message.</h3>
-                    ) : (
-                        <div>
-                            <GridList cols={3} cellHeight="auto">
-                                {this.props.app.state.currentUser.recv_messages.map(msg => (
-                                    <GridListTile key={msg.id} className={"message-tile"}>
-                                        <Card variant="outlined">
-                                            <CardContent>
-                                                <p className={"message-timestamp-text"}>{msg.time_stamp}</p>
-                                                <p className={"message-content-text"}>{msg.content}</p>
-                                            </CardContent>
+                    <br/>
+                    <h2>Incoming Messages</h2>
+                    <Divider/>
+                    <br/>
+                    {
+                        this.props.app.state.currentUser.recv_messages.length === 0 ? (
+                            <h3>You have no incoming message.</h3>
+                        ) : (
+                            <div>
+                                <GridList cols={3} cellHeight="auto">
+                                    {this.props.app.state.currentUser.recv_messages.map(msg => (
+                                        <GridListTile key={msg.id} className={"message-tile"}>
+                                            <Card variant="outlined">
+                                                <CardContent>
+                                                    <p className={"message-timestamp-text"}>{msg.time_stamp}</p>
+                                                    <p className={"message-content-text"}>{msg.content}</p>
+                                                </CardContent>
 
-                                            <CardActions>
-                                                <Button onClick={this.onDeleteMessage.bind(this, msg)}
-                                                        size="small">remove</Button>
-                                            </CardActions>
-                                        </Card>
-                                    </GridListTile>
-                                ))}
-                            </GridList>
-                        </div>
-                    )
-                }
-            </div>
+                                                <CardActions>
+                                                    <Button onClick={this.onDeleteMessage.bind(this, msg)}
+                                                            size="small">remove</Button>
+                                                </CardActions>
+                                            </Card>
+                                        </GridListTile>
+                                    ))}
+                                </GridList>
+                            </div>
+                        )
+                    }
+                </div>
+            </ThemeProvider>
         );
     }
 }

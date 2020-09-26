@@ -1,12 +1,12 @@
 import React from "react";
 import {withRouter} from "react-router-dom"
-import TopBar from "./TopBar.js"
-import Avatar from '@material-ui/core/Avatar';
+import ToolBar from "./ToolBar.js"
 import {makeStyles} from '@material-ui/core/styles';
 import "./mainstyle.css"
-import mark from "./avatars/mark_avatar.jpg";
 import Divider from "@material-ui/core/Divider";
 import MessagePanel from "./MessagePanel";
+import {adjustFooter, footer, theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 class ProfessorHome extends React.Component {
     classes = makeStyles(theme => ({
@@ -29,8 +29,18 @@ class ProfessorHome extends React.Component {
     constructor(props) {
         super(props);
         this.props.history.push("/professor");
+        this.state = {
+            footerClass: "copyright-info abs-bottom",
+        };
     }
 
+    componentDidUpdate(prevProps, prevState, snap) {
+        adjustFooter(this);
+    };
+
+    componentDidMount() {
+        adjustFooter(this);
+    }
 
     render() {
         const prof = this.props.app.state.currentUser;
@@ -38,22 +48,24 @@ class ProfessorHome extends React.Component {
         prof.owned_groups.forEach(g => owned_groups.push(g.name));
 
         return (
-            <div className="render-container">
-                <TopBar history={this.props.history} app={this.props.app}/>
-                <div className="main-area">
-                    <h2>Account Information</h2>
-                    <Divider/><br/>
-                    <Avatar alt={prof.name} src={mark} className={this.classes.large}/>
+            <ThemeProvider theme={theme}>
+                <div className="render-container">
+                    <ToolBar history={this.props.history} app={this.props.app}/>
+                    <div className="main-area">
+                        <h2>Account Information</h2>
+                        <Divider/><br/>
 
-                    <p><span className="bold">Name: {prof.name ? prof.name : "Anonymous"}</span></p>
-                    <p><span className="bold">Email: {prof.email ? prof.email : "Undefined"}</span></p>
-                    <p><span onClick={() => this.props.history.push("/professor/groups")} className="bold"
-                             id="link-button">Instructing: {prof.owned_groups.length > 0 ? owned_groups.join(", ") : "None"}</span>
-                    </p>
-                    <br/>
-                    <MessagePanel app={this.props.app}/>
+                        <p><span className="bold">Name: {prof.name ? prof.name : "Anonymous"}</span></p>
+                        <p><span className="bold">Email: {prof.email ? prof.email : "Undefined"}</span></p>
+                        <p><span onClick={() => this.props.history.push("/professor/groups")} className="bold"
+                                 id="link-button">Instructing: {prof.owned_groups.length > 0 ? owned_groups.join(", ") : "None"}</span>
+                        </p>
+                        <br/>
+                        <MessagePanel app={this.props.app}/>
+                    </div>
                 </div>
-            </div>
+                {footer(this)}
+            </ThemeProvider>
         );
     }
 

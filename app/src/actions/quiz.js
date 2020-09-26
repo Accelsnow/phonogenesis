@@ -1,9 +1,8 @@
 import {broadcastMessage} from "./group";
-import {readCookie} from "./user";
+import {readCookie, SERVER_URL} from "./user";
 
 const axios = require('axios');
 axios.defaults.withCredentials = true;
-const SERVER_URL = "https://accelsnow.com/phonogenesisapi"
 
 export const registerResult = (result, user, quiz, page) => {
     axios.post(`${SERVER_URL}/quiz/register`, {
@@ -19,6 +18,15 @@ export const registerResult = (result, user, quiz, page) => {
     }).catch(err => {
         console.log(err);
     });
+};
+
+
+export const getRuleFamilies = (page) => {
+    axios.get(`${SERVER_URL}/rule/families`).then(res => {
+        page.setState({rule_families: res.data.families});
+    }).catch(err => {
+        console.log(err);
+    })
 };
 
 
@@ -67,16 +75,16 @@ export const distributeQuiz = (page, quizObj) => {
     });
 };
 
-export const genSimpleQuestion = (page, isShuffle, isIPAg, size, type, ruleName) => {
+export const genSimpleQuestion = (page, isShuffle, isIPAg, size, type, ruleFamily, updateFunction) => {
     axios.post(`${SERVER_URL}/question`, {
         shuffle: isShuffle,
         isIPAg: isIPAg,
         size: size,
         type: type,
-        rule_name: ruleName
+        rule_family: ruleFamily
     }).then(res => {
         if (res.data.success) {
-            page.setState({question: res.data.question});
+            page.setState({question: res.data.question}, updateFunction);
             readCookie(page.props.app);
         } else {
             alert(res.data.message);

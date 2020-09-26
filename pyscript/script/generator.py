@@ -227,6 +227,7 @@ class Generator:
         sr_words = []  # type: List[Word]
         generation_amounts = [0, 0, 0, 0, 0]  # type: List[int]
         split_size = len(self._CADT)
+        cadt_extra = -1
 
         if type(amount) == int:
             total_amount = amount
@@ -234,10 +235,10 @@ class Generator:
         elif type(amount) == list:
             if len(amount) == 2:
                 normal_amount = amount[0]
-                cadt_amount = amount[1]
+                cadt_extra = amount[1]
                 cadt_num, cadnt_num, cand_num, ncad_num, irr_num = self._get_num(round(normal_amount / split_size))
-                cadt_num += cadt_amount
-                total_amount = normal_amount + cadt_amount
+                cadt_num += cadt_extra
+                total_amount = normal_amount + cadt_extra
             elif len(amount) != 5 or False in [type(i) == int for i in amount]:
                 raise GeneratorParameterError(self, amount, "amount given in list should be in format int[5] > 0")
             else:
@@ -344,7 +345,11 @@ class Generator:
         elif gloss_groups is None:
             raise ValueError("If GenMode is not 0 - raw data, then gloss group must be present.")
 
-        ur_words = cadt_words + cadnt_words + cand_words + ncad_words + irr_words
+        if cadt_extra > 0:
+            ur_words = cadt_words[cadt_extra:] + cadnt_words + cand_words + ncad_words + irr_words + cadt_words[
+                                                                                                     :cadt_extra]
+        else:
+            ur_words = cadt_words + cadnt_words + cand_words + ncad_words + irr_words
 
         if len(ur_words) == 0 and len(failed_indexes) == split_size:
             raise GeneratorError(self, "All indexes failed! No result can be produced. \n%s\n" % self.get_log_stamp())

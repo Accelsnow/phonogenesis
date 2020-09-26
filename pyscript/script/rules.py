@@ -186,9 +186,14 @@ class Rule(Serializable):
         if len(a_matcher) == 1 and str(a_matcher[0]) == '':
             return {}, []
 
-        # TODO when B is None not sure about behaviour
+        # TODO uncertain deletion rule poi
         if not self._B or self._B[2] != 0:
-            return {}, []
+            dict_ = {}
+            lst = [str(am) for am in a_matcher]
+            for am in lst:
+                dict_[am] = ''
+
+            return dict_, lst
 
         result = {}
         all_phones = set([])

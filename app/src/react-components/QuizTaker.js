@@ -4,11 +4,13 @@ import Grid from "@material-ui/core/Grid";
 import "./QuizTaker.css";
 import "./mainstyle.css"
 import QuestionBlock from "./QuestionBlock";
-import TopBar from "./TopBar.js"
+import ToolBar from "./ToolBar.js"
 import Countdown from 'react-countdown-now';
 import {withRouter} from "react-router-dom";
 import {registerResult} from "../actions/quiz";
 import TextField from "@material-ui/core/TextField";
+import {adjustFooter, footer, theme} from "../App";
+import {ThemeProvider} from '@material-ui/styles';
 
 class QuizTaker extends React.Component {
     constructor(props) {
@@ -16,11 +18,12 @@ class QuizTaker extends React.Component {
         const quiz = JSON.parse(localStorage.getItem("quiz"));
 
         if (!quiz) {
-            this.state = {};
+            this.state = {footerClass: "copyright-info abs-bottom",};
             alert("No active/selected quiz! Redirecting back to your main page.");
             this.props.history.push("/");
         } else {
             this.state = {
+                footerClass: "copyright-info abs-bottom",
                 quiz: quiz,
                 questionIndex: 0,
                 isActive: localStorage.getItem("isActive") === "1",
@@ -72,6 +75,14 @@ class QuizTaker extends React.Component {
         this.props.history.goBack();
     };
 
+    componentDidUpdate(prevProps, prevState, snap) {
+        adjustFooter(this);
+    };
+
+    componentDidMount() {
+        adjustFooter(this);
+    }
+
     render() {
         if (this.state.quiz === undefined) {
             return <div/>;
@@ -85,46 +96,48 @@ class QuizTaker extends React.Component {
 
         if (index < size && currQuestion && isActive) {
             return (
-                <div className="render-container">
-                    <TopBar history={this.props.history} app={this.props.app}/>
-                    <br/>
-                    <h3 id="quiz-title">Quiz: {quiz.name}</h3>
-                    <hr className="qtaker-hr"/>
-                    <QuestionBlock ref={this.questionBlockElement} question={currQuestion} showAnswer={false}
-                                   isReadOnly={false} isQuiz={true}/>
-                    <hr className="qtaker-hr"/>
-                    <Grid container direction="column" justify="center" alignItems="center" spacing={5}>
-                        <Grid item id="ctd"> Time Remaining &nbsp; <CountdownTimer id="ctd-timer"
-                                                                                   msec={quiz.time_limit_seconds * 1000}
-                                                                                   onTimeUp={this.onTimeUp}/>
-                        </Grid>
+                <ThemeProvider theme={theme}>
+                    <div className="render-container">
+                        <ToolBar history={this.props.history} app={this.props.app}/>
+                        <br/>
+                        <h3 id="quiz-title">Quiz: {quiz.name}</h3>
+                        <hr className="qtaker-hr"/>
+                        <QuestionBlock ref={this.questionBlockElement} question={currQuestion} showAnswer={false}
+                                       isReadOnly={false} isQuiz={true}/>
+                        <hr className="qtaker-hr"/>
+                        <Grid container direction="column" justify="center" alignItems="center" spacing={5}>
+                            <Grid item id="ctd"> Time Remaining &nbsp; <CountdownTimer id="ctd-timer"
+                                                                                       msec={quiz.time_limit_seconds * 1000}
+                                                                                       onTimeUp={this.onTimeUp}/>
+                            </Grid>
 
-                        <Grid item>
-                            <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
-                                <Grid item><TextField required error={this.state.answerError !== ""}
-                                                      helperText={this.state.answerError} id="answer-input"
-                                                      label="Your Answer" defaultValue=""/></Grid>
-                                <Grid item><Button variant="contained" id="submit-answer"
-                                                   onClick={this.onSubmitAnswer}>Next Question</Button></Grid>
+                            <Grid item>
+                                <Grid container direction="row" justify="center" alignItems="center" spacing={4}>
+                                    <Grid item><TextField required error={this.state.answerError !== ""}
+                                                          helperText={this.state.answerError} id="answer-input"
+                                                          label="Your Answer" defaultValue=""/></Grid>
+                                    <Grid item><Button variant="contained" id="submit-answer"
+                                                       onClick={this.onSubmitAnswer}>Next Question</Button></Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
 
-                    <br/>
-                    <hr className="qtaker-hr"/>
-                </div>
+                        <br/>
+                        <hr className="qtaker-hr"/>
+                    </div>
+                </ThemeProvider>
             );
         } else {
             let attempt = this.state.currAttempt || this.state.quiz.attempts[0];
 
             if (!attempt) {
-                return (<div>
+                return (<ThemeProvider theme={theme}>
                     <Grid container direction="column" justify="flex-start" alignItems="center" spacing={5}>
                         <Grid item><h3>Quiz is no longer active.</h3></Grid>
                         <Grid item><Button variant="contained" onClick={this.onBack.bind(this)}>back to quiz
                             page</Button></Grid>
                     </Grid>
-                </div>)
+                </ThemeProvider>)
             }
 
             const score = attempt.score;
@@ -132,32 +145,36 @@ class QuizTaker extends React.Component {
             const displayAns = attempt.answers;
 
             return (
-                <div id="render-container">
-                    <TopBar history={this.props.history} app={this.props.app}/>
-                    <Grid container direction="column" justify="flex-start" alignItems="center" spacing={5}>
-                        <Grid item>
-                            <h2>You've Completed the Quiz!</h2>
-                            {typeof score === 'number' ? <h3>Score: {score}/{size}</h3> : <h3>Score: {score}</h3>}
-                            <Button variant="contained" onClick={this.onBack.bind(this)}>back to quiz page</Button>
-                            <br/>
-                        </Grid>
+                <ThemeProvider theme={theme}>
+                    <div id="render-container">
+                        <ToolBar history={this.props.history} app={this.props.app}/>
+                        <Grid container direction="column" justify="flex-start" alignItems="center" spacing={5}>
+                            <Grid item>
+                                <h2>You've Completed the Quiz!</h2>
+                                {typeof score === 'number' ? <h3>Score: {score}/{size}</h3> : <h3>Score: {score}</h3>}
+                                <Button variant="contained" onClick={this.onBack.bind(this)}>back to quiz page</Button>
+                                <br/>
+                            </Grid>
 
-                        <Grid item>
-                            {quiz.questions.map((question, index) => (
-                                <div key={index}>
-                                    <QuestionBlock ref={this.questionBlockElement} question={question} isReadOnly={true}
-                                                   showAnswer={true} isQuiz={false}/>
-                                    <p><span id="correctAnswerTxt">Correct Answer: {question.rule_name}</span></p>
-                                    <p><span id="studentAnswerTxt">Your Answer: {
-                                        displayAns[index] ? displayAns[index] : "Timed Out"
-                                    }</span></p>
-                                    <br/>
-                                    <hr/>
-                                </div>
-                            ))}
+                            <Grid item>
+                                {quiz.questions.map((question, index) => (
+                                    <div key={index}>
+                                        <QuestionBlock ref={this.questionBlockElement} question={question}
+                                                       isReadOnly={true}
+                                                       showAnswer={true} isQuiz={false}/>
+                                        <p><span id="correctAnswerTxt">Correct Answer: {question.rule_name}</span></p>
+                                        <p><span id="studentAnswerTxt">Your Answer: {
+                                            displayAns[index] ? displayAns[index] : "Timed Out"
+                                        }</span></p>
+                                        <br/>
+                                        <hr/>
+                                    </div>
+                                ))}
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </div>
+                    </div>
+                    {footer(this)}
+                </ThemeProvider>
             );
         }
     }

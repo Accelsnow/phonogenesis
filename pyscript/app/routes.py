@@ -7,13 +7,11 @@ from app import app, DEFAULT_DATA, db, get_formatted_timestr
 from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
 
-TYPE_MISMATCH_RETRY_LIMIT = 50
 LOGGER = logging.getLogger("app.logger")
-show_ur = False
-show_full_phonemes = False
 ACCOUNT_TYPES = ['student', 'professor', 'admin']
 registered_ip = {}
 SAME_IP_REGISTER_LIMIT = 1
+SIMPLE_QUESTION_MAX_SIZE = 50
 
 
 @app.route('/env', methods=['GET'])
@@ -395,11 +393,12 @@ def create_quiz():
         q_data = gen.generate(GenMode.IPAg, [size, max_cadt * 5], True, False,
                               DEFAULT_DATA['gloss_grp'])
 
-        question_obj = Question(templates=q_data['templates'], poi=str(q_data['phone_interest']),
-                                rule_type=str(rule_type), phonemes=str(q_data['phonemes']), rule_name=rule.get_name(),
-                                gloss=q_data['Gloss'], UR=q_data['UR'], SR=q_data['SR'], size=size,
-                                canUR=bool(question_attr['canUR']), canPhoneme=bool(question_attr['canPhoneme']),
-                                maxCADT=max_cadt, rule_content=rule.get_content_str())
+        question_obj = Question(templates=q_data['templates'], poi=' '.join(q_data['phone_interest']),
+                                rule_type=str(rule_type), phonemes=' '.join(q_data['phonemes']),
+                                rule_name=rule.get_name(), gloss=q_data['Gloss'], UR=q_data['UR'], SR=q_data['SR'],
+                                size=size, canUR=bool(question_attr['canUR']),
+                                canPhoneme=bool(question_attr['canPhoneme']), maxCADT=max_cadt,
+                                rule_content=rule.get_content_str(), rule_family=rule.get_family().get_name())
         questions.append(question_obj)
         db.session.add(question_obj)
 
@@ -419,11 +418,8 @@ def create_quiz():
 
 @app.route('/question', methods=['POST'])
 def get_simple_question():
-    if not _validate_session():
-        abort(401)
-
     data = request.json
-    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or 'rule_name' not in data:
+    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or 'rule_family' not in data:
         abort(400)
     try:
         shuffle = bool(data['shuffle'])
@@ -433,13 +429,13 @@ def get_simple_question():
         abort(400)
         return
     rule_type = data['type']
-    rule_name = data['rule_name']
+    rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
     phonemes = DEFAULT_DATA['phonemes']
     rule: Rule
+    import random
 
-    if rule_name == "Random":
-        import random
+    if rule_family == "Random":
         if rule_type != "Random":
             rules = [r for r in rules if
                      str(r.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])) == rule_type]
@@ -448,7 +444,7 @@ def get_simple_question():
             rule = random.choice(rules)
             rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
     else:
-        rule = DEFAULT_DATA['rules'][rule_name]
+        rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
         rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
     if isIPAg:
@@ -457,11 +453,17 @@ def get_simple_question():
         gen_mode = GenMode.nIPAg
 
     gen = Generator(phonemes, DEFAULT_DATA['templates'], rule, 5, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-    q_data = gen.generate(gen_mode, size, True, shuffle, DEFAULT_DATA['gloss_grp'])
+    q_data = gen.generate(gen_mode, [size, SIMPLE_QUESTION_MAX_SIZE - size], True, shuffle, DEFAULT_DATA['gloss_grp'])
 
-    simple_question = {'templates': q_data['templates'], 'poi': str(q_data['phone_interest']),
-                       'rule_type': str(rule_type), 'phonemes': str(q_data['phonemes']), 'rule_name': rule.get_name(),
-                       'gloss': q_data['Gloss'], 'UR': q_data['UR'], 'SR': q_data['SR'], 'size': size,
-                       'canUR': True, 'canPhoneme': True, 'maxCADT': 0, 'rule_content': rule.get_content_str()}
+    simple_question = {'templates': q_data['templates'], 'poi': ' '.join(q_data['phone_interest']),
+                       'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
+                       'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['UR'], 'SR': q_data['SR'],
+                       'size': size, 'canUR': True, 'canPhoneme': True, 'maxCADT': 100,
+                       'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name()}
 
     return jsonify(success=True, question=simple_question)
+
+
+@app.route('/rule/families', methods=['GET'])
+def get_rule_families():
+    return jsonify(families=[fam.get_name() for fam in DEFAULT_DATA['rule_fam']])
