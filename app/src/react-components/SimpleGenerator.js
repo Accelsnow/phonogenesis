@@ -35,7 +35,8 @@ class SimpleGenerator extends React.Component {
             isShuffle: true,
             isIPAg: true,
             rule_families: null,
-            question: null
+            question: null,
+            isWaitingResponse: false
         };
         getRuleFamilies(this);
         this.questionBlockElement = React.createRef();
@@ -50,6 +51,8 @@ class SimpleGenerator extends React.Component {
 
         genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
             this.state.selectedType, this.state.selectedFamily, this.updateQuestionBlock);
+        
+        this.setState({isWaitingResponse: true});
 
         this.forceUpdate();
     };
@@ -136,19 +139,6 @@ class SimpleGenerator extends React.Component {
                         </FormControl>
                         </Grid>
 
-
-                        <Grid item><TextField id={"size-input-field"}
-                                              label="Size(15-30)"
-                                              error={this.state.sizeSelectWarn !== ""}
-                                              helperText={this.state.sizeSelectWarn}
-                                              type="number"
-                                              variant="outlined"
-                                              InputLabelProps={{
-                                                  shrink: true,
-                                              }}
-                                              defaultValue={15}
-                                              onBlur={this.validateSizeSelection}/></Grid>
-
                         <Grid item><FormControl variant="outlined" disabled={!this.state.canChangeType}>
                             <InputLabel id="type-sel-label">Rule Type</InputLabel>
                             <Select labelId="type-sel-label" id={"type-sel"} label={"Rule Type"}
@@ -161,6 +151,17 @@ class SimpleGenerator extends React.Component {
                             </Select>
                         </FormControl></Grid>
 
+                        <Grid item><TextField id={"size-input-field"}
+                                              label="Size(15-30)"
+                                              error={this.state.sizeSelectWarn !== ""}
+                                              helperText={this.state.sizeSelectWarn}
+                                              type="number"
+                                              variant="outlined"
+                                              InputLabelProps={{
+                                                  shrink: true,
+                                              }}
+                                              defaultValue={15}
+                                              onBlur={this.validateSizeSelection}/></Grid>
 
                         <Grid item><FormGroup id={"gen-switches"}>
                             <FormControlLabel
@@ -186,8 +187,8 @@ class SimpleGenerator extends React.Component {
                         </FormGroup></Grid>
 
                         <Grid item>
-                            <Button variant="contained" color="primary" onClick={this.onGetQuestion}>Generate
-                                Data</Button>
+                            <Button variant="contained" color="primary" disabled={this.state.isWaitingResponse}
+                                    onClick={this.onGetQuestion}>Generate Data</Button>
                         </Grid>
                     </Grid>
 

@@ -59,7 +59,7 @@ export default class QuestionBlock extends React.Component {
         this.setState({showRuleType: !this.state.showRuleType});
     }
 
-    onMoreCADT = (e) => {
+    onMoreData = (e) => {
         const question = this.props.question;
         const newGenMoreCt = this.state.genMoreCount + 1;
         const capacity = question.UR.length;
@@ -118,7 +118,7 @@ export default class QuestionBlock extends React.Component {
                                                          aria-label={"contained primary hint button group"}>
                                                 {canPhoneme ? (
                                                     <Button variant={showPhoneme ? "contained" : "outlined"}
-                                                            onClick={this.onShowPhonemes}>{showPhoneme ? "Hide Phoneme" : "Show Phoneme"}</Button>
+                                                            onClick={this.onShowPhonemes}>{showPhoneme ? "Hide Phoneme Inventory" : "Show Phoneme Inventory"}</Button>
                                                 ) : null}
                                                 {canUR ? (
                                                     <Button variant={showUR ? "contained" : "outlined"}
@@ -139,7 +139,7 @@ export default class QuestionBlock extends React.Component {
                                             {this.props.genMoreLimit === 0 ? null : (
                                                 <ButtonGroup variant="contained" color="primary"
                                                              aria-label={"contained primary hint button group"}>
-                                                    <Button onClick={this.onMoreCADT}>More CADT</Button>
+                                                    <Button onClick={this.onMoreData}>More Data</Button>
                                                 </ButtonGroup>
                                             )}
                                         </Grid>
