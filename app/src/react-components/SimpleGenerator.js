@@ -32,8 +32,8 @@ class SimpleGenerator extends React.Component {
             selectedType: "Random",
             canChangeFamily: true,
             canChangeType: true,
-            isShuffle: false,
-            isIPAg: false,
+            isShuffle: true,
+            isIPAg: true,
             rule_families: null,
             question: null
         };
