@@ -14,9 +14,9 @@ import {logout} from "../actions/user";
 import {theme} from "../App";
 import {ThemeProvider} from '@material-ui/styles';
 
-const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Instruction', 'About', 'Log Out'];
-const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Instruction', 'About', 'Log Out'];
-const guestNav = ['Home', 'Advanced', 'Instruction', 'Login/Sign up', 'About']
+const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Instructions', 'About', 'Log Out'];
+const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Instructions', 'About', 'Log Out'];
+const guestNav = ['Home', 'Advanced', 'Instructions', 'Login/Sign up', 'About']
 
 
 class ToolBar extends React.Component {
@@ -53,8 +53,8 @@ class ToolBar extends React.Component {
                     destPath = '/about';
                     break;
 
-                case "Instruction":
-                    destPath = '/instruction';
+                case "Instructions":
+                    destPath = '/instructions';
                     break;
 
                 default:
@@ -105,8 +105,8 @@ class ToolBar extends React.Component {
                     destPath = "/professor/makequiz";
                     break;
 
-                case "Instruction":
-                    destPath = '/instruction';
+                case "Instructions":
+                    destPath = '/instructions';
                     break;
 
                 case "About":
@@ -154,7 +154,7 @@ class ToolBar extends React.Component {
                     </IconButton>
                     <Divider/>
                     <List>
-                        {(user ? user.type === "student" ? studentNav : (user.type === "professor" ? profNav : (user.type === "admin" ? ['About', 'Instruction', 'Log Out'] : ['About', 'Instruction', 'Login/Sign up'])) : guestNav).map((text) => (
+                        {(user ? user.type === "student" ? studentNav : (user.type === "professor" ? profNav : (user.type === "admin" ? ['About', 'Instructions', 'Log Out'] : ['About', 'Instructions', 'Login/Sign up'])) : guestNav).map((text) => (
                             <ListItem button onClick={() => this.navigate(text)} key={text}>
                                 <ListItemText primary={text}/>
                             </ListItem>

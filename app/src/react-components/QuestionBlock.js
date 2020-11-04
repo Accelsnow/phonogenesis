@@ -186,7 +186,7 @@ export default class QuestionBlock extends React.Component {
                                                         <TableCell align="center" className="table-header"><span
                                                             className="ipa-font-sensitive">SR</span></TableCell>
                                                         <TableCell align="center" className="table-header"><span
-                                                            className="ipa-font-sensitive">Gloss</span></TableCell>
+                                                            className="ipa-font-sensitive">gloss</span></TableCell>
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
