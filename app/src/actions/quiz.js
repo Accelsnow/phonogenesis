@@ -84,7 +84,7 @@ export const genSimpleQuestion = (page, isShuffle, isIPAg, size, type, ruleFamil
         rule_family: ruleFamily
     }).then(res => {
         if (res.data.success) {
-            page.setState({question: res.data.question}, updateFunction);
+            page.setState({question: res.data.question, isWaitingResponse: false}, updateFunction);
             readCookie(page.props.app);
         } else {
             alert(res.data.message);

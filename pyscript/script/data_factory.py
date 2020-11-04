@@ -65,7 +65,7 @@ def get_default_data() -> Dict[str, Any]:
     from script.rules import import_default_rules
     from script.glossgroup import import_default_gloss
     from script.templates import import_default_templates
-    from script.phonemes import import_default_randomized_phonemes
+    from script.phonemes import import_default_full_phonemes
     _feature_data = import_default_features()
 
     features = _feature_data[0]
@@ -73,7 +73,7 @@ def get_default_data() -> Dict[str, Any]:
     type_to_features = _feature_data[2]
     feature_to_type = _feature_data[3]
     feature_to_sounds = _feature_data[4]
-    phonemes = import_default_randomized_phonemes()
+    phonemes = import_default_full_phonemes()
 
     templates = import_default_templates(features)
 

@@ -20,6 +20,7 @@ import WelcomePage from "./react-components/WelcomePage";
 import AboutPage from "./react-components/AboutPage";
 import AdvancedGenerator from "./react-components/AdvancedGenerator";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import InstructionPage from "./react-components/InstructionPage";
 
 export const theme = createMuiTheme({
     palette: {
@@ -76,6 +77,8 @@ class App extends React.Component {
                                    render={({history}) => (<LoginPage history={history} app={this}/>)}/>
                             <Route exact path='/signup' render={({history}) => (
                                 <SignUp history={history} app={this}/>)}/>
+                            <Route exact path={['/instruction']}
+                                   render={({history}) => (<InstructionPage history={history} app={this}/>)}/>
                             <Route exact path={['/about']}
                                    render={({history}) => (<AboutPage history={history} app={this}/>)}/>
                             <Route exact path={['/advanced']}
@@ -89,6 +92,8 @@ class App extends React.Component {
                                 (<Switch>
                                     <Route exact path={['/', '/admin', '/login']}
                                            render={({history}) => (<AdminPage history={history} app={this}/>)}/>
+                                    <Route exact path={['/instruction']}
+                                           render={({history}) => (<InstructionPage history={history} app={this}/>)}/>
                                     <Route exact path={['/about']}
                                            render={({history}) => (<AboutPage history={history} app={this}/>)}/>
                                     <Route render={({history}) => {
@@ -97,6 +102,8 @@ class App extends React.Component {
                                     }}/></Switch>) :
                                 (currentUser.type === 'student' ?
                                         (<Switch>
+                                            <Route exact path={['/instruction']}
+                                                   render={({history}) => (<InstructionPage history={history} app={this}/>)}/>
                                             <Route exact path={['/about']}
                                                    render={({history}) => (<AboutPage history={history} app={this}/>)}/>
                                             <Route exact path={['/student', '/', '/login']} render={({history}) => (
@@ -119,6 +126,8 @@ class App extends React.Component {
                                                 <Route exact path={['/professor', '/', '/login']}
                                                        render={({history}) => (
                                                            <ProfessorHome history={history} app={this}/>)}/>
+                                                <Route exact path={['/instruction']}
+                                                       render={({history}) => (<InstructionPage history={history} app={this}/>)}/>
                                                 <Route exact path={['/about']} render={({history}) =>
                                                     (<AboutPage history={history} app={this}/>)}/>
                                                 <Route exact path='/professor/groups' render={({history}) => (
