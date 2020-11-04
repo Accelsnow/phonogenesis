@@ -91,7 +91,3 @@
 <<PREDEFINED>>{'':'u'}/[consonant]_#,final epenthesis of u,epenthesis
 "[high,vowel]>[back,rounded]/_[*consonant][vowel]",regressive backness and rounding harmony for high vowels,harmony
 "[high,vowel]>[back,rounded]/[vowel][*consonant]_",progressive backness and rounding harmony for high vowels,harmony
-"[back,vowel]>[front]/_#",feed1,testfeed
-"<<PREDEFINED>>{'k':'t͡ʃ','g':'d͡ʒ'}/_[front,vowel]#",feed2,testfeed
-<<PREDEFINED>>{'e':'i'}/_#,feed2-1,testfeed
-"<<PREDEFINED>>{'k':'ts'}/_[vowel,front,high,tense,unrounded,voiced,sonorant]",feed2-2,testfeed
