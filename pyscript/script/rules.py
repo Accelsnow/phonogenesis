@@ -191,7 +191,7 @@ class Rule(Serializable):
             dict_ = {}
             lst = [str(am) for am in a_matcher]
             for am in lst:
-                dict_[am] = ''
+                dict_[am] = '∅'
 
             return dict_, lst
 
@@ -444,9 +444,13 @@ class PredefinedRule(Rule):
         a_to_b_str = {}  # type: Dict[str, str]
         interest_list = []  # type: List[str]
         for k in self._AtoB.keys():
-            interest_list.append(str(k))
+            a_val = str(k)
+            if len(a_val) == 0 or a_val.isspace() or a_val == '':
+                a_val = '∅'
+
+            interest_list.append(a_val)
             interest_list.append(str(self._AtoB[k]))
-            a_to_b_str[str(k)] = str(self._AtoB[k])
+            a_to_b_str[a_val] = str(self._AtoB[k])
 
         return a_to_b_str, interest_list
 
