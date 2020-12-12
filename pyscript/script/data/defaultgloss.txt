@@ -1,4 +1,4 @@
-###
+### special
 I | we | we (incl) | we (excl) | we (dual)
 you (pl) | you (sg) | you (dual)
 it | he | she | he/she/it | he/she
@@ -11,7 +11,7 @@ two | three | four | five | ten | hundred
 none | zero | no | not | nobody | nowhere
 all | every | each
 
-###
+### noun
 person | man | woman
 child | baby | son | daughter
 parent | father | mother
@@ -20,7 +20,7 @@ spouse | husband | wife
 family | group | name | tribe | clan | ancestor
 friend | cousin | aunt | uncle | niece | nephew
 
-###
+### noun
 dog | puppy | wolf | fox | coyote | raccoon 
 cat | kitten | lion | tiger | leopard | hyena
 bird | parrot | dove | owl | sparrow | goose | chicken | duck
@@ -30,7 +30,7 @@ lizard | snake | turtle | alligator | gecko | frog | salamander | newt
 mouse | squirrel | hedgehog | possum | rabbit | monkey | fruit bat | beaver
 cow | calf | bull | rhinoceros | ox | horse | camel | llama | elephant | elk
 
-###
+### noun
 tree | leaf | tree bark | acorn | wood | grass | moss | root
 fruit | apple | pear | banana | grapefruit | lemon | mango
 berry | strawberry | raspberry | blackberry | blueberry | grape
@@ -44,7 +44,7 @@ sauce | gravy | oil | vinegar | cream | ketchup | hummus | honey
 liquid | water | beverage | alcohol | milk | wine | beer | juice | broth | soup
 food | meat | flesh | feast | breakfast | dinner | lunch | meal | serving
 
-###
+### noun
 hand | finger | thumb | forefinger | wrist | fist | knuckle | arm | elbow
 foot | toe | ankle | leg | knee | thigh | tail | buttocks | nail | claw
 torso | waist | abdomen | belly | chest | shoulder
@@ -56,7 +56,7 @@ eye | eyelid | eyelash | eyebrow
 mouth | lip | tooth | tongue
 heart | liver | brain | lung | bone | blood | bile | urine | feces | saliva
 
-###
+### noun
 ice | snow | rain | storm
 sun | moon | star | cloud | fog
 night | day | evening | morning | midday 
@@ -67,12 +67,12 @@ fire | ash | flame | smoke
 path | road | street | direction
 north | south | east | west | uphill | downhill | inland
 
-###
+### adjective
 black | blue | green | blue/green
 red | pink | purple | brown
 white | grey | yellow
 
-###
+### adjective
 big | small | heavy | thin | thick | full | empty
 dark | bright | dim | murky | clear
 warm | hot | spicy | cold
@@ -81,7 +81,7 @@ good | bad | evil | broken
 dry | wet | damp
 flat | bumpy | rough | smooth
 
-###
+### verb
 eat | drink | bite | swallow | sip | taste | digest | feed
 bake | boil | cook | burn | cut | slice | bend | break | destroy | fold
 see | watch | look | hear | listen | feel | smell | experience | read | write

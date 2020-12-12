@@ -92,7 +92,8 @@ def create_user():
             registered_ip[curr_ip] = 0
 
     data = request.json
-    if 'name' not in data or 'type' not in data or 'email' not in data or 'username' not in data or 'password' not in data:
+    if 'name' not in data or 'type' not in data or 'email' not in data or \
+            'username' not in data or 'password' not in data:
         abort(400)
 
     name = data['name']
@@ -136,8 +137,8 @@ def delete_message(msgid):
     if not target_message:
         return jsonify(success=False, message='Message with id {} does not exist.'.format(msgid))
 
-    if session_user.type != 'admin' and target_message.from_user_id != session[
-        'user']['id'] and target_message.to_user_id != session_user.id:
+    if session_user.type != 'admin' and target_message.from_user_id != session['user']['id'] and \
+            target_message.to_user_id != session_user.id:
         abort(401)
 
     db.session.delete(target_message)
@@ -338,8 +339,8 @@ def register_quiz_result():
         abort(401)
 
     data = request.json
-    if 'userid' not in data or 'quizid' not in data or 'result' not in data or 'score' not in data[
-        'result'] or 'answers' not in data['result']:
+    if 'userid' not in data or 'quizid' not in data or 'result' not in data or \
+            'score' not in data['result'] or 'answers' not in data['result']:
         abort(400)
     try:
         user_id = int(data['userid'])
@@ -364,7 +365,8 @@ def create_quiz():
         abort(401)
 
     data = request.json
-    if 'timeLim' not in data or 'name' not in data or 'ownerid' not in data or 'groupName' not in data or 'questions' not in data:
+    if 'timeLim' not in data or 'name' not in data or 'ownerid' not in data or 'groupName' not in data or \
+            'questions' not in data:
         abort(400)
 
     try:
@@ -419,7 +421,8 @@ def create_quiz():
 @app.route('/question', methods=['POST'])
 def get_simple_question():
     data = request.json
-    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or 'rule_family' not in data:
+    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or \
+            'rule_family' not in data:
         abort(400)
     try:
         shuffle = bool(data['shuffle'])

@@ -2914,3 +2914,187 @@ word-final vowel devoicing after voiceless consonants ===== [vowel,voiced] -> [v
 [2020-09-25 18:00:55] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 44 CADNT 0 CAND 3 NCAD 3 IRR 0
  - generator 319@generate
 [2020-09-25 18:00:55] - DEBUG - Gen Mode 2 - str non ipa g mode - generator 378@generate
+[2020-10-26 12:45:44] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 12:45:44] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2020-10-26 12:45:44] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,continuant,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603731149752
+ - generator 258@generate
+[2020-10-26 12:45:44] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:45:44] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:45:44] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2020-10-26 12:45:44] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2020-10-26 12:45:44] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 12:46:29] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 12:46:31] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  CD matchers: ["['m', 'n', 'ŋ']_[]  "]
+ - generator 252@generate
+[2020-10-26 12:46:31] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+progressive vowel nasalization ===== [vowel,oral] -> [nasal],[] / [consonant,nasal] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603730864161
+ - generator 258@generate
+[2020-10-26 12:46:31] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:46:31] - DEBUG - No CAND type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:46:31] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:46:31] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 0 NCAD 3 IRR 0
+ - generator 289@generate
+[2020-10-26 12:46:31] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 44 CADNT 0 CAND 0 NCAD 6 IRR 0
+ - generator 319@generate
+[2020-10-26 12:46:31] - DEBUG - Gen Mode 2 - str non ipa g mode - generator 378@generate
+[2020-10-26 12:46:45] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 12:46:46] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2020-10-26 12:46:46] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatal mutation of velar stops to postalveolar fricatives before front vowels ===== [velar,oral stop] -> [coronal,postalveolar,fricative,continuant,posterior,laminal,strident],['backness', 'height'] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603731578760
+ - generator 258@generate
+[2020-10-26 12:46:46] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:46:46] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 12:46:46] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2020-10-26 12:46:46] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2020-10-26 12:46:46] - DEBUG - Gen Mode 2 - str non ipa g mode - generator 378@generate
+[2020-10-26 13:05:08] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 13:05:09] - INFO - A matchers: ['b', 'd', 'g', 'd͡ʒ']  CD matchers: ['[]_[]  ']
+ - generator 252@generate
+[2020-10-26 13:05:09] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603732135860
+ - generator 258@generate
+[2020-10-26 13:05:09] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 13:05:09] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 13:05:09] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2020-10-26 13:05:09] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2020-10-26 13:05:09] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 13:24:15] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 13:24:16] - INFO - A matchers: ['b', 'd', 'g']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2020-10-26 13:24:16] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic spirantization of voiced stops ===== [voiced,oral stop] -> [fricative,continuant],['stridency'] / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603733578429
+ - generator 258@generate
+[2020-10-26 13:24:16] - DEBUG - Insufficient amount of CADT type.(41 required, 29 found), expanding library
+ - generator 211@_generate_helper
+[2020-10-26 13:24:17] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 13:24:17] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2020-10-26 13:24:17] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2020-10-26 13:24:17] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 13:36:22] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 13:36:23] - INFO - A matchers: ['b', 'd', 'g']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2020-10-26 13:36:23] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic deletion of voiced oral stops ===== [voiced,oral stop] ->  / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603734569157
+ - generator 258@generate
+[2020-10-26 13:36:23] - DEBUG - Insufficient amount of CADT type.(41 required, 37 found), expanding library
+ - generator 211@_generate_helper
+[2020-10-26 13:36:24] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 13:36:24] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2020-10-26 13:36:24] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2020-10-26 13:36:24] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 13:59:45] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 13:59:46] - INFO - A matchers: ['b', 'v', 'd', 'ð', 'z', 'ʒ', 'd͡ʒ', 'g', 'ɣ']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2020-10-26 13:59:46] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic deletion of voiced obstruents ===== [voiced,obstruent] ->  / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603735858529
+ - generator 258@generate
+[2020-10-26 13:59:46] - DEBUG - Insufficient amount of CADT type.(41 required, 35 found), expanding library
+ - generator 211@_generate_helper
+[2020-10-26 13:59:48] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 13:59:48] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2020-10-26 13:59:48] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2020-10-26 13:59:48] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 14:03:06] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 14:03:07] - INFO - A matchers: ['b', 'd', 'g']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2020-10-26 14:03:07] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic deletion of voiced oral stops ===== [voiced,oral stop] ->  / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603735953129
+ - generator 258@generate
+[2020-10-26 14:03:07] - DEBUG - Insufficient amount of CADT type.(41 required, 37 found), expanding library
+ - generator 211@_generate_helper
+[2020-10-26 14:03:08] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 14:03:08] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2020-10-26 14:03:08] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2020-10-26 14:03:08] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 14:03:15] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 14:03:16] - INFO - A matchers: ['i', 'ɪ', 'u', 'ʊ']  CD matchers: ['[]_[]  ']
+ - generator 252@generate
+[2020-10-26 14:03:16] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+word-final lowering of high vowels ===== [high,vowel] -> [mid],[] /  _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603735751170
+ - generator 258@generate
+[2020-10-26 14:03:16] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 14:03:16] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 14:03:16] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2020-10-26 14:03:16] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2020-10-26 14:03:16] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2020-10-26 14:03:17] - DEBUG - Rule size: 1 - generator 64@__init__
+[2020-10-26 14:03:17] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2020-10-26 14:03:17] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+feed2 ===== <Predefined> {k > t͡ʃ, g > d͡ʒ} /  _ [front,vowel]# 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1603735597944
+ - generator 258@generate
+[2020-10-26 14:03:17] - DEBUG - Insufficient amount of CADT type.(41 required, 26 found), expanding library
+ - generator 211@_generate_helper
+[2020-10-26 14:03:18] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 14:03:18] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2020-10-26 14:03:18] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2020-10-26 14:03:18] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2020-10-26 14:03:18] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate

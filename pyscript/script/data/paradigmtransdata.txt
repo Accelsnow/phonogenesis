@@ -1,0 +1,13 @@
+### noun
+2,singular,plural
+3,singular,plural,possessive
+4,nominative singular,accusative singular,nominative plural,accusative plural
+
+### verb
+2,present,past
+3,present,past,future
+4,infinitive,present,past,future
+
+### adjective
+2,masculine,feminine
+3,masculine,feminine,neutral

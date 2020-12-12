@@ -56,15 +56,9 @@ class Particle(Serializable):
         if phonemes is None:
             return intersection
 
-        result = []
+        phoneme_sounds = [w.get_sounds()[0] for w in phonemes]
 
-        for sound in intersection:
-            phoneme_sounds = [w.get_sounds()[0] for w in phonemes]
-
-            if sound in phoneme_sounds:
-                result.append(sound)
-
-        return result
+        return [s for s in intersection if s in phoneme_sounds]
 
     def get_features(self) -> List[str]:
         return [f for f in self._features]
