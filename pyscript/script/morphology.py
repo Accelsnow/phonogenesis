@@ -9,8 +9,8 @@ from script.templates import _fetch_templates
 class ParadigmAttr:
     def __init__(self, feature_to_sounds: Dict[str, List[Sound]], phonemes: List[Word]):
         self.col_count = random.randint(2, 4)
-        min_row = (30 // self.col_count) + 1
-        max_row = 40 // self.col_count
+        min_row = (20 // self.col_count) + 1
+        max_row = 30 // self.col_count
         self.row_count = random.randint(min_row, max_row)
 
         transform_data = _get_trans_data('data/paradigmtransdata.txt')
@@ -47,11 +47,13 @@ class ParadigmAttr:
         # print([(t[0], str(t[1])) for t in self.col_data])
 
 
+# Transformer is currently an appending transformer
 class _Transformer:
     def __init__(self, template: Optional[Template], feature_to_sounds: Dict[str, List[Sound]],
                  phonemes: List[Word]):
         self._template = template
 
+        # TODO: MODIFY HERE
         if self._template:
             self._mod_word = random.choice(self._template.generate_word_list(phonemes, None, feature_to_sounds))
         else:
@@ -77,59 +79,61 @@ class _Transformer:
 
 
 class Paradigm:
-    def __init__(self, paradigm_attr: ParadigmAttr, words: List[Word], rule: Rule, phonemes: List[Word],
+    def __init__(self, col_data, words: List[Word], rule: Rule, phonemes: List[Word],
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]):
-        self._attr = paradigm_attr
+        self._col_data = col_data
         self._UR_words = [Word(str(word)) for word in words]
         self._UR_trans_pattern = []
         self._trans_names = []
-        self._core_data = []
+        self._applied_core_data = []
+        self._org_rule_trans_ct = []
         self._transformers = []
 
-        for col_data in self._attr.col_data:
+        for col_data in self._col_data:
             self._trans_names.append(col_data[0])
             self._transformers.append(col_data[1])
             self._UR_trans_pattern.append(str(col_data[1]))
 
         for row_i in range(len(words)):
             word = words[row_i]
-            row_list = []
+            applied_row_list = []
+            trans_ct_list = []
 
             for col_i in range(len(self._transformers)):
                 transformer = self._transformers[col_i]
-                row_list.append(
-                    rule.apply(transformer.transform(word), phonemes, feature_to_type, feature_to_sounds)[0])
+                apply_data = rule.apply(transformer.transform(word), phonemes, feature_to_type, feature_to_sounds)
+                trans_ct_list.append(apply_data[1])
+                applied_row_list.append(apply_data[0])
 
-            self._core_data.append(row_list)
+            self._applied_core_data.append(applied_row_list)
+            self._org_rule_trans_ct.append(trans_ct_list)
 
-    def valid_row_indexes(self) -> set:
-        valid_col_track = {}
+    def get_ur_words(self) -> List[Word]:
+        return self._UR_words
 
-        for r_index in range(len(self._core_data)):
-            row = self._core_data[r_index]
-            tc_indexes = []
+    def valid_row_indexes(self) -> List[int]:
+        valid_rows = []
+        has_bad_row = False
 
-            for c_index in range(len(row)):
-                if row[c_index] != self._transformers[c_index].transform(row[c_index]):
-                    tc_indexes.append(c_index)
+        for r_index in range(len(self._org_rule_trans_ct)):
+            row = self._org_rule_trans_ct[r_index]
+            diff = max(row) - min(row)
 
-                    if c_index not in valid_col_track:
-                        valid_col_track[c_index] = [r_index]
-                    else:
-                        valid_col_track[c_index].append(r_index)
+            if diff == 0:
+                has_bad_row = True
+            else:
+                valid_rows.append(r_index)
 
-        valid_rows = set([])
-        for t_col in valid_col_track.keys():
-            if len(valid_col_track[t_col]) < len(self._core_data):
-                for valid_row in valid_col_track[t_col]:
-                    valid_rows.add(valid_row)
-
-        return valid_rows
+        if not has_bad_row:
+            return []
+        else:
+            return valid_rows
 
     def __str__(self) -> str:
         matrix_str = ""
         max_strlen = max(
-            [len(self._core_data[r][c]) for r in range(len(self._core_data)) for c in range(len(self._core_data[0]))] +
+            [len(self._applied_core_data[r][c]) for r in range(len(self._applied_core_data)) for c in
+             range(len(self._applied_core_data[0]))] +
             [len(tn) for tn in self._trans_names])
 
         matrix_str += "%s  %s\n" % (
@@ -137,9 +141,9 @@ class Paradigm:
         matrix_str += "%s  %s\n" % (
             _pad_str("---", max_strlen), "  ".join([_pad_str(str(w), max_strlen) for w in self._UR_trans_pattern]))
 
-        for r in range(len(self._core_data)):
+        for r in range(len(self._applied_core_data)):
             matrix_str += "%s  %s\n" % (_pad_str(str(self._UR_words[r]), max_strlen),
-                                        "  ".join([_pad_str(str(w), max_strlen) for w in self._core_data[r]]))
+                                        "  ".join([_pad_str(str(w), max_strlen) for w in self._applied_core_data[r]]))
 
         return matrix_str
 
@@ -151,18 +155,65 @@ class ParadigmGenerator:
         self._feature_to_type = feature_to_type
         self._feature_to_sounds = feature_to_sounds
         self._rule = rule
-        self._generator = Generator(phonemes, templates, rule, 5, feature_to_type, feature_to_sounds)
+        self._templates = templates
         self._attr = paradigm_attr
 
-    def get_paradigm_question(self) -> Paradigm:
-        gen_data = self._generator.generate(GenMode.rawData, self._attr.row_count, True, False, None)  # type: dict
+    def _generate_base_words(self, gen_size: int) -> List[Word]:
+        num_templates = len(self._templates)
         word_list = []
-        for lst in gen_data.values():
-            word_list.extend(lst)
 
-        paradigm = Paradigm(self._attr, word_list, self._rule, self._phonemes, self._feature_to_type,
+        for i in range(num_templates):
+            if i == num_templates - 1:
+                gen_count = gen_size - len(word_list)
+            else:
+                gen_count = gen_size // num_templates
+
+            word_list.extend(self._templates[i].generate_word_list(self._phonemes, gen_count, self._feature_to_sounds))
+
+        random.shuffle(word_list)
+        return word_list
+
+    def get_paradigm_question(self) -> Paradigm:
+        num_rows = self._attr.row_count
+        gen_size = num_rows * 10
+
+        word_list = self._generate_base_words(gen_size)
+
+        paradigm = Paradigm(self._attr.col_data, word_list, self._rule, self._phonemes, self._feature_to_type,
                             self._feature_to_sounds)
-        return paradigm
+
+        valid_rows = paradigm.valid_row_indexes()
+
+        if len(valid_rows) < num_rows:
+            print("FAILED INSUFFICIENT")
+            return paradigm
+        elif len(valid_rows) == gen_size:
+            print("FAILED NO INVALID")
+            return paradigm
+        else:
+            dest_word_list = []
+            valid_need = num_rows // 2
+            invalid_need = num_rows // 2
+
+            for r_index in valid_rows[:valid_need]:
+                dest_word_list.append(word_list[r_index])
+
+            valid_rows = valid_rows[valid_need:]
+
+            for i in range(len(word_list)):
+                if i not in valid_rows:
+                    dest_word_list.append(word_list[i])
+                    invalid_need -= 1
+
+                if invalid_need == 0:
+                    break
+
+            while invalid_need > 0:
+                dest_word_list.append(word_list[invalid_need])
+                invalid_need -= 1
+
+            return Paradigm(self._attr.col_data, dest_word_list, self._rule, self._phonemes,
+                            self._feature_to_type, self._feature_to_sounds)
 
 
 def _get_trans_data(filename: str):
