@@ -13,7 +13,15 @@ html,body
 }
 
 #family-select {
-    min-width: 100px;
+    min-width: 60px;
+}
+
+#rule-type-sel {
+    min-width: 60px;
+}
+
+#qtype-select {
+    min-width: 60px;
 }
 
 .question-block-container {
@@ -28,12 +36,6 @@ html,body
 
 #size-input-field {
     width: 70px;
-}
-
-.ipa-font-sensitive {
-    font-family: "Times New Roman", serif;
-    font-size: 1.3em;
-    letter-spacing: 0.03em;
 }
 
 #helper-button-panel {

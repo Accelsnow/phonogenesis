@@ -11,6 +11,16 @@
     text-decoration: underline;
 }
 
+.ipa-font-sensitive {
+    font-family: "Times New Roman", serif;
+    font-size: 1.3em;
+    letter-spacing: 0.03em;
+}
+
+.table-header {
+    font-weight: bolder;
+}
+
 .copyright-info {
     text-align: center;
     margin-bottom: 5px;
