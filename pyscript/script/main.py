@@ -115,10 +115,9 @@ if __name__ == '__main__':
 
     p_attr = ParadigmAttr(feature_to_sounds, phonemes)
     p_gen = ParadigmGenerator(p_attr, rules[2], phonemes, templates, feature_to_type, feature_to_sounds)
-    pdim = p_gen.get_paradigm_question()
+    pdim = p_gen._get_valid_question(False)
     print(str(pdim))
     print(pdim.valid_row_indexes())
-
     #
     # # rule1 = rules[96]
     # # rule2 = rules[97]

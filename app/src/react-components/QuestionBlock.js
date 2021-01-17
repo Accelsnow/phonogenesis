@@ -1,17 +1,12 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import {theme} from "../App";
 import {ThemeProvider} from '@material-ui/styles';
+import SimpleQuestionBody from "./SimpleQuestionBody";
+import MorphologyQuestionBody from "./MorphologyQuestionBody";
 
 export default class QuestionBlock extends React.Component {
     constructor(props) {
@@ -90,10 +85,35 @@ export default class QuestionBlock extends React.Component {
         const templates = question.templates;
         const sp1 = size / 3;
         const sp2 = size / 3 * 2;
-        const urs = [question.UR.slice(0, sp1), question.UR.slice(sp1, sp2), question.UR.slice(sp2, size)];
-        const srs = [question.SR.slice(0, sp1), question.SR.slice(sp1, sp2), question.SR.slice(sp2, size)];
-        const gls = [question.gloss.slice(0, sp1), question.gloss.slice(sp1, sp2),
-            question.gloss.slice(sp2, question.gloss.length)];
+
+        let bodyArgs;
+        if (question.qType === "Simple") {
+            const urs = [question.UR.slice(0, sp1), question.UR.slice(sp1, sp2), question.UR.slice(sp2, size)];
+            const srs = [question.SR.slice(0, sp1), question.SR.slice(sp1, sp2), question.SR.slice(sp2, size)];
+            const gls = [question.gloss.slice(0, sp1), question.gloss.slice(sp1, sp2),
+                question.gloss.slice(sp2, question.gloss.length)];
+            bodyArgs = {
+                urs: urs,
+                srs: srs,
+                gls: gls
+            }
+        } else if (question.qType === "Morphology") {
+            const headerRow = question.header_row;
+            const transPat = question.trans_patterns;
+            const coreData = question.core_data;
+            const gls = question.gloss;
+            const urs = question.UR;
+            bodyArgs = {
+                urs: urs,
+                gls: gls,
+                headerRow: headerRow,
+                transPat: transPat,
+                coreData: coreData
+            }
+        } else {
+            console.error("ERROR UNIDENTIFIED QUESTION TYPE " + question.qType);
+        }
+
         const ruleName = question.rule_name;
         const phonemes = question.phonemes;
         const poi = question.poi;
@@ -159,7 +179,8 @@ export default class QuestionBlock extends React.Component {
                                 <Grid item>
                                     <Grid container direction={"column"} justify={"center"} alignItems={"center"}
                                           spacing={1}>
-                                        <Grid item>Phones of Interest: {poi.trim() === '' ? 'NA' : poi}</Grid>
+                                        {poi ? <Grid item>Phones of
+                                            Interest: {poi.trim() === '' ? 'NA' : poi}</Grid> : null}
                                         {showPhoneme ? <Grid item>Phonemes: {phonemes}</Grid> : null}
                                         {showRuleType ? <Grid item>Rule Type: {ruleType}</Grid> : null}
                                         {showRuleFamily ? <Grid item>Rule Family: {ruleFamily}</Grid> : null}
@@ -170,47 +191,14 @@ export default class QuestionBlock extends React.Component {
                             </Grid>
                         </Grid>
 
-                        <Grid item>
-                            <Grid container direction={"row"} justify="space-evenly" spacing={4}>
-
-                                {[0, 1, 2].map((index) => (
-                                    <Grid item key={index}>
-                                        <TableContainer component={Paper}>
-                                            <Table aria-label="rule data table" className="question-table">
-                                                <TableHead>
-                                                    <TableRow>
-                                                        {showUR ?
-                                                            <TableCell align="center" className="table-header"><span
-                                                                className="ipa-font-sensitive">UR</span></TableCell> : null}
-
-                                                        <TableCell align="center" className="table-header"><span
-                                                            className="ipa-font-sensitive">SR</span></TableCell>
-                                                        <TableCell align="center" className="table-header"><span
-                                                            className="ipa-font-sensitive">gloss</span></TableCell>
-                                                    </TableRow>
-                                                </TableHead>
-                                                <TableBody>
-                                                    {
-                                                        urs[index].map((urWord, i) => (
-                                                            <TableRow key={urWord}>
-                                                                {showUR ?
-                                                                    <TableCell
-                                                                        align="center"><span
-                                                                        className="ipa-font-sensitive">{urWord}</span></TableCell> : null}
-                                                                <TableCell align="center"><span
-                                                                    className="ipa-font-sensitive">{srs[index][i]}</span></TableCell>
-                                                                <TableCell align="center"><span
-                                                                    className="ipa-font-sensitive">{gls[index][i]}</span></TableCell>
-                                                            </TableRow>
-                                                        ))
-                                                    }
-                                                </TableBody>
-                                            </Table>
-                                        </TableContainer>
-                                    </Grid>
-                                ))}
-                            </Grid>
-                        </Grid>
+                        {
+                            question.qType === "Simple" ?
+                                <SimpleQuestionBody bodyArgs={bodyArgs} showUR={showUR}/> : null
+                        }
+                        {
+                            question.qType === "Morphology" ?
+                                <MorphologyQuestionBody bodyArgs={bodyArgs} showUR={showUR}/> : null
+                        }
                     </Grid>
                 </div>
             </ThemeProvider>

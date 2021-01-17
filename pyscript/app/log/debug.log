@@ -3098,3 +3098,834 @@ feed2 ===== <Predefined> {k > t͡ʃ, g > d͡ʒ} /  _ [front,vowel]#
 [2020-10-26 14:03:18] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
  - generator 319@generate
 [2020-10-26 14:03:18] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:28:27] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:28:28] - INFO - A matchers: ['g']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2021-01-16 16:28:28] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic deletion of voiced velar oral stops ===== [voiced,velar,oral stop] ->  / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833542290
+ - generator 258@generate
+[2021-01-16 16:28:28] - DEBUG - Insufficient amount of CADT type.(41 required, 31 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 16:28:29] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:28:29] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2021-01-16 16:28:29] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2021-01-16 16:28:29] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:29:11] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:29:11] - INFO - A matchers: ['x', 'ɣ']  CD matchers: ["['i', 'ɪ']_[]  "]
+ - generator 252@generate
+[2021-01-16 16:29:11] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatalization of velar fricatives after high front vowels ===== [velar,fricative] -> [palatal,front,posterior,laminal,not strident],['secondary POA'] / [high,front,vowel] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833567611
+ - generator 258@generate
+[2021-01-16 16:29:11] - DEBUG - Insufficient amount of CADT type.(41 required, 20 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 16:29:12] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:29:12] - DEBUG - No CAND type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:29:12] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 0 NCAD 3 IRR 1
+ - generator 289@generate
+[2021-01-16 16:29:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 0 NCAD 6 IRR 1
+ - generator 319@generate
+[2021-01-16 16:29:12] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:30:39] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:30:40] - INFO - A matchers: ['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  CD matchers: ["['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']_[]  "]
+ - generator 252@generate
+[2021-01-16 16:30:40] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+word-final vowel devoicing after voiceless consonants ===== [vowel,voiced] -> [voiceless],[] / [voiceless] _ # 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833196662
+ - generator 258@generate
+[2021-01-16 16:30:40] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:30:40] - DEBUG - No IRR type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:30:40] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 0
+ - generator 289@generate
+[2021-01-16 16:30:40] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 44 CADNT 0 CAND 3 NCAD 3 IRR 0
+ - generator 319@generate
+[2021-01-16 16:30:40] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:31:25] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:31:25] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2021-01-16 16:31:25] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatal mutation of alveolar stops to postalveolar fricatives before front vowels ===== [alveolar,oral stop] -> [postalveolar,fricative,continuant,posterior,laminal,strident],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833467381
+ - generator 258@generate
+[2021-01-16 16:31:25] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:25] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:25] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2021-01-16 16:31:25] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2021-01-16 16:31:26] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:31:30] - DEBUG - Rule size: 2 - generator 64@__init__
+[2021-01-16 16:31:30] - INFO - A matchers: ['d']  CD matchers: ["[]_['e', 'ɛ', 'o', 'ɔ', 'ə']  ", "[]_['æ', 'a', 'ɑ']  ", "[]_['e', 'ɛ', 'o', 'ɔ', 'ə']  ", "[]_['æ', 'a', 'ɑ']  "]
+ - generator 252@generate
+[2021-01-16 16:31:30] - INFO - REQUEST: PIECES 2 CADT 38 CADNT 1 CAND 2 NCAD 2 IRR 0
+lateralization of /d/ before nonhigh vowels ===== <Predefined> {d > l} /  _ [mid,vowel] or  _ [low,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833110837
+ - generator 258@generate
+[2021-01-16 16:31:30] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:30] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:30] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:31:30] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:31:30] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:30] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:31:30] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:31:30] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:31:30] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:33:53] - DEBUG - Rule size: 2 - generator 64@__init__
+[2021-01-16 16:33:54] - INFO - A matchers: ['i', 'u']  CD matchers: ["[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  ", "[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  "]
+ - generator 252@generate
+[2021-01-16 16:33:54] - INFO - REQUEST: PIECES 2 CADT 38 CADNT 1 CAND 2 NCAD 2 IRR 0
+high vowel laxing in closed syllables ===== [high,vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833484092
+ - generator 258@generate
+[2021-01-16 16:33:54] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:33:54] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:33:54] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:33:54] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:33:54] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:33:54] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:33:54] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:33:54] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:33:54] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:33:59] - DEBUG - Rule size: 2 - generator 64@__init__
+[2021-01-16 16:34:00] - INFO - A matchers: ['i', 'u']  CD matchers: ["[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  ", "[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", "[]_['pp', 'bp', 'fp', 'vp', 'mp', 'tp', 'dp', 'θp', 'ðp', 'sp', 'zp', 'ʃp', 'ʒp', 'np', 't͡ʃp', 'd͡ʒp', 'kp', 'gp', 'xp', 'ɣp', 'ŋp', 'rp', 'lp', 'jp', 'wp', 'hp', 'ʔp', 'pb', 'bb', 'fb', 'vb', 'mb', 'tb', 'db', 'θb', 'ðb', 'sb', 'zb', 'ʃb', 'ʒb', 'nb', 't͡ʃb', 'd͡ʒb', 'kb', 'gb', 'xb', 'ɣb', 'ŋb', 'rb', 'lb', 'jb', 'wb', 'hb', 'ʔb', 'pf', 'bf', 'ff', 'vf', 'mf', 'tf', 'df', 'θf', 'ðf', 'sf', 'zf', 'ʃf', 'ʒf', 'nf', 't͡ʃf', 'd͡ʒf', 'kf', 'gf', 'xf', 'ɣf', 'ŋf', 'rf', 'lf', 'jf', 'wf', 'hf', 'ʔf', 'pv', 'bv', 'fv', 'vv', 'mv', 'tv', 'dv', 'θv', 'ðv', 'sv', 'zv', 'ʃv', 'ʒv', 'nv', 't͡ʃv', 'd͡ʒv', 'kv', 'gv', 'xv', 'ɣv', 'ŋv', 'rv', 'lv', 'jv', 'wv', 'hv', 'ʔv', 'pm', 'bm', 'fm', 'vm', 'mm', 'tm', 'dm', 'θm', 'ðm', 'sm', 'zm', 'ʃm', 'ʒm', 'nm', 't͡ʃm', 'd͡ʒm', 'km', 'gm', 'xm', 'ɣm', 'ŋm', 'rm', 'lm', 'jm', 'wm', 'hm', 'ʔm', 'pt', 'bt', 'ft', 'vt', 'mt', 'tt', 'dt', 'θt', 'ðt', 'st', 'zt', 'ʃt', 'ʒt', 'nt', 't͡ʃt', 'd͡ʒt', 'kt', 'gt', 'xt', 'ɣt', 'ŋt', 'rt', 'lt', 'jt', 'wt', 'ht', 'ʔt', 'pd', 'bd', 'fd', 'vd', 'md', 'td', 'dd', 'θd', 'ðd', 'sd', 'zd', 'ʃd', 'ʒd', 'nd', 't͡ʃd', 'd͡ʒd', 'kd', 'gd', 'xd', 'ɣd', 'ŋd', 'rd', 'ld', 'jd', 'wd', 'hd', 'ʔd', 'pθ', 'bθ', 'fθ', 'vθ', 'mθ', 'tθ', 'dθ', 'θθ', 'ðθ', 'sθ', 'zθ', 'ʃθ', 'ʒθ', 'nθ', 't͡ʃθ', 'd͡ʒθ', 'kθ', 'gθ', 'xθ', 'ɣθ', 'ŋθ', 'rθ', 'lθ', 'jθ', 'wθ', 'hθ', 'ʔθ', 'pð', 'bð', 'fð', 'vð', 'mð', 'tð', 'dð', 'θð', 'ðð', 'sð', 'zð', 'ʃð', 'ʒð', 'nð', 't͡ʃð', 'd͡ʒð', 'kð', 'gð', 'xð', 'ɣð', 'ŋð', 'rð', 'lð', 'jð', 'wð', 'hð', 'ʔð', 'ps', 'bs', 'fs', 'vs', 'ms', 'ts', 'ds', 'θs', 'ðs', 'ss', 'zs', 'ʃs', 'ʒs', 'ns', 't͡ʃs', 'd͡ʒs', 'ks', 'gs', 'xs', 'ɣs', 'ŋs', 'rs', 'ls', 'js', 'ws', 'hs', 'ʔs', 'pz', 'bz', 'fz', 'vz', 'mz', 'tz', 'dz', 'θz', 'ðz', 'sz', 'zz', 'ʃz', 'ʒz', 'nz', 't͡ʃz', 'd͡ʒz', 'kz', 'gz', 'xz', 'ɣz', 'ŋz', 'rz', 'lz', 'jz', 'wz', 'hz', 'ʔz', 'pʃ', 'bʃ', 'fʃ', 'vʃ', 'mʃ', 'tʃ', 'dʃ', 'θʃ', 'ðʃ', 'sʃ', 'zʃ', 'ʃʃ', 'ʒʃ', 'nʃ', 't͡ʃʃ', 'd͡ʒʃ', 'kʃ', 'gʃ', 'xʃ', 'ɣʃ', 'ŋʃ', 'rʃ', 'lʃ', 'jʃ', 'wʃ', 'hʃ', 'ʔʃ', 'pʒ', 'bʒ', 'fʒ', 'vʒ', 'mʒ', 'tʒ', 'dʒ', 'θʒ', 'ðʒ', 'sʒ', 'zʒ', 'ʃʒ', 'ʒʒ', 'nʒ', 't͡ʃʒ', 'd͡ʒʒ', 'kʒ', 'gʒ', 'xʒ', 'ɣʒ', 'ŋʒ', 'rʒ', 'lʒ', 'jʒ', 'wʒ', 'hʒ', 'ʔʒ', 'pn', 'bn', 'fn', 'vn', 'mn', 'tn', 'dn', 'θn', 'ðn', 'sn', 'zn', 'ʃn', 'ʒn', 'nn', 't͡ʃn', 'd͡ʒn', 'kn', 'gn', 'xn', 'ɣn', 'ŋn', 'rn', 'ln', 'jn', 'wn', 'hn', 'ʔn', 'pt͡ʃ', 'bt͡ʃ', 'ft͡ʃ', 'vt͡ʃ', 'mt͡ʃ', 'tt͡ʃ', 'dt͡ʃ', 'θt͡ʃ', 'ðt͡ʃ', 'st͡ʃ', 'zt͡ʃ', 'ʃt͡ʃ', 'ʒt͡ʃ', 'nt͡ʃ', 't͡ʃt͡ʃ', 'd͡ʒt͡ʃ', 'kt͡ʃ', 'gt͡ʃ', 'xt͡ʃ', 'ɣt͡ʃ', 'ŋt͡ʃ', 'rt͡ʃ', 'lt͡ʃ', 'jt͡ʃ', 'wt͡ʃ', 'ht͡ʃ', 'ʔt͡ʃ', 'pd͡ʒ', 'bd͡ʒ', 'fd͡ʒ', 'vd͡ʒ', 'md͡ʒ', 'td͡ʒ', 'dd͡ʒ', 'θd͡ʒ', 'ðd͡ʒ', 'sd͡ʒ', 'zd͡ʒ', 'ʃd͡ʒ', 'ʒd͡ʒ', 'nd͡ʒ', 't͡ʃd͡ʒ', 'd͡ʒd͡ʒ', 'kd͡ʒ', 'gd͡ʒ', 'xd͡ʒ', 'ɣd͡ʒ', 'ŋd͡ʒ', 'rd͡ʒ', 'ld͡ʒ', 'jd͡ʒ', 'wd͡ʒ', 'hd͡ʒ', 'ʔd͡ʒ', 'pk', 'bk', 'fk', 'vk', 'mk', 'tk', 'dk', 'θk', 'ðk', 'sk', 'zk', 'ʃk', 'ʒk', 'nk', 't͡ʃk', 'd͡ʒk', 'kk', 'gk', 'xk', 'ɣk', 'ŋk', 'rk', 'lk', 'jk', 'wk', 'hk', 'ʔk', 'pg', 'bg', 'fg', 'vg', 'mg', 'tg', 'dg', 'θg', 'ðg', 'sg', 'zg', 'ʃg', 'ʒg', 'ng', 't͡ʃg', 'd͡ʒg', 'kg', 'gg', 'xg', 'ɣg', 'ŋg', 'rg', 'lg', 'jg', 'wg', 'hg', 'ʔg', 'px', 'bx', 'fx', 'vx', 'mx', 'tx', 'dx', 'θx', 'ðx', 'sx', 'zx', 'ʃx', 'ʒx', 'nx', 't͡ʃx', 'd͡ʒx', 'kx', 'gx', 'xx', 'ɣx', 'ŋx', 'rx', 'lx', 'jx', 'wx', 'hx', 'ʔx', 'pɣ', 'bɣ', 'fɣ', 'vɣ', 'mɣ', 'tɣ', 'dɣ', 'θɣ', 'ðɣ', 'sɣ', 'zɣ', 'ʃɣ', 'ʒɣ', 'nɣ', 't͡ʃɣ', 'd͡ʒɣ', 'kɣ', 'gɣ', 'xɣ', 'ɣɣ', 'ŋɣ', 'rɣ', 'lɣ', 'jɣ', 'wɣ', 'hɣ', 'ʔɣ', 'pŋ', 'bŋ', 'fŋ', 'vŋ', 'mŋ', 'tŋ', 'dŋ', 'θŋ', 'ðŋ', 'sŋ', 'zŋ', 'ʃŋ', 'ʒŋ', 'nŋ', 't͡ʃŋ', 'd͡ʒŋ', 'kŋ', 'gŋ', 'xŋ', 'ɣŋ', 'ŋŋ', 'rŋ', 'lŋ', 'jŋ', 'wŋ', 'hŋ', 'ʔŋ', 'pr', 'br', 'fr', 'vr', 'mr', 'tr', 'dr', 'θr', 'ðr', 'sr', 'zr', 'ʃr', 'ʒr', 'nr', 't͡ʃr', 'd͡ʒr', 'kr', 'gr', 'xr', 'ɣr', 'ŋr', 'rr', 'lr', 'jr', 'wr', 'hr', 'ʔr', 'pl', 'bl', 'fl', 'vl', 'ml', 'tl', 'dl', 'θl', 'ðl', 'sl', 'zl', 'ʃl', 'ʒl', 'nl', 't͡ʃl', 'd͡ʒl', 'kl', 'gl', 'xl', 'ɣl', 'ŋl', 'rl', 'll', 'jl', 'wl', 'hl', 'ʔl', 'pj', 'bj', 'fj', 'vj', 'mj', 'tj', 'dj', 'θj', 'ðj', 'sj', 'zj', 'ʃj', 'ʒj', 'nj', 't͡ʃj', 'd͡ʒj', 'kj', 'gj', 'xj', 'ɣj', 'ŋj', 'rj', 'lj', 'jj', 'wj', 'hj', 'ʔj', 'pw', 'bw', 'fw', 'vw', 'mw', 'tw', 'dw', 'θw', 'ðw', 'sw', 'zw', 'ʃw', 'ʒw', 'nw', 't͡ʃw', 'd͡ʒw', 'kw', 'gw', 'xw', 'ɣw', 'ŋw', 'rw', 'lw', 'jw', 'ww', 'hw', 'ʔw', 'ph', 'bh', 'fh', 'vh', 'mh', 'th', 'dh', 'θh', 'ðh', 'sh', 'zh', 'ʃh', 'ʒh', 'nh', 't͡ʃh', 'd͡ʒh', 'kh', 'gh', 'xh', 'ɣh', 'ŋh', 'rh', 'lh', 'jh', 'wh', 'hh', 'ʔh', 'pʔ', 'bʔ', 'fʔ', 'vʔ', 'mʔ', 'tʔ', 'dʔ', 'θʔ', 'ðʔ', 'sʔ', 'zʔ', 'ʃʔ', 'ʒʔ', 'nʔ', 't͡ʃʔ', 'd͡ʒʔ', 'kʔ', 'gʔ', 'xʔ', 'ɣʔ', 'ŋʔ', 'rʔ', 'lʔ', 'jʔ', 'wʔ', 'hʔ', 'ʔʔ']  "]
+ - generator 252@generate
+[2021-01-16 16:34:00] - INFO - REQUEST: PIECES 2 CADT 38 CADNT 1 CAND 2 NCAD 2 IRR 0
+high vowel laxing in closed syllables ===== [high,vowel,tense] -> [lax],[] /  _ [consonant]# or  _ [consonant][consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833326746
+ - generator 258@generate
+[2021-01-16 16:34:00] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:00] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:00] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:34:00] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:34:00] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:00] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:00] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:34:00] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:34:00] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:34:08] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:34:08] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2021-01-16 16:34:08] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatal mutation of alveolar stops to alveolar fricatives before front vowels ===== [alveolar,oral stop] -> [fricative,continuant,strident],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833532179
+ - generator 258@generate
+[2021-01-16 16:34:08] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:08] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:08] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2021-01-16 16:34:08] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2021-01-16 16:34:09] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:34:10] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:34:10] - INFO - A matchers: ['k', 'g']  CD matchers: ["[]_['i', 'ɪ']  "]
+ - generator 252@generate
+[2021-01-16 16:34:10] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+palatal mutation of velar stops to alveolar affricates before high front vowels ===== [velar,oral stop] -> [coronal,alveolar,affricate,anterior,apical,strident],['backness', 'height'] /  _ [high,front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833470683
+ - generator 258@generate
+[2021-01-16 16:34:10] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:10] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:10] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2021-01-16 16:34:10] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2021-01-16 16:34:10] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:34:11] - DEBUG - Rule size: 2 - generator 64@__init__
+[2021-01-16 16:34:11] - INFO - A matchers: ['s', 'z']  CD matchers: ['[]_[]  ', "[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  ", '[]_[]  ', "[]_['p', 'b', 'f', 'v', 'm', 't', 'd', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'n', 't͡ʃ', 'd͡ʒ', 'k', 'g', 'x', 'ɣ', 'ŋ', 'r', 'l', 'j', 'w', 'h', 'ʔ']  "]
+ - generator 252@generate
+[2021-01-16 16:34:11] - INFO - REQUEST: PIECES 2 CADT 38 CADNT 1 CAND 2 NCAD 2 IRR 0
+ashibilation of alveolar fricatives in codas ===== [alveolar,fricative] -> [postalveolar,laminal,posterior],[] /  _ # or  _ [consonant] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610832853194
+ - generator 258@generate
+[2021-01-16 16:34:11] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:11] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:11] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:34:11] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:34:11] - DEBUG - No CADNT type found.(1 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:11] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:11] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 38 CADNT 0 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 16:34:12] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 39 CADNT 0 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 16:34:12] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 16:34:32] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 16:34:33] - INFO - A matchers: ['p', 'f', 't', 'θ', 's', 'ʃ', 't͡ʃ', 'k', 'x', 'h', 'ʔ']  CD matchers: ["['m', 'n', 'ŋ']_[]  "]
+ - generator 252@generate
+[2021-01-16 16:34:33] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+postnasal voicing of obstruents ===== [obstruent,voiceless] -> [voiced],[] / [nasal,consonant] _  
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610833302272
+ - generator 258@generate
+[2021-01-16 16:34:33] - DEBUG - Insufficient amount of CADT type.(41 required, 18 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 16:34:34] - DEBUG - Insufficient amount of CADT type.(41 required, 37 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 16:34:35] - DEBUG - No CAND type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 16:34:35] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 2 CAND 0 NCAD 3 IRR 1
+ - generator 289@generate
+[2021-01-16 16:34:35] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 41 CADNT 2 CAND 0 NCAD 6 IRR 1
+ - generator 319@generate
+[2021-01-16 16:34:35] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 18:18:22] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 18:18:23] - INFO - A matchers: ['t', 'd']  CD matchers: ["[]_['i', 'ɪ', 'e', 'ɛ', 'æ']  "]
+ - generator 252@generate
+[2021-01-16 18:18:23] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+dentalization and spirantization of alveolar stops before front vowels ===== [alveolar,oral stop] -> [dental,laminal,fricative,continuant],[] /  _ [front,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610839689390
+ - generator 258@generate
+[2021-01-16 18:18:23] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 18:18:23] - DEBUG - No NCAD type found.(3 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 18:18:23] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 0 IRR 1
+ - generator 289@generate
+[2021-01-16 18:18:23] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 6 NCAD 0 IRR 1
+ - generator 319@generate
+[2021-01-16 18:18:23] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 18:19:11] - DEBUG - Rule size: 2 - generator 64@__init__
+[2021-01-16 18:19:11] - INFO - A matchers: ['k', 'g', 'x', 'ɣ', 'ŋ']  CD matchers: ["[]_['o', 'ɔ']  ", "[]_['ɑ']  ", "[]_['o', 'ɔ']  ", "[]_['ɑ']  "]
+ - generator 252@generate
+[2021-01-16 18:19:11] - INFO - REQUEST: PIECES 2 CADT 38 CADNT 1 CAND 2 NCAD 2 IRR 0
+uvularization of velars before back non-high vowels ===== [velar,consonant] -> [uvular,mid],[] /  _ [back,mid,vowel] or  _ [back,low,vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610840068844
+ - generator 258@generate
+[2021-01-16 18:19:11] - DEBUG - Insufficient amount of CADT type.(38 required, 31 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 18:19:12] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 18:19:12] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 38 CADNT 1 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 18:19:12] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 38 CADNT 1 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 18:19:12] - DEBUG - Insufficient amount of CADT type.(38 required, 27 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 18:19:13] - DEBUG - Insufficient amount of CADT type.(38 required, 32 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 18:19:13] - DEBUG - No NCAD type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 18:19:13] - DEBUG - 1ST GET: PCS_INDEX 1 CADT 38 CADNT 1 CAND 2 NCAD 0 IRR 0
+ - generator 289@generate
+[2021-01-16 18:19:13] - DEBUG - 2ND GET: PCS_INDEX 1 CADT 38 CADNT 1 CAND 4 NCAD 0 IRR 0
+ - generator 319@generate
+[2021-01-16 18:19:13] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 18:19:35] - DEBUG - Rule size: 1 - generator 64@__init__
+[2021-01-16 18:19:36] - INFO - A matchers: ['b', 'v', 'd', 'ð', 'z', 'ʒ', 'd͡ʒ', 'g', 'ɣ']  CD matchers: ["['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']_['i', 'ɪ', 'e', 'ɛ', 'æ', 'a', 'ɑ', 'o', 'ɔ', 'u', 'ʊ', 'ə']  "]
+ - generator 252@generate
+[2021-01-16 18:19:36] - INFO - REQUEST: PIECES 1 CADT 41 CADNT 2 CAND 3 NCAD 3 IRR 1
+intervocalic deletion of voiced obstruents ===== [voiced,obstruent] ->  / [vowel] _ [vowel] 
+ ['p', 'b', 't', 'd', 'k', 'g', 'ʔ', 't͡ʃ', 'd͡ʒ', 'f', 'v', 'θ', 'ð', 's', 'z', 'ʃ', 'ʒ', 'h', 'x', 'ɣ', 'm', 'n', 'ŋ', 'r', 'l', 'w', 'j', 'i', 'ɪ', 'e', 'ɛ', 'ɔ', 'o', 'ʊ', 'u', 'ə', 'æ', 'a', 'ɑ'] 
+ ['[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[consonant]-[vowel]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]', '[consonant]-[vowel]-[consonant]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiceless]-[obstruent,voiceless]-[vowel]-[consonant]', '[consonant]-[vowel]-[obstruent,voiced]-[consonant,voiced]-[vowel]-[consonant]', '[consonant]-[vowel]-[sonorant,contoid]-[consonant]-[vowel]-[consonant]'] 
+ @1610839182730
+ - generator 258@generate
+[2021-01-16 18:19:36] - DEBUG - Insufficient amount of CADT type.(41 required, 38 found), expanding library
+ - generator 211@_generate_helper
+[2021-01-16 18:19:37] - DEBUG - No CADNT type found.(2 required, 0 found)
+ - generator 190@_generate_helper
+[2021-01-16 18:19:37] - DEBUG - 1ST GET: PCS_INDEX 0 CADT 41 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 289@generate
+[2021-01-16 18:19:37] - DEBUG - 2ND GET: PCS_INDEX 0 CADT 43 CADNT 0 CAND 3 NCAD 3 IRR 1
+ - generator 319@generate
+[2021-01-16 18:19:37] - DEBUG - Gen Mode 1 - str ipa g mode - generator 369@generate
+[2021-01-16 18:23:14] - DEBUG - base generation size 165
+ - morphology 189@_get_valid_question
+[2021-01-16 18:23:14] - DEBUG - Rule raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]#
+ - morphology 190@_get_valid_question
+[2021-01-16 18:23:14] - DEBUG - Phoneme [<script.word.Word object at 0x0516C778>, <script.word.Word object at 0x0516C718>, <script.word.Word object at 0x0516C730>, <script.word.Word object at 0x0516C640>, <script.word.Word object at 0x0516C7A8>, <script.word.Word object at 0x0516C7D8>, <script.word.Word object at 0x0516C808>, <script.word.Word object at 0x0516C838>, <script.word.Word object at 0x0516C868>, <script.word.Word object at 0x0516C898>, <script.word.Word object at 0x0516C8C8>, <script.word.Word object at 0x0516C8F8>, <script.word.Word object at 0x0516C928>, <script.word.Word object at 0x0516C958>, <script.word.Word object at 0x0516C988>, <script.word.Word object at 0x0516C9B8>, <script.word.Word object at 0x0516C9E8>, <script.word.Word object at 0x0516CA18>, <script.word.Word object at 0x0516CA48>, <script.word.Word object at 0x0516CA78>, <script.word.Word object at 0x0516CAA8>, <script.word.Word object at 0x0516CAD8>, <script.word.Word object at 0x0516CB08>, <script.word.Word object at 0x0516CB38>, <script.word.Word object at 0x0516CB68>, <script.word.Word object at 0x0516CB98>, <script.word.Word object at 0x0516CBC8>, <script.word.Word object at 0x0516CBF8>, <script.word.Word object at 0x0516CC28>, <script.word.Word object at 0x0516CC58>, <script.word.Word object at 0x0516CC88>, <script.word.Word object at 0x0516CCB8>, <script.word.Word object at 0x0516CCE8>, <script.word.Word object at 0x0516CD18>, <script.word.Word object at 0x0516CD48>, <script.word.Word object at 0x0516CD78>, <script.word.Word object at 0x0516CDA8>, <script.word.Word object at 0x0516CDD8>, <script.word.Word object at 0x0516CE08>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:23:15] - WARNING - Insufficient valid data. Need 11 Found 6.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:23:15] - WARNING - Insufficient valid data. Need 11 Found 8.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:23:16] - WARNING - Insufficient valid data. Need 11 Found 10.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:23:17] - INFO - Success! Raw Paradigm Data:
+base      singular  plural  
+---       + bɛ      + ʊ     
+ŋæk       ŋɛkbɛ     ŋækʊ    
+rə        rəbɛ      rəʊ     
+ŋəɣlu     ŋəɣlubɛ   ŋəɣluʊ  
+heŋt͡ʃaf  heŋt͡ʃəfbɛ  heŋt͡ʃafʊ
+foshʊd͡ʒ  foshʊd͡ʒbɛ  foshʊd͡ʒʊ
+kæx       kɛxbɛ     kæxʊ    
+juwiz     juwizbɛ   juwizʊ  
+mæʒnɑp    mæʒnʌpbɛ  mæʒnɑpʊ 
+kæx       kɛxbɛ     kæxʊ    
+ðoʔxæt͡ʃ  ðoʔxɛt͡ʃbɛ  ðoʔxæt͡ʃʊ
+
+ - morphology 238@_get_valid_question
+[2021-01-16 18:33:01] - DEBUG - base generation size 165
+ - morphology 189@_get_valid_question
+[2021-01-16 18:33:01] - DEBUG - Rule raising of low vowels before voiceless codas ===== [low,vowel] -> [mid],[] /  _ [voiceless,consonant][consonant] or  _ [voiceless,consonant]#
+ - morphology 190@_get_valid_question
+[2021-01-16 18:33:01] - DEBUG - Phoneme [<script.word.Word object at 0x0516C778>, <script.word.Word object at 0x0516C718>, <script.word.Word object at 0x0516C730>, <script.word.Word object at 0x0516C640>, <script.word.Word object at 0x0516C7A8>, <script.word.Word object at 0x0516C7D8>, <script.word.Word object at 0x0516C808>, <script.word.Word object at 0x0516C838>, <script.word.Word object at 0x0516C868>, <script.word.Word object at 0x0516C898>, <script.word.Word object at 0x0516C8C8>, <script.word.Word object at 0x0516C8F8>, <script.word.Word object at 0x0516C928>, <script.word.Word object at 0x0516C958>, <script.word.Word object at 0x0516C988>, <script.word.Word object at 0x0516C9B8>, <script.word.Word object at 0x0516C9E8>, <script.word.Word object at 0x0516CA18>, <script.word.Word object at 0x0516CA48>, <script.word.Word object at 0x0516CA78>, <script.word.Word object at 0x0516CAA8>, <script.word.Word object at 0x0516CAD8>, <script.word.Word object at 0x0516CB08>, <script.word.Word object at 0x0516CB38>, <script.word.Word object at 0x0516CB68>, <script.word.Word object at 0x0516CB98>, <script.word.Word object at 0x0516CBC8>, <script.word.Word object at 0x0516CBF8>, <script.word.Word object at 0x0516CC28>, <script.word.Word object at 0x0516CC58>, <script.word.Word object at 0x0516CC88>, <script.word.Word object at 0x0516CCB8>, <script.word.Word object at 0x0516CCE8>, <script.word.Word object at 0x0516CD18>, <script.word.Word object at 0x0516CD48>, <script.word.Word object at 0x0516CD78>, <script.word.Word object at 0x0516CDA8>, <script.word.Word object at 0x0516CDD8>, <script.word.Word object at 0x0516CE08>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:33:02] - WARNING - Insufficient valid data. Need 11 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:33:02] - WARNING - Insufficient valid data. Need 11 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:33:03] - WARNING - Insufficient valid data. Need 11 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:33:04] - WARNING - Insufficient valid data. Need 11 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:33:04] - WARNING - Insufficient valid data. Need 11 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:33:04] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:34:10] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 18:34:10] - DEBUG - Rule lateralization of /d/ after nonhigh vowels ===== <Predefined> {d > l} / [mid,vowel] _  or [low,vowel] _ 
+ - morphology 190@_get_valid_question
+[2021-01-16 18:34:10] - DEBUG - Phoneme [<script.word.Word object at 0x0598E988>, <script.word.Word object at 0x0598E9B8>, <script.word.Word object at 0x0598E9D0>, <script.word.Word object at 0x0598EA30>, <script.word.Word object at 0x0598EA78>, <script.word.Word object at 0x0598EAA8>, <script.word.Word object at 0x0598EAD8>, <script.word.Word object at 0x0598EB08>, <script.word.Word object at 0x0598EB38>, <script.word.Word object at 0x0598EB68>, <script.word.Word object at 0x0598EB98>, <script.word.Word object at 0x0598EBC8>, <script.word.Word object at 0x0598EBF8>, <script.word.Word object at 0x0598EC28>, <script.word.Word object at 0x0598EC58>, <script.word.Word object at 0x0598EC88>, <script.word.Word object at 0x0598ECB8>, <script.word.Word object at 0x0598ECE8>, <script.word.Word object at 0x0598ED18>, <script.word.Word object at 0x0598ED48>, <script.word.Word object at 0x0598ED78>, <script.word.Word object at 0x0598EDA8>, <script.word.Word object at 0x0598EDD8>, <script.word.Word object at 0x0598EE08>, <script.word.Word object at 0x0598EE38>, <script.word.Word object at 0x0598EE68>, <script.word.Word object at 0x0598EE98>, <script.word.Word object at 0x0598EEC8>, <script.word.Word object at 0x0598EEF8>, <script.word.Word object at 0x0598EF28>, <script.word.Word object at 0x0598EF58>, <script.word.Word object at 0x0598EF88>, <script.word.Word object at 0x0598EFB8>, <script.word.Word object at 0x0598EFE8>, <script.word.Word object at 0x0599C040>, <script.word.Word object at 0x0599C070>, <script.word.Word object at 0x0599C0A0>, <script.word.Word object at 0x0599C0D0>, <script.word.Word object at 0x0599C100>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:34:10] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:11] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:11] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:11] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:11] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:11] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:34:29] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 18:34:29] - DEBUG - Rule word-final high vowel devoicing ===== [high,vowel,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 18:34:29] - DEBUG - Phoneme [<script.word.Word object at 0x0598E988>, <script.word.Word object at 0x0598E9B8>, <script.word.Word object at 0x0598E9D0>, <script.word.Word object at 0x0598EA30>, <script.word.Word object at 0x0598EA78>, <script.word.Word object at 0x0598EAA8>, <script.word.Word object at 0x0598EAD8>, <script.word.Word object at 0x0598EB08>, <script.word.Word object at 0x0598EB38>, <script.word.Word object at 0x0598EB68>, <script.word.Word object at 0x0598EB98>, <script.word.Word object at 0x0598EBC8>, <script.word.Word object at 0x0598EBF8>, <script.word.Word object at 0x0598EC28>, <script.word.Word object at 0x0598EC58>, <script.word.Word object at 0x0598EC88>, <script.word.Word object at 0x0598ECB8>, <script.word.Word object at 0x0598ECE8>, <script.word.Word object at 0x0598ED18>, <script.word.Word object at 0x0598ED48>, <script.word.Word object at 0x0598ED78>, <script.word.Word object at 0x0598EDA8>, <script.word.Word object at 0x0598EDD8>, <script.word.Word object at 0x0598EE08>, <script.word.Word object at 0x0598EE38>, <script.word.Word object at 0x0598EE68>, <script.word.Word object at 0x0598EE98>, <script.word.Word object at 0x0598EEC8>, <script.word.Word object at 0x0598EEF8>, <script.word.Word object at 0x0598EF28>, <script.word.Word object at 0x0598EF58>, <script.word.Word object at 0x0598EF88>, <script.word.Word object at 0x0598EFB8>, <script.word.Word object at 0x0598EFE8>, <script.word.Word object at 0x0599C040>, <script.word.Word object at 0x0599C070>, <script.word.Word object at 0x0599C0A0>, <script.word.Word object at 0x0599C0D0>, <script.word.Word object at 0x0599C100>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:34:30] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:31] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:32] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:33] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:34] - WARNING - Insufficient valid data. Need 7 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:34] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:34:42] - DEBUG - base generation size 120
+ - morphology 189@_get_valid_question
+[2021-01-16 18:34:42] - DEBUG - Rule spirantization of voiceless stops in codas ===== [voiceless,oral stop] -> [fricative,continuant],['stridency'] /  _ # or  _ [consonant][consonant]
+ - morphology 190@_get_valid_question
+[2021-01-16 18:34:42] - DEBUG - Phoneme [<script.word.Word object at 0x0598E988>, <script.word.Word object at 0x0598E9B8>, <script.word.Word object at 0x0598E9D0>, <script.word.Word object at 0x0598EA30>, <script.word.Word object at 0x0598EA78>, <script.word.Word object at 0x0598EAA8>, <script.word.Word object at 0x0598EAD8>, <script.word.Word object at 0x0598EB08>, <script.word.Word object at 0x0598EB38>, <script.word.Word object at 0x0598EB68>, <script.word.Word object at 0x0598EB98>, <script.word.Word object at 0x0598EBC8>, <script.word.Word object at 0x0598EBF8>, <script.word.Word object at 0x0598EC28>, <script.word.Word object at 0x0598EC58>, <script.word.Word object at 0x0598EC88>, <script.word.Word object at 0x0598ECB8>, <script.word.Word object at 0x0598ECE8>, <script.word.Word object at 0x0598ED18>, <script.word.Word object at 0x0598ED48>, <script.word.Word object at 0x0598ED78>, <script.word.Word object at 0x0598EDA8>, <script.word.Word object at 0x0598EDD8>, <script.word.Word object at 0x0598EE08>, <script.word.Word object at 0x0598EE38>, <script.word.Word object at 0x0598EE68>, <script.word.Word object at 0x0598EE98>, <script.word.Word object at 0x0598EEC8>, <script.word.Word object at 0x0598EEF8>, <script.word.Word object at 0x0598EF28>, <script.word.Word object at 0x0598EF58>, <script.word.Word object at 0x0598EF88>, <script.word.Word object at 0x0598EFB8>, <script.word.Word object at 0x0598EFE8>, <script.word.Word object at 0x0599C040>, <script.word.Word object at 0x0599C070>, <script.word.Word object at 0x0599C0A0>, <script.word.Word object at 0x0599C0D0>, <script.word.Word object at 0x0599C100>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:34:43] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:43] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:44] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:45] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:45] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:45] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:34:50] - DEBUG - base generation size 210
+ - morphology 189@_get_valid_question
+[2021-01-16 18:34:50] - DEBUG - Rule regressive vowel nasalization ===== [vowel,oral] -> [nasal],[] /  _ [consonant,nasal]
+ - morphology 190@_get_valid_question
+[2021-01-16 18:34:50] - DEBUG - Phoneme [<script.word.Word object at 0x0598E988>, <script.word.Word object at 0x0598E9B8>, <script.word.Word object at 0x0598E9D0>, <script.word.Word object at 0x0598EA30>, <script.word.Word object at 0x0598EA78>, <script.word.Word object at 0x0598EAA8>, <script.word.Word object at 0x0598EAD8>, <script.word.Word object at 0x0598EB08>, <script.word.Word object at 0x0598EB38>, <script.word.Word object at 0x0598EB68>, <script.word.Word object at 0x0598EB98>, <script.word.Word object at 0x0598EBC8>, <script.word.Word object at 0x0598EBF8>, <script.word.Word object at 0x0598EC28>, <script.word.Word object at 0x0598EC58>, <script.word.Word object at 0x0598EC88>, <script.word.Word object at 0x0598ECB8>, <script.word.Word object at 0x0598ECE8>, <script.word.Word object at 0x0598ED18>, <script.word.Word object at 0x0598ED48>, <script.word.Word object at 0x0598ED78>, <script.word.Word object at 0x0598EDA8>, <script.word.Word object at 0x0598EDD8>, <script.word.Word object at 0x0598EE08>, <script.word.Word object at 0x0598EE38>, <script.word.Word object at 0x0598EE68>, <script.word.Word object at 0x0598EE98>, <script.word.Word object at 0x0598EEC8>, <script.word.Word object at 0x0598EEF8>, <script.word.Word object at 0x0598EF28>, <script.word.Word object at 0x0598EF58>, <script.word.Word object at 0x0598EF88>, <script.word.Word object at 0x0598EFB8>, <script.word.Word object at 0x0598EFE8>, <script.word.Word object at 0x0599C040>, <script.word.Word object at 0x0599C070>, <script.word.Word object at 0x0599C0A0>, <script.word.Word object at 0x0599C0D0>, <script.word.Word object at 0x0599C100>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:34:53] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:56] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:34:59] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:35:02] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:35:05] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:35:05] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:36:39] - DEBUG - base generation size 165
+ - morphology 189@_get_valid_question
+[2021-01-16 18:36:39] - DEBUG - Rule intervocalic deletion of voiced velar oral stops ===== [voiced,velar,oral stop] ->  / [vowel] _ [vowel]
+ - morphology 190@_get_valid_question
+[2021-01-16 18:36:39] - DEBUG - Phoneme [<script.word.Word object at 0x04E4D6D0>, <script.word.Word object at 0x04E4D730>, <script.word.Word object at 0x04E4D700>, <script.word.Word object at 0x04E4D6B8>, <script.word.Word object at 0x04E4D790>, <script.word.Word object at 0x04E4D7C0>, <script.word.Word object at 0x04E4D7F0>, <script.word.Word object at 0x04E4D820>, <script.word.Word object at 0x04E4D850>, <script.word.Word object at 0x04E4D880>, <script.word.Word object at 0x04E4D8B0>, <script.word.Word object at 0x04E4D8E0>, <script.word.Word object at 0x04E4D910>, <script.word.Word object at 0x04E4D940>, <script.word.Word object at 0x04E4D970>, <script.word.Word object at 0x04E4D9A0>, <script.word.Word object at 0x04E4D9D0>, <script.word.Word object at 0x04E4DA00>, <script.word.Word object at 0x04E4DA30>, <script.word.Word object at 0x04E4DA60>, <script.word.Word object at 0x04E4DA90>, <script.word.Word object at 0x04E4DAC0>, <script.word.Word object at 0x04E4DAF0>, <script.word.Word object at 0x04E4DB20>, <script.word.Word object at 0x04E4DB50>, <script.word.Word object at 0x04E4DB80>, <script.word.Word object at 0x04E4DBB0>, <script.word.Word object at 0x04E4DBE0>, <script.word.Word object at 0x04E4DC10>, <script.word.Word object at 0x04E4DC40>, <script.word.Word object at 0x04E4DC70>, <script.word.Word object at 0x04E4DCA0>, <script.word.Word object at 0x04E4DCD0>, <script.word.Word object at 0x04E4DD00>, <script.word.Word object at 0x04E4DD30>, <script.word.Word object at 0x04E4DD60>, <script.word.Word object at 0x04E4DD90>, <script.word.Word object at 0x04E4DDC0>, <script.word.Word object at 0x04E4DDF0>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:36:39] - WARNING - Insufficient valid data. Need 11 Found 2.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:39] - WARNING - Insufficient valid data. Need 11 Found 5.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:40] - WARNING - Insufficient valid data. Need 11 Found 3.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:40] - WARNING - Insufficient valid data. Need 11 Found 1.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:40] - WARNING - Insufficient valid data. Need 11 Found 5.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:40] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:36:52] - DEBUG - base generation size 210
+ - morphology 189@_get_valid_question
+[2021-01-16 18:36:52] - DEBUG - Rule high vowel devoicing between voiceless consonants ===== [high,vowel,voiced] -> [voiceless],[] / [voiceless] _ [voiceless]
+ - morphology 190@_get_valid_question
+[2021-01-16 18:36:52] - DEBUG - Phoneme [<script.word.Word object at 0x04F9B778>, <script.word.Word object at 0x04F9B718>, <script.word.Word object at 0x04F9B670>, <script.word.Word object at 0x04F9B7C0>, <script.word.Word object at 0x04F9B7F0>, <script.word.Word object at 0x04F9B820>, <script.word.Word object at 0x04F9B850>, <script.word.Word object at 0x04F9B880>, <script.word.Word object at 0x04F9B8B0>, <script.word.Word object at 0x04F9B8E0>, <script.word.Word object at 0x04F9B910>, <script.word.Word object at 0x04F9B940>, <script.word.Word object at 0x04F9B970>, <script.word.Word object at 0x04F9B9A0>, <script.word.Word object at 0x04F9B9D0>, <script.word.Word object at 0x04F9BA00>, <script.word.Word object at 0x04F9BA30>, <script.word.Word object at 0x04F9BA60>, <script.word.Word object at 0x04F9BA90>, <script.word.Word object at 0x04F9BAC0>, <script.word.Word object at 0x04F9BAF0>, <script.word.Word object at 0x04F9BB20>, <script.word.Word object at 0x04F9BB50>, <script.word.Word object at 0x04F9BB80>, <script.word.Word object at 0x04F9BBB0>, <script.word.Word object at 0x04F9BBE0>, <script.word.Word object at 0x04F9BC10>, <script.word.Word object at 0x04F9BC40>, <script.word.Word object at 0x04F9BC70>, <script.word.Word object at 0x04F9BCA0>, <script.word.Word object at 0x04F9BCD0>, <script.word.Word object at 0x04F9BD00>, <script.word.Word object at 0x04F9BD30>, <script.word.Word object at 0x04F9BD60>, <script.word.Word object at 0x04F9BD90>, <script.word.Word object at 0x04F9BDC0>, <script.word.Word object at 0x04F9BDF0>, <script.word.Word object at 0x04F9BE20>, <script.word.Word object at 0x04F9BE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:36:54] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:55] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:57] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:58] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:59] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:36:59] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:37:04] - DEBUG - base generation size 120
+ - morphology 189@_get_valid_question
+[2021-01-16 18:37:04] - DEBUG - Rule intervocalic obstruent voicing ===== [not spread,obstruent,voiceless] -> [voiced],[] / [vowel] _ [vowel]
+ - morphology 190@_get_valid_question
+[2021-01-16 18:37:04] - DEBUG - Phoneme [<script.word.Word object at 0x04F9B778>, <script.word.Word object at 0x04F9B718>, <script.word.Word object at 0x04F9B670>, <script.word.Word object at 0x04F9B7C0>, <script.word.Word object at 0x04F9B7F0>, <script.word.Word object at 0x04F9B820>, <script.word.Word object at 0x04F9B850>, <script.word.Word object at 0x04F9B880>, <script.word.Word object at 0x04F9B8B0>, <script.word.Word object at 0x04F9B8E0>, <script.word.Word object at 0x04F9B910>, <script.word.Word object at 0x04F9B940>, <script.word.Word object at 0x04F9B970>, <script.word.Word object at 0x04F9B9A0>, <script.word.Word object at 0x04F9B9D0>, <script.word.Word object at 0x04F9BA00>, <script.word.Word object at 0x04F9BA30>, <script.word.Word object at 0x04F9BA60>, <script.word.Word object at 0x04F9BA90>, <script.word.Word object at 0x04F9BAC0>, <script.word.Word object at 0x04F9BAF0>, <script.word.Word object at 0x04F9BB20>, <script.word.Word object at 0x04F9BB50>, <script.word.Word object at 0x04F9BB80>, <script.word.Word object at 0x04F9BBB0>, <script.word.Word object at 0x04F9BBE0>, <script.word.Word object at 0x04F9BC10>, <script.word.Word object at 0x04F9BC40>, <script.word.Word object at 0x04F9BC70>, <script.word.Word object at 0x04F9BCA0>, <script.word.Word object at 0x04F9BCD0>, <script.word.Word object at 0x04F9BD00>, <script.word.Word object at 0x04F9BD30>, <script.word.Word object at 0x04F9BD60>, <script.word.Word object at 0x04F9BD90>, <script.word.Word object at 0x04F9BDC0>, <script.word.Word object at 0x04F9BDF0>, <script.word.Word object at 0x04F9BE20>, <script.word.Word object at 0x04F9BE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:37:06] - INFO - Success! Raw Paradigm Data:
+base        singular    plural      possessive
+---         +∅          + ɛf        + ʊ       
+tɑbvə       tɑbvə       tɑbvəɛf     tɑbvəʊ    
+wʊgæt       wʊgæt       wʊgædɛf     wʊgædʊ    
+sæðæx       sæðæx       sæðæɣɛf     sæðæɣʊ    
+sæðæx       sæðæx       sæðæɣɛf     sæðæɣʊ    
+tɑbmu       tɑbmu       tɑbmuɛf     tɑbmuʊ    
+pɪgɣoʃ      pɪgɣoʃ      pɪgɣoʒɛf    pɪgɣoʒʊ   
+kiʃ         kiʃ         kiʒɛf       kiʒʊ      
+tazmʊ       tazmʊ       tazmʊɛf     tazmʊʊ    
+
+ - morphology 238@_get_valid_question
+[2021-01-16 18:37:18] - DEBUG - base generation size 150
+ - morphology 189@_get_valid_question
+[2021-01-16 18:37:18] - DEBUG - Rule palatalization of velar fricatives after high front vowels ===== [velar,fricative] -> [palatal,front,posterior,laminal,not strident],['secondary POA'] / [high,front,vowel] _ 
+ - morphology 190@_get_valid_question
+[2021-01-16 18:37:18] - DEBUG - Phoneme [<script.word.Word object at 0x04F9B778>, <script.word.Word object at 0x04F9B718>, <script.word.Word object at 0x04F9B670>, <script.word.Word object at 0x04F9B7C0>, <script.word.Word object at 0x04F9B7F0>, <script.word.Word object at 0x04F9B820>, <script.word.Word object at 0x04F9B850>, <script.word.Word object at 0x04F9B880>, <script.word.Word object at 0x04F9B8B0>, <script.word.Word object at 0x04F9B8E0>, <script.word.Word object at 0x04F9B910>, <script.word.Word object at 0x04F9B940>, <script.word.Word object at 0x04F9B970>, <script.word.Word object at 0x04F9B9A0>, <script.word.Word object at 0x04F9B9D0>, <script.word.Word object at 0x04F9BA00>, <script.word.Word object at 0x04F9BA30>, <script.word.Word object at 0x04F9BA60>, <script.word.Word object at 0x04F9BA90>, <script.word.Word object at 0x04F9BAC0>, <script.word.Word object at 0x04F9BAF0>, <script.word.Word object at 0x04F9BB20>, <script.word.Word object at 0x04F9BB50>, <script.word.Word object at 0x04F9BB80>, <script.word.Word object at 0x04F9BBB0>, <script.word.Word object at 0x04F9BBE0>, <script.word.Word object at 0x04F9BC10>, <script.word.Word object at 0x04F9BC40>, <script.word.Word object at 0x04F9BC70>, <script.word.Word object at 0x04F9BCA0>, <script.word.Word object at 0x04F9BCD0>, <script.word.Word object at 0x04F9BD00>, <script.word.Word object at 0x04F9BD30>, <script.word.Word object at 0x04F9BD60>, <script.word.Word object at 0x04F9BD90>, <script.word.Word object at 0x04F9BDC0>, <script.word.Word object at 0x04F9BDF0>, <script.word.Word object at 0x04F9BE20>, <script.word.Word object at 0x04F9BE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:37:18] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:18] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:18] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:19] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:19] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:19] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:37:23] - DEBUG - base generation size 135
+ - morphology 189@_get_valid_question
+[2021-01-16 18:37:23] - DEBUG - Rule word-final raising of low vowels ===== [low,vowel] -> [mid],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 18:37:23] - DEBUG - Phoneme [<script.word.Word object at 0x04F9B778>, <script.word.Word object at 0x04F9B718>, <script.word.Word object at 0x04F9B670>, <script.word.Word object at 0x04F9B7C0>, <script.word.Word object at 0x04F9B7F0>, <script.word.Word object at 0x04F9B820>, <script.word.Word object at 0x04F9B850>, <script.word.Word object at 0x04F9B880>, <script.word.Word object at 0x04F9B8B0>, <script.word.Word object at 0x04F9B8E0>, <script.word.Word object at 0x04F9B910>, <script.word.Word object at 0x04F9B940>, <script.word.Word object at 0x04F9B970>, <script.word.Word object at 0x04F9B9A0>, <script.word.Word object at 0x04F9B9D0>, <script.word.Word object at 0x04F9BA00>, <script.word.Word object at 0x04F9BA30>, <script.word.Word object at 0x04F9BA60>, <script.word.Word object at 0x04F9BA90>, <script.word.Word object at 0x04F9BAC0>, <script.word.Word object at 0x04F9BAF0>, <script.word.Word object at 0x04F9BB20>, <script.word.Word object at 0x04F9BB50>, <script.word.Word object at 0x04F9BB80>, <script.word.Word object at 0x04F9BBB0>, <script.word.Word object at 0x04F9BBE0>, <script.word.Word object at 0x04F9BC10>, <script.word.Word object at 0x04F9BC40>, <script.word.Word object at 0x04F9BC70>, <script.word.Word object at 0x04F9BCA0>, <script.word.Word object at 0x04F9BCD0>, <script.word.Word object at 0x04F9BD00>, <script.word.Word object at 0x04F9BD30>, <script.word.Word object at 0x04F9BD60>, <script.word.Word object at 0x04F9BD90>, <script.word.Word object at 0x04F9BDC0>, <script.word.Word object at 0x04F9BDF0>, <script.word.Word object at 0x04F9BE20>, <script.word.Word object at 0x04F9BE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:37:24] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:24] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:24] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:24] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:25] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:37:25] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:38:20] - DEBUG - base generation size 210
+ - morphology 189@_get_valid_question
+[2021-01-16 18:38:20] - DEBUG - Rule word-final lowering of high vowels ===== [high,vowel] -> [mid],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 18:38:20] - DEBUG - Phoneme [<script.word.Word object at 0x04BBC7A8>, <script.word.Word object at 0x04BBC748>, <script.word.Word object at 0x04BBC760>, <script.word.Word object at 0x04BBC718>, <script.word.Word object at 0x04BBC7D8>, <script.word.Word object at 0x04BBC808>, <script.word.Word object at 0x04BBC838>, <script.word.Word object at 0x04BBC868>, <script.word.Word object at 0x04BBC898>, <script.word.Word object at 0x04BBC8C8>, <script.word.Word object at 0x04BBC8F8>, <script.word.Word object at 0x04BBC928>, <script.word.Word object at 0x04BBC958>, <script.word.Word object at 0x04BBC988>, <script.word.Word object at 0x04BBC9B8>, <script.word.Word object at 0x04BBC9E8>, <script.word.Word object at 0x04BBCA18>, <script.word.Word object at 0x04BBCA48>, <script.word.Word object at 0x04BBCA78>, <script.word.Word object at 0x04BBCAA8>, <script.word.Word object at 0x04BBCAD8>, <script.word.Word object at 0x04BBCB08>, <script.word.Word object at 0x04BBCB38>, <script.word.Word object at 0x04BBCB68>, <script.word.Word object at 0x04BBCB98>, <script.word.Word object at 0x04BBCBC8>, <script.word.Word object at 0x04BBCBF8>, <script.word.Word object at 0x04BBCC28>, <script.word.Word object at 0x04BBCC58>, <script.word.Word object at 0x04BBCC88>, <script.word.Word object at 0x04BBCCB8>, <script.word.Word object at 0x04BBCCE8>, <script.word.Word object at 0x04BBCD18>, <script.word.Word object at 0x04BBCD48>, <script.word.Word object at 0x04BBCD78>, <script.word.Word object at 0x04BBCDA8>, <script.word.Word object at 0x04BBCDD8>, <script.word.Word object at 0x04BBCE08>, <script.word.Word object at 0x04BBCE38>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:38:21] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:38:21] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:38:22] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:38:23] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:38:24] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:38:24] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:38:34] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 18:38:34] - DEBUG - Rule word-final consonant devoicing ===== [oral stop,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 18:38:34] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:38:34] - INFO - Success! Raw Paradigm Data:
+base       masculine  feminine   neutral  
+---        +∅         + ut͡ʃ     + ba     
+lafæ       lafæ       lafæut͡ʃ   lafæba   
+kovmod     kovmot     kovmodut͡ʃ  kovmodba 
+næd        næt        nædut͡ʃ    nædba    
+haθkob     haθkop     haθkobut͡ʃ  haθkobba 
+wɪlik      wɪlik      wɪlikut͡ʃ  wɪlikba  
+ku         ku         kuut͡ʃ     kuba     
+
+ - morphology 238@_get_valid_question
+[2021-01-16 18:59:20] - DEBUG - base generation size 120
+ - morphology 189@_get_valid_question
+[2021-01-16 18:59:20] - DEBUG - Rule retraction of high front vowels after postalveolars ===== [high,front,vowel] -> [central],[] / [postalveolar] _ 
+ - morphology 190@_get_valid_question
+[2021-01-16 18:59:20] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:59:20] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:59:21] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:59:22] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:59:22] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:59:23] - WARNING - Insufficient valid data. Need 8 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 18:59:23] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 18:59:30] - DEBUG - base generation size 180
+ - morphology 189@_get_valid_question
+[2021-01-16 18:59:30] - DEBUG - Rule word-final obstruent devoicing ===== [obstruent,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 18:59:30] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 18:59:30] - INFO - Success! Raw Paradigm Data:
+base      singular  plural  
+---       +∅        + ɛ     
+lɛvrɪg    lɛvrɪk    lɛvrɪgɛ 
+vədwɪ     vədwɪ     vədwɪɛ  
+zibɑx     zibɑx     zibɑxɛ  
+θonhi     θonhi     θonhiɛ  
+fapfɪʒ    fapfɪʃ    fapfɪʒɛ 
+θɔŋreɣ    θɔŋrex    θɔŋreɣɛ 
+θɔŋreɣ    θɔŋrex    θɔŋreɣɛ 
+bæ        bæ        bæɛ     
+vɑvbig    vɑvbik    vɑvbigɛ 
+fʊpug     fʊpuk     fʊpugɛ  
+lɑshɛb    lɑshɛp    lɑshɛbɛ 
+t͡ʃɪdɣɑ   t͡ʃɪdɣɑ   t͡ʃɪdɣɑɛ
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:01:34] - DEBUG - base generation size 180
+ - morphology 189@_get_valid_question
+[2021-01-16 19:01:34] - DEBUG - Rule word-final obstruent devoicing ===== [obstruent,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:01:34] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:01:34] - INFO - Success! Raw Paradigm Data:
+base       masculine  feminine 
+---        +∅         + e      
+hʊxt͡ʃeɣ   hʊxt͡ʃex   hʊxt͡ʃeɣe
+ʔæ         ʔæ         ʔæe      
+xazʒæv     xazʒæf     xazʒæve  
+nɛθt͡ʃef   nɛθt͡ʃef   nɛθt͡ʃefe
+wæb        wæp        wæbe     
+ʃægbæ      ʃægbæ      ʃægbæe   
+zaŋid͡ʒ    zaŋit͡ʃ    zaŋid͡ʒe 
+ʃʊmzɔd͡ʒ   ʃʊmzɔt͡ʃ   ʃʊmzɔd͡ʒe
+wuvbɔd͡ʒ   wuvbɔt͡ʃ   wuvbɔd͡ʒe
+ʒæxʊ       ʒæxʊ       ʒæxʊe    
+jɛte       jɛte       jɛtee    
+ʒɔkʃi      ʒɔkʃi      ʒɔkʃie   
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:03:57] - DEBUG - base generation size 90
+ - morphology 189@_get_valid_question
+[2021-01-16 19:03:57] - DEBUG - Rule word-final consonant devoicing ===== [oral stop,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:03:57] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:03:57] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:03:57] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:03:58] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:03:58] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:03:58] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:03:58] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:04:08] - DEBUG - base generation size 90
+ - morphology 189@_get_valid_question
+[2021-01-16 19:04:08] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:04:08] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:04:09] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:09] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:09] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:10] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:10] - WARNING - Insufficient valid data. Need 6 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:10] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:04:15] - DEBUG - base generation size 135
+ - morphology 189@_get_valid_question
+[2021-01-16 19:04:15] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:04:15] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:04:15] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:16] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:16] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:16] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:17] - WARNING - Insufficient valid data. Need 9 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:04:17] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:04:22] - DEBUG - base generation size 225
+ - morphology 189@_get_valid_question
+[2021-01-16 19:04:22] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:04:22] - DEBUG - Phoneme [<script.word.Word object at 0x0583A6A0>, <script.word.Word object at 0x0583A790>, <script.word.Word object at 0x0583A760>, <script.word.Word object at 0x0583A688>, <script.word.Word object at 0x0583A7F0>, <script.word.Word object at 0x0583A820>, <script.word.Word object at 0x0583A850>, <script.word.Word object at 0x0583A880>, <script.word.Word object at 0x0583A8B0>, <script.word.Word object at 0x0583A8E0>, <script.word.Word object at 0x0583A910>, <script.word.Word object at 0x0583A940>, <script.word.Word object at 0x0583A970>, <script.word.Word object at 0x0583A9A0>, <script.word.Word object at 0x0583A9D0>, <script.word.Word object at 0x0583AA00>, <script.word.Word object at 0x0583AA30>, <script.word.Word object at 0x0583AA60>, <script.word.Word object at 0x0583AA90>, <script.word.Word object at 0x0583AAC0>, <script.word.Word object at 0x0583AAF0>, <script.word.Word object at 0x0583AB20>, <script.word.Word object at 0x0583AB50>, <script.word.Word object at 0x0583AB80>, <script.word.Word object at 0x0583ABB0>, <script.word.Word object at 0x0583ABE0>, <script.word.Word object at 0x0583AC10>, <script.word.Word object at 0x0583AC40>, <script.word.Word object at 0x0583AC70>, <script.word.Word object at 0x0583ACA0>, <script.word.Word object at 0x0583ACD0>, <script.word.Word object at 0x0583AD00>, <script.word.Word object at 0x0583AD30>, <script.word.Word object at 0x0583AD60>, <script.word.Word object at 0x0583AD90>, <script.word.Word object at 0x0583ADC0>, <script.word.Word object at 0x0583ADF0>, <script.word.Word object at 0x0583AE20>, <script.word.Word object at 0x0583AE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:04:22] - INFO - Success! Raw Paradigm Data:
+base      singular  plural  
+---       +∅        + if    
+kɑŋpiŋ    kɑŋpiŋ    kɑŋpiŋif
+ʒed       ʒet       ʒedif   
+kærgəʃ    kærgəʃ    kærgəʃif
+ʔʊvbuʒ    ʔʊvbuʒ    ʔʊvbuʒif
+nɪzmig    nɪzmik    nɪzmigif
+vɔvræ     vɔvræ     vɔvræif 
+ʔəfxəm    ʔəfxəm    ʔəfxəmif
+ɣaŋʔæb    ɣaŋʔæp    ɣaŋʔæbif
+xɔθʃeʒ    xɔθʃeʒ    xɔθʃeʒif
+ɣɔvɣəd͡ʒ  ɣɔvɣət͡ʃ  ɣɔvɣəd͡ʒif
+ðʊljag    ðʊljak    ðʊljagif
+zəŋtəb    zəŋtəp    zəŋtəbif
+sipʃæd͡ʒ  sipʃæt͡ʃ  sipʃæd͡ʒif
+t͡ʃɑsθɛð  t͡ʃɑsθɛð  t͡ʃɑsθɛðif
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:06:21] - DEBUG - base generation size 210
+ - morphology 189@_get_valid_question
+[2021-01-16 19:06:21] - DEBUG - Rule word-final consonant devoicing ===== [oral stop,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:06:21] - DEBUG - Phoneme [<script.word.Word object at 0x04D8E778>, <script.word.Word object at 0x04D8E718>, <script.word.Word object at 0x04D8E730>, <script.word.Word object at 0x04D8E670>, <script.word.Word object at 0x04D8E7A8>, <script.word.Word object at 0x04D8E7D8>, <script.word.Word object at 0x04D8E808>, <script.word.Word object at 0x04D8E838>, <script.word.Word object at 0x04D8E868>, <script.word.Word object at 0x04D8E898>, <script.word.Word object at 0x04D8E8C8>, <script.word.Word object at 0x04D8E8F8>, <script.word.Word object at 0x04D8E928>, <script.word.Word object at 0x04D8E958>, <script.word.Word object at 0x04D8E988>, <script.word.Word object at 0x04D8E9B8>, <script.word.Word object at 0x04D8E9E8>, <script.word.Word object at 0x04D8EA18>, <script.word.Word object at 0x04D8EA48>, <script.word.Word object at 0x04D8EA78>, <script.word.Word object at 0x04D8EAA8>, <script.word.Word object at 0x04D8EAD8>, <script.word.Word object at 0x04D8EB08>, <script.word.Word object at 0x04D8EB38>, <script.word.Word object at 0x04D8EB68>, <script.word.Word object at 0x04D8EB98>, <script.word.Word object at 0x04D8EBC8>, <script.word.Word object at 0x04D8EBF8>, <script.word.Word object at 0x04D8EC28>, <script.word.Word object at 0x04D8EC58>, <script.word.Word object at 0x04D8EC88>, <script.word.Word object at 0x04D8ECB8>, <script.word.Word object at 0x04D8ECE8>, <script.word.Word object at 0x04D8ED18>, <script.word.Word object at 0x04D8ED48>, <script.word.Word object at 0x04D8ED78>, <script.word.Word object at 0x04D8EDA8>, <script.word.Word object at 0x04D8EDD8>, <script.word.Word object at 0x04D8EE08>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:06:21] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:21] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:22] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:22] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:22] - WARNING - Insufficient valid data. Need 14 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:22] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:06:28] - DEBUG - base generation size 195
+ - morphology 189@_get_valid_question
+[2021-01-16 19:06:28] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:06:28] - DEBUG - Phoneme [<script.word.Word object at 0x04D8E778>, <script.word.Word object at 0x04D8E718>, <script.word.Word object at 0x04D8E730>, <script.word.Word object at 0x04D8E670>, <script.word.Word object at 0x04D8E7A8>, <script.word.Word object at 0x04D8E7D8>, <script.word.Word object at 0x04D8E808>, <script.word.Word object at 0x04D8E838>, <script.word.Word object at 0x04D8E868>, <script.word.Word object at 0x04D8E898>, <script.word.Word object at 0x04D8E8C8>, <script.word.Word object at 0x04D8E8F8>, <script.word.Word object at 0x04D8E928>, <script.word.Word object at 0x04D8E958>, <script.word.Word object at 0x04D8E988>, <script.word.Word object at 0x04D8E9B8>, <script.word.Word object at 0x04D8E9E8>, <script.word.Word object at 0x04D8EA18>, <script.word.Word object at 0x04D8EA48>, <script.word.Word object at 0x04D8EA78>, <script.word.Word object at 0x04D8EAA8>, <script.word.Word object at 0x04D8EAD8>, <script.word.Word object at 0x04D8EB08>, <script.word.Word object at 0x04D8EB38>, <script.word.Word object at 0x04D8EB68>, <script.word.Word object at 0x04D8EB98>, <script.word.Word object at 0x04D8EBC8>, <script.word.Word object at 0x04D8EBF8>, <script.word.Word object at 0x04D8EC28>, <script.word.Word object at 0x04D8EC58>, <script.word.Word object at 0x04D8EC88>, <script.word.Word object at 0x04D8ECB8>, <script.word.Word object at 0x04D8ECE8>, <script.word.Word object at 0x04D8ED18>, <script.word.Word object at 0x04D8ED48>, <script.word.Word object at 0x04D8ED78>, <script.word.Word object at 0x04D8EDA8>, <script.word.Word object at 0x04D8EDD8>, <script.word.Word object at 0x04D8EE08>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:06:28] - WARNING - Insufficient valid data. Need 13 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:29] - WARNING - Insufficient valid data. Need 13 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:29] - WARNING - Insufficient valid data. Need 13 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:29] - WARNING - Insufficient valid data. Need 13 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:30] - WARNING - Insufficient valid data. Need 13 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:06:30] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:06:41] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 19:06:41] - DEBUG - Rule word-final obstruent devoicing ===== [obstruent,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:06:41] - DEBUG - Phoneme [<script.word.Word object at 0x04D8E778>, <script.word.Word object at 0x04D8E718>, <script.word.Word object at 0x04D8E730>, <script.word.Word object at 0x04D8E670>, <script.word.Word object at 0x04D8E7A8>, <script.word.Word object at 0x04D8E7D8>, <script.word.Word object at 0x04D8E808>, <script.word.Word object at 0x04D8E838>, <script.word.Word object at 0x04D8E868>, <script.word.Word object at 0x04D8E898>, <script.word.Word object at 0x04D8E8C8>, <script.word.Word object at 0x04D8E8F8>, <script.word.Word object at 0x04D8E928>, <script.word.Word object at 0x04D8E958>, <script.word.Word object at 0x04D8E988>, <script.word.Word object at 0x04D8E9B8>, <script.word.Word object at 0x04D8E9E8>, <script.word.Word object at 0x04D8EA18>, <script.word.Word object at 0x04D8EA48>, <script.word.Word object at 0x04D8EA78>, <script.word.Word object at 0x04D8EAA8>, <script.word.Word object at 0x04D8EAD8>, <script.word.Word object at 0x04D8EB08>, <script.word.Word object at 0x04D8EB38>, <script.word.Word object at 0x04D8EB68>, <script.word.Word object at 0x04D8EB98>, <script.word.Word object at 0x04D8EBC8>, <script.word.Word object at 0x04D8EBF8>, <script.word.Word object at 0x04D8EC28>, <script.word.Word object at 0x04D8EC58>, <script.word.Word object at 0x04D8EC88>, <script.word.Word object at 0x04D8ECB8>, <script.word.Word object at 0x04D8ECE8>, <script.word.Word object at 0x04D8ED18>, <script.word.Word object at 0x04D8ED48>, <script.word.Word object at 0x04D8ED78>, <script.word.Word object at 0x04D8EDA8>, <script.word.Word object at 0x04D8EDD8>, <script.word.Word object at 0x04D8EE08>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:06:42] - INFO - Success! Raw Paradigm Data:
+base                 nominative singular  accusative singular  nominative plural    accusative plural  
+---                  +∅                   + ə                  + ox                 + ko               
+ʒolnoz               ʒolnos               ʒolnozə              ʒolnozox             ʒolnozko           
+dəjɛ                 dəjɛ                 dəjɛə                dəjɛox               dəjɛko             
+d͡ʒɑlmɑ              d͡ʒɑlmɑ              d͡ʒɑlmɑə             d͡ʒɑlmɑox            d͡ʒɑlmɑko          
+t͡ʃuglɑʔ             t͡ʃuglɑʔ             t͡ʃuglɑʔə            t͡ʃuglɑʔox           t͡ʃuglɑʔko         
+ʔigʊz                ʔigʊs                ʔigʊzə               ʔigʊzox              ʔigʊzko            
+ʔuzvɑɣ               ʔuzvɑx               ʔuzvɑɣə              ʔuzvɑɣox             ʔuzvɑɣko           
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:08:23] - DEBUG - base generation size 150
+ - morphology 189@_get_valid_question
+[2021-01-16 19:08:23] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:08:23] - DEBUG - Phoneme [<script.word.Word object at 0x04D90718>, <script.word.Word object at 0x04D90790>, <script.word.Word object at 0x04D90760>, <script.word.Word object at 0x04D90688>, <script.word.Word object at 0x04D907F0>, <script.word.Word object at 0x04D90820>, <script.word.Word object at 0x04D90850>, <script.word.Word object at 0x04D90880>, <script.word.Word object at 0x04D908B0>, <script.word.Word object at 0x04D908E0>, <script.word.Word object at 0x04D90910>, <script.word.Word object at 0x04D90940>, <script.word.Word object at 0x04D90970>, <script.word.Word object at 0x04D909A0>, <script.word.Word object at 0x04D909D0>, <script.word.Word object at 0x04D90A00>, <script.word.Word object at 0x04D90A30>, <script.word.Word object at 0x04D90A60>, <script.word.Word object at 0x04D90A90>, <script.word.Word object at 0x04D90AC0>, <script.word.Word object at 0x04D90AF0>, <script.word.Word object at 0x04D90B20>, <script.word.Word object at 0x04D90B50>, <script.word.Word object at 0x04D90B80>, <script.word.Word object at 0x04D90BB0>, <script.word.Word object at 0x04D90BE0>, <script.word.Word object at 0x04D90C10>, <script.word.Word object at 0x04D90C40>, <script.word.Word object at 0x04D90C70>, <script.word.Word object at 0x04D90CA0>, <script.word.Word object at 0x04D90CD0>, <script.word.Word object at 0x04D90D00>, <script.word.Word object at 0x04D90D30>, <script.word.Word object at 0x04D90D60>, <script.word.Word object at 0x04D90D90>, <script.word.Word object at 0x04D90DC0>, <script.word.Word object at 0x04D90DF0>, <script.word.Word object at 0x04D90E20>, <script.word.Word object at 0x04D90E50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:08:24] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:08:24] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:08:24] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:08:25] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:08:25] - WARNING - Insufficient valid data. Need 10 Found 0.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:08:25] - ERROR - Exceeded maximum retry limit. Failed to find a question!
+ - morphology 241@_get_valid_question
+[2021-01-16 19:08:30] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 19:08:30] - DEBUG - Rule obstruent devoicing in codas ===== [obstruent,voiced] -> [voiceless],[] /  _ # or  _ [voiceless,consonant] or  _ [sonorant,consonant]
+ - morphology 190@_get_valid_question
+[2021-01-16 19:08:30] - DEBUG - Phoneme [<script.word.Word object at 0x04D90718>, <script.word.Word object at 0x04D90790>, <script.word.Word object at 0x04D90760>, <script.word.Word object at 0x04D90688>, <script.word.Word object at 0x04D907F0>, <script.word.Word object at 0x04D90820>, <script.word.Word object at 0x04D90850>, <script.word.Word object at 0x04D90880>, <script.word.Word object at 0x04D908B0>, <script.word.Word object at 0x04D908E0>, <script.word.Word object at 0x04D90910>, <script.word.Word object at 0x04D90940>, <script.word.Word object at 0x04D90970>, <script.word.Word object at 0x04D909A0>, <script.word.Word object at 0x04D909D0>, <script.word.Word object at 0x04D90A00>, <script.word.Word object at 0x04D90A30>, <script.word.Word object at 0x04D90A60>, <script.word.Word object at 0x04D90A90>, <script.word.Word object at 0x04D90AC0>, <script.word.Word object at 0x04D90AF0>, <script.word.Word object at 0x04D90B20>, <script.word.Word object at 0x04D90B50>, <script.word.Word object at 0x04D90B80>, <script.word.Word object at 0x04D90BB0>, <script.word.Word object at 0x04D90BE0>, <script.word.Word object at 0x04D90C10>, <script.word.Word object at 0x04D90C40>, <script.word.Word object at 0x04D90C70>, <script.word.Word object at 0x04D90CA0>, <script.word.Word object at 0x04D90CD0>, <script.word.Word object at 0x04D90D00>, <script.word.Word object at 0x04D90D30>, <script.word.Word object at 0x04D90D60>, <script.word.Word object at 0x04D90D90>, <script.word.Word object at 0x04D90DC0>, <script.word.Word object at 0x04D90DF0>, <script.word.Word object at 0x04D90E20>, <script.word.Word object at 0x04D90E50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:08:33] - INFO - Success! Raw Paradigm Data:
+base                 nominative singular  accusative singular  nominative plural    accusative plural  
+---                  +∅                   + u                  + al                 + zu               
+jɛzdi                jɛzdi                jɛzdiu               jɛzdial              jɛzdizu            
+ʃuvvuɣ               ʃuvvux               ʃuvvuɣu              ʃuvvuɣal             ʃuvvuɣzu           
+xænθə                xænθə                xænθəu               xænθəal              xænθəzu            
+t͡ʃɪmfɔv             t͡ʃɪmfɔf             t͡ʃɪmfɔvu            t͡ʃɪmfɔval           t͡ʃɪmfɔvzu         
+vɑʒ                  vɑʃ                  vɑʒu                 vɑʒal                vɑʒzu              
+ʃuvvuɣ               ʃuvvux               ʃuvvuɣu              ʃuvvuɣal             ʃuvvuɣzu           
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:09:36] - DEBUG - base generation size 165
+ - morphology 189@_get_valid_question
+[2021-01-16 19:09:36] - DEBUG - Rule and in A environment test rule ===== [oral stop,voiced] or [affricate,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:09:36] - DEBUG - Phoneme [<script.word.Word object at 0x04D90718>, <script.word.Word object at 0x04D90790>, <script.word.Word object at 0x04D90760>, <script.word.Word object at 0x04D90688>, <script.word.Word object at 0x04D907F0>, <script.word.Word object at 0x04D90820>, <script.word.Word object at 0x04D90850>, <script.word.Word object at 0x04D90880>, <script.word.Word object at 0x04D908B0>, <script.word.Word object at 0x04D908E0>, <script.word.Word object at 0x04D90910>, <script.word.Word object at 0x04D90940>, <script.word.Word object at 0x04D90970>, <script.word.Word object at 0x04D909A0>, <script.word.Word object at 0x04D909D0>, <script.word.Word object at 0x04D90A00>, <script.word.Word object at 0x04D90A30>, <script.word.Word object at 0x04D90A60>, <script.word.Word object at 0x04D90A90>, <script.word.Word object at 0x04D90AC0>, <script.word.Word object at 0x04D90AF0>, <script.word.Word object at 0x04D90B20>, <script.word.Word object at 0x04D90B50>, <script.word.Word object at 0x04D90B80>, <script.word.Word object at 0x04D90BB0>, <script.word.Word object at 0x04D90BE0>, <script.word.Word object at 0x04D90C10>, <script.word.Word object at 0x04D90C40>, <script.word.Word object at 0x04D90C70>, <script.word.Word object at 0x04D90CA0>, <script.word.Word object at 0x04D90CD0>, <script.word.Word object at 0x04D90D00>, <script.word.Word object at 0x04D90D30>, <script.word.Word object at 0x04D90D60>, <script.word.Word object at 0x04D90D90>, <script.word.Word object at 0x04D90DC0>, <script.word.Word object at 0x04D90DF0>, <script.word.Word object at 0x04D90E20>, <script.word.Word object at 0x04D90E50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:09:37] - WARNING - Insufficient valid data. Need 11 Found 10.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:09:37] - INFO - Success! Raw Paradigm Data:
+base      singular  plural  
+---       +∅        + va    
+pedju     pedju     pedjuva 
+pɔlðɛb    pɔlðɛp    pɔlðɛbva
+jud       jut       judva   
+jud       jut       judva   
+dit͡ʃi    dit͡ʃi    dit͡ʃiva
+sunɣəb    sunɣəp    sunɣəbva
+lohhʊ     lohhʊ     lohhʊva 
+ðɑg       ðɑk       ðɑgva   
+ʃig       ʃik       ʃigva   
+ŋɪljɪ     ŋɪljɪ     ŋɪljɪva 
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:24:39] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 19:24:39] - DEBUG - Rule word-final stop devoicing ===== [consonant,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:24:39] - DEBUG - Phoneme [<script.word.Word object at 0x04D90718>, <script.word.Word object at 0x04D90790>, <script.word.Word object at 0x04D90760>, <script.word.Word object at 0x04D90688>, <script.word.Word object at 0x04D907F0>, <script.word.Word object at 0x04D90820>, <script.word.Word object at 0x04D90850>, <script.word.Word object at 0x04D90880>, <script.word.Word object at 0x04D908B0>, <script.word.Word object at 0x04D908E0>, <script.word.Word object at 0x04D90910>, <script.word.Word object at 0x04D90940>, <script.word.Word object at 0x04D90970>, <script.word.Word object at 0x04D909A0>, <script.word.Word object at 0x04D909D0>, <script.word.Word object at 0x04D90A00>, <script.word.Word object at 0x04D90A30>, <script.word.Word object at 0x04D90A60>, <script.word.Word object at 0x04D90A90>, <script.word.Word object at 0x04D90AC0>, <script.word.Word object at 0x04D90AF0>, <script.word.Word object at 0x04D90B20>, <script.word.Word object at 0x04D90B50>, <script.word.Word object at 0x04D90B80>, <script.word.Word object at 0x04D90BB0>, <script.word.Word object at 0x04D90BE0>, <script.word.Word object at 0x04D90C10>, <script.word.Word object at 0x04D90C40>, <script.word.Word object at 0x04D90C70>, <script.word.Word object at 0x04D90CA0>, <script.word.Word object at 0x04D90CD0>, <script.word.Word object at 0x04D90D00>, <script.word.Word object at 0x04D90D30>, <script.word.Word object at 0x04D90D60>, <script.word.Word object at 0x04D90D90>, <script.word.Word object at 0x04D90DC0>, <script.word.Word object at 0x04D90DF0>, <script.word.Word object at 0x04D90E20>, <script.word.Word object at 0x04D90E50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:24:40] - INFO - Success! Raw Paradigm Data:
+base                 nominative singular  accusative singular  nominative plural    accusative plural  
+---                  +∅                   + əh                 + lo                 + ʊ                
+ʒəsoɣ                ʒəsox                ʒəsoɣəh              ʒəsoɣlo              ʒəsoɣʊ             
+hiŋŋuʒ               hiŋŋuʃ               hiŋŋuʒəh             hiŋŋuʒlo             hiŋŋuʒʊ            
+ʒəsoɣ                ʒəsox                ʒəsoɣəh              ʒəsoɣlo              ʒəsoɣʊ             
+ʔeðʊg                ʔeðʊk                ʔeðʊgəh              ʔeðʊglo              ʔeðʊgʊ             
+ʔeðʊg                ʔeðʊk                ʔeðʊgəh              ʔeðʊglo              ʔeðʊgʊ             
+gozd͡ʒɔt             gozd͡ʒɔt             gozd͡ʒɔtəh           gozd͡ʒɔtlo           gozd͡ʒɔtʊ          
+
+ - morphology 238@_get_valid_question
+[2021-01-16 19:25:30] - DEBUG - base generation size 105
+ - morphology 189@_get_valid_question
+[2021-01-16 19:25:30] - DEBUG - Rule word-final consonant devoicing ===== [oral stop,voiced] -> [voiceless],[] /  _ #
+ - morphology 190@_get_valid_question
+[2021-01-16 19:25:30] - DEBUG - Phoneme [<script.word.Word object at 0x04BAF670>, <script.word.Word object at 0x04BAF7A8>, <script.word.Word object at 0x04BAF790>, <script.word.Word object at 0x04BAF778>, <script.word.Word object at 0x04BAF7F0>, <script.word.Word object at 0x04BAF820>, <script.word.Word object at 0x04BAF850>, <script.word.Word object at 0x04BAF880>, <script.word.Word object at 0x04BAF8B0>, <script.word.Word object at 0x04BAF8E0>, <script.word.Word object at 0x04BAF910>, <script.word.Word object at 0x04BAF940>, <script.word.Word object at 0x04BAF970>, <script.word.Word object at 0x04BAF9A0>, <script.word.Word object at 0x04BAF9D0>, <script.word.Word object at 0x04BAFA00>, <script.word.Word object at 0x04BAFA30>, <script.word.Word object at 0x04BAFA60>, <script.word.Word object at 0x04BAFA90>, <script.word.Word object at 0x04BAFAC0>, <script.word.Word object at 0x04BAFAF0>, <script.word.Word object at 0x04BAFB20>, <script.word.Word object at 0x04BAFB50>, <script.word.Word object at 0x04BAFB80>, <script.word.Word object at 0x04BAFBB0>, <script.word.Word object at 0x04BAFBE0>, <script.word.Word object at 0x04BAFC10>, <script.word.Word object at 0x04BAFC40>, <script.word.Word object at 0x04BAFC70>, <script.word.Word object at 0x04BAFCA0>, <script.word.Word object at 0x04BAFCD0>, <script.word.Word object at 0x04BAFD00>, <script.word.Word object at 0x04BAFD30>, <script.word.Word object at 0x04BAFD60>, <script.word.Word object at 0x04BAFD90>, <script.word.Word object at 0x04BAFDC0>, <script.word.Word object at 0x04BAFDF0>, <script.word.Word object at 0x04BAFE20>, <script.word.Word object at 0x04BAFE50>]
+ - morphology 191@_get_valid_question
+[2021-01-16 19:25:30] - WARNING - Insufficient valid data. Need 7 Found 3.
+ - morphology 203@_get_valid_question
+[2021-01-16 19:25:30] - INFO - Success! Raw Paradigm Data:
+base        singular    plural      possessive
+---         +∅          + fi        + ə       
+ʔɑmzɪg      ʔɑmzɪk      ʔɑmzɪgfi    ʔɑmzɪgə   
+ðupθib      ðupθip      ðupθibfi    ðupθibə   
+lʊɣd͡ʒɑ     lʊɣd͡ʒɑ     lʊɣd͡ʒɑfi   lʊɣd͡ʒɑə  
+mɛnfuŋ      mɛnfuŋ      mɛnfuŋfi    mɛnfuŋə   
+fet͡ʃsag    fet͡ʃsak    fet͡ʃsagfi  fet͡ʃsagə 
+tizðɑʃ      tizðɑʃ      tizðɑʃfi    tizðɑʃə   
+
+ - morphology 238@_get_valid_question

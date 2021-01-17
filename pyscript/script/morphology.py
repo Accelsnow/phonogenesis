@@ -1,19 +1,24 @@
 from typing import List, Dict, Optional
 
-from script import Rule, import_default_gloss, Template, Word, Sound, Generator, GenMode
+from script import Rule, import_default_gloss, Template, Word, Sound
 import random
 
 from script.templates import _fetch_templates
+import logging
+
+LOGGER = logging.getLogger("app.logger")
 
 
 class ParadigmAttr:
     def __init__(self, feature_to_sounds: Dict[str, List[Sound]], phonemes: List[Word]):
+        import os
         self.col_count = random.randint(2, 4)
         min_row = (20 // self.col_count) + 1
         max_row = 30 // self.col_count
         self.row_count = random.randint(min_row, max_row)
 
-        transform_data = _get_trans_data('data/paradigmtransdata.txt')
+        transform_data = _get_trans_data(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
         gloss_families = import_default_gloss()[0]
         candidate_families = [gf for gf in gloss_families if
                               gf.get_name() in transform_data and self.col_count in transform_data[gf.get_name()]]
@@ -30,7 +35,9 @@ class ParadigmAttr:
         self.gloss_column = random.sample(glosses, self.row_count)
 
         col_names = transform_data[selected_family.get_name()][self.col_count]
-        templates = _fetch_templates('data/paradigmtranstemplates.txt', list(feature_to_sounds.keys()))
+        templates = _fetch_templates(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtranstemplates.txt'),
+            list(feature_to_sounds.keys()))
         random.shuffle(templates)
         self.col_data = []
 
@@ -82,17 +89,17 @@ class Paradigm:
     def __init__(self, col_data, words: List[Word], rule: Rule, phonemes: List[Word],
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]):
         self._col_data = col_data
-        self._UR_words = [Word(str(word)) for word in words]
-        self._UR_trans_pattern = []
-        self._trans_names = []
-        self._applied_core_data = []
+        self.UR_words = [Word(str(word)) for word in words]
+        self.UR_trans_pattern = []
+        self.trans_names = []
+        self.applied_core_data = []
         self._org_rule_trans_ct = []
         self._transformers = []
 
         for col_data in self._col_data:
-            self._trans_names.append(col_data[0])
+            self.trans_names.append(col_data[0])
             self._transformers.append(col_data[1])
-            self._UR_trans_pattern.append(str(col_data[1]))
+            self.UR_trans_pattern.append(str(col_data[1]))
 
         for row_i in range(len(words)):
             word = words[row_i]
@@ -105,11 +112,11 @@ class Paradigm:
                 trans_ct_list.append(apply_data[1])
                 applied_row_list.append(apply_data[0])
 
-            self._applied_core_data.append(applied_row_list)
+            self.applied_core_data.append(applied_row_list)
             self._org_rule_trans_ct.append(trans_ct_list)
 
     def get_ur_words(self) -> List[Word]:
-        return self._UR_words
+        return self.UR_words
 
     def valid_row_indexes(self) -> List[int]:
         valid_rows = []
@@ -132,18 +139,18 @@ class Paradigm:
     def __str__(self) -> str:
         matrix_str = ""
         max_strlen = max(
-            [len(self._applied_core_data[r][c]) for r in range(len(self._applied_core_data)) for c in
-             range(len(self._applied_core_data[0]))] +
-            [len(tn) for tn in self._trans_names])
+            [len(self.applied_core_data[r][c]) for r in range(len(self.applied_core_data)) for c in
+             range(len(self.applied_core_data[0]))] +
+            [len(tn) for tn in self.trans_names])
 
         matrix_str += "%s  %s\n" % (
-            _pad_str("base", max_strlen), "  ".join([_pad_str(str(w), max_strlen) for w in self._trans_names]))
+            _pad_str("base", max_strlen), "  ".join([_pad_str(str(w), max_strlen) for w in self.trans_names]))
         matrix_str += "%s  %s\n" % (
-            _pad_str("---", max_strlen), "  ".join([_pad_str(str(w), max_strlen) for w in self._UR_trans_pattern]))
+            _pad_str("---", max_strlen), "  ".join([_pad_str(str(w), max_strlen) for w in self.UR_trans_pattern]))
 
-        for r in range(len(self._applied_core_data)):
-            matrix_str += "%s  %s\n" % (_pad_str(str(self._UR_words[r]), max_strlen),
-                                        "  ".join([_pad_str(str(w), max_strlen) for w in self._applied_core_data[r]]))
+        for r in range(len(self.applied_core_data)):
+            matrix_str += "%s  %s\n" % (_pad_str(str(self.UR_words[r]), max_strlen),
+                                        "  ".join([_pad_str(str(w), max_strlen) for w in self.applied_core_data[r]]))
 
         return matrix_str
 
@@ -173,47 +180,97 @@ class ParadigmGenerator:
         random.shuffle(word_list)
         return word_list
 
-    def get_paradigm_question(self) -> Paradigm:
+    def _get_valid_question(self, shuffled: bool) -> Optional[Paradigm]:
         num_rows = self._attr.row_count
-        gen_size = num_rows * 10
+        gen_size = num_rows * 15
+        retry_limit = 5
+        trial = 0
 
-        word_list = self._generate_base_words(gen_size)
+        LOGGER.debug("base generation size %d\n" % gen_size)
+        LOGGER.debug("Rule %s\n" % str(self._rule))
+        LOGGER.debug("Phoneme %s\n" % str(self._phonemes))
 
-        paradigm = Paradigm(self._attr.col_data, word_list, self._rule, self._phonemes, self._feature_to_type,
-                            self._feature_to_sounds)
+        while trial < retry_limit:
+            word_list = self._generate_base_words(gen_size)
 
-        valid_rows = paradigm.valid_row_indexes()
+            paradigm = Paradigm(self._attr.col_data, word_list, self._rule, self._phonemes, self._feature_to_type,
+                                self._feature_to_sounds)
 
-        if len(valid_rows) < num_rows:
-            print("FAILED INSUFFICIENT")
-            return paradigm
-        elif len(valid_rows) == gen_size:
-            print("FAILED NO INVALID")
-            return paradigm
-        else:
-            dest_word_list = []
-            valid_need = num_rows // 2
-            invalid_need = num_rows // 2
+            valid_rows = paradigm.valid_row_indexes()
+            valid_count = len(valid_rows)
 
-            for r_index in valid_rows[:valid_need]:
-                dest_word_list.append(word_list[r_index])
+            if valid_count < num_rows:
+                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
+                trial += 1
+                continue
+            elif valid_count == gen_size:
+                LOGGER.warning("No invalid data found. Retrying.\n")
+                trial += 1
+                continue
+            else:
+                dest_word_list = []
+                valid_need = num_rows // 2
+                invalid_need = num_rows // 2
 
-            valid_rows = valid_rows[valid_need:]
+                for r_index in valid_rows[:valid_need]:
+                    dest_word_list.append(word_list[r_index])
 
-            for i in range(len(word_list)):
-                if i not in valid_rows:
-                    dest_word_list.append(word_list[i])
+                valid_rows = valid_rows[valid_need:]
+
+                for i in range(len(word_list)):
+                    if i not in valid_rows:
+                        dest_word_list.append(word_list[i])
+                        invalid_need -= 1
+
+                    if invalid_need == 0:
+                        break
+
+                while invalid_need > 0:
+                    dest_word_list.append(word_list[invalid_need])
                     invalid_need -= 1
 
-                if invalid_need == 0:
-                    break
+                if shuffled:
+                    random.shuffle(dest_word_list)
 
-            while invalid_need > 0:
-                dest_word_list.append(word_list[invalid_need])
-                invalid_need -= 1
+                paradigm = Paradigm(self._attr.col_data, dest_word_list, self._rule, self._phonemes,
+                                    self._feature_to_type, self._feature_to_sounds)
 
-            return Paradigm(self._attr.col_data, dest_word_list, self._rule, self._phonemes,
-                            self._feature_to_type, self._feature_to_sounds)
+                LOGGER.info("Success! Raw Paradigm Data:\n%s\n" % str(paradigm))
+                return paradigm
+
+        LOGGER.error("Exceeded maximum retry limit. Failed to find a question!\n")
+        return None
+
+    def get_paradigm_question(self, shuffled: bool, isIPAg: bool) -> Optional[Dict]:
+        question = self._get_valid_question(shuffled)
+
+        if question is None:
+            return None
+
+        if isIPAg:
+            question_data = {
+                'header_row': [str(w).replace('g', 'ɡ') for w in question.trans_names],
+                'trans_patterns': [str(w).replace('g', 'ɡ') for w in question.UR_trans_pattern],
+                'ur_words': [str(w).replace('g', 'ɡ') for w in question.UR_words],
+                'core_data': [[str(w).replace('g', 'ɡ') for w in row] for row in question.applied_core_data],
+                'rule': str(self._rule),
+                'phonemes': [str(w) for w in self._phonemes],
+                'templates': str(self._templates),
+                'Gloss': [str(w) for w in self._attr.gloss_column]
+            }
+        else:
+            question_data = {
+                'header_row': [str(w) for w in question.trans_names],
+                'trans_patterns': [str(w) for w in question.UR_trans_pattern],
+                'ur_words': [str(w) for w in question.UR_words],
+                'core_data': [[str(w) for w in row] for row in question.applied_core_data],
+                'rule': str(self._rule),
+                'phonemes': [str(w) for w in self._phonemes],
+                'templates': str(self._templates),
+                'Gloss': [str(w) for w in self._attr.gloss_column]
+            }
+
+        return question_data
 
 
 def _get_trans_data(filename: str):

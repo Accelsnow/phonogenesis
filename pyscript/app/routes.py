@@ -461,7 +461,7 @@ def get_simple_question():
     simple_question = {'templates': q_data['templates'], 'poi': ' '.join(q_data['phone_interest']),
                        'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
                        'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['UR'], 'SR': q_data['SR'],
-                       'size': size, 'canUR': True, 'canPhoneme': True, 'maxCADT': 100,
+                       'size': size, 'canUR': True, 'canPhoneme': True, 'maxCADT': 100, 'qType': 'Simple',
                        'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name()}
 
     return jsonify(success=True, question=simple_question)
@@ -470,3 +470,48 @@ def get_simple_question():
 @app.route('/rule/families', methods=['GET'])
 def get_rule_families():
     return jsonify(families=[fam.get_name() for fam in DEFAULT_DATA['rule_fam']])
+
+
+@app.route('/morphology/question', methods=['POST'])
+def get_morphology_question():
+    data = request.json
+    if 'shuffle' not in data or 'isIPAg' not in data or 'type' not in data or \
+            'rule_family' not in data:
+        abort(400)
+    try:
+        shuffle = bool(data['shuffle'])
+        isIPAg = bool(data['isIPAg'])
+    except ValueError:
+        abort(400)
+        return
+    rule_type = data['type']
+    rule_family = data['rule_family']
+    rules = list(DEFAULT_DATA['rules'].values())
+    phonemes = DEFAULT_DATA['phonemes']
+    rule: Rule
+    import random
+
+    if rule_family == "Random":
+        if rule_type != "Random":
+            rules = [r for r in rules if
+                     str(r.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])) == rule_type]
+            rule = random.choice(rules)
+        else:
+            rule = random.choice(rules)
+            rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+    else:
+        rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
+        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+
+    p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'], phonemes)
+    p_gen = ParadigmGenerator(p_attr, rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
+                              DEFAULT_DATA['f2ss'])
+    q_data = p_gen.get_paradigm_question(shuffle, isIPAg)
+
+    morphology_question = {'qType': "Morphology", 'templates': q_data['templates'],
+                           'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
+                           'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['ur_words'],
+                           'core_data': q_data['core_data'], 'canUR': True, 'canPhoneme': True,
+                           'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name(),
+                           'header_row': q_data['header_row'], 'trans_patterns': q_data['trans_patterns']}
+    return jsonify(success=True, question=morphology_question)
