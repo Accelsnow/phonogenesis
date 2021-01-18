@@ -114,6 +114,7 @@ class Paradigm:
 
             self.applied_core_data.append(applied_row_list)
             self._org_rule_trans_ct.append(trans_ct_list)
+        print(self.UR_trans_pattern)
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words
@@ -182,16 +183,13 @@ class ParadigmGenerator:
 
     def _get_valid_question(self, shuffled: bool) -> Optional[Paradigm]:
         num_rows = self._attr.row_count
-        gen_size = num_rows * 15
-        retry_limit = 5
+        gen_size = num_rows * 20
+        retry_limit = 2
         trial = 0
-
-        LOGGER.debug("base generation size %d\n" % gen_size)
-        LOGGER.debug("Rule %s\n" % str(self._rule))
-        LOGGER.debug("Phoneme %s\n" % str(self._phonemes))
+        valid_history = []
 
         while trial < retry_limit:
-            word_list = self._generate_base_words(gen_size)
+            word_list = self._generate_base_words(gen_size - len(valid_history)) + valid_history
 
             paradigm = Paradigm(self._attr.col_data, word_list, self._rule, self._phonemes, self._feature_to_type,
                                 self._feature_to_sounds)
@@ -200,8 +198,12 @@ class ParadigmGenerator:
             valid_count = len(valid_rows)
 
             if valid_count < num_rows:
-                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
-                trial += 1
+                if valid_count < num_rows / 3:
+                    LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
+                    trial += 1
+                else:
+                    for valid_word_index in valid_rows:
+                        valid_history.append(paradigm.UR_words[valid_word_index])
                 continue
             elif valid_count == gen_size:
                 LOGGER.warning("No invalid data found. Retrying.\n")
@@ -238,6 +240,9 @@ class ParadigmGenerator:
                 LOGGER.info("Success! Raw Paradigm Data:\n%s\n" % str(paradigm))
                 return paradigm
 
+        LOGGER.error("base generation size %d\n" % gen_size)
+        LOGGER.error("Rule %s\n" % str(self._rule))
+        LOGGER.error("Phoneme %s\n" % str(self._phonemes))
         LOGGER.error("Exceeded maximum retry limit. Failed to find a question!\n")
         return None
 
