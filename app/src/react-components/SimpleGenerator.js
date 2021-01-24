@@ -14,7 +14,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import "./SimpleGenerator.css"
 import "./mainstyle.css"
-import {genSimpleQuestion, getRuleFamilies} from "../actions/quiz";
+import {genSimpleQuestion, getMorphologyQuestion, getRuleFamilies} from "../actions/quiz";
 import {adjustFooter, footer, theme} from "../App";
 import {ThemeProvider} from '@material-ui/styles';
 
@@ -29,9 +29,11 @@ class SimpleGenerator extends React.Component {
             footerClass: "copyright-info abs-bottom",
             selectedFamily: "Random",
             sizeSelectWarn: "",
-            selectedType: "Random",
+            selectedRuleType: "Random",
+            selectedQuestionType: "Simple",
             canChangeFamily: true,
             canChangeType: true,
+            qType: "Simple",
             isShuffle: true,
             isIPAg: true,
             rule_families: null,
@@ -43,16 +45,24 @@ class SimpleGenerator extends React.Component {
     }
 
     onGetQuestion = () => {
-        const selectedSize = parseInt(document.getElementById("size-input-field").value);
-        if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
-            alert("Invalid size!");
-            return;
+        this.setState({isWaitingResponse: true});
+
+        if (this.state.selectedQuestionType === "Simple") {
+            const selectedSize = parseInt(document.getElementById("size-input-field").value);
+            if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
+                alert("Invalid size!");
+                return;
+            }
+
+            genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
+                this.state.selectedRuleType, this.state.selectedFamily, this.updateQuestionBlock);
+        } else if (this.state.selectedQuestionType === "Morphology") {
+            getMorphologyQuestion(this, this.state.isShuffle, this.state.isIPAg, this.state.selectedRuleType,
+                this.state.selectedFamily, this.updateQuestionBlock)
+        } else {
+            this.setState({isWaitingResponse: false});
         }
 
-        genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
-            this.state.selectedType, this.state.selectedFamily, this.updateQuestionBlock);
-        
-        this.setState({isWaitingResponse: true});
 
         this.forceUpdate();
     };
@@ -63,9 +73,9 @@ class SimpleGenerator extends React.Component {
         }
     };
 
-    onTypeChange = (e) => {
+    onRuleTypeChange = (e) => {
         const targetVal = e.target.value;
-        this.setState({selectedType: targetVal});
+        this.setState({selectedRuleType: targetVal});
 
         if (targetVal !== "Random") {
             this.setState({canChangeFamily: false, selectedFamily: "Random"});
@@ -103,6 +113,10 @@ class SimpleGenerator extends React.Component {
         this.setState({isIPAg: !this.state.isIPAg});
     };
 
+    onQuestionTypeChange = (e) => {
+        this.setState({selectedQuestionType: e.target.value});
+    };
+
     componentDidUpdate(prevProps, prevState, snap) {
         if (!this.props.isInnerComp) {
             adjustFooter(this);
@@ -124,11 +138,26 @@ class SimpleGenerator extends React.Component {
             <ThemeProvider theme={theme}>
                 {this.props.isInnerComp ? null : <ToolBar history={this.props.history} app={this.props.app}/>}
                 <div className={this.props.isInnerComp ? null : "main-area"}>
-                    <Grid container direction="row" justify="center" alignItems="flex-start" spacing={3} id={"gen-form"}>
+                    <Grid container direction="row" justify="center" alignItems="flex-start" spacing={3}
+                          id={"gen-form"}>
+
+                        <Grid item><FormControl variant="outlined" id={"rule-select-form"}>
+                            <InputLabel id={"qtype-sel-label"}>Question Type</InputLabel>
+                            <Select labelId="qtype-sel-label" label={"Question Type"}
+                                    disabled={this.state.isWaitingResponse}
+                                    onChange={this.onQuestionTypeChange.bind(this)}
+                                    value={this.state.selectedQuestionType}
+                                    id={"qtype-select"}>
+                                <MenuItem value={"Simple"}>Simple</MenuItem>
+                                <MenuItem value={"Morphology"}>Morphology</MenuItem>
+                            </Select>
+                        </FormControl>
+                        </Grid>
 
                         <Grid item><FormControl variant="outlined" id={"rule-select-form"}>
                             <InputLabel id={"family-sel-label"}>Rule Family</InputLabel>
-                            <Select labelId="family-sel-label" label={"Rule Family"} disabled={!this.state.canChangeFamily}
+                            <Select labelId="family-sel-label" label={"Rule Family"}
+                                    disabled={!this.state.canChangeFamily}
                                     onChange={this.onFamilyChange.bind(this)} value={this.state.selectedFamily}
                                     id={"family-select"}>
                                 <MenuItem value={"Random"}>Random</MenuItem>
@@ -140,9 +169,9 @@ class SimpleGenerator extends React.Component {
                         </Grid>
 
                         <Grid item><FormControl variant="outlined" disabled={!this.state.canChangeType}>
-                            <InputLabel id="type-sel-label">Rule Type</InputLabel>
-                            <Select labelId="type-sel-label" id={"type-sel"} label={"Rule Type"}
-                                    value={this.state.selectedType} onChange={this.onTypeChange}>
+                            <InputLabel id="rule-type-sel-label">Rule Type</InputLabel>
+                            <Select labelId="rule-type-sel-label" id={"rule-type-sel"} label={"Rule Type"}
+                                    value={this.state.selectedRuleType} onChange={this.onRuleTypeChange}>
                                 <MenuItem value={"Random"}>Random</MenuItem>
                                 <MenuItem value={"Alternating"}>Alternating</MenuItem>
                                 <MenuItem value={"Neutralizing"}>Neutralizing</MenuItem>
@@ -151,17 +180,20 @@ class SimpleGenerator extends React.Component {
                             </Select>
                         </FormControl></Grid>
 
-                        <Grid item><TextField id={"size-input-field"}
-                                              label="Size(15-30)"
-                                              error={this.state.sizeSelectWarn !== ""}
-                                              helperText={this.state.sizeSelectWarn}
-                                              type="number"
-                                              variant="outlined"
-                                              InputLabelProps={{
-                                                  shrink: true,
-                                              }}
-                                              defaultValue={15}
-                                              onBlur={this.validateSizeSelection}/></Grid>
+                        {
+                            this.state.selectedQuestionType !== "Morphology" ?
+                                <Grid item><TextField id={"size-input-field"}
+                                                      label="Size(15-30)"
+                                                      error={this.state.sizeSelectWarn !== ""}
+                                                      helperText={this.state.sizeSelectWarn}
+                                                      type="number"
+                                                      variant="outlined"
+                                                      InputLabelProps={{
+                                                          shrink: true,
+                                                      }}
+                                                      defaultValue={15}
+                                                      onBlur={this.validateSizeSelection}/></Grid> : null
+                        }
 
                         <Grid item><FormGroup id={"gen-switches"}>
                             <FormControlLabel

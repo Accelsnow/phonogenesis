@@ -10,10 +10,12 @@ class GlossGroup(Serializable):
     _glosses: List[str]
     _family: GlossFamily
 
-    def __init__(self, glosses: List[str], family: GlossFamily) -> None:
+    def __init__(self, glosses: List[str], family=None) -> None:
         self._glosses = glosses
         self._family = family
-        family.add_member(self)
+
+        if self._family:
+            family.add_member(self)
 
     def get_family(self) -> GlossFamily:
         return self._family
@@ -46,6 +48,9 @@ class GlossFamily(Serializable):
 
         return False
 
+    def get_name(self) -> str:
+        return self._name
+
     def get_members(self) -> List[GlossGroup]:
         return self._members
 
@@ -75,8 +80,8 @@ def _fetch_gloss(filename: str) -> Tuple[List[GlossFamily], List[GlossGroup]]:
             if len(line) == 0:
                 continue
 
-            if line.startswith("###"):
-                current_family = GlossFamily(line.lstrip("###"))
+            if line.startswith("### "):
+                current_family = GlossFamily(line.lstrip("### "))
                 gloss_families.append(current_family)
                 continue
 
