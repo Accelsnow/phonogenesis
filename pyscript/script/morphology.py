@@ -114,7 +114,6 @@ class Paradigm:
 
             self.applied_core_data.append(applied_row_list)
             self._org_rule_trans_ct.append(trans_ct_list)
-        print(self.UR_trans_pattern)
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words

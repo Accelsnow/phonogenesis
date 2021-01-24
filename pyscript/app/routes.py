@@ -434,29 +434,34 @@ def get_simple_question():
     rule_type = data['type']
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
-    phonemes = DEFAULT_DATA['phonemes']
     rule: Rule
     import random
 
     if rule_family == "Random":
         if rule_type != "Random":
             rules = [r for r in rules if
-                     str(r.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])) == rule_type]
+                     str(r.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'],
+                                         DEFAULT_DATA['f2ss'])) == rule_type]
             rule = random.choice(rules)
         else:
             rule = random.choice(rules)
-            rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+            rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
     else:
         rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
-        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+        rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
     if isIPAg:
         gen_mode = GenMode.IPAg
     else:
         gen_mode = GenMode.nIPAg
 
+    phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
     gen = Generator(phonemes, DEFAULT_DATA['templates'], rule, 5, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-    q_data = gen.generate(gen_mode, [size, SIMPLE_QUESTION_MAX_SIZE - size], True, shuffle, DEFAULT_DATA['gloss_grp'])
+    try:
+        q_data = gen.generate(gen_mode, [size, SIMPLE_QUESTION_MAX_SIZE - size], True, shuffle,
+                              DEFAULT_DATA['gloss_grp'])
+    except GeneratorError or ValueError:
+        return jsonify(success=False, message="Sorry! Failed to get a question. Please try again.")
 
     simple_question = {'templates': q_data['templates'], 'poi': ' '.join(q_data['phone_interest']),
                        'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
@@ -491,23 +496,25 @@ def get_morphology_question():
     rule_type = data['type']
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
-    phonemes = DEFAULT_DATA['phonemes']
+    # TODO PHONEME USED TO DETERMINE TYPE IS GLOBAL PHONEME?
 
     import random
     if rule_family == "Random":
         if rule_type != "Random":
             rules = [r for r in rules if
-                     str(r.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])) == rule_type]
+                     str(r.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'],
+                                         DEFAULT_DATA['f2ss'])) == rule_type]
             rule = random.choice(rules)
         else:
             rule = random.choice(rules)
-            rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+            rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
     else:
         rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
-        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+        rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
     while try_count < reset_limit:
-        # TODO: RANDOMIZE PHONEME
+        phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
+
         p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'], phonemes)
         p_gen = ParadigmGenerator(p_attr, rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
                                   DEFAULT_DATA['f2ss'])
@@ -520,11 +527,14 @@ def get_morphology_question():
         else:
             break
 
-    morphology_question = {'qType': "Morphology", 'templates': q_data['templates'],
-                           'poi': poi, 'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
-                           'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['ur_words'],
-                           'core_data': q_data['core_data'], 'canUR': True, 'canPhoneme': True,
-                           'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name(),
-                           'header_row': q_data['header_row'], 'trans_patterns': q_data['trans_patterns']}
+    if q_data:
+        morphology_question = {'qType': "Morphology", 'templates': q_data['templates'],
+                               'poi': poi, 'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
+                               'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['ur_words'],
+                               'core_data': q_data['core_data'], 'canUR': True, 'canPhoneme': True,
+                               'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name(),
+                               'header_row': q_data['header_row'], 'trans_patterns': q_data['trans_patterns']}
 
-    return jsonify(success=True, question=morphology_question)
+        return jsonify(success=True, question=morphology_question)
+    else:
+        return jsonify(success=False, message="Sorry! Failed to get a question. Please try again.")

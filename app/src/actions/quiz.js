@@ -88,6 +88,7 @@ export const genSimpleQuestion = (page, isShuffle, isIPAg, size, ruleType, ruleF
             readCookie(page.props.app);
         } else {
             alert(res.data.message);
+            page.setState({question: null, isWaitingResponse: false}, updateFunction);
         }
     }).catch(error => {
         console.log(error);
@@ -106,6 +107,7 @@ export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleType, ruleFam
             readCookie(page.props.app);
         } else {
             alert(res.data.message);
+            page.setState({question: null, isWaitingResponse: false}, updateFunction);
         }
     }).catch(error => {
         console.log(error);
