@@ -75,12 +75,11 @@ export const distributeQuiz = (page, quizObj) => {
     });
 };
 
-export const genSimpleQuestion = (page, isShuffle, isIPAg, size, ruleType, ruleFamily, updateFunction) => {
+export const genSimpleQuestion = (page, isShuffle, isIPAg, size, ruleFamily, updateFunction) => {
     axios.post(`${SERVER_URL}/question`, {
         shuffle: isShuffle,
         isIPAg: isIPAg,
         size: size,
-        type: ruleType,
         rule_family: ruleFamily
     }).then(res => {
         if (res.data.success) {
@@ -95,11 +94,10 @@ export const genSimpleQuestion = (page, isShuffle, isIPAg, size, ruleType, ruleF
     });
 };
 
-export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleType, ruleFamily, updateFunction) => {
+export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleFamily, updateFunction) => {
     axios.post(`${SERVER_URL}/morphology/question`, {
         shuffle: isShuffle,
         isIPAg: isIPAg,
-        type: ruleType,
         rule_family: ruleFamily
     }).then(res => {
         if (res.data.success) {

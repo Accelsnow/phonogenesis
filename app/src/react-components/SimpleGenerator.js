@@ -29,10 +29,7 @@ class SimpleGenerator extends React.Component {
             footerClass: "copyright-info abs-bottom",
             selectedFamily: "Random",
             sizeSelectWarn: "",
-            selectedRuleType: "Random",
             selectedQuestionType: "Simple",
-            canChangeFamily: true,
-            canChangeType: true,
             qType: "Simple",
             isShuffle: true,
             isIPAg: true,
@@ -55,9 +52,9 @@ class SimpleGenerator extends React.Component {
             }
 
             genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
-                this.state.selectedRuleType, this.state.selectedFamily, this.updateQuestionBlock);
+                this.state.selectedFamily, this.updateQuestionBlock);
         } else if (this.state.selectedQuestionType === "Morphology") {
-            getMorphologyQuestion(this, this.state.isShuffle, this.state.isIPAg, this.state.selectedRuleType,
+            getMorphologyQuestion(this, this.state.isShuffle, this.state.isIPAg,
                 this.state.selectedFamily, this.updateQuestionBlock)
         } else {
             this.setState({isWaitingResponse: false});
@@ -72,18 +69,6 @@ class SimpleGenerator extends React.Component {
             this.questionBlockElement.current.resetState();
         }
     };
-
-    onRuleTypeChange = (e) => {
-        const targetVal = e.target.value;
-        this.setState({selectedRuleType: targetVal});
-
-        if (targetVal !== "Random") {
-            this.setState({canChangeFamily: false, selectedFamily: "Random"});
-        } else {
-            this.setState({canChangeFamily: true});
-        }
-    };
-
     validateSizeSelection = (e) => {
         const selSize = parseInt(e.target.value);
 
@@ -97,12 +82,6 @@ class SimpleGenerator extends React.Component {
     onFamilyChange = (e) => {
         const targetVal = e.target.value;
         this.setState({selectedFamily: targetVal});
-
-        if (targetVal !== "Random") {
-            this.setState({canChangeType: false, selectedType: "Random"});
-        } else {
-            this.setState({canChangeType: true});
-        }
     };
 
     onShuffleChange = () => {
@@ -157,7 +136,6 @@ class SimpleGenerator extends React.Component {
                         <Grid item><FormControl variant="outlined" id={"rule-select-form"}>
                             <InputLabel id={"family-sel-label"}>Rule Family</InputLabel>
                             <Select labelId="family-sel-label" label={"Rule Family"}
-                                    disabled={!this.state.canChangeFamily}
                                     onChange={this.onFamilyChange.bind(this)} value={this.state.selectedFamily}
                                     id={"family-select"}>
                                 <MenuItem value={"Random"}>Random</MenuItem>
@@ -167,18 +145,6 @@ class SimpleGenerator extends React.Component {
                             </Select>
                         </FormControl>
                         </Grid>
-
-                        <Grid item><FormControl variant="outlined" disabled={!this.state.canChangeType}>
-                            <InputLabel id="rule-type-sel-label">Rule Type</InputLabel>
-                            <Select labelId="rule-type-sel-label" id={"rule-type-sel"} label={"Rule Type"}
-                                    value={this.state.selectedRuleType} onChange={this.onRuleTypeChange}>
-                                <MenuItem value={"Random"}>Random</MenuItem>
-                                <MenuItem value={"Alternating"}>Alternating</MenuItem>
-                                <MenuItem value={"Neutralizing"}>Neutralizing</MenuItem>
-                                <MenuItem value={"Mixed"}>Mixed -
-                                    Alternating & Neutralizing</MenuItem>
-                            </Select>
-                        </FormControl></Grid>
 
                         {
                             this.state.selectedQuestionType !== "Morphology" ?
