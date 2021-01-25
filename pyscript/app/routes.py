@@ -421,8 +421,7 @@ def create_quiz():
 @app.route('/question', methods=['POST'])
 def get_simple_question():
     data = request.json
-    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'type' not in data or \
-            'rule_family' not in data:
+    if 'shuffle' not in data or 'isIPAg' not in data or 'size' not in data or 'rule_family' not in data:
         abort(400)
     try:
         shuffle = bool(data['shuffle'])
@@ -431,24 +430,15 @@ def get_simple_question():
     except ValueError:
         abort(400)
         return
-    rule_type = data['type']
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
     rule: Rule
     import random
 
     if rule_family == "Random":
-        if rule_type != "Random":
-            rules = [r for r in rules if
-                     str(r.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'],
-                                         DEFAULT_DATA['f2ss'])) == rule_type]
-            rule = random.choice(rules)
-        else:
-            rule = random.choice(rules)
-            rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+        rule = random.choice(rules)
     else:
         rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
-        rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
     if isIPAg:
         gen_mode = GenMode.IPAg
@@ -456,6 +446,7 @@ def get_simple_question():
         gen_mode = GenMode.nIPAg
 
     phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
+    rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
     gen = Generator(phonemes, DEFAULT_DATA['templates'], rule, 5, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
     try:
         q_data = gen.generate(gen_mode, [size, SIMPLE_QUESTION_MAX_SIZE - size], True, shuffle,
@@ -480,8 +471,7 @@ def get_rule_families():
 @app.route('/morphology/question', methods=['POST'])
 def get_morphology_question():
     data = request.json
-    if 'shuffle' not in data or 'isIPAg' not in data or 'type' not in data or \
-            'rule_family' not in data:
+    if 'shuffle' not in data or 'isIPAg' not in data or 'rule_family' not in data:
         abort(400)
     try:
         shuffle = bool(data['shuffle'])
@@ -490,36 +480,25 @@ def get_morphology_question():
         abort(400)
         return
     q_data = None
-    poi = None
+    rule_type = None
     reset_limit = 10
     try_count = 0
-    rule_type = data['type']
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
-    # TODO PHONEME USED TO DETERMINE TYPE IS GLOBAL PHONEME?
 
     import random
     if rule_family == "Random":
-        if rule_type != "Random":
-            rules = [r for r in rules if
-                     str(r.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'],
-                                         DEFAULT_DATA['f2ss'])) == rule_type]
-            rule = random.choice(rules)
-        else:
-            rule = random.choice(rules)
-            rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
+        rule = random.choice(rules)
     else:
         rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
-        rule_type = rule.get_rule_type(DEFAULT_DATA['phonemes'], DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
     while try_count < reset_limit:
         phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
-
+        rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
         p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'], phonemes)
         p_gen = ParadigmGenerator(p_attr, rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
                                   DEFAULT_DATA['f2ss'])
-        q_data = p_gen.get_paradigm_question(shuffle, isIPAg)
-        poi = " ".join(rule.get_interest_phones(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])[1])
+        q_data = p_gen.get_paradigm_question(shuffle, isIPAg, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 
         if q_data is None:
             try_count += 1
@@ -529,7 +508,8 @@ def get_morphology_question():
 
     if q_data:
         morphology_question = {'qType': "Morphology", 'templates': q_data['templates'],
-                               'poi': poi, 'rule_type': str(rule_type), 'phonemes': ' '.join(q_data['phonemes']),
+                               'poi': q_data['poi'], 'rule_type': str(rule_type),
+                               'phonemes': ' '.join(q_data['phonemes']),
                                'rule_name': rule.get_name(), 'gloss': q_data['Gloss'], 'UR': q_data['ur_words'],
                                'core_data': q_data['core_data'], 'canUR': True, 'canPhoneme': True,
                                'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name(),

@@ -245,11 +245,14 @@ class ParadigmGenerator:
         LOGGER.error("Exceeded maximum retry limit. Failed to find a question!\n")
         return None
 
-    def get_paradigm_question(self, shuffled: bool, isIPAg: bool) -> Optional[Dict]:
+    def get_paradigm_question(self, shuffled: bool, isIPAg: bool, feature_to_type: Dict[str, str],
+                              feature_to_sounds: Dict[str, List[Sound]]) -> Optional[Dict]:
         question = self._get_valid_question(shuffled)
 
         if question is None:
             return None
+
+        poi = " ".join(self._rule.get_interest_phones(self._phonemes, feature_to_type, feature_to_sounds)[1])
 
         if isIPAg:
             question_data = {
@@ -260,7 +263,8 @@ class ParadigmGenerator:
                 'rule': str(self._rule),
                 'phonemes': [str(w) for w in self._phonemes],
                 'templates': str(self._templates),
-                'Gloss': [str(w) for w in self._attr.gloss_column]
+                'Gloss': [str(w) for w in self._attr.gloss_column],
+                'poi': poi.replace('g', 'ɡ')
             }
         else:
             question_data = {
@@ -271,7 +275,8 @@ class ParadigmGenerator:
                 'rule': str(self._rule),
                 'phonemes': [str(w) for w in self._phonemes],
                 'templates': str(self._templates),
-                'Gloss': [str(w) for w in self._attr.gloss_column]
+                'Gloss': [str(w) for w in self._attr.gloss_column],
+                'poi': poi
             }
 
         return question_data
