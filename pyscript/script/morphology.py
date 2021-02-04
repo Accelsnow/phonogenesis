@@ -185,10 +185,9 @@ class ParadigmGenerator:
         gen_size = num_rows * 20
         retry_limit = 2
         trial = 0
-        valid_history = []
 
         while trial < retry_limit:
-            word_list = self._generate_base_words(gen_size - len(valid_history)) + valid_history
+            word_list = self._generate_base_words(gen_size)
 
             paradigm = Paradigm(self._attr.col_data, word_list, self._rule, self._phonemes, self._feature_to_type,
                                 self._feature_to_sounds)
@@ -197,12 +196,8 @@ class ParadigmGenerator:
             valid_count = len(valid_rows)
 
             if valid_count < num_rows:
-                if valid_count < num_rows / 3:
-                    LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
-                    trial += 1
-                else:
-                    for valid_word_index in valid_rows:
-                        valid_history.append(paradigm.UR_words[valid_word_index])
+                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
+                trial += 1
                 continue
             elif valid_count == gen_size:
                 LOGGER.warning("No invalid data found. Retrying.\n")
@@ -216,8 +211,6 @@ class ParadigmGenerator:
                 for r_index in valid_rows[:valid_need]:
                     dest_word_list.append(word_list[r_index])
 
-                valid_rows = valid_rows[valid_need:]
-
                 for i in range(len(word_list)):
                     if i not in valid_rows:
                         dest_word_list.append(word_list[i])
@@ -226,9 +219,10 @@ class ParadigmGenerator:
                     if invalid_need == 0:
                         break
 
-                while invalid_need > 0:
-                    dest_word_list.append(word_list[invalid_need])
-                    invalid_need -= 1
+                filler = 0
+                while filler < invalid_need:
+                    dest_word_list.append(word_list[valid_rows[valid_need + filler]])
+                    filler += 1
 
                 if shuffled:
                     random.shuffle(dest_word_list)
