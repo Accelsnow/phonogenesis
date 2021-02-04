@@ -74,6 +74,9 @@ class Word(Serializable):
     def is_empty(self):
         return len(self) == 0 or str(self) == ''
 
+    def __repr__(self):
+        return str(self)
+
     def __str__(self) -> str:
         word_str = ""
 

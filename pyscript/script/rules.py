@@ -111,7 +111,6 @@ class Rule(Serializable):
         len_diff = 0
         old_word = word
         chg_count = 0
-
         for index in indexes:
             new_word = self._do_replace(new_word, index[0] + len_diff, index[1] + len_diff, feature_to_type,
                                         feature_to_sounds)
@@ -128,6 +127,8 @@ class Rule(Serializable):
                  feature_to_sounds: Dict[str, List[Sound]]) -> List[ExampleType]:
         a_data = self.locations_a(word, phonemes, feature_to_sounds)
         a_locations = list(a_data.keys())  # type: List[int]
+        is_insertion = self.get_a_matcher(phonemes, None, feature_to_sounds) == ['']
+        org_word = word
 
         if len(a_locations) == 0 or a_locations == []:
             return [ExampleType.IRR for _ in range(0, len(self._Cs))]
@@ -142,6 +143,9 @@ class Rule(Serializable):
 
                 for a_loc in a_locations:
                     a_size = len(a_data[a_loc])
+
+                    if is_insertion:
+                        word = self._do_replace(org_word, a_loc, a_loc, feature_to_type, feature_to_sounds)
 
                     if c_edge and c_instance is None:
                         is_c = a_loc == 0
@@ -158,6 +162,9 @@ class Rule(Serializable):
                         is_d = True
                     else:
                         is_d = Template(d_instance).is_d_match(word, a_loc, d_edge, feature_to_sounds, phonemes)[0]
+
+                    if is_insertion:
+                        word = org_word
 
                     if is_c and is_d:
                         if word != self._do_replace(word, a_loc, a_loc + a_size, feature_to_type, feature_to_sounds):
