@@ -273,6 +273,7 @@ class ParadigmGenerator:
                 'poi': poi
             }
 
+        LOGGER.debug(question_data)
         return question_data
 
 
