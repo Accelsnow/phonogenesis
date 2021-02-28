@@ -89,11 +89,11 @@ class Paradigm:
     def __init__(self, col_data, words: List[Word], rule: Rule, phonemes: List[Word],
                  feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]):
         self._col_data = col_data
-        self.UR_words = [Word(str(word)) for word in words]
+        self.UR_words = [rule.apply(word, phonemes, feature_to_type, feature_to_sounds)[0] for word in words]
+        self._trans_UR_words = []
         self.UR_trans_pattern = []
         self.trans_names = []
         self.applied_core_data = []
-        self._org_rule_trans_ct = []
         self._transformers = []
 
         for col_data in self._col_data:
@@ -101,40 +101,47 @@ class Paradigm:
             self._transformers.append(col_data[1])
             self.UR_trans_pattern.append(str(col_data[1]))
 
-        for row_i in range(len(words)):
-            word = words[row_i]
+        for word in self.UR_words:
             applied_row_list = []
-            trans_ct_list = []
+            trans_row_list = []
 
             for col_i in range(len(self._transformers)):
                 transformer = self._transformers[col_i]
-                apply_data = rule.apply(transformer.transform(word), phonemes, feature_to_type, feature_to_sounds)
-                trans_ct_list.append(apply_data[1])
+                transformed_word = transformer.transform(word)
+                trans_row_list.append(transformed_word)
+                apply_data = rule.apply(transformed_word, phonemes, feature_to_type, feature_to_sounds)
                 applied_row_list.append(apply_data[0])
 
             self.applied_core_data.append(applied_row_list)
-            self._org_rule_trans_ct.append(trans_ct_list)
+            self._trans_UR_words.append(trans_row_list)
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words
 
     def valid_row_indexes(self) -> List[int]:
+        num_rows = len(self.applied_core_data)
+        num_cols = len(self.applied_core_data[0])
+        row_check = {}
+        for r_i in range(num_rows):
+            row_check[r_i] = []
+        col_check = [0 for _ in range(num_cols)]
+
+        for r_index in range(num_rows):
+            for c_index in range(num_cols):
+                if self._trans_UR_words[r_index][c_index] != self.applied_core_data[r_index][c_index]:
+                    row_check[r_index].append(c_index)
+                    col_check[c_index] += 1
+
+        for c_i in range(num_cols):
+            if c_i >= num_rows:
+                for r_i in range(num_rows):
+                    row_check[r_i].remove(c_i)
+
         valid_rows = []
-        has_bad_row = False
-
-        for r_index in range(len(self._org_rule_trans_ct)):
-            row = self._org_rule_trans_ct[r_index]
-            diff = max(row) - min(row)
-
-            if diff == 0:
-                has_bad_row = True
-            else:
-                valid_rows.append(r_index)
-
-        if not has_bad_row:
-            return []
-        else:
-            return valid_rows
+        for r_i in row_check:
+            if len(row_check[r_i]) > 0:
+                valid_rows.append(r_i)
+        return valid_rows
 
     def __str__(self) -> str:
         matrix_str = ""
@@ -194,19 +201,24 @@ class ParadigmGenerator:
 
             valid_rows = paradigm.valid_row_indexes()
             valid_count = len(valid_rows)
+            valid_need = num_rows // 2
+            invalid_need = num_rows // 2
 
-            if valid_count < num_rows:
-                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (num_rows, valid_count))
+            if valid_count < valid_need:
+                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (valid_need, valid_count))
                 trial += 1
                 continue
             elif valid_count == gen_size:
                 LOGGER.warning("No invalid data found. Retrying.\n")
                 trial += 1
                 continue
+            elif gen_size - valid_count < invalid_need:
+                LOGGER.warning(
+                    "Insufficient invalid data. Need %d Found %d.\n" % (invalid_need, gen_size - valid_count))
+                trial += 1
+                continue
             else:
                 dest_word_list = []
-                valid_need = num_rows // 2
-                invalid_need = num_rows // 2
 
                 for r_index in valid_rows[:valid_need]:
                     dest_word_list.append(word_list[r_index])
@@ -214,15 +226,9 @@ class ParadigmGenerator:
                 for i in range(len(word_list)):
                     if i not in valid_rows:
                         dest_word_list.append(word_list[i])
-                        invalid_need -= 1
 
-                    if invalid_need == 0:
+                    if len(dest_word_list) == num_rows:
                         break
-
-                filler = 0
-                while filler < invalid_need:
-                    dest_word_list.append(word_list[valid_rows[valid_need + filler]])
-                    filler += 1
 
                 if shuffled:
                     random.shuffle(dest_word_list)
