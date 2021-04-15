@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Union
 
 from script import Rule, import_default_gloss, Template, Word, Sound
 import random
@@ -16,17 +16,7 @@ class ParadigmAttr:
         min_row = 15
         max_row = 25
         self.row_count = random.randint(min_row, max_row)
-        self.gen_type_count_map = {"CAD": round(self.row_count * 0.4), "IRR": int(self.row_count * 0.1), "NCAD": 1,
-                                   "CNAD": 1, "CAND": 1}
-        assist_types = ["NCAD", "CNAD", "CAND"]
-        assist_count = self.row_count - sum(self.gen_type_count_map.values())
-
-        while assist_count > 0:
-            if random.random() < 0.2:
-                self.gen_type_count_map["CAD"] += 1
-            else:
-                self.gen_type_count_map[random.choice(assist_types)] += 1
-            assist_count -= 1
+        self.gen_type_dist = {"CAD": 0.4, "IRR": 0.1, "ASSIST": 0.5}
 
         transform_data = _get_trans_data(
             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
@@ -50,34 +40,31 @@ class ParadigmAttr:
 
 # Transformer is currently an appending transformer
 class _SuffixTransformer:
-    def __init__(self, template: Optional[Template], construct_data: Optional[List[Word]],
-                 feature_to_sounds: Dict[str, List[Sound]], phonemes: List[Word]):
-        self._template = template
-
-        # TODO: MODIFY HERE
-        if self._template and construct_data:
-            construct_word_list = []
-            for construct_word in construct_data:
-                construct_word_list.extend(
-                    self._template.generate_words_start_with(construct_word, phonemes, 10, feature_to_sounds))
-            if not construct_word_list:
-                raise TransformerGenerationError
-            else:
-                self._mod_word = random.choice(construct_word_list)
-        else:
-            self._mod_word = None
+    def __init__(self, mod_word: Optional[Word]):
+        self._mod_word = mod_word
+        # self._template = template
+        #
+        # # TODO: MODIFY HERE
+        # if self._template and construct_data:
+        #     construct_word_list = []
+        #     for construct_word in construct_data:
+        #         construct_word_list.extend(
+        #             self._template.generate_words_start_with(construct_word, phonemes, 10, feature_to_sounds))
+        #     if not construct_word_list:
+        #         raise TransformerGenerationError
+        #     else:
+        #         self._mod_word = random.choice(construct_word_list)
+        # else:
+        #     self._mod_word = None
 
     def get_mod_word(self) -> Word:
         return self._mod_word
 
     def transform(self, word: Word) -> Word:
-        if not self._template:
+        if not self._mod_word:
             return word
 
         return Word(str(word) + str(self._mod_word))
-
-    def get_template(self) -> Template:
-        return self._template
 
     def __str__(self) -> str:
         if self._mod_word:
@@ -91,39 +78,71 @@ class TransformerGenerationError(Exception):
 
 
 class Paradigm:
-    def __init__(self, templates: List[Template], col_names: List[str], words: List[Word], rule: Rule,
-                 trans_construct_data: Optional[List[Word]],
-                 preset_col_data: Optional[List[Tuple[str, _SuffixTransformer]]],
-                 phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]]):
-        if preset_col_data is None:
-            self._col_data = []
+    def __init__(self, word_templates: List[Template], col_templates: List[Template], col_names: List[str], rule: Rule,
+                 size: int, matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                 gen_type_dist: Dict[str, float], phonemes: List[Word], feature_to_type: Dict[str, str],
+                 feature_to_sounds: Dict[str, List[Sound]], shuffled: bool):
+        self._col_data = []
+        col_ct = len(col_names)
+        words = []
 
-            if random.random() < 0.5 or len(templates) == len(col_names) - 1:
-                self._col_data.append((col_names[0], _SuffixTransformer(None, None, feature_to_sounds, phonemes)))
-                col_names = col_names[1:]
+        if len(matchers) == 2 or len(matchers) == 3:
+            if len(matchers) == 2:
+                match_words, not_match_words = self._gen_words(size, gen_type_dist, word_templates, matchers, phonemes,
+                                                               feature_to_sounds)
+            elif random.random() < 0.5:
+                comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
+                match_words, not_match_words = self._gen_words(size, gen_type_dist, word_templates, comp_matcher,
+                                                               phonemes, feature_to_sounds)
+            else:
+                comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
+                match_words, not_match_words = self._gen_words(size, gen_type_dist, word_templates, comp_matcher,
+                                                               phonemes, feature_to_sounds)
+            words.extend(match_words)
+            words.extend(not_match_words)
 
-            if len(templates) < len(col_names):
-                raise ValueError('Not enough templates for each transformation!')
+            matching_col_count = 1
+            not_matching_col_count = 1
+            while col_ct - matching_col_count - not_matching_col_count > 0:
+                if random.random() < 0.1:
+                    matching_col_count += 1
+                else:
+                    not_matching_col_count += 1
 
-            for i in range(len(col_names)):
-                regen_limit = 100
-                while regen_limit > 0:
-                    chosen_template = random.choice(templates)
-                    try:
-                        self._col_data.append(
-                            (col_names[i],
-                             _SuffixTransformer(chosen_template, trans_construct_data, feature_to_sounds, phonemes)))
-                        break
-                    except TransformerGenerationError:
-                        regen_limit -= 1
-                        continue
-                if regen_limit <= 0:
-                    LOGGER.error("Suffix transformer initialization failed! (All templates mismatch?)")
-                    raise TransformerGenerationError(
-                        "Suffix transformer initialization failed! (All templates mismatch?)")
+            matching_col_words = []
+            not_matching_col_words = []
+
+            for col_template in col_templates:
+                matching_col_words.extend(
+                    col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+                not_matching_col_words.extend(
+                    col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+
+            col_index = 0
+            has_null = False
+
+            if random.random() < 0.5:
+                self._col_data.append((col_names[0], _SuffixTransformer(None)))
+                not_matching_col_count -= 1
+                has_null = True
+                col_index += 1
+
+            for _ in range(matching_col_count):
+                mod_word = random.choice(matching_col_words)
+                self._col_data.append((col_names[col_index], _SuffixTransformer(mod_word)))
+                matching_col_words.remove(mod_word)
+                col_index += 1
+
+            for _ in range(not_matching_col_count):
+                mod_word = random.choice(not_matching_col_words)
+                self._col_data.append((col_names[col_index], _SuffixTransformer(mod_word)))
+                not_matching_col_words.remove(mod_word)
+                col_index += 1
         else:
-            self._col_data = preset_col_data
+            raise NotImplementedError
 
+        if shuffled:
+            random.shuffle(words)
         self.UR_words = [rule.apply(word, phonemes, feature_to_type, feature_to_sounds)[0] for word in words]
         self._trans_UR_words = []
         self.UR_trans_pattern = []
@@ -149,6 +168,54 @@ class Paradigm:
 
             self.applied_core_data.append(applied_row_list)
             self._trans_UR_words.append(trans_row_list)
+
+    def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
+                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                   phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
+        cad_count = round(size * gen_type_dist["CAD"])
+        assist_size_each = int(size * gen_type_dist["ASSIST"] // 2)
+
+        word_matching_end_count = cad_count + assist_size_each
+        word_not_matching_end_count = size - word_matching_end_count
+        matching_size_each_template = max(1, word_matching_end_count // len(word_templates))
+        not_matching_size_each_template = max(1, word_not_matching_end_count // len(word_templates))
+        valid_match_templates = []
+        valid_not_match_templates = []
+        match_words = []
+        not_match_words = []
+
+        for i in range(len(word_templates)):
+            if len(match_words) < word_matching_end_count:
+                match_gen = word_templates[i].generate_words_end_with(matchers[0], phonemes,
+                                                                      matching_size_each_template,
+                                                                      feature_to_sounds)
+                match_words.extend(match_gen)
+                if len(match_gen) > 0:
+                    valid_match_templates.append(word_templates[i])
+
+            if len(not_match_words) < word_not_matching_end_count:
+                not_match_gen = word_templates[i].generate_words_not_end_with(matchers[0], phonemes,
+                                                                              not_matching_size_each_template,
+                                                                              feature_to_sounds)
+                not_match_words.extend(not_match_gen)
+                if len(not_match_gen) > 0:
+                    valid_not_match_templates.append(word_templates[i])
+
+        if len(match_words) < word_matching_end_count:
+            match_words.extend(
+                random.choice(valid_match_templates).generate_words_end_with(matchers[0], phonemes,
+                                                                             word_matching_end_count - len(
+                                                                                 match_words),
+                                                                             feature_to_sounds))
+
+        if len(not_match_words) < word_not_matching_end_count:
+            not_match_words.extend(
+                random.choice(valid_not_match_templates).generate_words_not_end_with(matchers[0], phonemes,
+                                                                                     word_not_matching_end_count - len(
+                                                                                         not_match_words),
+                                                                                     feature_to_sounds))
+
+        return match_words, not_match_words
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words
@@ -210,90 +277,80 @@ class ParadigmGenerator:
         self._templates = templates
         self._attr = paradigm_attr
 
-    def _generate_base_words(self, gen_size: int, construct_data_list: List[Word]) -> List[Word]:
-        num_templates = len(self._templates)
-        word_list = []
-        gen_unit_size = max(5, gen_size // num_templates // len(construct_data_list))
-
-        for i in range(num_templates):
-            for data_word in construct_data_list:
-                template_gen = self._templates[i].generate_words_end_with(data_word, self._phonemes, gen_unit_size,
-                                                                          self._feature_to_sounds)
-                if template_gen is not None:
-                    word_list.extend(template_gen)
-
-        total_random_word_count = max(10, gen_size // 10)
-        each_template_word_count = max(2, gen_size // 10 // len(self._templates))
-        for _ in range(total_random_word_count):
-            word_list.extend(random.choice(self._templates).generate_word_list(self._phonemes, each_template_word_count,
-                                                                               self._feature_to_sounds))
-        random.shuffle(word_list)
-        return word_list
+    # def _generate_base_words(self, gen_size: int, construct_data_list: List[Word]) -> List[Word]:
+    #     num_templates = len(self._templates)
+    #     word_list = []
+    #     gen_unit_size = max(5, gen_size // num_templates // len(construct_data_list))
+    #
+    #     for i in range(num_templates):
+    #         for data_word in construct_data_list:
+    #             template_gen = self._templates[i].generate_words_end_with(data_word, self._phonemes, gen_unit_size,
+    #                                                                       self._feature_to_sounds)
+    #             if template_gen is not None:
+    #                 word_list.extend(template_gen)
+    #
+    #     total_random_word_count = max(10, gen_size // 10)
+    #     each_template_word_count = max(2, gen_size // 10 // len(self._templates))
+    #     for _ in range(total_random_word_count):
+    #         word_list.extend(random.choice(self._templates).generate_word_list(self._phonemes, each_template_word_count,
+    #                                                                            self._feature_to_sounds))
+    #     random.shuffle(word_list)
+    #     return word_list
 
     def _get_valid_question(self, shuffled: bool) -> Optional[Paradigm]:
         num_rows = self._attr.row_count
-        gen_size = num_rows * 20
         retry_limit = 2
         trial = 0
 
         while trial < retry_limit:
-            construct_data = construct_suffix_morph_words(self._rule, self._phonemes, self._feature_to_sounds)
-            # currently only suffix
-            print(construct_data)
-            if len(construct_data) == 1:
-                word_list = self._generate_base_words(gen_size, construct_data[0][0])
-                trans_word_list = construct_data[0][1]
-            else:
-                word_list = self._generate_base_words(gen_size // 2, construct_data[0][0]) + self._generate_base_words(
-                    gen_size // 2, construct_data[1][0])
-                trans_word_list = construct_data[0][1] + construct_data[1][1]
+            matchers = construct_matchers(self._rule, self._phonemes, self._feature_to_sounds)
 
-            paradigm = Paradigm(self._attr.templates, self._attr.col_names, word_list, self._rule, trans_word_list,
-                                None, self._phonemes, self._feature_to_type, self._feature_to_sounds)
+            paradigm = Paradigm(self._templates, self._attr.templates, self._attr.col_names, self._rule, num_rows,
+                                matchers, self._attr.gen_type_dist, self._phonemes, self._feature_to_type,
+                                self._feature_to_sounds, shuffled)
 
-            gen_size = len(word_list)
-            valid_rows = paradigm.valid_row_indexes()
-            valid_count = len(valid_rows)
-            valid_need = num_rows // 2
-            invalid_need = num_rows // 2
+            # gen_size = len(word_list)
+            # valid_rows = paradigm.valid_row_indexes()
+            # valid_count = len(valid_rows)
+            # valid_need = num_rows // 2
+            # invalid_need = num_rows // 2
+            #
+            # if valid_count < valid_need:
+            #     LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (valid_need, valid_count))
+            #     trial += 1
+            #     continue
+            # elif valid_count == gen_size:
+            #     LOGGER.warning("No invalid data found. Retrying.\n")
+            #     trial += 1
+            #     continue
+            # elif gen_size - valid_count < invalid_need:
+            #     LOGGER.warning(
+            #         "Insufficient invalid data. Need %d Found %d.\n" % (invalid_need, gen_size - valid_count))
+            #     trial += 1
+            #     continue
+            # else:
+            #     dest_word_list = []
+            #
+            #     for r_index in valid_rows[:valid_need]:
+            #         dest_word_list.append(word_list[r_index])
+            #
+            #     for i in range(len(word_list)):
+            #         if i not in valid_rows:
+            #             dest_word_list.append(word_list[i])
+            #
+            #         if len(dest_word_list) == num_rows:
+            #             break
+            #
+            #     if shuffled:
+            #         random.shuffle(dest_word_list)
+            #
+            #     paradigm = Paradigm(self._attr.templates, self._attr.col_names, dest_word_list, self._rule, None,
+            #                         paradigm.get_col_data(), self._phonemes, self._feature_to_type,
+            #                         self._feature_to_sounds)
+            #
+            #     LOGGER.info("Success! Raw Paradigm Data:\n%s\n" % str(paradigm))
+            return paradigm
 
-            if valid_count < valid_need:
-                LOGGER.warning("Insufficient valid data. Need %d Found %d.\n" % (valid_need, valid_count))
-                trial += 1
-                continue
-            elif valid_count == gen_size:
-                LOGGER.warning("No invalid data found. Retrying.\n")
-                trial += 1
-                continue
-            elif gen_size - valid_count < invalid_need:
-                LOGGER.warning(
-                    "Insufficient invalid data. Need %d Found %d.\n" % (invalid_need, gen_size - valid_count))
-                trial += 1
-                continue
-            else:
-                dest_word_list = []
-
-                for r_index in valid_rows[:valid_need]:
-                    dest_word_list.append(word_list[r_index])
-
-                for i in range(len(word_list)):
-                    if i not in valid_rows:
-                        dest_word_list.append(word_list[i])
-
-                    if len(dest_word_list) == num_rows:
-                        break
-
-                if shuffled:
-                    random.shuffle(dest_word_list)
-
-                paradigm = Paradigm(self._attr.templates, self._attr.col_names, dest_word_list, self._rule, None,
-                                    paradigm.get_col_data(), self._phonemes, self._feature_to_type,
-                                    self._feature_to_sounds)
-
-                LOGGER.info("Success! Raw Paradigm Data:\n%s\n" % str(paradigm))
-                return paradigm
-
-        LOGGER.error("base generation size %d\n" % gen_size)
         LOGGER.error("Rule %s\n" % str(self._rule))
         LOGGER.error("Phoneme %s\n" % str(self._phonemes))
         LOGGER.error("Exceeded maximum retry limit. Failed to find a question!\n")
@@ -370,8 +427,8 @@ def _get_trans_data(filename: str):
     return types
 
 
-def construct_suffix_morph_words(rule: Rule, phonemes: Optional[List[Word]],
-                                 feature_to_sounds: Dict[str, List[Sound]]):
+def construct_matchers(rule: Rule, phonemes: Optional[List[Word]], feature_to_sounds: Dict[str, List[Sound]]) -> Union[
+    Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]]:
     # can not have edges
     c_matchers = rule.get_c_matchers(phonemes, feature_to_sounds)
     d_matchers = rule.get_d_matchers(phonemes, feature_to_sounds)
@@ -384,13 +441,12 @@ def construct_suffix_morph_words(rule: Rule, phonemes: Optional[List[Word]],
         raise ValueError("Impossible to have both cmatcher and dmatcher to be empty")
 
     if len(c_matcher) == 0:
-        return [(a_matcher, d_matcher)]
+        return a_matcher, d_matcher
 
     if len(d_matcher) == 0:
-        return [(c_matcher, a_matcher)]
+        return c_matcher, a_matcher
 
-    return [(c_matcher, [Word(str(a) + str(d)) for a in a_matcher for d in d_matcher]),
-            ([Word(str(c) + str(a)) for a in a_matcher for c in c_matcher], d_matcher)]
+    return c_matcher, a_matcher, d_matcher
 
 
 def _pad_str(org_str: str, padding_size: int) -> str:
