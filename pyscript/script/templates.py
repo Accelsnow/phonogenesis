@@ -98,6 +98,42 @@ class Template(Serializable):
 
         return self._recur_match(sec_index + 1, sec, part_index + 1, feature_to_sounds, phonemes)
 
+    def generate_words_end_with(self, end_word: Word, phonemes: Optional[List[Word], None],
+                                size_limit: Optional[int, None],
+                                feature_to_sounds: Dict[str, List[Sound]]):
+        end_word_sound_list = end_word.get_sounds()
+        end_size = len(end_word_sound_list)
+        template_end_particles = self._components[len(self._components) - end_size:]
+
+        for i in range(end_size):
+            if end_word_sound_list[i] not in template_end_particles[i].get_matching_sounds(phonemes, feature_to_sounds):
+                return []
+
+        clipped_template = Template(self._components[:len(self._components) - end_size])
+        clipped_words = clipped_template.generate_word_list(phonemes, size_limit, feature_to_sounds)
+
+        return [Word(str(w) + str(end_word)) for w in clipped_words]
+
+    def generate_words_start_with(self, start_word: Word, phonemes: Optional[List[Word], None],
+                                  size_limit: Optional[int, None],
+                                  feature_to_sounds: Dict[str, List[Sound]]):
+        start_word_sound_list = start_word.get_sounds()
+        start_size = len(start_word_sound_list)
+        template_start_particles = self._components[:start_size]
+
+        for i in range(start_size):
+            if start_word_sound_list[i] not in template_start_particles[i].get_matching_sounds(phonemes,
+                                                                                               feature_to_sounds):
+                return []
+
+        if len(self._components) == 1:
+            return start_word
+
+        clipped_template = Template(self._components[start_size:])
+        clipped_words = clipped_template.generate_word_list(phonemes, size_limit, feature_to_sounds)
+
+        return [Word(str(start_word) + str(w)) for w in clipped_words]
+
     def generate_word_list(self, phonemes: Optional[List[Word], None], size_limit: Optional[int, None],
                            feature_to_sounds: Dict[str, List[Sound]], **kwargs) -> \
             List[Word]:

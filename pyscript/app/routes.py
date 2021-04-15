@@ -485,6 +485,8 @@ def get_morphology_question():
     try_count = 0
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
+    # TODO: HEAVY RESTRICTION
+    rules = [r for r in rules if r._Cs_edge == [False] and r._Ds_edge == [False]]
 
     import random
     if rule_family == "Random":
@@ -495,7 +497,7 @@ def get_morphology_question():
     while try_count < reset_limit:
         phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
         rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-        p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'], phonemes)
+        p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'])
         p_gen = ParadigmGenerator(p_attr, rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
                                   DEFAULT_DATA['f2ss'])
         q_data = p_gen.get_paradigm_question(shuffle, isIPAg, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
