@@ -6,6 +6,7 @@ from sqlalchemy.exc import IntegrityError
 from app import app, DEFAULT_DATA, db, get_formatted_timestr
 from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
+from script.morphology import ParadigmGenerator
 
 LOGGER = logging.getLogger("app.logger")
 ACCOUNT_TYPES = ['student', 'professor', 'admin']
@@ -497,8 +498,7 @@ def get_morphology_question():
     while try_count < reset_limit:
         phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
         rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-        p_attr = ParadigmAttr(DEFAULT_DATA['f2ss'])
-        p_gen = ParadigmGenerator(p_attr, rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
+        p_gen = ParadigmGenerator(rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
                                   DEFAULT_DATA['f2ss'])
         q_data = p_gen.get_paradigm_question(shuffle, isIPAg, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
 

@@ -8,7 +8,6 @@ from script.rules import Rule, RuleFamily, ExampleType, import_default_rules, Ru
 from script.generator import Generator, GenerationNoCADTError, GeneratorParameterError, GeneratorError, GenMode
 from script.data_factory import get_default_data, get_random_phonemes
 from script.doubleRule import DoubleWordType, DoubleRule, DoubleFeed, InteractionOrder, DoubleWordDifficulty
-from script.morphology import ParadigmAttr, Paradigm, ParadigmGenerator
 
 
 # __all__ = ['Particle', 'Rule', 'RuleFamily', "RuleType", 'Sound', 'Word', 'Template', 'ExampleType', 'GlossGroup',
