@@ -13,20 +13,6 @@ LOGGER = logging.getLogger("app.logger")
 class _SuffixTransformer:
     def __init__(self, mod_word: Optional[Word]):
         self._mod_word = mod_word
-        # self._template = template
-        #
-        # # TODO: MODIFY HERE
-        # if self._template and construct_data:
-        #     construct_word_list = []
-        #     for construct_word in construct_data:
-        #         construct_word_list.extend(
-        #             self._template.generate_words_start_with(construct_word, phonemes, 10, feature_to_sounds))
-        #     if not construct_word_list:
-        #         raise TransformerGenerationError
-        #     else:
-        #         self._mod_word = random.choice(construct_word_list)
-        # else:
-        #     self._mod_word = None
 
     def get_mod_word(self) -> Word:
         return self._mod_word
@@ -62,13 +48,13 @@ class Paradigm:
         self.col_count = random.randint(matching_col_count + 1, 4)
         not_matching_col_count = 0
         while self.col_count - matching_col_count - not_matching_col_count > 0:
-            if not_matching_col_count == 0 or random.random() < 0.1:
+            if not_matching_col_count == 0 or random.random() < 0.75:
                 not_matching_col_count += 1
             else:
                 matching_col_count += 1
 
-        min_row = 15
-        max_row = 25
+        min_row = 10
+        max_row = 15
         self.row_count = random.randint(min_row, max_row)
         self.gen_type_dist = {"CAD": 0.4, "IRR": 0.1, "ASSIST": 0.5}
 
@@ -193,9 +179,8 @@ class Paradigm:
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                    phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
         cad_count = round(size * gen_type_dist["CAD"])
-        assist_size_each = int(size * gen_type_dist["ASSIST"] // 2)
 
-        word_matching_end_count = cad_count + assist_size_each
+        word_matching_end_count = cad_count
         word_not_matching_end_count = size - word_matching_end_count
         matching_size_each_template = max(1, word_matching_end_count // len(word_templates))
         not_matching_size_each_template = max(1, word_not_matching_end_count // len(word_templates))
@@ -203,6 +188,9 @@ class Paradigm:
         valid_not_match_templates = []
         match_words = []
         not_match_words = []
+        print(size)
+        print("match end: ", word_matching_end_count)
+        print("not match end: ", word_matching_end_count)
 
         for i in range(len(word_templates)):
             if len(match_words) < word_matching_end_count:

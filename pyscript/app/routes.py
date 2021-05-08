@@ -486,7 +486,7 @@ def get_morphology_question():
     try_count = 0
     rule_family = data['rule_family']
     rules = list(DEFAULT_DATA['rules'].values())
-    # TODO: HEAVY RESTRICTION
+    # TODO: Temporarily ignoring all rules that involves edge environments
     rules = [r for r in rules if r._Cs_edge == [False] and r._Ds_edge == [False]]
 
     import random

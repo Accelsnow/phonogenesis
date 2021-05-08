@@ -170,10 +170,8 @@ class DoubleFeed(DoubleRule):
     def _gen_data(self) -> Dict[DoubleWordType, List[Word]]:
         result = {DoubleWordType.Type0: [], DoubleWordType.Type1: [], DoubleWordType.Type2: [],
                   DoubleWordType.Type3: [], DoubleWordType.Type4: []}
-        data2 = self._gen2.generate(GenMode.rawData, 50, False, False, self._feature_to_type, self._feature_to_sounds,
-                                    None)
-        data1 = self._gen1.generate(GenMode.rawData, 50, False, False, self._feature_to_type, self._feature_to_sounds,
-                                    None)
+        data2 = self._gen2.generate(GenMode.rawData, 50, False, False, None)
+        data1 = self._gen1.generate(GenMode.rawData, 50, False, False, None)
 
         words2 = data2["CADT"] + data2["CADNT"] + data2["CAND"] + data2["NCAD"] + data2["IRR"]
         words1 = data1["CADT"] + data1["CADNT"] + data1["CAND"] + data1["NCAD"] + data1["IRR"]

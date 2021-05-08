@@ -3,15 +3,13 @@ from __future__ import annotations
 import random
 from typing import List, Dict, Tuple
 
-from script import Word
 from script.feature_lib import import_default_features
-from script.generator import Generator, GenMode
 from script.glossgroup import import_default_gloss
-from script.phonemes import import_default_full_phonemes, import_default_randomized_phonemes
+from script.morphology import ParadigmGenerator
+from script.phonemes import import_default_full_phonemes
 from script.rules import Rule, RuleFamily, import_default_rules
 from script.sound import Sound
 from script.templates import Template, import_default_templates
-from script.morphology import ParadigmAttr, Paradigm, ParadigmGenerator
 
 
 def _print_result(rst: dict):
@@ -102,7 +100,7 @@ if __name__ == '__main__':
     #
     # manual_rule_select = 1
     #
-    use_rule = rules[86]
+    use_rule = rules[38]
 
     amount = 40
 
@@ -116,12 +114,11 @@ if __name__ == '__main__':
     for p in phonemes:
         psr += str(p) + " "
     print(psr + "\",")
-
-    # p_attr = ParadigmAttr(feature_to_sounds, phonemes)
-    # p_gen = ParadigmGenerator(p_attr, rules[2], phonemes, templates, feature_to_type, feature_to_sounds)
-    # pdim = p_gen._get_valid_question(False)
-    # print(str(pdim))
-    # print(pdim.valid_row_indexes())
+    print(str(use_rule))
+    p_gen = ParadigmGenerator(use_rule, phonemes, templates, feature_to_type, feature_to_sounds)
+    pdim = p_gen._get_valid_question(False)
+    print(str(pdim))
+    print(pdim.valid_row_indexes())
     #
     # # rule1 = rules[96]
     # # rule2 = rules[97]
@@ -146,19 +143,19 @@ if __name__ == '__main__':
     # print("ruleType: \"" + str(use_rule.get_rule_type(phonemes, feature_to_type, feature_to_sounds)) + "\",")
     # use_templates = templates
     #
-    print("\nUSING RULE: ", use_rule)
-    print("\nGENERATION AMOUNT:", amount, '\n')
-
-    interest = use_rule.get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
-    isr = "poi: \""
-    for i in interest:
-        isr += str(i) + " "
-    print(isr + "\",")
-
-    print(use_rule.classify(Word("səʃpit"), phonemes, feature_to_type, feature_to_sounds))
-
-    print(str(use_rule.apply(Word("səʃpit"), phonemes, feature_to_type,feature_to_sounds)[0]))
-    print(use_rule.get_a_matcher(phonemes, None, feature_to_sounds) == [''])
+    # print("\nUSING RULE: ", use_rule)
+    # print("\nGENERATION AMOUNT:", amount, '\n')
+    #
+    # interest = use_rule.get_interest_phones(phonemes, feature_to_type, feature_to_sounds)[1]
+    # isr = "poi: \""
+    # for i in interest:
+    #     isr += str(i) + " "
+    # print(isr + "\",")
+    #
+    # print(use_rule.classify(Word("səʃpit"), phonemes, feature_to_type, feature_to_sounds))
+    #
+    # print(str(use_rule.apply(Word("səʃpit"), phonemes, feature_to_type,feature_to_sounds)[0]))
+    # print(use_rule.get_a_matcher(phonemes, None, feature_to_sounds) == [''])
     # gen = Generator(phonemes, templates, use_rule, 5, feature_to_type, feature_to_sounds)
     #
     # result = gen.generate(GenMode.IPAg, [5, 0, 0, 0, 0], True, False, gloss_groups)
