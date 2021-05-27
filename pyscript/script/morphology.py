@@ -12,6 +12,9 @@ LOGGER = logging.getLogger("app.logger")
 # Transformer is currently an appending transformer
 class _SuffixTransformer:
     def __init__(self, mod_word: Optional[Word]):
+        """
+        mod_word: represents suffix in Word objects, or None if it is zero affix.
+        """
         self._mod_word = mod_word
 
     def get_mod_word(self) -> Word:
@@ -40,6 +43,9 @@ class Paradigm:
                  phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
                  shuffled: bool):
         import os
+
+        # A probabilistic process to decide the number of columns (either have a matching environment of the
+        # chosen rule, or not have the matching environment) by counting the number of words that matches the target.
         a_matcher_size = len(rule.get_a_matcher(phonemes, None, feature_to_sounds))
         matching_col_count = a_matcher_size // 4
         if a_matcher_size / 4 - matching_col_count > 0:
@@ -53,23 +59,27 @@ class Paradigm:
             else:
                 matching_col_count += 1
 
+        # A probabilistic process to decide the number of rows for each type (CAD, IRR, ASSIST)
         min_row = 10
         max_row = 15
         self.row_count = random.randint(min_row, max_row)
         self.gen_type_dist = {"CAD": 0.4, "IRR": 0.1, "ASSIST": 0.5}
 
+        # Select possible gloss families with corresponding glosses, and among them choose one family to be used
         transform_data = _get_trans_data(
             os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
         gloss_families = [gf for gf in import_default_gloss()[0] if
                           gf.get_name() in transform_data and self.col_count in transform_data[gf.get_name()]]
         selected_family_name = random.choice(list(set([gf.get_name() for gf in gloss_families])))
 
+        # Generate a gloss list that corresponds to the selected family name.
         glosses = []
         for gloss_family in gloss_families:
             if gloss_family.get_name() == selected_family_name:
                 for gloss_group in gloss_family.get_members():
                     glosses.extend(gloss_group.get_glosses())
 
+        # Generate gloss column, column names, and template column
         self.gloss_column = random.sample(glosses, self.row_count)
         self.col_names = transform_data[selected_family_name][self.col_count]
         self.col_templates = _fetch_templates(
@@ -80,6 +90,7 @@ class Paradigm:
         self._col_data = []
         words = []
 
+        # Generate word roots based on the length of the matchers (2 or 3)
         if len(matchers) == 2 or len(matchers) == 3:
             if len(matchers) == 2:
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
@@ -147,6 +158,7 @@ class Paradigm:
         else:
             raise NotImplementedError
 
+        # Independent of affix type
         if shuffled:
             random.shuffle(words)
         self.UR_words = [rule.apply(word, phonemes, feature_to_type, feature_to_sounds)[0] for word in words]
@@ -178,6 +190,10 @@ class Paradigm:
     def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                    phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
+        """
+        Return a generated tuple of two lists (words that are end-matching and words that are not end-matching) based
+            on the inputs (word templates, type distribution, matcher, and phonemes).
+        """
         cad_count = round(size * gen_type_dist["CAD"])
 
         word_matching_end_count = cad_count
@@ -192,6 +208,7 @@ class Paradigm:
         print("match end: ", word_matching_end_count)
         print("not match end: ", word_matching_end_count)
 
+        # Loop over the word templates to ensure at least 1 matching/not-matching word for each template
         for i in range(len(word_templates)):
             if len(match_words) < word_matching_end_count:
                 match_gen = word_templates[i].generate_words_end_with(matchers[0], phonemes,
@@ -209,6 +226,8 @@ class Paradigm:
                 if len(not_match_gen) > 0:
                     valid_not_match_templates.append(word_templates[i])
 
+        # If the number of generated matching words is less than designated matching word counts, randomly choose
+        # from templates to generate more matching words, by the number of words that need to be generated more.
         if len(match_words) < word_matching_end_count:
             match_words.extend(
                 random.choice(valid_match_templates).generate_words_end_with(matchers[0], phonemes,
@@ -216,6 +235,7 @@ class Paradigm:
                                                                                  match_words),
                                                                              feature_to_sounds))
 
+        # Same as above, but this time for not-matching words.
         if len(not_match_words) < word_not_matching_end_count:
             not_match_words.extend(
                 random.choice(valid_not_match_templates).generate_words_not_end_with(matchers[0], phonemes,
