@@ -42,123 +42,141 @@ class Paradigm:
                  matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                  phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
                  shuffled: bool):
-        import os
 
-        # A probabilistic process to decide the number of columns (either have a matching environment of the
-        # chosen rule, or not have the matching environment) by counting the number of words that matches the target.
-        a_matcher_size = len(rule.get_a_matcher(phonemes, None, feature_to_sounds))
-        matching_col_count = a_matcher_size // 4
-        if a_matcher_size / 4 - matching_col_count > 0:
-            matching_col_count += 1
-        matching_col_count = min(3, matching_col_count)
-        self.col_count = random.randint(matching_col_count + 1, 4)
-        not_matching_col_count = 0
-        while self.col_count - matching_col_count - not_matching_col_count > 0:
-            if not_matching_col_count == 0 or random.random() < 0.75:
-                not_matching_col_count += 1
-            else:
-                matching_col_count += 1
+        """
+        A probabilistic process to decide the number of columns (either have a matching environment of the
+        chosen rule, or not have the matching environment) by counting the number of words that matches the target.
+        """
+        # a_matcher_size = len(rule.get_a_matcher(phonemes, None, feature_to_sounds))
+        # matching_col_count = a_matcher_size // 4
+        # if a_matcher_size / 4 - matching_col_count > 0:
+        #     matching_col_count += 1
+        # matching_col_count = min(3, matching_col_count)
+        # self.col_count = random.randint(matching_col_count + 1, 4)
+        # not_matching_col_count = 0
+        # while self.col_count - matching_col_count - not_matching_col_count > 0:
+        #     if not_matching_col_count == 0 or random.random() < 0.75:
+        #         not_matching_col_count += 1
+        #     else:
+        #         matching_col_count += 1
+        matching_col_count, not_matching_col_count = self._get_col_count(rule, phonemes, feature_to_sounds)
 
-        # A probabilistic process to decide the number of rows for each type (CAD, IRR, ASSIST)
+        """
+        A probabilistic process to decide the number of rows for each type (CAD, IRR, ASSIST)
+        """
         min_row = 10
         max_row = 15
         self.row_count = random.randint(min_row, max_row)
         self.gen_type_dist = {"CAD": 0.4, "IRR": 0.1, "ASSIST": 0.5}
 
-        # Select possible gloss families with corresponding glosses, and among them choose one family to be used
-        transform_data = _get_trans_data(
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
-        gloss_families = [gf for gf in import_default_gloss()[0] if
-                          gf.get_name() in transform_data and self.col_count in transform_data[gf.get_name()]]
-        selected_family_name = random.choice(list(set([gf.get_name() for gf in gloss_families])))
+        """
+        Select possible gloss families with corresponding glosses, and among them choose one family to be used.
+        Also, generate a gloss list that corresponds to the selected family name.
+        """
+        # transform_data = _get_trans_data(
+        #     os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
+        # gloss_families = [gf for gf in import_default_gloss()[0] if
+        #                   gf.get_name() in transform_data and self.col_count in transform_data[gf.get_name()]]
+        # selected_family_name = random.choice(list(set([gf.get_name() for gf in gloss_families])))
+        #
+        # glosses = []
+        # for gloss_family in gloss_families:
+        #     if gloss_family.get_name() == selected_family_name:
+        #         for gloss_group in gloss_family.get_members():
+        #             glosses.extend(gloss_group.get_glosses())
 
-        # Generate a gloss list that corresponds to the selected family name.
-        glosses = []
-        for gloss_family in gloss_families:
-            if gloss_family.get_name() == selected_family_name:
-                for gloss_group in gloss_family.get_members():
-                    glosses.extend(gloss_group.get_glosses())
+        glosses, transform_data, gloss_families, selected_family_name = self._select_glosses()
 
-        # Generate gloss column, column names, and template column
-        self.gloss_column = random.sample(glosses, self.row_count)
-        self.col_names = transform_data[selected_family_name][self.col_count]
-        self.col_templates = _fetch_templates(
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtranstemplates.txt'),
-            list(feature_to_sounds.keys()))
-        random.shuffle(self.col_templates)
+        """
+        Generate gloss column, column names, and template column
+        """
+        # self.gloss_column = random.sample(glosses, self.row_count)
+        # self.col_names = transform_data[selected_family_name][self.col_count]
+        # self.col_templates = _fetch_templates(
+        #     os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtranstemplates.txt'),
+        #     list(feature_to_sounds.keys()))
+        # random.shuffle(self.col_templates)
+        self._gen_gloss_columns(glosses, transform_data, selected_family_name, feature_to_sounds)
 
+        """
+        Generate word roots based on the length of the matchers (2 or 3)
+        """
         self._col_data = []
         words = []
+        self._gen_word_roots(matchers, word_templates, phonemes, feature_to_sounds,
+                             matching_col_count, not_matching_col_count, rule, words)
 
-        # Generate word roots based on the length of the matchers (2 or 3)
-        if len(matchers) == 2 or len(matchers) == 3:
-            if len(matchers) == 2:
-                match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               matchers, phonemes, feature_to_sounds)
-            elif random.random() < 0.5:
-                comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
-                match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
-            else:
-                comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
-                match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
-            words.extend(match_words)
-            words.extend(not_match_words)
-
-            matching_col_words = []
-            not_matching_col_words = []
-
-            for col_template in self.col_templates:
-                matching_col_words.extend(
-                    col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
-                not_matching_col_words.extend(
-                    col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
-
-            col_index = 0
-
-            if not_matching_col_count == 1 or random.random() < 0.5:
-                self._col_data.append((self.col_names[0], _SuffixTransformer(None)))
-                not_matching_col_count -= 1
-                col_index += 1
-
-            matching_col_words = [(word, 0) for word in matching_col_words]
-            not_matching_col_words = [(word, 0) for word in not_matching_col_words]
-            random.shuffle(matching_col_words)
-            random.shuffle(not_matching_col_words)
-            print(rule)
-            for _ in range(matching_col_count):
-                print("M")
-                print(matching_col_words)
-                mod_word = matching_col_words[0][0]
-                print(mod_word)
-                self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
-                matching_col_words.pop(0)
-                matching_col_count -= 1
-                matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
-                                      matching_col_words]
-                matching_col_words.sort(key=lambda x: x[1])
-                col_index += 1
-
-                if len(matching_col_words) == 0:
-                    break
-
-            for _ in range(not_matching_col_count + matching_col_count):
-                print("N")
-                print(not_matching_col_words)
-                mod_word = not_matching_col_words[0][0]
-                print(mod_word)
-                self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
-                not_matching_col_words.pop(0)
-                not_matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
-                                          not_matching_col_words]
-                not_matching_col_words.sort(key=lambda x: x[1])
-
-                col_index += 1
-        else:
-            raise NotImplementedError
+        # if len(matchers) == 2 or len(matchers) == 3:
+        #     if len(matchers) == 2:
+        #         match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+        #                                                        matchers, phonemes, feature_to_sounds)
+        #     elif random.random() < 0.5:
+        #         comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
+        #         match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+        #                                                        comp_matcher, phonemes, feature_to_sounds)
+        #     else:
+        #         comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
+        #         match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+        #                                                        comp_matcher, phonemes, feature_to_sounds)
+        #     words.extend(match_words)
+        #     words.extend(not_match_words)
+        #
+        #     matching_col_words = []
+        #     not_matching_col_words = []
+        #
+        #     for col_template in self.col_templates:
+        #         matching_col_words.extend(
+        #             col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+        #         not_matching_col_words.extend(
+        #             col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+        #
+        #     col_index = 0
+        #
+        #     if not_matching_col_count == 1 or random.random() < 0.5:
+        #         self._col_data.append((self.col_names[0], _SuffixTransformer(None)))
+        #         not_matching_col_count -= 1
+        #         col_index += 1
+        #
+        #     matching_col_words = [(word, 0) for word in matching_col_words]
+        #     not_matching_col_words = [(word, 0) for word in not_matching_col_words]
+        #     random.shuffle(matching_col_words)
+        #     random.shuffle(not_matching_col_words)
+        #     print(rule)
+        #     for _ in range(matching_col_count):
+        #         print("M")
+        #         print(matching_col_words)
+        #         mod_word = matching_col_words[0][0]
+        #         print(mod_word)
+        #         self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
+        #         matching_col_words.pop(0)
+        #         matching_col_count -= 1
+        #         matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
+        #                               matching_col_words]
+        #         matching_col_words.sort(key=lambda x: x[1])
+        #         col_index += 1
+        #
+        #         if len(matching_col_words) == 0:
+        #             break
+        #
+        #     for _ in range(not_matching_col_count + matching_col_count):
+        #         print("N")
+        #         print(not_matching_col_words)
+        #         mod_word = not_matching_col_words[0][0]
+        #         print(mod_word)
+        #         self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
+        #         not_matching_col_words.pop(0)
+        #         not_matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
+        #                                   not_matching_col_words]
+        #         not_matching_col_words.sort(key=lambda x: x[1])
+        #
+        #         col_index += 1
+        # else:
+        #     raise NotImplementedError
 
         # Independent of affix type
+
+        # From here on, independent of affix type.
+
         if shuffled:
             random.shuffle(words)
         self.UR_words = [rule.apply(word, phonemes, feature_to_type, feature_to_sounds)[0] for word in words]
@@ -187,30 +205,86 @@ class Paradigm:
             self.applied_core_data.append(applied_row_list)
             self._trans_UR_words.append(trans_row_list)
 
+    def _get_col_count(self, rule: Rule, phonemes: List[Word],
+                       feature_to_sounds: Dict[str, List[Sound]]) -> Tuple[int, int]:
+        """
+        NOTE: independent of affix type
+        Get the number of all columns by counting the number of words that matches the target.
+        Then, generate a gloss list that corresponds to the selected family name.
+        """
+        a_matcher_size = len(rule.get_a_matcher(phonemes, None, feature_to_sounds))
+        matching_col_count = a_matcher_size // 4
+        if a_matcher_size / 4 - matching_col_count > 0:
+            matching_col_count += 1
+        matching_col_count = min(3, matching_col_count)
+        self.col_count = random.randint(matching_col_count + 1, 4)
+        not_matching_col_count = 0
+        while self.col_count - matching_col_count - not_matching_col_count > 0:
+            if not_matching_col_count == 0 or random.random() < 0.75:
+                not_matching_col_count += 1
+            else:
+                matching_col_count += 1
+        return matching_col_count, not_matching_col_count
+
+    def _select_glosses(self):
+        """
+        NOTE: independent of affix type
+        Select possible gloss families with corresponding glosses, and among them choose one family to be used.
+        """
+        import os
+        transform_data = _get_trans_data(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtransdata.txt'))
+        gloss_families = [gf for gf in import_default_gloss()[0] if
+                          gf.get_name() in transform_data and self.col_count in transform_data[gf.get_name()]]
+        selected_family_name = random.choice(list(set([gf.get_name() for gf in gloss_families])))
+
+        glosses = []
+        for gloss_family in gloss_families:
+            if gloss_family.get_name() == selected_family_name:
+                for gloss_group in gloss_family.get_members():
+                    glosses.extend(gloss_group.get_glosses())
+
+        return transform_data, gloss_families, selected_family_name, glosses
+
+    def _gen_gloss_columns(self, glosses, transform_data, selected_family_name, feature_to_sounds):
+        """
+        NOTE: independent of affix type
+        Generate gloss column, column names, and template column
+        """
+        import os
+        self.gloss_column = random.sample(glosses, self.row_count)
+        self.col_names = transform_data[selected_family_name][self.col_count]
+        self.col_templates = _fetch_templates(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/paradigmtranstemplates.txt'),
+            list(feature_to_sounds.keys()))
+        random.shuffle(self.col_templates)
+
     def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                    phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
         """
+        NOTE: dependent of affix type
         Return a generated tuple of two lists (words that are end-matching and words that are not end-matching) based
             on the inputs (word templates, type distribution, matcher, and phonemes).
         """
         cad_count = round(size * gen_type_dist["CAD"])
 
-        word_matching_end_count = cad_count
-        word_not_matching_end_count = size - word_matching_end_count
-        matching_size_each_template = max(1, word_matching_end_count // len(word_templates))
+        # Doesnt depend on affix type.
+        word_matching_edge_count = cad_count
+        word_not_matching_end_count = size - word_matching_edge_count
+        matching_size_each_template = max(1, word_matching_edge_count // len(word_templates))
         not_matching_size_each_template = max(1, word_not_matching_end_count // len(word_templates))
         valid_match_templates = []
         valid_not_match_templates = []
         match_words = []
         not_match_words = []
         print(size)
-        print("match end: ", word_matching_end_count)
-        print("not match end: ", word_matching_end_count)
+        print("match end: ", word_matching_edge_count)
+        print("not match end: ", word_matching_edge_count)
 
         # Loop over the word templates to ensure at least 1 matching/not-matching word for each template
         for i in range(len(word_templates)):
-            if len(match_words) < word_matching_end_count:
+            if len(match_words) < word_matching_edge_count:
                 match_gen = word_templates[i].generate_words_end_with(matchers[0], phonemes,
                                                                       matching_size_each_template,
                                                                       feature_to_sounds)
@@ -228,10 +302,10 @@ class Paradigm:
 
         # If the number of generated matching words is less than designated matching word counts, randomly choose
         # from templates to generate more matching words, by the number of words that need to be generated more.
-        if len(match_words) < word_matching_end_count:
+        if len(match_words) < word_matching_edge_count:
             match_words.extend(
                 random.choice(valid_match_templates).generate_words_end_with(matchers[0], phonemes,
-                                                                             word_matching_end_count - len(
+                                                                             word_matching_edge_count - len(
                                                                                  match_words),
                                                                              feature_to_sounds))
 
@@ -244,6 +318,84 @@ class Paradigm:
                                                                                      feature_to_sounds))
 
         return match_words, not_match_words
+
+    def _gen_word_roots(self,
+                        matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                        word_templates, phonemes, feature_to_sounds,
+                        matching_col_count, not_matching_col_count, rule, words):
+        """
+        NOTE: (in)dependent of affix type
+        Generate word roots based on the length of the matchers (2 or 3)
+        """
+
+        if len(matchers) not in [2, 3]:
+            raise NotImplementedError
+
+        elif len(matchers) == 2:
+            match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+                                                           matchers, phonemes, feature_to_sounds)
+
+        else:  # when len(matchers) == 3
+            if random.random() < 0.5:
+                comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
+                match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+                                                               comp_matcher, phonemes, feature_to_sounds)
+            else:
+                comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
+                match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
+                                                               comp_matcher, phonemes, feature_to_sounds)
+        words.extend(match_words)
+        words.extend(not_match_words)
+
+        matching_col_words = []
+        not_matching_col_words = []
+
+        col_index = 0
+
+        if not_matching_col_count == 1 or random.random() < 0.5:
+            self._col_data.append((self.col_names[0], _SuffixTransformer(None)))
+            not_matching_col_count -= 1
+            col_index += 1
+
+        matching_col_words = [(word, 0) for word in matching_col_words]
+        not_matching_col_words = [(word, 0) for word in not_matching_col_words]
+        random.shuffle(matching_col_words)
+        random.shuffle(not_matching_col_words)
+        print(rule)
+        for _ in range(matching_col_count):
+            print("M")
+            print(matching_col_words)
+            mod_word = matching_col_words[0][0]
+            print(mod_word)
+            self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
+            matching_col_words.pop(0)
+            matching_col_count -= 1
+            matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
+                                  matching_col_words]
+            matching_col_words.sort(key=lambda x: x[1])
+            col_index += 1
+
+            if len(matching_col_words) == 0:
+                break
+
+        for _ in range(not_matching_col_count + matching_col_count):
+            print("N")
+            print(not_matching_col_words)
+            mod_word = not_matching_col_words[0][0]
+            print(mod_word)
+            self._col_data.append((self.col_names[col_index], _SuffixTransformer(mod_word)))
+            not_matching_col_words.pop(0)
+            not_matching_col_words = [(data[0], data[1] + calc_similarity(mod_word, data[0])) for data in
+                                      not_matching_col_words]
+            not_matching_col_words.sort(key=lambda x: x[1])
+
+            col_index += 1
+
+        for col_template in self.col_templates:
+            matching_col_words.extend(
+                col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+            not_matching_col_words.extend(
+                col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words
