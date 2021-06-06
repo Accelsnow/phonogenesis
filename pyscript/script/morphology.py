@@ -350,6 +350,12 @@ class Paradigm:
         matching_col_words = []
         not_matching_col_words = []
 
+        for col_template in self.col_templates:
+            matching_col_words.extend(
+                col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+            not_matching_col_words.extend(
+                col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+
         col_index = 0
 
         if not_matching_col_count == 1 or random.random() < 0.5:
@@ -390,12 +396,6 @@ class Paradigm:
             not_matching_col_words.sort(key=lambda x: x[1])
 
             col_index += 1
-
-        for col_template in self.col_templates:
-            matching_col_words.extend(
-                col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
-            not_matching_col_words.extend(
-                col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
 
     def get_ur_words(self) -> List[Word]:
         return self.UR_words
