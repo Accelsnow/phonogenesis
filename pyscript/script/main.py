@@ -108,7 +108,7 @@ if __name__ == '__main__':
     #                                                use_rule.get_c_matchers(None, feature_to_sounds),
     #                                                use_rule.get_d_matchers(None, feature_to_sounds)])
     #
-    affix_type = "SUFFIX"
+
     phonemes = import_default_full_phonemes()
     psr = "phoneme: \""
     for p in phonemes:

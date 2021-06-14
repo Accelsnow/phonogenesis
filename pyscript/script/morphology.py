@@ -62,8 +62,8 @@ class Paradigm(ABC):
         # Generate word roots based on the length of the matchers (2 or 3)
         self._col_data = []
         words = []
-        self._gen_word_roots(matchers, word_templates, phonemes, feature_to_sounds,
-                             matching_col_count, not_matching_col_count, rule, words, self._affix_type)
+        self._gen_affix(matchers, word_templates, phonemes, feature_to_sounds,
+                        matching_col_count, not_matching_col_count, rule, words, self._affix_type)
 
         # Common operation for any affix type
         self._ur_trans_operations(words, phonemes, feature_to_type, rule, feature_to_sounds, shuffled)
@@ -132,10 +132,10 @@ class Paradigm(ABC):
         """
         raise NotImplementedError
 
-    def _gen_word_roots(self,
-                        matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
-                        word_templates, phonemes, feature_to_sounds,
-                        matching_col_count, not_matching_col_count, rule, words, affix_type):
+    def _gen_affix(self,
+                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                   word_templates, phonemes, feature_to_sounds,
+                   matching_col_count, not_matching_col_count, rule, words, affix_type):
         """
         NOTE: dependent of affix type
         Generate word roots based on the length of the matchers (2 or 3)
@@ -289,10 +289,10 @@ class PrefixParadigm(Paradigm):
 
         return match_words, not_match_words
 
-    def _gen_word_roots(self,
-                        matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
-                        word_templates, phonemes, feature_to_sounds,
-                        matching_col_count, not_matching_col_count, rule, words, affix_type):
+    def _gen_affix(self,
+                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                   word_templates, phonemes, feature_to_sounds,
+                   matching_col_count, not_matching_col_count, rule, words, affix_type):
         """
         NOTE: dependent of affix type
         Generate word roots based on the length of the matchers (2 or 3)
@@ -432,13 +432,13 @@ class SuffixParadigm(Paradigm):
 
         return match_words, not_match_words
 
-    def _gen_word_roots(self,
-                        matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
-                        word_templates, phonemes, feature_to_sounds,
-                        matching_col_count, not_matching_col_count, rule, words, affix_type):
+    def _gen_affix(self,
+                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                   word_templates, phonemes, feature_to_sounds,
+                   matching_col_count, not_matching_col_count, rule, words, affix_type):
         """
         NOTE: dependent of affix type
-        Generate word roots based on the length of the matchers (2 or 3)
+        Generate word affixes based on the length of the matchers (2 or 3)
         """
         mod_word = None
         if len(matchers) not in [2, 3]:
