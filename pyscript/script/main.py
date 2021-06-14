@@ -108,7 +108,7 @@ if __name__ == '__main__':
     #                                                use_rule.get_c_matchers(None, feature_to_sounds),
     #                                                use_rule.get_d_matchers(None, feature_to_sounds)])
     #
-
+    affix_type = "SUFFIX"
     phonemes = import_default_full_phonemes()
     psr = "phoneme: \""
     for p in phonemes:
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     print(psr + "\",")
     print(str(use_rule))
     p_gen = ParadigmGenerator(use_rule, phonemes, templates, feature_to_type, feature_to_sounds)
-    pdim = p_gen._get_valid_question(False)
+    pdim = p_gen._get_valid_question(False, "PREFIX")
     print(str(pdim))
     print(pdim.valid_row_indexes())
     #
