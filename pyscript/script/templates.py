@@ -230,7 +230,6 @@ class Template(Serializable):
 
         if size_limit is None:
             result = self._recur_full_word_list(part_sounds, 0, [''])
-
             return [Word(r) for r in result]
         else:
             word_count = 0

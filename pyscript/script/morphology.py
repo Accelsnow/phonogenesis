@@ -1,7 +1,7 @@
 from typing import List, Dict, Optional, Tuple, Union
 
 from script import Rule, import_default_gloss, Template, Word, Sound
-from script.transformer import *
+from script.morphology_transformer import *
 import random
 from abc import ABC
 
@@ -123,14 +123,59 @@ class Paradigm(ABC):
         random.shuffle(self.col_templates)
 
     def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
-                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
+                   matcher: List[Word],
                    phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
-        """
-        NOTE: dependent of affix type
-        Return a generated tuple of two lists (words that are end-matching and words that are not end-matching) based
-            on the inputs (word templates, type distribution, matcher, and phonemes).
-        """
-        raise NotImplementedError
+        cad_count = round(size * gen_type_dist["CAD"])
+
+        # Doesnt depend on affix type.
+        word_matching_edge_count = cad_count
+        word_not_matching_edge_count = size - word_matching_edge_count
+        matching_size_each_template = max(1, word_matching_edge_count // len(word_templates))
+        not_matching_size_each_template = max(1, word_not_matching_edge_count // len(word_templates))
+        valid_match_templates = []
+        valid_not_match_templates = []
+        match_words = []
+        not_match_words = []
+        print(size)
+        print("match end: ", word_matching_edge_count)
+        print("not match end: ", word_matching_edge_count)
+
+        # Loop over the word templates to ensure at least 1 matching/not-matching word for each template
+        for i in range(len(word_templates)):
+            if len(match_words) < word_matching_edge_count:
+                match_gen = word_templates[i].generate_words_start_with(matcher, phonemes,
+                                                                        matching_size_each_template,
+                                                                        feature_to_sounds)
+                match_words.extend(match_gen)
+                if len(match_gen) > 0:
+                    valid_match_templates.append(word_templates[i])
+
+            if len(not_match_words) < word_not_matching_edge_count:
+                not_match_gen = word_templates[i].generate_words_not_start_with(matcher, phonemes,
+                                                                                not_matching_size_each_template,
+                                                                                feature_to_sounds)
+                not_match_words.extend(not_match_gen)
+                if len(not_match_gen) > 0:
+                    valid_not_match_templates.append(word_templates[i])
+
+        # If the number of generated matching words is less than designated matching word counts, randomly choose
+        # from templates to generate more matching words, by the number of words that need to be generated more.
+        if len(match_words) < word_matching_edge_count:
+            match_words.extend(
+                random.choice(valid_match_templates).generate_words_start_with(matcher, phonemes,
+                                                                               word_matching_edge_count - len(
+                                                                                   match_words),
+                                                                               feature_to_sounds))
+
+        # Same as above, but this time for not-matching words.
+        if len(not_match_words) < word_not_matching_edge_count:
+            not_match_words.extend(
+                random.choice(valid_not_match_templates).generate_words_not_start_with(matcher, phonemes,
+                                                                                       word_not_matching_edge_count - len(
+                                                                                           not_match_words),
+                                                                                       feature_to_sounds))
+
+        return match_words, not_match_words
 
     def _gen_affix(self,
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
@@ -234,61 +279,6 @@ class PrefixParadigm(Paradigm):
         super().__init__(word_templates, rule, matchers, phonemes, feature_to_type,
                          feature_to_sounds, shuffled, affix_type)
 
-    def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
-                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
-                   phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
-        cad_count = round(size * gen_type_dist["CAD"])
-
-        # Doesnt depend on affix type.
-        word_matching_edge_count = cad_count
-        word_not_matching_edge_count = size - word_matching_edge_count
-        matching_size_each_template = max(1, word_matching_edge_count // len(word_templates))
-        not_matching_size_each_template = max(1, word_not_matching_edge_count // len(word_templates))
-        valid_match_templates = []
-        valid_not_match_templates = []
-        match_words = []
-        not_match_words = []
-        print(size)
-        print("match end: ", word_matching_edge_count)
-        print("not match end: ", word_matching_edge_count)
-
-        # Loop over the word templates to ensure at least 1 matching/not-matching word for each template
-        for i in range(len(word_templates)):
-            if len(match_words) < word_matching_edge_count:
-                match_gen = word_templates[i].generate_words_start_with(matchers[0], phonemes,
-                                                                        matching_size_each_template,
-                                                                        feature_to_sounds)
-                match_words.extend(match_gen)
-                if len(match_gen) > 0:
-                    valid_match_templates.append(word_templates[i])
-
-            if len(not_match_words) < word_not_matching_edge_count:
-                not_match_gen = word_templates[i].generate_words_not_start_with(matchers[0], phonemes,
-                                                                                not_matching_size_each_template,
-                                                                                feature_to_sounds)
-                not_match_words.extend(not_match_gen)
-                if len(not_match_gen) > 0:
-                    valid_not_match_templates.append(word_templates[i])
-
-        # If the number of generated matching words is less than designated matching word counts, randomly choose
-        # from templates to generate more matching words, by the number of words that need to be generated more.
-        if len(match_words) < word_matching_edge_count:
-            match_words.extend(
-                random.choice(valid_match_templates).generate_words_start_with(matchers[0], phonemes,
-                                                                               word_matching_edge_count - len(
-                                                                                   match_words),
-                                                                               feature_to_sounds))
-
-        # Same as above, but this time for not-matching words.
-        if len(not_match_words) < word_not_matching_edge_count:
-            not_match_words.extend(
-                random.choice(valid_not_match_templates).generate_words_not_start_with(matchers[0], phonemes,
-                                                                                       word_not_matching_edge_count - len(
-                                                                                           not_match_words),
-                                                                                       feature_to_sounds))
-
-        return match_words, not_match_words
-
     def _gen_affix(self,
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                    word_templates, phonemes, feature_to_sounds,
@@ -303,17 +293,17 @@ class PrefixParadigm(Paradigm):
 
         elif len(matchers) == 2:
             match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                           matchers, phonemes, feature_to_sounds)
+                                                           matchers[1], phonemes, feature_to_sounds)
 
         else:  # when len(matchers) == 3
             if random.random() < 0.5:
-                comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
+                matchers = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
+                                                               matchers[1], phonemes, feature_to_sounds)
             else:
-                comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
+                matchers = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
+                                                               matchers[1], phonemes, feature_to_sounds)
         words.extend(match_words)
         words.extend(not_match_words)
 
@@ -322,9 +312,9 @@ class PrefixParadigm(Paradigm):
 
         for col_template in self.col_templates:
             matching_col_words.extend(
-                col_template.generate_words_end_with(matchers[1], phonemes, 5, feature_to_sounds))
+                col_template.generate_words_end_with(matchers[0], phonemes, 5, feature_to_sounds))
             not_matching_col_words.extend(
-                col_template.generate_words_not_end_with(matchers[1], phonemes, 5, feature_to_sounds))
+                col_template.generate_words_not_end_with(matchers[0], phonemes, 5, feature_to_sounds))
 
         col_index = 0
 
@@ -377,61 +367,6 @@ class SuffixParadigm(Paradigm):
         super().__init__(word_templates, rule, matchers, phonemes, feature_to_type,
                          feature_to_sounds, shuffled, affix_type)
 
-    def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
-                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
-                   phonemes: List[Word], feature_to_sounds: Dict[str, List[Sound]]):
-        cad_count = round(size * gen_type_dist["CAD"])
-
-        # Doesnt depend on affix type.
-        word_matching_edge_count = cad_count
-        word_not_matching_edge_count = size - word_matching_edge_count
-        matching_size_each_template = max(1, word_matching_edge_count // len(word_templates))
-        not_matching_size_each_template = max(1, word_not_matching_edge_count // len(word_templates))
-        valid_match_templates = []
-        valid_not_match_templates = []
-        match_words = []
-        not_match_words = []
-        print(size)
-        print("match end: ", word_matching_edge_count)
-        print("not match end: ", word_matching_edge_count)
-
-        # Loop over the word templates to ensure at least 1 matching/not-matching word for each template
-        for i in range(len(word_templates)):
-            if len(match_words) < word_matching_edge_count:
-                match_gen = word_templates[i].generate_words_end_with(matchers[0], phonemes,
-                                                                      matching_size_each_template,
-                                                                      feature_to_sounds)
-                match_words.extend(match_gen)
-                if len(match_gen) > 0:
-                    valid_match_templates.append(word_templates[i])
-
-            if len(not_match_words) < word_not_matching_edge_count:
-                not_match_gen = word_templates[i].generate_words_not_end_with(matchers[0], phonemes,
-                                                                              not_matching_size_each_template,
-                                                                              feature_to_sounds)
-                not_match_words.extend(not_match_gen)
-                if len(not_match_gen) > 0:
-                    valid_not_match_templates.append(word_templates[i])
-
-        # If the number of generated matching words is less than designated matching word counts, randomly choose
-        # from templates to generate more matching words, by the number of words that need to be generated more.
-        if len(match_words) < word_matching_edge_count:
-            match_words.extend(
-                random.choice(valid_match_templates).generate_words_end_with(matchers[0], phonemes,
-                                                                             word_matching_edge_count - len(
-                                                                                 match_words),
-                                                                             feature_to_sounds))
-
-        # Same as above, but this time for not-matching words.
-        if len(not_match_words) < word_not_matching_edge_count:
-            not_match_words.extend(
-                random.choice(valid_not_match_templates).generate_words_not_end_with(matchers[0], phonemes,
-                                                                                     word_not_matching_edge_count - len(
-                                                                                         not_match_words),
-                                                                                     feature_to_sounds))
-
-        return match_words, not_match_words
-
     def _gen_affix(self,
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                    word_templates, phonemes, feature_to_sounds,
@@ -446,17 +381,17 @@ class SuffixParadigm(Paradigm):
 
         elif len(matchers) == 2:
             match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                           matchers, phonemes, feature_to_sounds)
+                                                           matchers[1], phonemes, feature_to_sounds)
 
         else:  # when len(matchers) == 3
             if random.random() < 0.5:
-                comp_matcher = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
+                matchers = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
+                                                               matchers[1], phonemes, feature_to_sounds)
             else:
-                comp_matcher = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
+                matchers = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               comp_matcher, phonemes, feature_to_sounds)
+                                                               matchers[1], phonemes, feature_to_sounds)
         words.extend(match_words)
         words.extend(not_match_words)
 
