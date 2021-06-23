@@ -488,7 +488,7 @@ class ParadigmGenerator:
                 'ur_words': [str(w).replace('g', 'ɡ') for w in question.UR_words],
                 'core_data': [[str(w).replace('g', 'ɡ') for w in row] for row in question.applied_core_data],
                 'rule': str(self._rule),
-                'phonemes': [str(w) for w in self._phonemes],
+                'phonemes': [str(w).replace('g', 'ɡ') for w in self._phonemes],
                 'templates': str(self._templates),
                 'Gloss': [str(w) for w in question.gloss_column],
                 'poi': poi.replace('g', 'ɡ')
