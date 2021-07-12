@@ -386,17 +386,17 @@ class SuffixParadigm(Paradigm):
 
         elif len(matchers) == 2:
             match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                           matchers[1], phonemes, feature_to_sounds)
+                                                           matchers[0], phonemes, feature_to_sounds)
 
         else:  # when len(matchers) == 3
             if random.random() < 0.5:
                 matchers = matchers[0], [Word(str(w1) + str(w2)) for w1 in matchers[1] for w2 in matchers[2]]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               matchers[1], phonemes, feature_to_sounds)
+                                                               matchers[0], phonemes, feature_to_sounds)
             else:
                 matchers = [Word(str(w0) + str(w1)) for w0 in matchers[0] for w1 in matchers[1]], matchers[2]
                 match_words, not_match_words = self._gen_words(self.row_count, self.gen_type_dist, word_templates,
-                                                               matchers[1], phonemes, feature_to_sounds)
+                                                               matchers[0], phonemes, feature_to_sounds)
         words.extend(match_words)
         words.extend(not_match_words)
 
@@ -504,6 +504,7 @@ class SuffixParadigm(Paradigm):
                                                                                        feature_to_sounds))
 
         return match_words, not_match_words
+
 
 class ParadigmGenerator:
     def __init__(self, rule: Rule, phonemes: List[Word], templates: List[Template],
