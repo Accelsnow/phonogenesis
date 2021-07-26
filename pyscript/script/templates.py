@@ -100,18 +100,58 @@ class Template(Serializable):
 
     def generate_words_end_with(self, end_word_list: List[Word], phonemes: List[Word],
                                 size_limit: int, feature_to_sounds: Dict[str, List[Sound]]):
-        end_word_sound_list = end_word_list[0].get_sounds()
-        end_size = len(end_word_sound_list)
-        template_end_particles = self._components[len(self._components) - end_size:]
+        valid_end_words = []
 
-        for i in range(end_size):
-            if end_word_sound_list[i] not in template_end_particles[i].get_matching_sounds(phonemes, feature_to_sounds):
-                return []
+        part_sounds = [self._components[i].get_matching_sounds(phonemes, feature_to_sounds) for i in
+                       range(len(self._components))]
 
-        clipped_template = Template(self._components[:len(self._components) - end_size])
-        clipped_words = clipped_template.generate_word_list(phonemes, size_limit, feature_to_sounds)
+        for end_word in end_word_list:
+            sounds = end_word.get_sounds()
+            valid = True
 
-        return [Word(str(w) + str(random.choice(end_word_list))) for w in clipped_words]
+            for i in range(len(end_word)):
+                if i >= len(self._components) or sounds[i] not in part_sounds[len(self._components) - len(end_word) + i]:
+                    valid = False
+                    break
+
+            if valid:
+                valid_end_words.append(end_word)
+
+        if valid_end_words == [] or len(valid_end_words) == 0:
+            return []
+
+        end_lens = [len(word) for word in valid_end_words]
+        clipped_words = {}
+
+        for l in end_lens:
+            comp_slice = self._components[:len(self._components) - l]
+            if comp_slice == [] or comp_slice == 0:
+                clipped_words[l] = []
+            else:
+                clipped_words[l] = Template(comp_slice).generate_word_list(phonemes, size_limit * 10, feature_to_sounds)
+
+        words = []
+        i = 0
+        regen_limit = 100
+        while i < size_limit and regen_limit > 0:
+            end = random.choice(valid_end_words)
+
+            clipped_candidates = clipped_words[len(end)]
+            if clipped_candidates == [] or len(clipped_candidates) == 0:
+                head = ""
+            else:
+                head = random.choice(clipped_candidates)
+
+            word = Word(str(head) + str(end))
+
+            if word in words:
+                regen_limit -= 1
+                continue
+
+            words.append(word)
+            i += 1
+
+        return words
 
     def generate_words_not_end_with(self, avoid_words: List[Word], phonemes: List[Word], size_limit: int,
                                     feature_to_sounds: Dict[str, List[Sound]]):
@@ -134,22 +174,59 @@ class Template(Serializable):
     def generate_words_start_with(self, start_word_list: List[Word], phonemes: Optional[List[Word], None],
                                   size_limit: Optional[int, None],
                                   feature_to_sounds: Dict[str, List[Sound]]):
-        start_word_sound_list = start_word_list[0].get_sounds()
-        start_size = len(start_word_sound_list)
-        template_start_particles = self._components[:start_size]
+        valid_start_words = []
 
-        for i in range(start_size):
-            if start_word_sound_list[i] not in template_start_particles[i].get_matching_sounds(phonemes,
-                                                                                               feature_to_sounds):
-                return []
+        part_sounds = [self._components[i].get_matching_sounds(phonemes, feature_to_sounds) for i in
+                       range(len(self._components))]
 
-        # if len(self._components) == 1:
-        #     return start_word_list
+        for start_word in start_word_list:
+            sounds = start_word.get_sounds()
+            valid = True
 
-        clipped_template = Template(self._components[start_size:])
-        clipped_words = clipped_template.generate_word_list(phonemes, size_limit, feature_to_sounds)
+            for i in range(len(start_word)):
+                if i >= len(self._components) or sounds[i] not in part_sounds[i]:
+                    valid = False
+                    break
 
-        return [Word(str(random.choice(start_word_list)) + str(w)) for w in clipped_words]
+            if valid:
+                valid_start_words.append(start_word)
+
+        if valid_start_words == [] or len(valid_start_words) == 0:
+            return []
+
+        start_lens = [len(word) for word in valid_start_words]
+        clipped_words = {}
+
+        for l in start_lens:
+            comp_slice = self._components[l:]
+            if comp_slice == [] or comp_slice == 0:
+                clipped_words[l] = []
+            else:
+                clipped_words[l] = Template(comp_slice).generate_word_list(phonemes, size_limit * 10, feature_to_sounds)
+
+        words = []
+
+        i = 0
+        regen_limit = 100
+        while i < size_limit and regen_limit > 0:
+            start = random.choice(valid_start_words)
+
+            clipped_candidates = clipped_words[len(start)]
+            if clipped_candidates == [] or len(clipped_candidates) == 0:
+                tail = ""
+            else:
+                tail = random.choice(clipped_candidates)
+
+            word = Word(str(start) + str(tail))
+
+            if word in words:
+                regen_limit -= 1
+                continue
+
+            words.append(word)
+            i += 1
+
+        return words
 
     def generate_words_not_start_with(self, avoid_words: List[Word], phonemes: List[Word], size_limit: int,
                                       feature_to_sounds: Dict[str, List[Sound]]):
@@ -167,6 +244,7 @@ class Template(Serializable):
 
             regen_limit -= 1
 
+        print("Regen limit reached for generate_words_not_start_with")
         return []
 
     def generate_word_list(self, phonemes: Optional[List[Word], None], size_limit: Optional[int, None],
