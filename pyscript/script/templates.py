@@ -143,8 +143,8 @@ class Template(Serializable):
                                                                                                feature_to_sounds):
                 return []
 
-        if len(self._components) == 1:
-            return start_word_list
+        # if len(self._components) == 1:
+        #     return start_word_list
 
         clipped_template = Template(self._components[start_size:])
         clipped_words = clipped_template.generate_word_list(phonemes, size_limit, feature_to_sounds)

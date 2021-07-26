@@ -18,29 +18,38 @@ class TransformerGenerationError(Exception):
 def make_paradigm(word_templates: List[Template], rule: Rule,
                   matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                   phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                  shuffled: bool, affix_type: Optional[str]):
+                  shuffled: bool, affix_type: Optional[str], mixed: Optional[bool]):
     """
     Construct a transformer class of certain affix type based on the input "affix_type".
     """
     if affix_type == "SUFFIX":
         return SuffixParadigm(word_templates, rule, matchers, phonemes, feature_to_type, feature_to_sounds,
-                              shuffled, affix_type)
+                              shuffled, affix_type, mixed)
     elif affix_type == "PREFIX":
         return PrefixParadigm(word_templates, rule, matchers, phonemes, feature_to_type, feature_to_sounds,
-                              shuffled, affix_type)
+                              shuffled, affix_type, mixed)
     else:
         print("Wrong type of affix requested. By default, suffix transformer is called.")
         return SuffixParadigm(word_templates, rule, matchers, phonemes, feature_to_type, feature_to_sounds,
-                              shuffled, affix_type)
+                              shuffled, affix_type, mixed)
 
 
 class Paradigm(ABC):
     def __init__(self, word_templates: List[Template], rule: Rule,
                  matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                  phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                 shuffled: bool, affix_type: str):
+                 shuffled: bool, affix_type: str, mixed: Optional[bool]):
 
         self._affix_type = affix_type
+        self._mixed = mixed
+        self._dummy_affix = None
+        self._num_dummy = 0
+        if self._mixed:
+            self._num_dummy = random.randint(0, 2)
+            if affix_type == "PREFIX":
+                self._dummy_affix = "SUFFIX"
+            else:
+                self._dummy_affix = "PREFIX"
 
         # A probabilistic process to decide the number of columns (either have a matching environment of the
         # chosen rule, or not have the matching environment) by counting the number of words that matches the target.
@@ -87,6 +96,7 @@ class Paradigm(ABC):
                 not_matching_col_count += 1
             else:
                 matching_col_count += 1
+        self.col_count += self._num_dummy
         return matching_col_count, not_matching_col_count
 
     def _select_glosses(self):
@@ -225,9 +235,9 @@ class PrefixParadigm(Paradigm):
     def __init__(self, word_templates: List[Template], rule: Rule,
                  matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                  phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                 shuffled: bool, affix_type: str):
+                 shuffled: bool, affix_type: str, mixed: Optional[bool]):
         super().__init__(word_templates, rule, matchers, phonemes, feature_to_type,
-                         feature_to_sounds, shuffled, affix_type)
+                         feature_to_sounds, shuffled, affix_type, mixed)
 
     def _gen_affix(self,
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
@@ -259,12 +269,15 @@ class PrefixParadigm(Paradigm):
 
         matching_col_words = []
         not_matching_col_words = []
+        dummy_col_words = []
 
         for col_template in self.col_templates:
             matching_col_words.extend(
                 col_template.generate_words_end_with(matchers[0], phonemes, 5, feature_to_sounds))
             not_matching_col_words.extend(
                 col_template.generate_words_not_end_with(matchers[0], phonemes, 5, feature_to_sounds))
+            dummy_col_words.extend(
+                col_template.generate_word_list(phonemes, 5, feature_to_sounds))
 
         col_index = 0
 
@@ -275,8 +288,11 @@ class PrefixParadigm(Paradigm):
 
         matching_col_words = [(word, 0) for word in matching_col_words]
         not_matching_col_words = [(word, 0) for word in not_matching_col_words]
+        dummy_col_words = [(word, 0) for word in dummy_col_words]
+
         random.shuffle(matching_col_words)
         random.shuffle(not_matching_col_words)
+        random.shuffle(dummy_col_words)
         print(rule)
         for _ in range(matching_col_count):
             print("M")
@@ -305,6 +321,16 @@ class PrefixParadigm(Paradigm):
                                       not_matching_col_words]
             not_matching_col_words.sort(key=lambda x: x[1])
 
+            col_index += 1
+
+        for _ in range(self._num_dummy):
+            print("IR")
+            print(dummy_col_words)
+            mod_word = dummy_col_words[0][0]
+            print(mod_word)
+            self._col_data.append((self.col_names[col_index], make_transformer(self._dummy_affix, mod_word)))
+            dummy_col_words.pop(0)
+            self._num_dummy -= 1
             col_index += 1
 
     def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
@@ -368,9 +394,9 @@ class SuffixParadigm(Paradigm):
     def __init__(self, word_templates: List[Template], rule: Rule,
                  matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
                  phonemes: List[Word], feature_to_type: Dict[str, str], feature_to_sounds: Dict[str, List[Sound]],
-                 shuffled: bool, affix_type: str):
+                 shuffled: bool, affix_type: str, mixed: Optional[bool]):
         super().__init__(word_templates, rule, matchers, phonemes, feature_to_type,
-                         feature_to_sounds, shuffled, affix_type)
+                         feature_to_sounds, shuffled, affix_type, mixed)
 
     def _gen_affix(self,
                    matchers: Union[Tuple[List[Word], List[Word]], Tuple[List[Word], List[Word], List[Word]]],
@@ -402,12 +428,15 @@ class SuffixParadigm(Paradigm):
 
         matching_col_words = []
         not_matching_col_words = []
+        dummy_col_words = []
 
         for col_template in self.col_templates:
             matching_col_words.extend(
                 col_template.generate_words_start_with(matchers[1], phonemes, 5, feature_to_sounds))
             not_matching_col_words.extend(
                 col_template.generate_words_not_start_with(matchers[1], phonemes, 5, feature_to_sounds))
+            dummy_col_words.extend(
+                col_template.generate_word_list(phonemes, 5, feature_to_sounds))
 
         col_index = 0
 
@@ -418,8 +447,10 @@ class SuffixParadigm(Paradigm):
 
         matching_col_words = [(word, 0) for word in matching_col_words]
         not_matching_col_words = [(word, 0) for word in not_matching_col_words]
+        dummy_col_words = [(word, 0) for word in dummy_col_words]
         random.shuffle(matching_col_words)
         random.shuffle(not_matching_col_words)
+        random.shuffle(dummy_col_words)
         print(rule)
         for _ in range(matching_col_count):
             print("M")
@@ -448,6 +479,16 @@ class SuffixParadigm(Paradigm):
                                       not_matching_col_words]
             not_matching_col_words.sort(key=lambda x: x[1])
 
+            col_index += 1
+
+        for _ in range(self._num_dummy):
+            print("IR")
+            print(dummy_col_words)
+            mod_word = dummy_col_words[0][0]
+            print(mod_word)
+            self._col_data.append((self.col_names[col_index], make_transformer(self._dummy_affix, mod_word)))
+            dummy_col_words.pop(0)
+            self._num_dummy -= 1
             col_index += 1
 
     def _gen_words(self, size: int, gen_type_dist: Dict[str, float], word_templates: List[Template],
@@ -524,7 +565,7 @@ class ParadigmGenerator:
 
             paradigm = make_paradigm(self._templates, self._rule, matchers, self._phonemes,
                                      self._feature_to_type, self._feature_to_sounds,
-                                     shuffled, affix_type)
+                                     shuffled, affix_type, mixed=True)
             return paradigm
 
         LOGGER.error("Rule %s\n" % str(self._rule))
