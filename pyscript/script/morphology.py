@@ -1,3 +1,4 @@
+import time
 from typing import List, Dict, Optional, Tuple, Union
 
 from script import Rule, import_default_gloss, Template, Word, Sound
@@ -182,6 +183,8 @@ class Paradigm:
 
         word_matching_end_count = cad_count
         word_not_matching_end_count = size - word_matching_end_count
+
+        #TODO fix
         matching_size_each_template = max(1, word_matching_end_count // len(word_templates))
         not_matching_size_each_template = max(1, word_not_matching_end_count // len(word_templates))
         valid_match_templates = []
@@ -283,19 +286,17 @@ class ParadigmGenerator:
         self._feature_to_sounds = feature_to_sounds
         self._rule = rule
         self._templates = templates
+        self._unid = random.getrandbits(20) + int(round(time.time() * 1000.0))
 
     def _get_valid_question(self, shuffled: bool) -> Optional[Paradigm]:
         retry_limit = 2
         trial = 0
-
         while trial < retry_limit:
             matchers = construct_matchers(self._rule, self._phonemes, self._feature_to_sounds)
 
             paradigm = Paradigm(self._templates, self._rule, matchers, self._phonemes, self._feature_to_type,
                                 self._feature_to_sounds, shuffled)
-
             return paradigm
-
         LOGGER.error("Rule %s\n" % str(self._rule))
         LOGGER.error("Phoneme %s\n" % str(self._phonemes))
         LOGGER.error("Exceeded maximum retry limit. Failed to find a question!\n")
@@ -312,30 +313,33 @@ class ParadigmGenerator:
 
         if isIPAg:
             question_data = {
+                'ID': self._unid,
                 'header_row': [str(w).replace('g', 'ɡ') for w in question.trans_names],
                 'trans_patterns': [str(w).replace('g', 'ɡ') for w in question.UR_trans_pattern],
                 'ur_words': [str(w).replace('g', 'ɡ') for w in question.UR_words],
                 'core_data': [[str(w).replace('g', 'ɡ') for w in row] for row in question.applied_core_data],
                 'rule': str(self._rule),
                 'phonemes': [str(w) for w in self._phonemes],
-                'templates': str(self._templates),
+                'templates': [str(t) for t in self._templates],
                 'Gloss': [str(w) for w in question.gloss_column],
                 'poi': poi.replace('g', 'ɡ')
             }
         else:
             question_data = {
+                'ID': self._unid,
                 'header_row': [str(w) for w in question.trans_names],
                 'trans_patterns': [str(w) for w in question.UR_trans_pattern],
                 'ur_words': [str(w) for w in question.UR_words],
                 'core_data': [[str(w) for w in row] for row in question.applied_core_data],
                 'rule': str(self._rule),
                 'phonemes': [str(w) for w in self._phonemes],
-                'templates': str(self._templates),
+                'templates': [str(t) for t in self._templates],
                 'Gloss': [str(w) for w in question.gloss_column],
                 'poi': poi
             }
 
         LOGGER.debug(question_data)
+        LOGGER.debug(str(question))
         return question_data
 
 
