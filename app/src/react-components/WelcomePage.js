@@ -39,21 +39,21 @@ class WelcomePage extends React.Component {
         return (
             <ThemeProvider theme={theme}>
                 <ToolBar history={this.props.history} app={this.props.app}/>
-                <div id="intro">
-                    <Card variant="outlined" id={"intro-card"}>
-                        <CardContent>
-                            <Typography color="textSecondary" gutterBottom>
-                                About phonogenesis
-                            </Typography>
-                            <Typography variant="body2" component="p">
-                                Phonogenesis is an online tool for constructing novel phonological data.
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small" onClick={this.onClickAbout}>Learn More</Button>
-                        </CardActions>
-                    </Card>
-                </div>
+                {/*<div id="intro">*/}
+                {/*    <Card variant="outlined" id={"intro-card"}>*/}
+                {/*        <CardContent>*/}
+                {/*            <Typography color="textSecondary" gutterBottom>*/}
+                {/*                About phonogenesis*/}
+                {/*            </Typography>*/}
+                {/*            <Typography variant="body2" component="p">*/}
+                {/*                Phonogenesis is an online tool for constructing novel phonological data.*/}
+                {/*            </Typography>*/}
+                {/*        </CardContent>*/}
+                {/*        <CardActions>*/}
+                {/*            <Button size="small" onClick={this.onClickAbout}>Learn More</Button>*/}
+                {/*        </CardActions>*/}
+                {/*    </Card>*/}
+                {/*</div>*/}
                 <div id="gen-panel"><SimpleGenerator history={this.props.history} app={this.props.app}
                                                      isInnerComp={true}/></div>
 

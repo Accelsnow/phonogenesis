@@ -46,7 +46,7 @@ export const adjustFooter = (page) => {
 };
 
 export const footer = (page) => {
-    return (<footer className={page.state.footerClass}><small>Copyright &copy; 2020, Nathan Sanders, Junan Zhao, et al.
+    return (<footer className={page.state.footerClass}><small>Copyright &copy; 2021, Nathan Sanders, Junan Zhao, et al.
         All Rights Reserved. &nbsp;<a href={"https://accelsnow.com/about"} style={{fontStyle: 'italic'}}>details</a>
     </small></footer>)
 };

@@ -16,7 +16,8 @@ import {ThemeProvider} from '@material-ui/styles';
 
 const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Instructions', 'About', 'Log Out'];
 const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Instructions', 'About', 'Log Out'];
-const guestNav = ['Home', 'Advanced', 'Instructions', 'Login/Sign up', 'About']
+const guestNav = ['Home', 'About']
+const drawerWidth = 240
 
 
 class ToolBar extends React.Component {
@@ -144,7 +145,7 @@ class ToolBar extends React.Component {
                         <IconButton edge="start" onClick={this.openDrawer} color="inherit" aria-label="menu">
                             <MenuIcon/>
                         </IconButton>
-                        <h3>Phonogenesis</h3>
+                        <h3>PHONOGENESIS: An Application for Generating Novel Phonological Data </h3>
                     </Toolbar>
                 </AppBar>
 

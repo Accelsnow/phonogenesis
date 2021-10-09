@@ -29,8 +29,8 @@ class SimpleGenerator extends React.Component {
             footerClass: "copyright-info abs-bottom",
             selectedFamily: "Random",
             sizeSelectWarn: "",
-            selectedQuestionType: "Simple",
-            qType: "Simple",
+            selectedQuestionType: "Morphology",
+            qType: "Morphology",
             isShuffle: true,
             isIPAg: true,
             rule_families: null,
@@ -45,11 +45,11 @@ class SimpleGenerator extends React.Component {
         this.setState({isWaitingResponse: true});
 
         if (this.state.selectedQuestionType === "Simple") {
-            const selectedSize = parseInt(document.getElementById("size-input-field").value);
-            if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
-                alert("Invalid size!");
-                return;
-            }
+            const selectedSize = 15;
+            // if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
+            //     alert("Invalid size!");
+            //     return;
+            // }
 
             genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
                 this.state.selectedFamily, this.updateQuestionBlock);
@@ -127,8 +127,8 @@ class SimpleGenerator extends React.Component {
                                     onChange={this.onQuestionTypeChange.bind(this)}
                                     value={this.state.selectedQuestionType}
                                     id={"qtype-select"}>
-                                <MenuItem value={"Simple"}>Simple</MenuItem>
-                                <MenuItem value={"Morphology"}>Morphology</MenuItem>
+                                <MenuItem value={"Morphology"}>Morphophonology</MenuItem>
+                                <MenuItem value={"Simple"}>Distribution</MenuItem>
                             </Select>
                         </FormControl>
                         </Grid>
@@ -146,20 +146,20 @@ class SimpleGenerator extends React.Component {
                         </FormControl>
                         </Grid>
 
-                        {
-                            this.state.selectedQuestionType !== "Morphology" ?
-                                <Grid item><TextField id={"size-input-field"}
-                                                      label="Size(15-30)"
-                                                      error={this.state.sizeSelectWarn !== ""}
-                                                      helperText={this.state.sizeSelectWarn}
-                                                      type="number"
-                                                      variant="outlined"
-                                                      InputLabelProps={{
-                                                          shrink: true,
-                                                      }}
-                                                      defaultValue={15}
-                                                      onBlur={this.validateSizeSelection}/></Grid> : null
-                        }
+                        {/*{*/}
+                        {/*    this.state.selectedQuestionType !== "Morphology" ?*/}
+                        {/*        <Grid item><TextField id={"size-input-field"}*/}
+                        {/*                              label="Size(15-30)"*/}
+                        {/*                              error={this.state.sizeSelectWarn !== ""}*/}
+                        {/*                              helperText={this.state.sizeSelectWarn}*/}
+                        {/*                              type="number"*/}
+                        {/*                              variant="outlined"*/}
+                        {/*                              InputLabelProps={{*/}
+                        {/*                                  shrink: true,*/}
+                        {/*                              }}*/}
+                        {/*                              defaultValue={15}*/}
+                        {/*                              onBlur={this.validateSizeSelection}/></Grid> : null*/}
+                        {/*}*/}
 
                         <Grid item><FormGroup id={"gen-switches"}>
                             <FormControlLabel

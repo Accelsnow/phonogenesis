@@ -3,18 +3,15 @@
 3,singular,plural,possessive
 4,nominative singular,accusative singular,nominative plural,accusative plural
 5,nominative singular,accusative singular,nominative plural,accusative plural,possessive singular
-6,nominative singular,accusative singular,nominative plural,accusative plural,possessive singular,possessive plural
 
 ### verb
 2,present,past
 3,present,past,future
 4,infinitive,present,past,future
 5,infinitive,present,past,future,present participle
-6,infinitive,present,past,future,present participle,past participle
 
 ### adjective
 2,masculine,feminine
 3,masculine,feminine,neutral
 4,masculine singular,feminine singular,masculine plural,feminine plural
 5,masculine singular,feminine singular,masculine plural,feminine plural,neutral
-6,masculine singular,feminine singular,masculine plural,feminine plural,neutral singular,neutral plural

@@ -499,15 +499,23 @@ def get_morphology_question():
     while try_count < reset_limit:
         phonemes = get_random_phonemes([rule.get_a_matcher(None, None, DEFAULT_DATA['f2ss'])])
         rule_type = rule.get_rule_type(phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])
-        p_gen = ParadigmGenerator(rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
-                                  DEFAULT_DATA['f2ss'])
-        q_data = p_gen.get_paradigm_question(shuffle, isIPAg, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'],
-                                             random.choice(["PREFIX", "SUFFIX"]))
-
-        if q_data is None:
-            try_count += 1
-            continue
-        else:
+        q_data = None
+        while True:
+            try:
+                p_gen = ParadigmGenerator(rule, phonemes, DEFAULT_DATA['templates'], DEFAULT_DATA['f2t'],
+                                          DEFAULT_DATA['f2ss'])
+                q_data = p_gen.get_paradigm_question(shuffle, isIPAg, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'],
+                                                     affix_type=random.choice(["PREFIX", "SUFFIX"]))
+            except IndexError as e:
+                try_count += 1
+                LOGGER.error(e)
+                pass
+            if q_data is None:
+                try_count += 1
+                pass
+            else:
+                break
+        if q_data is not None:
             break
 
     if q_data:
