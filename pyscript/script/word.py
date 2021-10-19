@@ -13,19 +13,23 @@ class Word(Serializable):
     _sounds: List[Sound]
 
     def __init__(self, data: Optional[List[Sound], str]) -> None:
+
         if type(data) == str:
             sounds = []
-            i = 0
+            if len(data) == 1:
+                sounds.append(_SYMBOL[data])
+            else:
+                i = 0
 
-            while i < len(data):
-                end_loc = -1
+                while i < len(data):
+                    end_loc = -1
 
-                for j in range(i + 1, len(data) + 1):
-                    if len(data[i:j]) > 0 and data[i:j] in _SYMBOL:
-                        end_loc = j
+                    for j in range(i + 1, len(data) + 1):
+                        if len(data[i:j]) > 0 and data[i:j] in _SYMBOL:
+                            end_loc = j
 
-                sounds.append(_SYMBOL[data[i:end_loc]])
-                i = end_loc
+                    sounds.append(_SYMBOL[data[i:end_loc]])
+                    i = end_loc
 
             self._sounds = sounds
 

@@ -13,6 +13,7 @@ import {withRouter} from "react-router-dom"
 import {logout} from "../actions/user";
 import {theme} from "../App";
 import {ThemeProvider} from '@material-ui/styles';
+import './Toolbar.css'
 
 const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Instructions', 'About', 'Log Out'];
 const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Instructions', 'About', 'Log Out'];
@@ -145,6 +146,7 @@ class ToolBar extends React.Component {
                         <IconButton edge="start" onClick={this.openDrawer} color="inherit" aria-label="menu">
                             <MenuIcon/>
                         </IconButton>
+                        {/*<img alt="P" className="Logo" src='../phonogenesis%20favicon.png' />*/}
                         <h3>PHONOGENESIS: An Application for Generating Novel Phonological Data </h3>
                     </Toolbar>
                 </AppBar>

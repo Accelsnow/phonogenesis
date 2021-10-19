@@ -112,3 +112,15 @@ export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleFamily, updat
     });
 };
 
+export const testUR = (page, UR) => {
+    axios.post(`${SERVER_URL}/testbox`, {
+        UR: UR
+    }).then(res => {
+        page.setState({convertedSR: res.data.conv["SR"]});
+        readCookie(page.props.app);
+
+    }).catch(error => {
+        console.log(error);
+    });
+}
+

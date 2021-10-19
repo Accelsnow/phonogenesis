@@ -7,6 +7,12 @@ import {theme} from "../App";
 import {ThemeProvider} from '@material-ui/styles';
 import SimpleQuestionBody from "./SimpleQuestionBody";
 import MorphologyQuestionBody from "./MorphologyQuestionBody";
+import TextField from "@material-ui/core/TextField";
+import {testUR} from "../actions/quiz";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import {Box, Select} from "@material-ui/core";
+import MenuItem from "@material-ui/core/MenuItem";
 
 export default class QuestionBlock extends React.Component {
     constructor(props) {
@@ -18,7 +24,10 @@ export default class QuestionBlock extends React.Component {
             showRuleFamily: false,
             showRuleType: false,
             qCount: props.question.size,
-            genMoreCount: 0
+            genMoreCount: 0,
+            customUR: '',
+            customUrValid: true,
+            convertedSR: '—'
         };
     }
 
@@ -30,7 +39,10 @@ export default class QuestionBlock extends React.Component {
             showRuleFamily: false,
             showRuleType: false,
             qCount: this.props.question.size,
-            genMoreCount: 0
+            genMoreCount: 0,
+            customUR: '',
+            customUrValid: true,
+            convertedSR: '—'
         });
     }
 
@@ -69,6 +81,28 @@ export default class QuestionBlock extends React.Component {
         e.preventDefault();
     };
 
+
+    validateCustomUR = phonemes => {
+        let ur = this.state.customUR;
+        let phoneme_str = JSON.stringify(phonemes["phonemes"]).replace(" ", '');
+        if (phoneme_str.includes("ɡ") || phoneme_str.includes("g")){
+            phoneme_str = phoneme_str.concat("gɡ");
+        }
+
+        let validity = true;
+        for (let i=0; i< ur.length; i++) {
+            if (! phoneme_str.includes(ur.charAt(i))){
+                validity = false;
+            }
+        }
+        if (validity === true){
+            let ur = this.state.customUR.replace('ɡ', 'g')
+            testUR(this, ur)
+        }
+        this.setState({customUrValid: validity});
+    };
+
+
     render() {
         if (!this.props.question) {
             return (<br/>);
@@ -85,6 +119,8 @@ export default class QuestionBlock extends React.Component {
         const templates = question.templates;
         const sp1 = size / 3;
         const sp2 = size / 3 * 2;
+        const defaultHelper = "Copy and paste the IPA symbols from the given phoneme inventory."
+        const invalidWarn = "Your UR includes phones outside of the phoneme inventory; Try again."
 
         let bodyArgs;
         if (question.qType === "Simple") {
@@ -122,6 +158,7 @@ export default class QuestionBlock extends React.Component {
         const canPhoneme = question.canPhoneme || this.props.simpleGen;
         const canUR = question.canUR || this.props.simpleGen;
         const canRule = !this.props.isQuiz || this.props.simpleGen;
+
 
         return (
             <ThemeProvider theme={theme}>
@@ -187,6 +224,79 @@ export default class QuestionBlock extends React.Component {
                                         {showRule ? <Grid item>Rule: {ruleName}</Grid> : null}
                                     </Grid>
                                 </Grid>
+                                <Grid container
+                                      direction="column"
+                                      alignItems="center"
+                                      justify = "center"
+                                      id={"rule-test-box"}>
+                                    <Grid container
+                                          direction="row"
+                                          justify="center"
+                                          alignItems="center"
+                                          spacing={3}
+                                          id={"rule-test-main"}>
+                                        <Grid item><TextField id = {"ur-input-field"}
+                                                              style = {{width: 200}}
+                                                              value={this.state.customUR}
+                                                              label="Custom UR"
+                                                              error={this.state.customUrValid === false}
+                                                              //helperText={this.state.customUrValid  === false ? invalidWarn : defaultHelper}
+                                                              type="string"
+                                                              variant="outlined"
+                                                              InputLabelProps={{
+                                                                  shrink: true
+                                                              }}
+                                                              onChange={event => this.setState(
+                                                                  {customUR: event.target.value.replace(" ","")})}
+                                                    />
+                                        </Grid>
+                                        <Grid item>
+                                            <Button variant="contained" color="primary"
+                                                onClick={()=>this.validateCustomUR({phonemes})}>Test</Button>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField id = {"ur-input-field"}
+                                                       style = {{width: 200}}
+                                                       label = "Converted SR"
+                                                        type='text'
+                                                       defaultValue= "—"
+                                                        value= {this.state.customUrValid  === false ?
+                                                            "--" : this.state.convertedSR}
+                                                        variant='outlined'
+                                                        inputProps={
+                                                            { readOnly: true,
+                                                                style: { textAlign: 'center', color: "black"}}
+                                                        }
+                                                       InputLabelProps={{style: {color: "#001636"}}}
+                                                       disabled
+
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                    <Grid justify="center"
+                                          style={((this.state.customUrValid === false) ?
+                                              {color: "red", fontSize:12, fontFamily: "Helvetica Neue"}:
+                                              {color: "grey", fontSize:12, fontFamily: "Helvetica Neue"})}
+                                          id={"rule-test-box"}>
+                                        {this.state.customUrValid === false ? invalidWarn : defaultHelper}
+
+                                    </Grid>
+                                </Grid>
+
+
+                                {/*<Grid item><FormControl variant="outlined" id={"rule-test-box"}>*/}
+                                {/*    <InputLabel id={"test-box-label"}>Rule Test Box</InputLabel>*/}
+                                {/*    <Select labelId="family-sel-label" label={"Rule Family"}*/}
+                                {/*            onChange={this.onFamilyChange.bind(this)} value={this.state.selectedFamily}*/}
+                                {/*            id={"family-select"}>*/}
+                                {/*        <MenuItem value={"Random"}>Random</MenuItem>*/}
+                                {/*        {this.state.rule_families.map(family =>*/}
+                                {/*            <MenuItem key={family} value={family}>{family}</MenuItem>*/}
+                                {/*        )}*/}
+                                {/*    </Select>*/}
+                                {/*</FormControl>*/}
+                                {/*</Grid>*/}
+
 
                             </Grid>
                         </Grid>
