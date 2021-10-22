@@ -12,6 +12,6 @@
 
 ### adjective
 2,masculine,feminine
-3,masculine,feminine,neutral
+3,masculine,feminine,neuter
 4,masculine singular,feminine singular,masculine plural,feminine plural
-5,masculine singular,feminine singular,masculine plural,feminine plural,neutral
+5,masculine singular,feminine singular,masculine plural,feminine plural,neuter

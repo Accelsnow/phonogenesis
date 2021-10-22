@@ -561,7 +561,10 @@ class ParadigmGenerator:
         trial = 0
 
         while trial < retry_limit:
-            matchers = construct_matchers(self._rule, self._phonemes, self._feature_to_sounds)
+            try:
+                matchers = construct_matchers(self._rule, self._phonemes, self._feature_to_sounds)
+            except ValueError as e:
+                return None
 
             paradigm = make_paradigm(self._templates, self._rule, matchers, self._phonemes,
                                      self._feature_to_type, self._feature_to_sounds,

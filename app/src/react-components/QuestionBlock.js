@@ -27,7 +27,8 @@ export default class QuestionBlock extends React.Component {
             genMoreCount: 0,
             customUR: '',
             customUrValid: true,
-            convertedSR: '—'
+            convertedSR: '—',
+            isIPAg: props.isIPAg
         };
     }
 
@@ -42,7 +43,8 @@ export default class QuestionBlock extends React.Component {
             genMoreCount: 0,
             customUR: '',
             customUrValid: true,
-            convertedSR: '—'
+            convertedSR: '—',
+            isIPAg: this.props.isIPAg
         });
     }
 
@@ -84,7 +86,8 @@ export default class QuestionBlock extends React.Component {
 
     validateCustomUR = phonemes => {
         let ur = this.state.customUR;
-        let phoneme_str = JSON.stringify(phonemes["phonemes"]).replace(" ", '');
+        let phoneme_str = JSON.stringify(phonemes["phonemes"]).replaceAll(" ", '');
+
         if (phoneme_str.includes("ɡ") || phoneme_str.includes("g")){
             phoneme_str = phoneme_str.concat("gɡ");
         }
@@ -96,8 +99,8 @@ export default class QuestionBlock extends React.Component {
             }
         }
         if (validity === true){
-            let ur = this.state.customUR.replace('ɡ', 'g')
-            testUR(this, ur)
+            let ur = this.state.customUR.replaceAll('ɡ', 'g')
+            testUR(this, ur, this.state.isIPAg)
         }
         this.setState({customUrValid: validity});
     };
@@ -131,7 +134,8 @@ export default class QuestionBlock extends React.Component {
             bodyArgs = {
                 urs: urs,
                 srs: srs,
-                gls: gls
+                gls: gls,
+                ipaG: this.state.isIPAg
             }
         } else if (question.qType === "Morphology") {
             const headerRow = question.header_row;
@@ -144,7 +148,8 @@ export default class QuestionBlock extends React.Component {
                 gls: gls,
                 headerRow: headerRow,
                 transPat: transPat,
-                coreData: coreData
+                coreData: coreData,
+                ipaG: this.state.isIPAg
             }
         } else {
             console.error("ERROR UNIDENTIFIED QUESTION TYPE " + question.qType);
@@ -247,7 +252,7 @@ export default class QuestionBlock extends React.Component {
                                                                   shrink: true
                                                               }}
                                                               onChange={event => this.setState(
-                                                                  {customUR: event.target.value.replace(" ","")})}
+                                                                  {customUR: event.target.value.replaceAll(" ","")})}
                                                     />
                                         </Grid>
                                         <Grid item>
@@ -282,20 +287,6 @@ export default class QuestionBlock extends React.Component {
 
                                     </Grid>
                                 </Grid>
-
-
-                                {/*<Grid item><FormControl variant="outlined" id={"rule-test-box"}>*/}
-                                {/*    <InputLabel id={"test-box-label"}>Rule Test Box</InputLabel>*/}
-                                {/*    <Select labelId="family-sel-label" label={"Rule Family"}*/}
-                                {/*            onChange={this.onFamilyChange.bind(this)} value={this.state.selectedFamily}*/}
-                                {/*            id={"family-select"}>*/}
-                                {/*        <MenuItem value={"Random"}>Random</MenuItem>*/}
-                                {/*        {this.state.rule_families.map(family =>*/}
-                                {/*            <MenuItem key={family} value={family}>{family}</MenuItem>*/}
-                                {/*        )}*/}
-                                {/*    </Select>*/}
-                                {/*</FormControl>*/}
-                                {/*</Grid>*/}
 
 
                             </Grid>

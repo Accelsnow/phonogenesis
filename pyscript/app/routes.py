@@ -469,7 +469,18 @@ def get_simple_question():
 
 @app.route('/rule/families', methods=['GET'])
 def get_rule_families():
-    return jsonify(families=[fam.get_name() for fam in DEFAULT_DATA['rule_fam']])
+    morph_rule_dic = {}
+    rules = list(DEFAULT_DATA['rules'].values())
+    edge_rules = [r for r in rules if r._Cs_edge == [False] and r._Ds_edge == [False]]
+
+    for rule in edge_rules:
+        if rule.get_family() not in morph_rule_dic:
+            morph_rule_dic[rule.get_family()] = 1
+        else:
+            morph_rule_dic[rule.get_family()] += 1
+
+    return jsonify(dist_families=[fam.get_name() for fam in DEFAULT_DATA['rule_fam']],
+                   morph_families=[fam.get_name() for fam in morph_rule_dic.keys()])
 
 
 @app.route('/morphology/question', methods=['POST'])
@@ -483,6 +494,7 @@ def get_morphology_question():
     except ValueError:
         abort(400)
         return
+
     q_data = None
     rule_type = None
     reset_limit = 10
@@ -497,6 +509,8 @@ def get_morphology_question():
         rule = random.choice(rules)
     else:
         rule = random.choice([r for r in rules if r.get_family().get_name() == rule_family])
+
+
 
     while try_count < reset_limit:
         q_data = None

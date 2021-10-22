@@ -23,7 +23,12 @@ export const registerResult = (result, user, quiz, page) => {
 
 export const getRuleFamilies = (page) => {
     axios.get(`${SERVER_URL}/rule/families`).then(res => {
-        page.setState({rule_families: res.data.families});
+        if(page.state.selectedQuestionType === "Morphology"){
+            page.setState({rule_families: res.data.morph_families});
+        }
+        else{
+            page.setState({rule_families: res.data.dist_families});
+        }
     }).catch(err => {
         console.log(err);
     })
@@ -112,11 +117,13 @@ export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleFamily, updat
     });
 };
 
-export const testUR = (page, UR) => {
+export const testUR = (page, UR, isIPAg) => {
     axios.post(`${SERVER_URL}/testbox`, {
         UR: UR
     }).then(res => {
-        page.setState({convertedSR: res.data.conv["SR"]});
+        let SR = res.data.conv["SR"]
+        isIPAg === true?
+            page.setState({convertedSR: SR.replaceAll("g", "ɡ")}): page.setState({convertedSR: SR.replaceAll("ɡ", "g")})
         readCookie(page.props.app);
 
     }).catch(error => {

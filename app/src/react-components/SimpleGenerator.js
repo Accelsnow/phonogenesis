@@ -43,25 +43,31 @@ class SimpleGenerator extends React.Component {
 
     onGetQuestion = () => {
         this.setState({isWaitingResponse: true});
+        try{
+            if (this.state.selectedQuestionType === "Simple") {
+                const selectedSize = 15;
+                // if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
+                //     alert("Invalid size!");
+                //     return;
+                // }
 
-        if (this.state.selectedQuestionType === "Simple") {
-            const selectedSize = 15;
-            // if (this.state.sizeSelectWarn !== "" || isNaN(selectedSize)) {
-            //     alert("Invalid size!");
-            //     return;
-            // }
+                genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
+                    this.state.selectedFamily, this.updateQuestionBlock);
+            } else if (this.state.selectedQuestionType === "Morphology") {
+                getMorphologyQuestion(this, this.state.isShuffle, this.state.isIPAg,
+                    this.state.selectedFamily, this.updateQuestionBlock)
+            } else {
+                this.setState({isWaitingResponse: false});
+            }
 
-            genSimpleQuestion(this, this.state.isShuffle, this.state.isIPAg, selectedSize,
-                this.state.selectedFamily, this.updateQuestionBlock);
-        } else if (this.state.selectedQuestionType === "Morphology") {
-            getMorphologyQuestion(this, this.state.isShuffle, this.state.isIPAg,
-                this.state.selectedFamily, this.updateQuestionBlock)
-        } else {
-            this.setState({isWaitingResponse: false});
+
+            this.forceUpdate();
+        }
+        catch (err){
+            alert("Something went wrong! Try again.");
+            window.location.reload();
         }
 
-
-        this.forceUpdate();
     };
 
     updateQuestionBlock = () => {
@@ -94,6 +100,7 @@ class SimpleGenerator extends React.Component {
 
     onQuestionTypeChange = (e) => {
         this.setState({selectedQuestionType: e.target.value});
+        getRuleFamilies(this);
     };
 
     componentDidUpdate(prevProps, prevState, snap) {
@@ -191,7 +198,8 @@ class SimpleGenerator extends React.Component {
                     </Grid>
 
                     {this.state.question ?
-                        <QuestionBlock ref={this.questionBlockElement} question={this.state.question} isReadOnly={false}
+                        <QuestionBlock ref={this.questionBlockElement} question={this.state.question}
+                                       isIPAg = {this.state.isIPAg} isReadOnly={false}
                                        showAnswer={false} isQuiz={false} simpleGen={true}/> : null}
                 </div>
 
