@@ -1,17 +1,41 @@
 ### noun
+## side1
+1,singular
 2,singular,plural
 3,singular,plural,possessive
 4,nominative singular,accusative singular,nominative plural,accusative plural
 5,nominative singular,accusative singular,nominative plural,accusative plural,possessive singular
+## side2
+1,diminutive
+2,definite,indefinite
+3,diminutive,possessed,pejorative
+4,definite,indefinite,diminutive,possessed
+5,definite,indefinite,diminutive,possessed,pejorative
 
 ### verb
+## side1
+1,present
 2,present,past
 3,present,past,future
-4,infinitive,present,past,future
-5,infinitive,present,past,future,present participle
+4,past perfect,present,past,future
+5,past perfect,present,past,future,future perfect
+## side2
+1,infinitive
+2,infinitive,negative
+3,infinitive,negative,agentive
+4,infinitive,negative,agentive,causative
+5,infinitive,negative,agentive,causative,resultative
 
 ### adjective
+## side1
+1,plural
 2,masculine,feminine
 3,masculine,feminine,neuter
 4,masculine singular,feminine singular,masculine plural,feminine plural
 5,masculine singular,feminine singular,masculine plural,feminine plural,neuter
+## side2
+1,adverbial
+2,comparative,superlative
+3,comparative,diminutive,superlative
+4,comparative,superlative,diminutive,adverbial
+5,comparative,superlative,diminutive,adverbial,pejorative

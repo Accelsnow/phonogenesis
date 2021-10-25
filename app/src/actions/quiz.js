@@ -95,6 +95,8 @@ export const genSimpleQuestion = (page, isShuffle, isIPAg, size, ruleFamily, upd
             page.setState({question: null, isWaitingResponse: false}, updateFunction);
         }
     }).catch(error => {
+        alert("Something went wrong! Try again.");
+        window.location.reload();
         console.log(error);
     });
 };
@@ -113,6 +115,8 @@ export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleFamily, updat
             page.setState({question: null, isWaitingResponse: false}, updateFunction);
         }
     }).catch(error => {
+        alert("Something went wrong! Try again.");
+        window.location.reload();
         console.log(error);
     });
 };
