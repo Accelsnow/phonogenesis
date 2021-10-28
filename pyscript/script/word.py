@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import itertools
 import logging
+import os
 from typing import List, Optional
 
 from script.sound import Sound, _SYMBOL
@@ -75,6 +77,17 @@ class Word(Serializable):
 
         return -1
 
+    def is_appropriate(self):
+        filter_words = get_filter_words_data(os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'data/filterwords.txt'))
+        mod_curr_word = ""
+        for sound in self._sounds:
+            mod_curr_word += sound.get_symbol()
+        for word in filter_words:
+            if word in mod_curr_word:
+                return False
+        return True
+
     def is_empty(self):
         return len(self) == 0 or str(self) == ''
 
@@ -108,3 +121,26 @@ class Word(Serializable):
 
     def __ne__(self, other: Word) -> bool:
         return str(self) != str(other)
+
+
+def get_filter_words_data(filename: str):
+    filter_words = []
+
+    with open(filename, encoding='utf-8') as data_file:
+        lines = [l.rstrip() for l in data_file.readlines()]
+
+        for line in lines:
+            curr_temp = []
+            if line.startswith("#"):
+                continue
+            for s in line.split(" "):
+                curr_temp.append(s.split(","))
+
+            curr_word_list = curr_temp[0]
+            for i in range(1, len(curr_temp)):
+                curr_word_list = list(map("".join, itertools.product(curr_word_list, curr_temp[i])))
+
+            filter_words.extend(curr_word_list)
+
+    return filter_words
+

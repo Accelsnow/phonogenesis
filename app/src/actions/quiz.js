@@ -121,13 +121,18 @@ export const getMorphologyQuestion = (page, isShuffle, isIPAg, ruleFamily, updat
     });
 };
 
-export const testUR = (page, UR, isIPAg) => {
+export const testUR = (page, UR, isIPAg, phonemes, rule_name) => {
     axios.post(`${SERVER_URL}/testbox`, {
-        UR: UR
+        UR: UR,
+        phonemes: phonemes,
+        rule_name: rule_name
     }).then(res => {
         let SR = res.data.conv["SR"]
-        isIPAg === true?
-            page.setState({convertedSR: SR.replaceAll("g", "ɡ")}): page.setState({convertedSR: SR.replaceAll("ɡ", "g")})
+        if(isIPAg){
+            page.setState({convertedSR: SR.replaceAll("g", "ɡ")})
+        }else{
+            page.setState({convertedSR: SR.replaceAll("ɡ", "g")})
+        }
         readCookie(page.props.app);
 
     }).catch(error => {

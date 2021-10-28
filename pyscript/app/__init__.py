@@ -3,7 +3,6 @@ from flask.json import JSONEncoder
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_caching import Cache
 from config import Config
 from script import get_default_data
 import logging
@@ -31,15 +30,9 @@ class PhonogenesisJSONEncoder(JSONEncoder):
 # flask initialization
 app = Flask(__name__)
 CORS(app=app, supports_credentials=True)
-config = {
-    "CACHE_TYPE": "SimpleCache",
-    "CACHE_DEFAULT_TIMEOUT": 300
-}
 app.config.from_object(Config)
-app.config.from_mapping(config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-cache = Cache(app)
 
 app.json_encoder = PhonogenesisJSONEncoder
 app.logger.setLevel(logging.DEBUG)

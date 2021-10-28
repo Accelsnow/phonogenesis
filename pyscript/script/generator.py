@@ -365,6 +365,19 @@ class Generator:
         phones_of_interest = self._rule.get_interest_phones(self._phonemes, self._feature_to_type,
                                                             self._feature_to_sounds)[1]
 
+        # filter obscene words
+        appropriate_ur = []
+        appropriate_sr = []
+        appropriate_gloss = []
+        for i in range(len(ur_words)):
+            if ur_words[i].is_appropriate() and sr_words[i].is_appropriate():
+                appropriate_ur.append(ur_words[i])
+                appropriate_sr.append(sr_words[i])
+                appropriate_gloss.append(gloss_words[i])
+        ur_words = appropriate_ur
+        sr_words = appropriate_sr
+        gloss_words = appropriate_gloss
+
         if gen_mode == GenMode.IPAg:
             LOGGER.debug("Gen Mode 1 - str ipa g mode")
             return {"UR": [str(w).replace('g', 'ɡ') for w in ur_words],

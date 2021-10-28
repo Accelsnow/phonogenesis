@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import os
 import random
+import sys
 from typing import List, Dict, Tuple
 
 from script.feature_lib import import_default_features
@@ -10,6 +12,7 @@ from script.phonemes import import_default_full_phonemes
 from script.rules import Rule, RuleFamily, import_default_rules
 from script.sound import Sound
 from script.templates import Template, import_default_templates
+import script.word as word
 
 
 def _print_result(rst: dict):
@@ -119,6 +122,8 @@ if __name__ == '__main__':
     pdim = p_gen._get_valid_question(False, "PREFIX")
     print(str(pdim))
     print(pdim.valid_row_indexes())
+    # word1 = word.Word("fuku")
+    # print(word1.is_appropriate())
     #
     # # rule1 = rules[96]
     # # rule2 = rules[97]
