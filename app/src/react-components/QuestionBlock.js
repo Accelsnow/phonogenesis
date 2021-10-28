@@ -9,10 +9,6 @@ import SimpleQuestionBody from "./SimpleQuestionBody";
 import MorphologyQuestionBody from "./MorphologyQuestionBody";
 import TextField from "@material-ui/core/TextField";
 import {testUR} from "../actions/quiz";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import {Box, Select} from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
 
 export default class QuestionBlock extends React.Component {
     constructor(props) {
@@ -264,9 +260,8 @@ export default class QuestionBlock extends React.Component {
                                                        style = {{width: 200}}
                                                        label = "Converted SR"
                                                         type='text'
-                                                       defaultValue= "—"
                                                         value= {this.state.customUrValid  === false ?
-                                                            "--" : this.state.convertedSR}
+                                                            "—" : this.state.convertedSR}
                                                         variant='outlined'
                                                         inputProps={
                                                             { readOnly: true,
@@ -278,8 +273,7 @@ export default class QuestionBlock extends React.Component {
                                             />
                                         </Grid>
                                     </Grid>
-                                    <Grid justify="center"
-                                          style={((this.state.customUrValid === false) ?
+                                    <Grid item style={((this.state.customUrValid === false) ?
                                               {color: "red", fontSize:12, fontFamily: "Helvetica Neue"}:
                                               {color: "grey", fontSize:12, fontFamily: "Helvetica Neue"})}
                                           id={"rule-test-box"}>

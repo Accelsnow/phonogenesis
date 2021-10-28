@@ -5,7 +5,6 @@ import ToolBar from "./ToolBar";
 import {withRouter} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import {FormGroup, Select} from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -76,7 +75,7 @@ class SimpleGenerator extends React.Component {
         }
     };
     validateSizeSelection = (e) => {
-        const selSize = parseInt(e.target.value);
+        const selSize = parseInt(e.target.value, 10);
 
         if (selSize < QUESTION_SIZE_MIN || selSize > QUESTION_SIZE_MAX) {
             this.setState({sizeSelectWarn: "out of range"});
