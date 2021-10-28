@@ -18,7 +18,6 @@ import './Toolbar.css'
 const studentNav = ['Home', 'Groups', 'Quiz', 'Practice', 'Instructions', 'About', 'Log Out'];
 const profNav = ['Home', 'Make Quiz', 'Quiz Results', 'Groups', 'Instructions', 'About', 'Log Out'];
 const guestNav = ['Home', 'About']
-const drawerWidth = 240
 
 
 class ToolBar extends React.Component {
