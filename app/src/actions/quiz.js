@@ -127,7 +127,7 @@ export const testUR = (page, UR, isIPAg, phonemes, rule_name) => {
         phonemes: phonemes,
         rule_name: rule_name
     }).then(res => {
-        let SR = res.data.conv["SR"]
+        let SR = res.data['sr'];
         if(isIPAg){
             page.setState({convertedSR: SR.replaceAll("g", "ɡ")})
         }else{

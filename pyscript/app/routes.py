@@ -7,7 +7,6 @@ from app import app, DEFAULT_DATA, db, get_formatted_timestr
 from app.models import User, Message, Group, UserGroup, Quiz, UserQuiz, QuizQuestion, Attempt, Question
 from script import *
 from script.morphology import ParadigmGenerator
-import random
 
 LOGGER = logging.getLogger("app.logger")
 ACCOUNT_TYPES = ['student', 'professor', 'admin']
@@ -542,8 +541,7 @@ def get_morphology_question():
                                'core_data': q_data['core_data'], 'canUR': True, 'canPhoneme': True,
                                'rule_content': rule.get_content_str(), 'rule_family': rule.get_family().get_name(),
                                'header_row': q_data['header_row'], 'trans_patterns': q_data['trans_patterns']}
-        # curr_obj = {'phonemes': q_data['phonemes'], 'rule': rule}
-        # cache.set("curr_info", curr_obj)
+
         return jsonify(success=True, question=morphology_question)
     else:
         return jsonify(success=False, message="Sorry! Failed to get a question. Please try again.")
@@ -555,23 +553,6 @@ def test_UR():
     ur = data["UR"].replace(" ", "")
     phoneme_list = data["phonemes"].split(" ")
     phonemes = [Word(phoneme.replace("ɡ", "g")) for phoneme in phoneme_list]
-    rule_list = DEFAULT_DATA["rules"]
-    try:
-        curr_rule = rule_list[data["rule_name"]['ruleName']]
-        sr = curr_rule.apply(Word(ur), phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])[0]
-        converted = {'SR': sr}
-        print(curr_rule)
-        print(sr)  # Returns the proper string of SR.
-        return jsonify(conv=converted)
-    finally:
-        return jsonify(success=False, message="Sorry! Failed to convert the custom UR. Please try again.")
-    # for rule in rule_list:
-    #     if rule.get_name() == data["rule_name"]:
-    #         curr_rule = rule
-    #
-    # if curr_rule is None:
-    #     return jsonify(success=False, message="Sorry! Failed to convert the custom UR. Please try again.")
-    # else:
-    #     sr = curr_rule.apply(Word(ur), phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])[0]
-    #     converted = {'SR': sr}
-    #     return jsonify(conv=converted)
+    curr_rule = DEFAULT_DATA["rules"][data["rule_name"]]
+    sr = curr_rule.apply(Word(ur), phonemes, DEFAULT_DATA['f2t'], DEFAULT_DATA['f2ss'])[0]
+    return jsonify(success=True, sr=sr)

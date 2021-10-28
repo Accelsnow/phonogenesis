@@ -80,19 +80,17 @@ export default class QuestionBlock extends React.Component {
     };
 
 
-    validateCustomUR = (phonemes, ruleName) => {
+    validateCustomUR = (phoneme_str, ruleName) => {
         let ur = this.state.customUR;
-        let phoneme_str = phonemes["phonemes"]
         if (phoneme_str.includes("ɡ") || phoneme_str.includes("g")){
             phoneme_str = phoneme_str.concat(" g ɡ");
         }
-        //phoneme_str = phoneme_str.replaceAll(" ", '');
-        //phoneme_str = JSON.stringify(phoneme_str).replaceAll(" ", '');
 
         let validity = true;
         for (let i=0; i< ur.length; i++) {
             if (! phoneme_str.includes(ur.charAt(i))){
                 validity = false;
+                break;
             }
         }
         if (validity === true){
@@ -254,15 +252,14 @@ export default class QuestionBlock extends React.Component {
                                         </Grid>
                                         <Grid item>
                                             <Button variant="contained" color="primary"
-                                                onClick={()=>this.validateCustomUR({phonemes}, {ruleName})}>Test</Button>
+                                                onClick={()=>this.validateCustomUR(phonemes, ruleName)}>Test</Button>
                                         </Grid>
                                         <Grid item>
                                             <TextField id = {"ur-input-field"}
                                                        style = {{width: 200}}
                                                        label = "Converted SR"
                                                         type='text'
-                                                        value= {this.state.customUrValid  === false ?
-                                                            "—" : this.state.convertedSR}
+                                                        value= {this.state.convertedSR}
                                                         variant='outlined'
                                                         inputProps={
                                                             { readOnly: true,
