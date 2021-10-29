@@ -66,7 +66,7 @@ class Rule(Serializable):
     _Cs: List[Optional[List[Particle], None]]
     _Ds: List[Optional[List[Particle], None]]
 
-    _CADT_indexes: Dict[Word, Set[Tuple[int, int]]]
+    _CADT_indexes: Dict[Word, List[Tuple[int, int]]]
     _Cs_edge: List[bool]
     _Ds_edge: List[bool]
     _name: str
@@ -118,7 +118,7 @@ class Rule(Serializable):
                 old_word = new_word
                 chg_count += 1
             new_len = len(new_word)
-            len_diff = new_len - prev_len
+            len_diff += new_len - prev_len
             prev_len = new_len
 
         return new_word, chg_count
@@ -172,9 +172,10 @@ class Rule(Serializable):
                             location = (a_loc, a_loc + a_size)
 
                             if word in self._CADT_indexes:
-                                self._CADT_indexes[word].add(location)
+                                if location not in self._CADT_indexes[word]:
+                                    self._CADT_indexes[word].append(location)
                             else:
-                                self._CADT_indexes[word] = {location}
+                                self._CADT_indexes[word] = [location]
                         elif word_types[i] != ExampleType.CADT:
                             word_types[i] = ExampleType.CADNT
 

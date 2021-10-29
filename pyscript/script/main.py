@@ -103,7 +103,7 @@ if __name__ == '__main__':
     #
     # manual_rule_select = 1
     #
-    use_rule = rules[38]
+    use_rule = rules[66]
 
     amount = 40
 
@@ -118,10 +118,13 @@ if __name__ == '__main__':
         psr += str(p) + " "
     print(psr + "\",")
     print(str(use_rule))
-    p_gen = ParadigmGenerator(use_rule, phonemes, templates, feature_to_type, feature_to_sounds)
-    pdim = p_gen._get_valid_question(False, "PREFIX")
-    print(str(pdim))
-    print(pdim.valid_row_indexes())
+
+    print(str(use_rule.apply(word.Word("adadadad"), phonemes, feature_to_type, feature_to_sounds)[0]))
+
+    # p_gen = ParadigmGenerator(use_rule, phonemes, templates, feature_to_type, feature_to_sounds)
+    # pdim = p_gen._get_valid_question(False, "PREFIX")
+    # print(str(pdim))
+    # print(pdim.valid_row_indexes())
     # word1 = word.Word("fuku")
     # print(word1.is_appropriate())
     #
