@@ -43,16 +43,21 @@ html,body
     margin-top: 25px;
 }
 
-#rule-test-box {
+#rule-test-title {
     font-family: "Times New Roman", serif;
     font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+#rule-test-box {
+    font-family: "Times New Roman", serif;
     margin-bottom: 10px;
 }
 
 #rule-test-main {
     font-family: "Times New Roman", serif;
     font-size: 1.1em;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 #ur-input-field {

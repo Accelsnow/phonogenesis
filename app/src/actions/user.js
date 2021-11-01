@@ -1,7 +1,7 @@
 const axios = require('axios');
 axios.defaults.withCredentials = true;
 export const SERVER_URL = "https://accelsnow.com/phonogenesisapi"
-//export const SERVER_URL = "http://127.0.0.1:5000"
+// export const SERVER_URL = "http://127.0.0.1:5000"
 
 export const readCookie = (app) => {
     axios.get(`${SERVER_URL}/user/check-session`).then(function (res) {

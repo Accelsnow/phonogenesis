@@ -29,8 +29,10 @@ class Word(Serializable):
                     for j in range(i + 1, len(data) + 1):
                         if len(data[i:j]) > 0 and data[i:j] in _SYMBOL:
                             end_loc = j
-
-                    sounds.append(_SYMBOL[data[i:end_loc]])
+                    try:
+                        sounds.append(_SYMBOL[data[i:end_loc]])
+                    except KeyError as e:
+                        continue
                     i = end_loc
 
             self._sounds = sounds

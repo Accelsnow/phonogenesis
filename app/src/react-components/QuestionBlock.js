@@ -9,6 +9,7 @@ import SimpleQuestionBody from "./SimpleQuestionBody";
 import MorphologyQuestionBody from "./MorphologyQuestionBody";
 import TextField from "@material-ui/core/TextField";
 import {testUR} from "../actions/quiz";
+import {Popover} from "@material-ui/core";
 
 export default class QuestionBlock extends React.Component {
     constructor(props) {
@@ -24,9 +25,12 @@ export default class QuestionBlock extends React.Component {
             customUR: '',
             customUrValid: true,
             convertedSR: '—',
-            isIPAg: props.isIPAg
+            isIPAg: props.isIPAg,
+            instPopoverOpen: false,
+            anchorEl: null
         };
     }
+
 
     resetState = () => {
         this.setState({
@@ -40,7 +44,9 @@ export default class QuestionBlock extends React.Component {
             customUR: '',
             customUrValid: true,
             convertedSR: '—',
-            isIPAg: this.props.isIPAg
+            isIPAg: this.props.isIPAg,
+            instPopoverOpen: false,
+            anchorEl: null
         });
     }
 
@@ -79,23 +85,45 @@ export default class QuestionBlock extends React.Component {
         e.preventDefault();
     };
 
+    onHover = (e) => {
+        this.setState({instPopoverOpen: true})
+    }
+
+    onHoverLeave = () => {
+        this.setState({instPopoverOpen: false})
+    }
+
+
 
     validateCustomUR = (phoneme_str, ruleName) => {
         let ur = this.state.customUR;
         if (phoneme_str.includes("ɡ") || phoneme_str.includes("g")){
             phoneme_str = phoneme_str.concat(" g ɡ");
         }
-
         let validity = true;
-        for (let i=0; i< ur.length; i++) {
-            if (! phoneme_str.includes(ur.charAt(i))){
+        const phoneme_list = phoneme_str.split(" ")
+        let i = 0;
+        while (i < ur.length){
+            let end_loc = -1;
+            let local_validity = false;
+            for (let j = i + 1; j < ur.length + 1; j++){
+                if ((ur.slice(i, j).length > 0) && (phoneme_list.includes(ur.slice(i, j)))){
+                    end_loc = j;
+                    local_validity = true;
+                }
+            }
+            i = end_loc;
+            if (local_validity === false){
                 validity = false;
                 break;
             }
         }
+
         if (validity === true){
             let ur = this.state.customUR.replaceAll('ɡ', 'g')
             testUR(this, ur, this.state.isIPAg, phoneme_str, ruleName)
+        }else{
+            this.setState({convertedSR: "N/A"})
         }
         this.setState({customUrValid: validity});
     };
@@ -117,8 +145,8 @@ export default class QuestionBlock extends React.Component {
         const templates = question.templates;
         const sp1 = size / 3;
         const sp2 = size / 3 * 2;
-        const defaultHelper = "Copy and paste the IPA symbols from the given phoneme inventory."
-        const invalidWarn = "Your UR includes phones outside of the phoneme inventory; Try again."
+        const defaultHelper = "(Copy and paste the IPA symbols from the phoneme inventory.)"
+        const invalidWarn = "(Your UR includes phones outside of the phoneme inventory; Try again.)"
 
         let bodyArgs;
         if (question.qType === "Simple") {
@@ -235,6 +263,38 @@ export default class QuestionBlock extends React.Component {
                                           alignItems="center"
                                           spacing={3}
                                           id={"rule-test-main"}>
+                                        {/*<Grid item>*/}
+
+                                            {/*<Typography*/}
+                                            {/*    //aria-owns={this.state.instPopoverOpen ? 'mouse-over-popover' : undefined}*/}
+                                            {/*    aria-owns={this.state.instPopoverOpen ? 'mouse-over-popover':null}*/}
+                                            {/*    aria-haspopup="true"*/}
+                                            {/*    onMouseEnter= {this.onHover}*/}
+                                            {/*    onMouseLeave= {this.onHoverLeave}*/}
+                                            {/*> ?wefdssd*/}
+                                            {/*</Typography>*/}
+
+                                            {/*<Popover*/}
+                                            {/*    id="mouse-over-popover"*/}
+                                            {/*    sx={{*/}
+                                            {/*      pointerEvents: 'none',*/}
+                                            {/*    }}*/}
+                                            {/*    open={this.state.instPopoverOpen}*/}
+                                            {/*    anchorEl = {this.state.anchorEl}*/}
+                                            {/*    anchorOrigin={{*/}
+                                            {/*      vertical: 'bottom',*/}
+                                            {/*      horizontal: 'left',*/}
+                                            {/*    }}*/}
+                                            {/*    transformOrigin={{*/}
+                                            {/*      vertical: 'top',*/}
+                                            {/*      horizontal: 'left',*/}
+                                            {/*    }}*/}
+                                            {/*    onClose= {this.onHoverLeave}*/}
+                                            {/*    disableRestoreFocus*/}
+                                            {/*  >*/}
+                                        {/*        <Typography sx={{ p: 1 }}>I use Popover.</Typography>*/}
+                                        {/*    </Popover>*/}
+                                        {/*</Grid>*/}
                                         <Grid item><TextField id = {"ur-input-field"}
                                                               style = {{width: 200}}
                                                               value={this.state.customUR}
@@ -271,13 +331,19 @@ export default class QuestionBlock extends React.Component {
                                             />
                                         </Grid>
                                     </Grid>
+                                    <Grid item
+                                          style = {{color: "#001636", fontSize:11, fontWeight: "bold",
+                                              fontFamily: "Helvetica Neue"}}
+                                    >
+                                        Test out your custom UR to see how the rule is applied.
+                                    </Grid>
                                     <Grid item style={((this.state.customUrValid === false) ?
-                                              {color: "red", fontSize:12, fontFamily: "Helvetica Neue"}:
-                                              {color: "grey", fontSize:12, fontFamily: "Helvetica Neue"})}
+                                              {color: "red", fontSize:11, fontFamily: "Helvetica Neue"}:
+                                              {color: "gray", fontSize:11, fontFamily: "Helvetica Neue"})}
                                           id={"rule-test-box"}>
                                         {this.state.customUrValid === false ? invalidWarn : defaultHelper}
-
                                     </Grid>
+
                                 </Grid>
 
 
