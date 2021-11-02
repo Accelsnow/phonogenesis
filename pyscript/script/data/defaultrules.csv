@@ -75,7 +75,6 @@
 "[alveolar,fricative]>[postalveolar,laminal,posterior]/_#&_[consonant]",ashibilation of alveolar fricatives in codas,weird
 <<PREDEFINED>>{'s':'h'}/_#&_[consonant][consonant],debuccalization of /s/ in codas,weird
 <<PREDEFINED>>{'l':'ɫ'}/_#&_[consonant][consonant],velarization of /l/ in codas,weird
-"[oral stop,voiced]&[affricate,voiced]>[voiceless]/_#",and in A environment test rule,consonant devoicing
 "[voiced,velar,obstruent]>0/[vowel]_[vowel]",intervocalic deletion of voiced velar obstruents,deletion
 "[velar,obstruent]>0/[vowel]_[vowel]",intervocalic deletion of velar obstruents,deletion
 "[voiced,velar,oral stop]>0/[vowel]_[vowel]",intervocalic deletion of voiced velar oral stops,deletion
